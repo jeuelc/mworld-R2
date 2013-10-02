@@ -68,11 +68,17 @@
   </div><!-- /page -->
   <script>
     $(function() {
-      if($.session.get('usersession') == null) {
+      if(window.localStorage["kidid"] == null) {
         $('#home2linkholder').css('display','none');
         $('#home2linkloginholder').css('display','block');
         $('#profilebtn').css('visibility','hidden');
         $('#loginbtn').css('visibility','visible');
+      } else {
+        var kidid = window.localStorage["kidid"];
+        $('#home2linkholder').css('display','block');
+        $('#home2linkloginholder').css('display','none');
+        $('#profilebtn').css('visibility','visible');
+        $('#loginbtn').css('visibility','hidden');
       }
     });
     //$('#home2link').on('tap', function() { spacesoundbg.play(); });
@@ -82,15 +88,18 @@
         var username = $('#username').val();
         var password = $('#password').val();
         //alert(username+" and "+password);
-        if(username != '') {
+        
+        if(username != '' && password != '') {
           $.session.set('usersession', username);
           $('#home2linkholder').css('display','block');
           $('#home2linkloginholder').css('display','none');
           $('#profilebtn').css('visibility','visible');
           $('#loginbtn').css('visibility','hidden');
           $('#loginpop').popup('close');
+          var kidid = mworldLogin(username, password);
+          window.localStorage["kidid"] = kidid;
         } else {
-          alert("try again");
+          navigator.notification.alert("Username and password cannot be empty!");
         }
       });
   </script>
