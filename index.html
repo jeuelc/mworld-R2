@@ -90,14 +90,18 @@
         //alert(username+" and "+password);
         
         if(username != '' && password != '') {
-          $.session.set('usersession', username);
-          $('#home2linkholder').css('display','block');
-          $('#home2linkloginholder').css('display','none');
-          $('#profilebtn').css('visibility','visible');
-          $('#loginbtn').css('visibility','hidden');
-          $('#loginpop').popup('close');
           var kidid = mworldLogin(username, password);
-          window.localStorage["kidid"] = kidid;
+          if(kidid > 0) {
+            $('#home2linkholder').css('display','block');
+            $('#home2linkloginholder').css('display','none');
+            $('#profilebtn').css('visibility','visible');
+            $('#loginbtn').css('visibility','hidden');
+            $('#loginpop').popup('close');
+            
+            window.localStorage["kidid"] = kidid;
+          } else {
+            navigator.notification.alert("Incorrect username and/or password.");
+          }
         } else {
           navigator.notification.alert("Username and password cannot be empty!");
         }
