@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="blackhole" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>  
   <script src="js/slidebarbh.js"></script>
@@ -56,6 +57,7 @@
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
         (function() {
+          mworldPageVisit(1, 'From-Supergiant-To-Black-Hole');
           $('div#pol1').css("z-index", 3);
           $('div#pol2').css("z-index", 2);
           $('div#pol3').css("z-index", 1);
@@ -125,9 +127,11 @@
         }
         $("#pol1").on('tap', function() {      
           $('#bhimg1link')[0].click();
+          mworldViewMedia(1, 'bhimg1');
         });  
       	$("#pol2").on('tap', function() {
           $('#bhimg2link')[0].click();
+          mworldViewMedia(1, 'bhimg2');
         });
         $("#pol3").on('tap', function() {
           $.mobile.changePage("sub-space-bh-nscollide.html", {transition:"slide"});
@@ -138,6 +142,7 @@
         /* ******************** */
     $("#blackholeaudioplbtn").on('tap', function() {
       blackholeaudio.play();
+      mworldPlayAudio(1, 'blackholeaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

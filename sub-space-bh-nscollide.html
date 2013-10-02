@@ -1,8 +1,7 @@
 <!-- i-C-a -->
 <div id="nscollide" data-role="page">
-    <script src="js/hammer.js"></script>
-    <script src="js/jquery.hammer.js"></script>
-    <script src="js/slidebar.js"></script>
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
+  <script src="js/slidebar.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
   <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
@@ -53,6 +52,7 @@
     <script>
         sound = new Audio();
         (function() {
+          mworldPageVisit(1, 'Neutron-Stars-Collide');
                 if(sound.canPlayType('audio/mpeg')) {
                     $('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page15_0.mp3" type="audio/mpeg"></audio>');
                 } 
@@ -91,6 +91,7 @@
          $("#collidingns").css({"z-index":9});
          bgsoundbh.pause();
          collidingns.play();
+         mworldViewMedia(1, 'collidingns');
        });
        
     $("#collidingns").on('tap', function() {
@@ -103,6 +104,7 @@
 /* ******************** */
     $("#nscollideaudioplbtn").on('tap', function() {
       nscollideaudio.play();
+      mworldPlayAudio(1, 'nscollideaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

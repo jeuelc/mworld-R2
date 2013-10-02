@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="neutron" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>	
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebarbh.js"></script>
@@ -48,6 +49,7 @@
     sound = new Audio(); // 'sound' is now an audio object
     soundpop = new Audio(); // 'sound' is now an audio object
     (function() {
+      mworldPageVisit(1, 'Neutron-Star');
       $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#pol1').css("z-index", 1);      
       $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
@@ -80,14 +82,17 @@
     }
   $("#pol1").on('tap', function() {      
     $('#crabnebulalink')[0].click();
+    mworldViewMedia(1, 'crabnebula');
   });  
 	$("#pol2").on('tap', function() {
-    $('#crabnebulanslink')[0].click();    
+    $('#crabnebulanslink')[0].click();
+    mworldViewMedia(1, 'crabnebulans');
   });    
 
     /* ******************** */
     $("#neutronaudioplbtn").on('tap', function() {
       neutronaudio.play();
+      mworldPlayAudio(1, 'neutronaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

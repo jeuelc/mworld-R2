@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="quasars" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
@@ -48,6 +49,7 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         (function() {
+          mworldPageVisit(1, 'Quasars');
           quasarvid.addEventListener('ended', function() { 
               //minoanvolcano.webkitExitFullscreen();
               $("#quasarvidholder").css({"visibility":"hidden", "z-index":-1});
@@ -84,6 +86,7 @@
       $("#polb1").on('tap', function() {
          $("#quasarvidholder").css({"visibility":"visible", "z-index":10});
          $("#quasarvid").css({"z-index":9});
+         mworldViewMedia(1, 'quasarvid');
          bgsoundbh.pause();
          quasarvid.play();
       });
@@ -98,6 +101,7 @@
         /* ******************** */
     $("#quasarsaudioplbtn").on('tap', function() {
       quasarsaudio.play();
+      mworldPlayAudio(1, 'quasarsaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

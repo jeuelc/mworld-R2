@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="bhcomefrom" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
@@ -34,6 +35,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
+      mworldPageVisit(1, 'How-Is-A-Black-Hole-Formed');
            /* $('#node-body-minoans').html(data[0].Body);*/
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-comefrom').html('<audio controls preload id="comefromaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/WhereBlackHolesComeFrom.mp3" type="audio/mpeg"></audio>');
@@ -67,6 +69,7 @@
     /* ******************** */
     $("#comefromaudioplbtn").on('tap', function() {
       comefromaudio.play();
+      mworldPlayAudio(1, 'comefromaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

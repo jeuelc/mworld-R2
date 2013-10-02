@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="formgold" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
 	<script src="js/jquery.hammer.js"></script>
   <div class="menuhousing"></div>
@@ -66,6 +67,7 @@
     sound = new Audio(); // 'sound' is now an audio object
     soundpop = new Audio(); // 'sound' is now an audio object
     (function() {			
+      mworldPageVisit(1, 'Supernova-And-The-Formation-Of-Gold');
       $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#polb1').css("z-index", 2);      
       $('div#polb2').css("z-index", 1);      
@@ -132,12 +134,19 @@
       //$("#hittites").swipe("disable");
       //$("#dopple").css({"visibility":"hidden"});
     });
-    $("#polb2").on('tap', function() {      $('#goldbarslink')[0].click();    });        
-    $("#polb1").on('tap', function() {      $('#snremainslink')[0].click();    });  
+    $("#polb2").on('tap', function() {      
+        $('#goldbarslink')[0].click();    
+        mworldViewMedia(1, 'goldbars');
+      });        
+    $("#polb1").on('tap', function() {      
+        $('#snremainslink')[0].click();    
+        mworldViewMedia(1, 'snremains');
+      });  
     
     /* ******************** */
     $("#formgoldaudioplbtn").on('tap', function() {
       formgoldaudio.play();
+      mworldPlayAudio(1, 'formgoldaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

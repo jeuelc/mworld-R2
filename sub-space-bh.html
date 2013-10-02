@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div data-role="page" id="blackholes">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
@@ -8,7 +9,6 @@
   <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
   <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
   <div class="navtitleholderbh" style="padding-top:14px;"><h1>Black Holes</h1></div>
-  
     <div data-role="content" class="kidzcontent">
       <div class="navbh-content">
         <p>Welcome to Black Holes!</p>
@@ -47,6 +47,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
+      mworldPageVisit(1, 'Black-Holes');
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-bh').html('<audio id="bhaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="audio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
       } 
@@ -80,6 +81,7 @@
     /* ******************** */
     $("#bhaudioplbtn").on('tap', function() {
       bhaudio.play();
+      mworldPlayAudio(1, 'bhaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     
