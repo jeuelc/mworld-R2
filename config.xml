@@ -6,7 +6,7 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.9">
+        version   = "0.0.10">
 
 
 
@@ -16,7 +16,7 @@
 
     <description>
 
-        beta version with preloading and login/logout funtions. Coach actions fix 1
+        beta version with preloading and login/logout funtions. Coach actions fix 2
 
     </description>
 
