@@ -49,7 +49,7 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         (function() {
-          mworldPageVisit(1, 'Quasars');
+          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Quasars');
           quasarvid.addEventListener('ended', function() { 
               //minoanvolcano.webkitExitFullscreen();
               $("#quasarvidholder").css({"visibility":"hidden", "z-index":-1});

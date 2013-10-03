@@ -43,7 +43,7 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         (function() {
-          mworldPageVisit(1, 'Where-Do-Black-Holes-Go');
+          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Where-Do-Black-Holes-Go');
           if(sound.canPlayType('audio/mpeg')) {
               $('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page22_0.mp3" type="audio/mpeg"></audio>');
           } 

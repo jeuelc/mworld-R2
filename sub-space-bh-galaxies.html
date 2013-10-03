@@ -52,7 +52,7 @@
     <script>
         sound = new Audio();
         (function() {
-           mworldPageVisit(1, 'Galaxies-And-Black-Holes');
+           kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Galaxies-And-Black-Holes');
             $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
             $('div#polb1').css("z-index", 2);
             $('div#polb2').css("z-index", 1);

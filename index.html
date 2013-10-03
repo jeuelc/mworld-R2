@@ -97,12 +97,8 @@
             $('#profilebtn').css('visibility','visible');
             $('#loginbtn').css('visibility','hidden');
             $('#loginpop').popup('close');
-            
             window.localStorage["kidid"] = kidid;
           } else {
-            navigator.notification.alert("This is the username. "+username);
-            navigator.notification.alert("This is the password. "+password);
-            navigator.notification.alert("This is the result. "+kidid);
             navigator.notification.alert("Incorrect username and/or password.");
           }
         } else {

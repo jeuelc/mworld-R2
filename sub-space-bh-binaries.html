@@ -41,7 +41,7 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         (function() {
-            mworldPageVisit(1, 'Binaries');
+            kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Binaries');
             if(sound.canPlayType('audio/mpeg')) {
                 $('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page21.mp3" type="audio/mpeg"></audio>');
             } 

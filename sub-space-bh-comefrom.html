@@ -35,7 +35,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(1, 'How-Is-A-Black-Hole-Formed');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'How-Is-A-Black-Hole-Formed');
            /* $('#node-body-minoans').html(data[0].Body);*/
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-comefrom').html('<audio controls preload id="comefromaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/WhereBlackHolesComeFrom.mp3" type="audio/mpeg"></audio>');

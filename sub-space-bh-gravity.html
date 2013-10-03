@@ -43,7 +43,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(1, 'Gravity');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Gravity');
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="audio/Gravity.mp3" type="audio/mpeg"></audio>');
       } 

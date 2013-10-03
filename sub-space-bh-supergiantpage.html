@@ -28,7 +28,7 @@
   </div>
   <script>
     (function() {
-      mworldPageVisit(1, 'Supergiant');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Supergiant');
       $("#supergiantpage").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
 

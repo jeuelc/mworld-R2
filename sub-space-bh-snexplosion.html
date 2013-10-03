@@ -54,7 +54,7 @@
     sound3 = new Audio(); // 'sound' is now an audio object
     soundpop1 = new Audio(); // 'sound' is now an audio object
     (function() {				
-      mworldPageVisit(1, 'Supernova-How-Big-They-Are');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Supernova-How-Big-They-Are');
       $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#polb1').css("z-index", 1);
       

@@ -70,7 +70,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(1, 'Supergiant-Stars');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Supergiant-Stars');
       $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#pol1').css("z-index", 1);
       $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");

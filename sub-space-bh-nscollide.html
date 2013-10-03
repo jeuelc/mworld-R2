@@ -52,7 +52,7 @@
     <script>
         sound = new Audio();
         (function() {
-          mworldPageVisit(1, 'Neutron-Stars-Collide');
+          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Neutron-Stars-Collide');
                 if(sound.canPlayType('audio/mpeg')) {
                     $('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page15_0.mp3" type="audio/mpeg"></audio>');
                 } 

@@ -47,7 +47,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(1, 'Black-Holes');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Black-Holes');
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-bh').html('<audio id="bhaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="audio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
       } 

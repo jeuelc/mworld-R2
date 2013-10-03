@@ -29,7 +29,7 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {		
-      mworldPageVisit(1, 'How-Can-You-See-A-Black-Hole');
+      kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'How-Can-You-See-A-Black-Hole');
       $("#seebh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     })();
     
