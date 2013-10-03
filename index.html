@@ -42,7 +42,8 @@
     <div class="v-spacer"></div>
     <div style="width:30%;margin:auto;">
       <a id="loginbtn" href="#loginpop" data-rel="popup" type="button" style="visibility:hidden;">Login</a>
-      <a id="profilebtn" href="profile.html" data-role="button">My Profile</a>
+      <a id="profilebtn" href="profile.html" data-role="button">Logout</a>
+      <!--<a id="profilebtn" href="profile.html" data-role="button">My Profile</a>-->
     </div>
           
     <div data-role="popup" id="loginpop" data-position-to="window" data-overlay-theme="a" style="text-align:center;width:500px;;">
@@ -104,6 +105,9 @@
         } else {
           navigator.notification.alert("Username and password cannot be empty!");
         }
+      });
+      $('#profilebtn').on('tap', function() {
+        window.localStorage["kidid"] = '';
       });
   </script>
   <script>//navigator.notification.alert('dfdsfs');

@@ -1,23 +1,42 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.uvmate" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MWORLD-R2</name>
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+
+        id        = "mworld.monash"
+
+        version   = "0.0.6">
+
+
+
+    <name>Mworld-R2</name>
+
+
+
     <description>
-        mworld beta using preload andlogin functions
+
+        beta version with preloading and login/logout funtions.
+
     </description>
-    <author email="jeuelc@yahoo.com" href="http://cordova.io">
+
+
+
+    <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
+
         Jeuel Condahan
+
     </author>
-    <content src="index.html" />
-    <access origin="*" />
+
+    
+
+    <preference name="orientation" value="landscape" />
     <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
-    <feature name="Notification">
-        <param name="ios-package" value="CDVNotification" />
-    </feature>
-    <feature name="File">
-        <param name="ios-package" value="CDVFile" />
-    </feature>
-    <feature name="FileTransfer">
-        <param name="ios-package" value="CDVFileTransfer" />
-    </feature>
+    <preference name="webviewbounce" value="false" />
+    
+    <icon src="icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/icon-2x.png" gap:platform="ios" width="114" height="114" />
+    <gap:splash src="icons/splash.png" gap:platform="ios" width="1024" height="748" />
+
 </widget>
