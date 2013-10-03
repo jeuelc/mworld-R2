@@ -42,7 +42,7 @@
     <div class="v-spacer"></div>
     <div style="width:30%;margin:auto;">
       <a id="loginbtn" href="#loginpop" data-rel="popup" type="button" style="visibility:hidden;">Login</a>
-      <a id="profilebtn" href="profile.html" data-role="button">Logout</a>
+      <a id="profilebtn" href="#" data-role="button">Logout</a>
       <!--<a id="profilebtn" href="profile.html" data-role="button">My Profile</a>-->
     </div>
           
@@ -69,7 +69,7 @@
   </div><!-- /page -->
   <script>
     $(function() {
-      if(window.localStorage["kidid"] == null) {
+      if(window.localStorage["kidid"] == null || window.localStorage["kidid"] == '') {
         $('#home2linkholder').css('display','none');
         $('#home2linkloginholder').css('display','block');
         $('#profilebtn').css('visibility','hidden');
