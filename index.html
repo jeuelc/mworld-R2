@@ -108,6 +108,11 @@
       });
       $('#profilebtn').on('tap', function() {
         window.localStorage["kidid"] = '';
+        navigator.notification.alert("Logged out successfully");
+        $('#home2linkholder').css('display','none');
+        $('#home2linkloginholder').css('display','block');
+        $('#profilebtn').css('visibility','hidden');
+        $('#loginbtn').css('visibility','visible');
       });
   </script>
   <script>//navigator.notification.alert('dfdsfs');
