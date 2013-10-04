@@ -1,7 +1,8 @@
 var documentRoot;
 var FS = {};
 FS.assets = {};
-FS.remotePath = 'http://dev.cybertronindia.com/uvmate-assets/';
+FS.remotePath = 'https://dmkessiapqw4p.cloudfront.net/';
+//FS.remotePath = 'http://dev.cybertronindia.com/uvmate-assets/';
 var appBasePath = FS.localPath = 'css';
 
 
