@@ -534,6 +534,7 @@ var cssBackgroundImages = [
   {id:'maysprites',src:'images/avatar/maysprites.png'},
   {id:'mg-albert',src:'images/avatar/mg-albert.png'},
   {id:'none',src:'images/avatar/none.png'},
+  {id:'ricosprites',src:'images/avatar/ricosprites.png'},
   {id:'avatar-savebtn',src:'images/avatar/avatar-savebtn.png'},
   {id:'shades-jane',src:'images/avatar/shades-jane.png'},
   {id:'shades-joe',src:'images/avatar/shades-joe.png'},
