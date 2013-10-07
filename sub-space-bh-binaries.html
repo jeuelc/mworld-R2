@@ -1,22 +1,22 @@
 <!-- i-C-a -->
 <div id="binaries" data-role="page">
-  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
-  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
-  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
-  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
-  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
-  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
     <div class="bptitleholder" style="padding-top:14px;"><h1>Binaries</h1></div>
     <div id="anisold">
         <div id="spacechar">&nbsp;
             <div data-role="content" class="kidzcontent">
                 <div class="v-spacer"></div>
                 <div class="sidebarleft-half">
-                  <a id="cygnus-x1link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1.jpg', 'The beautiful Cygnus X-1 black hole sucking gas from its nearby star...')" href="#">click here</a>
+                  <a id="cygnus-x1link" style="visibility:hidden;" href="JavaScript:html5Lightbox.showLightbox(0, 'css/images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1.jpg', 'The beautiful Cygnus X-1 black hole sucking gas from its nearby star...');">click here</a>
                   <div id="polb1" class="pPiece" style="left:100px;top:270px;">
-                     <img src="images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1pol.jpg" alt="" />
+                     <img src="css/images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1pol.jpg" alt="" />
                   </div>
                 </div>
                 <div class="bpcontentbh">
@@ -26,36 +26,33 @@
                     <p>The Cygnus X-1 black hole is sucking gas from the star beside it. As the gas falls towards the black hole, the gas gets so hot that X-rays are produced.</p>
                     <p>We can see these X-rays with satellites, and make images of what it might look like if we could see it up close. It would be scary but very beautiful!</p>
                 </div>
-                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/5-8/bottomhomebh.png"></a></div>
 
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-     <div class="audiopanel">
-      <div class="bbh"><img id="binariesaudiobbtn" src="images/audio/audio-back.png"></div>
-      <div class="plbh"><img id="binariesaudioplbtn" src="images/audio/audio-play.png"></div>
-      <div class="psbh"><img id="binariesaudiopsbtn" src="images/audio/audio-pause.png"></div>
-      <div class="fbh"><img id="binariesaudiofbtn" src="images/audio/audio-forw.png"></div>
+      
+      <div class="micbtnholder"><div class="micbtnbh"></div></div>
+      <div class="bbh"><div class="rwbh" id="binariesaudiobbtn"></div></div>
+      <div class="plbh"><div class="plpsbh" id="binariesaudioplbtn"></div></div>
+      <div class="fbh"><div class="fwbh" id="binariesaudiofbtn" ></div></div>
       <div id="actualaudio-binaries" style="visibility:hidden;"></div>
-    </div>
+
     <script>
         sound = new Audio(); // 'sound' is now an audio object
+        var playing;
         (function() {
-            kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Binaries');
+          playing = false;
+                
+            
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page21.mp3" type="audio/mpeg"></audio>');
+                $('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/Page21.mp3" type="audio/mpeg"></audio>');
             } 
             
     
             $("#binaries").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
-
-            //change images path
-            changeImageSrc();
-            findElementsWithBgImage();
-            changeAudioSrc();
         })();
-
         $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
         function goBack() {
             $.mobile.changePage("sub-space-bh-lifeabh.html");
@@ -71,13 +68,20 @@
         
         $("#polb1").on('tap', function() {
           $('#cygnus-x1link')[0].click();
-          mworldViewMedia(1, 'cygnus-x1');
         });
         /* ******************** */
     $("#binariesaudioplbtn").on('tap', function() {
-      binariesaudio.play();
-      mworldPlayAudio(1, 'binariesaudio');
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      if(!playing) {
+        binariesaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        binariesaudio.pause();
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
     });
     
     $("#binariesaudiofbtn").on('tap', function() {

@@ -6,7 +6,7 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.13">
+        version   = "0.0.14">
 
 
 
@@ -16,7 +16,7 @@
 
     <description>
 
-        beta version with preloading from s3 coach fix2
+        beta version with new buttons and audio panel
 
     </description>
 
