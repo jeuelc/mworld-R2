@@ -70,7 +70,7 @@
     }
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-lifeinag.html");
+      $.mobile.changePage("sub-ac-greece-lifeinag.html", {transition: "slide", reverse: true });
       olympicsaudiobg.pause();
       agsoundbg.play();
     }

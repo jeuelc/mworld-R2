@@ -68,7 +68,7 @@
     $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
     
     function goBack() {
-      $.mobile.changePage("sub-space.html");
+      $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
       bgsoundbh.pause();
       bgsoundbh.currentTime = 0;
       spacesoundbg.play();

@@ -33,7 +33,7 @@
           agvideo.addEventListener('ended', function() { 
             //agvideo.webkitExitFullscreen();
             agsoundbg.play(); 
-            $.mobile.changePage("sub-ac-greece.html");  
+            $.mobile.changePage("sub-ac-greece.html", {transition: "slide", reverse: true });
           });
           changeVideoSrc();
 				});

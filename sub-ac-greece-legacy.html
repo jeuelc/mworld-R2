@@ -76,7 +76,7 @@
     });
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece.html");
+      $.mobile.changePage("sub-ac-greece.html", {transition: "slide", reverse: true });
     }
     $('.homelinkag').on('tap', function() { 
       mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 

@@ -37,7 +37,7 @@
     changeImageSrc();
     findElementsWithBgImage();
     //changeAudioSrc();
-    function goBack() { $.mobile.changePage("sub-space-bh-supergiant.html"); }
+    function goBack() { $.mobile.changePage("sub-space-bh-supergiant.html", {transition: "slide", reverse: true }); }
     function pausedaudio() { bgsoundbh.play(); }
     function pausebg() { bgsoundbh.pause(); }
     $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });

@@ -61,7 +61,7 @@
     })();
     
     function goBack() {
-      $.mobile.changePage("sub-ancient.html");
+      $.mobile.changePage("sub-ancient.html", {transition: "slide", reverse: true });
       ancientsoundbg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
     }
     $('.homelinkag').on('tap', function() { 

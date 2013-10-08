@@ -92,7 +92,7 @@
     $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
     
     function goBack() {
-      $.mobile.changePage("sub-space-bh-supernova.html");
+      $.mobile.changePage("sub-space-bh-supernova.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {

@@ -85,7 +85,7 @@
     });
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-storytelling.html");
+      $.mobile.changePage("sub-ac-greece-storytelling.html", {transition: "slide", reverse: true });
       iliadaudiobg.pause();
       agsoundbg.play();
       soundiliad.pause();

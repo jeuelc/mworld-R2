@@ -63,7 +63,7 @@
     $("#lydiansmoney").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-lydians.html");
+      $.mobile.changePage("sub-ac-greece-lydians.html", {transition: "slide", reverse: true });
     }
     
     $('.homelinkag').on('tap', function() { 

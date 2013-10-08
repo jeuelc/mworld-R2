@@ -48,7 +48,7 @@
     })();
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-minoans.html");
+      $.mobile.changePage("sub-ac-greece-minoans.html", {transition: "slide", reverse: true });
       theseusaudiobg.pause();
       agsoundbg.play();
     }
