@@ -6,7 +6,7 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.15">
+        version   = "0.0.16">
 
 
 
@@ -16,7 +16,7 @@
 
     <description>
 
-        css updated and bh and api
+        slidebar fix
 
     </description>
 
