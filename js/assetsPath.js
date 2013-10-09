@@ -127,6 +127,19 @@ FS.assets.space = [
 
 	{id : 'gravitypol', src : 'images/5-8/Space/Black_Holes/What_is_BH/gravitypol.jpg'},
 	{id : 'eatinggaspol', src : 'images/5-8/Space/Black_Holes/What_is_BH/eatinggaspol.jpg'},
+  
+  //added for new toolbar and audio bar
+  {id:'credits',src:'images/5-8/Space/credits.png'},
+  {id:'ctrlpnl',src:'images/5-8/Space/ctrlpnl.png'},
+  {id:'fw',src:'images/5-8/Space/fw.png'},
+  {id:'info',src:'images/5-8/Space/info.png'},
+  {id:'map',src:'images/5-8/Space/map.png'},
+  {id:'menu',src:'images/5-8/Space/menu.png'},
+  {id:'mic',src:'images/5-8/Space/mic.png'},
+  {id:'mpoints',src:'images/5-8/Space/mpoints.png'},
+  {id:'play',src:'images/5-8/Space/play.png'},
+  {id:'rw',src:'images/5-8/Space/rw.png'},
+  //added for new toolbar and audio bar end
 
 	//css images
 	
@@ -544,20 +557,6 @@ FS.assets.cssBackgroundImages = [
   {id:'wapron-mary',src:'images/avatar/wapron-mary.png'},
   {id:'yellowsg',src:'images/avatar/yellowsg.png'},
   //added for coaches end
-  
-  //added for new toolbar and audio bar
-  {id:'credits',src:'images/5-8/Space/credits.png'},
-  {id:'ctrlpnl',src:'images/5-8/Space/ctrlpnl.png'},
-  {id:'fw',src:'images/5-8/Space/fw.png'},
-  {id:'info',src:'images/5-8/Space/info.png'},
-  {id:'map',src:'images/5-8/Space/map.png'},
-  {id:'menu',src:'images/5-8/Space/menu.png'},
-  {id:'mic',src:'images/5-8/Space/mic.png'},
-  {id:'mpoints',src:'images/5-8/Space/mpoints.png'},
-  {id:'play',src:'images/5-8/Space/play.png'},
-  {id:'rw',src:'images/5-8/Space/rw.png'},
-  
-  //added for new toolbar and audio bar end
 
 	//skins
 	/*{id : 'sclose', src : 'skins/default/close.png'},
