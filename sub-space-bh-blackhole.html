@@ -115,7 +115,7 @@
         })
       
         function goBack() {
-            $.mobile.changePage("sub-space-bh-comefrom.html");
+            $.mobile.changePage("sub-space-bh-comefrom.html", {transition: "slide", reverse: true });
         }
         $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
         function pausedaudio() {
