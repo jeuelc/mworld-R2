@@ -6,13 +6,13 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.19">
+        version   = "0.0.20">
     <name>Mworld-R2</name>
 
 
 
     <description>
-      fix menu and audio buttons
+      changed the assets path
     </description>
 
 
