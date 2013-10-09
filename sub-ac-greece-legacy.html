@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="legacyofgreece" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebar.js"></script>
@@ -48,6 +49,7 @@
   </div>
   <script>    
     sound = new Audio();
+    mworldPageVisit(app.kidid, 'Legacy-of-Ancient-Greece');
     (function() {
       $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
       $('div#pol1').css("z-index", 2);
@@ -57,7 +59,7 @@
 	
       
         if(sound.canPlayType('audio/mpeg')) {
-          $('#actualaudio-legacy').html('<audio id="legacyaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page29.mp3" type="audio/mpeg"></audio>');
+          $('#actualaudio-legacy').html('<audio id="legacyaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page29.mp3" type="audio/mpeg"></audio>');
         } 
     
     $("#legacyofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
@@ -65,7 +67,7 @@
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
     })();
     
     $('#start-legacy').on('click', function() {
@@ -76,7 +78,7 @@
     });
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece.html");
     }
     $('.homelinkag').on('tap', function() { 
       mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
@@ -95,6 +97,7 @@
     /* ******************** */
     $("#legacyaudioplbtn").on('tap', function() {
       legacyaudio.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      mworldPlayAudio(app.kidid, 'legacyaudio');
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     

@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="tribesofgreece" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebar.js"></script>
@@ -41,10 +42,11 @@
     sound2 = new Audio(); // 'sound' is now an audio object
     sound3 = new Audio(); // 'sound' is now an audio object
     (function() {
+      mworldPageVisit(app.kidid, 'The-Greek-Tribes');
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=66";
         $.getJSON( url, function( data ) {
             //$('#node-body-oag').html(data[0].Body);
@@ -116,7 +118,7 @@
       $('#node-body-holder3').height(newHeight);
     });
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-origins.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece-origins.html");
     }
     $('.homelinkag').on('tap', function() { 
       mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 

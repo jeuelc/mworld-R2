@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="mycenaeans" data-role="page">
+    <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
     <script src="js/hammer.js"></script>
     <script src="js/jquery.hammer.js"></script>
     <script src="js/slidebar.js"></script>
@@ -43,7 +44,7 @@
                           <div id="audiobuttonholder"><a href="#" id="start"><img id="playhomernar" src="images/sound.png" height="30px" width="30px"></a></div>
                           <div id="actualaudio-homer" style="display: none;">
                             <audio id="homernar" controls preload style="visibility: hidden" onpause="playagbg()" onplay="pauseagbg()">
-                                <source src="audio/Page6mycene.mp3" type="audio/mpeg">
+                                <source src="http://mworld88assetstest.s3.amazonaws.com/audio/Page6mycene.mp3" type="audio/mpeg">
                             </audio>
                           </div>
                         </div><!-- end of psbutton -->
@@ -66,11 +67,11 @@
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
         (function() {
-      
+            mworldPageVisit(app.kidid, 'The-Mycenaens');
             /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
             //$('#node-body-hittites').html(data[0].Body);            
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="audio/Page5.mp3" type="audio/mpeg"></audio>');
+                $('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="'+FS.remotePath+'audio/Page5.mp3" type="audio/mpeg"></audio>');
             } 
     
             $("#mycenaeans").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
@@ -78,7 +79,7 @@
           //change images path
           changeImageSrc();
           findElementsWithBgImage();
-          changeAudioSrc();
+          //changeAudioSrc();
         })();
     
         (function() {
@@ -92,10 +93,11 @@
         
         $("#playhomernar").on('tap', function() {
           homernar.play();
+          mworldPlayAudio(app.kidid, 'homernar');
         });
     
         function goBack() {
-            $.mobile.changePage("sub-ac-greece-origins.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-ac-greece-origins.html");
         }
         $('.homelinkag').on('tap', function() { 
             mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
@@ -115,6 +117,7 @@
         /* ******************** */
         $("#myceneaudioplbtn").on('tap', function() {
             mycenenar.play();
+            mworldPlayAudio(app.kidid, 'mycenenar');
             agsoundbg.pause(); agsoundbg.currentTime = 0; 
             $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
         });

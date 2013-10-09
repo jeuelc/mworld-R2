@@ -5,12 +5,11 @@
   <script src="js/jquery.hammer.js"></script>  
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
-  <div class="homebtnholder"><div class="homebtnbh"></div></div>
-  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
-  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
-  <div class="infobtnholder"><div class="infobtnbh"></div></div>
-  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
-  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
   <div id="bonus-bh" class="talkbubble" style="width:473px;height:296px;position:absolute;left:300px;top:40px;visibility:hidden;"></div><!--/bonus-msm-->
   <div class="bptitleholder" style="padding-top:14px;"><h1>From Supergiant to Black Hole...</h1></div>
         <div id="spacechar">&nbsp;
@@ -45,20 +44,20 @@
     <section class="container" style="height:670px;margin-top:-600px;">
       <div class="spriteComing" style="z-index:10;"></div>
     </section>
-    <div class="micbtnholder"><div class="micbtnbh"></div></div>
-    <div class="bbh"><div class="rwbh" id="blackholeaudiobbtn"></div></div>
-    <div class="plbh"><div class="plpsbh" id="blackholeaudioplbtn"></div></div>
-    <div class="fbh"><div class="fwbh" id="blackholeaudiofbtn" ></div></div>
+   <div class="audiopanel">
+    <div class="bbh"><img id="blackholeaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="blackholeaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="blackholeaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="blackholeaudiofbtn" src="images/audio/audio-forw.png"></div>
     <div id="actualaudio-blackhole" style="visibility:hidden;"></div>
+  </div>
   <script src="js/spritespin.js" type="text/javascript"></script>
   <script language="javascript" type="text/javascript" src="js/scriptblackhole.js"></script>
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
-        var playing;
         (function() {
-          playing = false;
-          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'From-Supergiant-To-Black-Hole');
+          mworldPageVisit(app.kidid, 'From-Supergiant-To-Black-Hole');
           $('div#pol1').css("z-index", 3);
           $('div#pol2').css("z-index", 2);
           $('div#pol3').css("z-index", 1);
@@ -69,7 +68,7 @@
             
             
           if(sound.canPlayType('audio/mpeg')) {
-              $('#actualaudio-blackhole').html('<audio controls preload id="blackholeaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/FromToBlackhole.mp3" type="audio/mpeg"></audio>');
+              $('#actualaudio-blackhole').html('<audio controls preload id="blackholeaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/FromToBlackhole.mp3" type="audio/mpeg"></audio>');
           } 
             
     
@@ -80,7 +79,7 @@
           //change images path
           changeImageSrc();
           findElementsWithBgImage();
-          changeAudioSrc();
+          //changeAudioSrc();
         })();
         
         (function() {
@@ -128,11 +127,11 @@
         }
         $("#pol1").on('tap', function() {      
           $('#bhimg1link')[0].click();
-          mworldViewMedia(1, 'bhimg1');
+          mworldViewMedia(app.kidid, 'bhimg1');
         });  
       	$("#pol2").on('tap', function() {
           $('#bhimg2link')[0].click();
-          mworldViewMedia(1, 'bhimg2');
+          mworldViewMedia(app.kidid, 'bhimg2');
         });
         $("#pol3").on('tap', function() {
           $.mobile.changePage("sub-space-bh-nscollide.html", {transition:"slide"});
@@ -142,19 +141,9 @@
         });        
         /* ******************** */
     $("#blackholeaudioplbtn").on('tap', function() {
-      //blackholeaudio.play();
-      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      if(!playing) {
-        blackholeaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        kidid = window.localStorage["kidid"];
-        mworldPlayAudio(kidid, 'blackholeaudio');
-        playing = true;
-      } else {
-        blackholeaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-      }
+      blackholeaudio.play();
+      mworldPlayAudio(app.kidid, 'blackholeaudio');
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     
     $("#blackholeaudiofbtn").on('tap', function() {

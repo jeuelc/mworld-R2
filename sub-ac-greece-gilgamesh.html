@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="gilgamesh" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebar.js"></script>
@@ -23,7 +24,7 @@
             <div id="backofcard" class="back face center">
               <p>Gilgamesh in Babylonian</p>
                 <audio id="gilgab" controls preload onpause="playagbg()" onplay="pauseagbg()">
-                    <source src="audio/gilgameshbabylonian.mp3" type="audio/mpeg">
+                    <source src="http://mworld88assetstest.s3.amazonaws.com/audio/gilgameshbabylonian.mp3" type="audio/mpeg">
                 </audio>
                 <p><a href="#" id="donegiglgababy">Done</a></p>
             </div>
@@ -37,7 +38,7 @@
             <div id="backofcard2" class="back face center">
               <p>Gilgamesh in English</p>
                 <audio id="gilgae" controls preload onpause="playagbg()" onplay="pauseagbg()">
-                    <source src="audio/gilgameshenglish.mp3" type="audio/mpeg">
+                    <source src="http://mworld88assetstest.s3.amazonaws.com/audio/gilgameshenglish.mp3" type="audio/mpeg">
                 </audio>
                 <p><a href="#" id="donegiglgaeng">Done</a></p>
             </div>
@@ -65,7 +66,7 @@
   </div></div><!--/anisold-->
   
   <script>
-    
+    mworldPageVisit(app.kidid, 'Gilgamesh');
     (function() {
       $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
       $('div#polb1').css("z-index", 1);
@@ -86,11 +87,11 @@
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
     })();
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-babylonians.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece-babylonians.html");
       gilgab.pause();
       gilgae.pause();
       agsoundbg.play();

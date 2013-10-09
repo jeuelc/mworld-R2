@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div data-role="page" id="mathsciencemore">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebar.js"></script>
@@ -39,17 +40,18 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     if(sound.canPlayType('audio/mpeg')) {
-      $('#actualaudio-msm').html('<audio id="msmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page30.mp3" type="audio/mpeg"></audio>');
+      $('#actualaudio-msm').html('<audio id="msmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
     } 
    
     $("#mathsciencemore").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
+    mworldPageVisit(app.kidid, 'Math-Science-and-More');
     //change images path
     changeImageSrc();
     findElementsWithBgImage();
-    changeAudioSrc();
+    //changeAudioSrc();
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-legacy.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece-legacy.html");
     }
     
     $('.homelinkag').on('tap', function() { 
@@ -63,6 +65,7 @@
       /* ******************** */
     $("#msmaudioplbtn").on('tap', function() {
       msmaudio.play();
+      mworldPlayAudio(app.kidid, 'msmaudio');
       agsoundbg.pause(); agsoundbg.currentTime = 0; 
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });

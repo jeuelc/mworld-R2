@@ -191,6 +191,12 @@ function htmlLightbox(src, content) {
 }
 
 
+function trackUserPageVisit() {
+    $(document).delegate('.ui-page', 'pageshow', function () {
+        mworldPageVisit(app.kidid, $.mobile.activePage.attr('id'));
+    });
+}
+
 /*function extractLastPart(bgStyle) {
     if(bgStyle.indexOf('url') != -1 && bgStyle.indexOf('(',bgStyle.indexOf('url')) ){
         var startPos = bgStyle.indexOf('(',bgStyle.indexOf('url'));

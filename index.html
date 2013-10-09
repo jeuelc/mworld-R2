@@ -22,6 +22,7 @@
   <script type="text/javascript" src="js/filesystem.js"></script>
   <script type="text/javascript" src="js/assetsPath.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
   <script type="text/javascript" src="js/preload.custom.js"></script>
   
   <script type="text/javascript" src="js/html5lightbox.js"></script>
@@ -31,7 +32,6 @@
   <script type="text/javascript" src="js/jquery.iosslider.js"></script>
   <script type="text/javascript" src="js/mpoints.js"></script>
   <script type="text/javascript" src="js/jquery.session.js"></script>
-  <script type="text/javascript" src="js/api.js"></script>
 </head> 
 <body> 
   <div data-role="page" id="indexpage">
@@ -69,17 +69,16 @@
   </div><!-- /page -->
   <script>
     $(function() {
-      if(window.localStorage["kidid"] == null || window.localStorage["kidid"] == '') {
+      if(localStorage.getItem('kidid') != null){
+        if(parseInt(localStorage.getItem('kidid')) > 0) {
+          //trackUserPageVisit();
+          app.kidid = parseInt(localStorage.getItem('kidid'));
+        }
+      } else {
         $('#home2linkholder').css('display','none');
         $('#home2linkloginholder').css('display','block');
         $('#profilebtn').css('visibility','hidden');
         $('#loginbtn').css('visibility','visible');
-      } else {
-        var kidid = window.localStorage["kidid"];
-        $('#home2linkholder').css('display','block');
-        $('#home2linkloginholder').css('display','none');
-        $('#profilebtn').css('visibility','visible');
-        $('#loginbtn').css('visibility','hidden');
       }
     });
     //$('#home2link').on('tap', function() { spacesoundbg.play(); });
@@ -88,17 +87,18 @@
     $('#submitlogin').on('tap', function() {
         var username = $('#username').val();
         var password = $('#password').val();
-        //alert(username+" and "+password);
-        
         if(username != '' && password != '') {
-          var kidid = mworldLogin(username, password);
-          if(kidid > 0) {
+          window.localStorage.setItem("kidid", mworldLogin(username, password));
+          
+          if(parseInt(window.localStorage.getItem("kidid")) > 0) {
+            //trackUserPageVisit();
+            $.session.set('usersession', username);
             $('#home2linkholder').css('display','block');
             $('#home2linkloginholder').css('display','none');
             $('#profilebtn').css('visibility','visible');
             $('#loginbtn').css('visibility','hidden');
             $('#loginpop').popup('close');
-            window.localStorage["kidid"] = kidid;
+            app.kidid = parseInt(window.localStorage.getItem("kidid"));
           } else {
             navigator.notification.alert("Incorrect username and/or password.");
           }
@@ -107,7 +107,7 @@
         }
       });
       $('#profilebtn').on('tap', function() {
-        window.localStorage["kidid"] = '';
+        window.localStorage.removeItem("kidid");
         navigator.notification.alert("Logged out successfully");
         $('#home2linkholder').css('display','none');
         $('#home2linkloginholder').css('display','block');
@@ -115,7 +115,7 @@
         $('#loginbtn').css('visibility','visible');
       });
   </script>
-  <script>//navigator.notification.alert('dfdsfs');
+  <script>
   app.initialize();
   $(document).ready(function() {
     //$.preloadCssImages();

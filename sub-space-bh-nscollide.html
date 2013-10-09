@@ -3,12 +3,11 @@
   <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebar.js"></script>
   <div class="menuhousing"></div>
-  <div class="homebtnholder"><div class="homebtnbh"></div></div>
-  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
-  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
-  <div class="infobtnholder"><div class="infobtnbh"></div></div>
-  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
-  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
     <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>
     <div class="bptitleholder" style="padding-top:14px;"><h1>Neutron Stars Collide</h1></div>
     <div id="anisold">
@@ -34,28 +33,28 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-     <div class="micbtnholder"><div class="micbtnbh"></div></div>
-    <div class="bbh"><div class="rwbh" id="nscollideaudiobbtn"></div></div>
-    <div class="plbh"><div class="plpsbh" id="nscollideaudioplbtn"></div></div>
-    <div class="fbh"><div class="fwbh" id="nscollideaudiofbtn" ></div></div>
-    <div id="actualaudio-nscollide" style="visibility:hidden;"></div>
+     <div class="audiopanel">
+       <div class="bbh"><img id="nscollideaudiobbtn" src="images/audio/audio-back.png"></div>
+       <div class="plbh"><img id="nscollideaudioplbtn" src="images/audio/audio-play.png"></div>
+       <div class="psbh"><img id="nscollideaudiopsbtn" src="images/audio/audio-pause.png"></div>
+       <div class="fbh"><img id="nscollideaudiofbtn" src="images/audio/audio-forw.png"></div>
+       <div id="actualaudio-nscollide" style="visibility:hidden;"></div>
+     </div>
     
      <div id="collidingnsholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
          <div class="previdcontainer">
            <video id="collidingns" width="1024" height="748" preload>
-             <source src="video/collidingns.m4v" type="video/mp4">
+             <source src="http://mworld88assetstest.s3.amazonaws.com/video/collidingns.m4v" type="video/mp4">
            </video>
          </div>
      </div> 
     
     <script>
         sound = new Audio();
-        var playing;
         (function() {
-          playing = false;
-          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'Neutron-Stars-Collide');
+          kidid = window.localStorage["kidid"]; mworldPageVisit(app.kidid, 'Neutron-Stars-Collide');
                 if(sound.canPlayType('audio/mpeg')) {
-                    $('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page15_0.mp3" type="audio/mpeg"></audio>');
+                    $('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page15_0.mp3" type="audio/mpeg"></audio>');
                 } 
     
             collidingns.addEventListener('ended', function() { 
@@ -70,13 +69,13 @@
             //change images path
             changeImageSrc();
             findElementsWithBgImage();
-            changeAudioVideoSrc();
+            //changeAudioVideoSrc();
         })();
         
         
         $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
         function goBack() {
-            $.mobile.changePage("sub-space-bh-blackhole.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-space-bh-blackhole.html");
         }
 
        function pausedaudio() {
@@ -92,7 +91,7 @@
          $("#collidingns").css({"z-index":9});
          bgsoundbh.pause();
          collidingns.play();
-         mworldViewMedia(1, 'collidingns');
+         mworldViewMedia(app.kidid, 'collidingns');
        });
        
     $("#collidingns").on('tap', function() {
@@ -104,19 +103,9 @@
     });
 /* ******************** */
     $("#nscollideaudioplbtn").on('tap', function() {
-      //nscollideaudio.play();
-      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      if(!playing) {
-        nscollideaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        kidid = window.localStorage["kidid"];
-        mworldPlayAudio(kidid, 'nscollideaudio');
-        playing = true;
-      } else {
-        nscollideaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-      }
+      nscollideaudio.play();
+      mworldPlayAudio(app.kidid, 'nscollideaudio');
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     
     $("#nscollideaudiofbtn").on('tap', function() {

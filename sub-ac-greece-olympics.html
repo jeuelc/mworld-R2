@@ -1,4 +1,5 @@
 <div id="olympics" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebar.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
@@ -42,9 +43,9 @@
   </div>
   <script>
     (function() {
-      
+      mworldPageVisit(app.kidid, 'The-Olympic-Games');
       if(sound.canPlayType('audio/mpeg')) {
-        $('#actualaudio-olympics').html('<audio id="olympicsnar" controls preload onpause="playolympics()" onplay="pauseolympics()"><source src="audio/Page14.mp3" type="audio/mpeg"></audio>');
+        $('#actualaudio-olympics').html('<audio id="olympicsnar" controls preload onpause="playolympics()" onplay="pauseolympics()"><source src="'+FS.remotePath+'audio/Page14.mp3" type="audio/mpeg"></audio>');
       } 
     
     $("#olympics").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
@@ -52,7 +53,7 @@
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
     })();
     $('#start-olympics').on('click', function() {
       $('#actualaudio-olympics').show();
@@ -70,7 +71,7 @@
     }
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-lifeinag.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece-lifeinag.html");
       olympicsaudiobg.pause();
       agsoundbg.play();
     }
@@ -89,6 +90,7 @@
     /* ******************** */
     $("#olympicsaudioplbtn").on('tap', function() {
       olympicsnar.play();
+      mworldPlayAudio(app.kidid, 'olympicsnar');
       agsoundbg.pause(); agsoundbg.currentTime = 0; 
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });

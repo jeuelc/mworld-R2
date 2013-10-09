@@ -3,12 +3,11 @@
   <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
-  <div class="homebtnholder"><div class="homebtnbh"></div></div>
-  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
-  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
-  <div class="infobtnholder"><div class="infobtnbh"></div></div>
-  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
-  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
   <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
     <div class="bptitleholder" style="padding-top:14px;"><h1>The Black Hole in Our Galaxy</h1></div>
@@ -38,24 +37,24 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-    <div class="micbtnholder"><div class="micbtnbh"></div></div>
-    <div class="bbh"><div class="rwbh" id="bhingalaxyaudiobbtn"></div></div>
-    <div class="plbh"><div class="plpsbh" id="bhingalaxyaudioplbtn"></div></div>
-    <div class="fbh"><div class="fwbh" id="bhingalaxyaudiofbtn" ></div></div>
-    <div id="actualaudio-bhingalaxy" style="visibility:hidden;"></div>
+    <div class="audiopanel">
+      <div class="bbh"><img id="bhingalaxyaudiobbtn" src="images/audio/audio-back.png"></div>
+      <div class="plbh"><img id="bhingalaxyaudioplbtn" src="images/audio/audio-play.png"></div>
+      <div class="psbh"><img id="bhingalaxyaudiopsbtn" src="images/audio/audio-pause.png"></div>
+      <div class="fbh"><img id="bhingalaxyaudiofbtn" src="images/audio/audio-forw.png"></div>
+      <div id="actualaudio-bhingalaxy" style="visibility:hidden;"></div>
+    </div>
     <script>
    
-        var playing;
         (function() {
-          playing = false;
-          kidid = window.localStorage["kidid"]; mworldPageVisit(kidid, 'The-Black-Hole-in-Our-Galaxy');
+          mworldPageVisit(app.kidid, 'The-Black-Hole-in-Our-Galaxy');
           $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
           $('div#pol1').css("z-index", 2);
           $('div#pol2').css("z-index", 1);
           $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
             
                 if(sound.canPlayType('audio/mpeg')) {
-                    $('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/page19bh.mp3" type="audio/mpeg"></audio>');
+                    $('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/page19bh.mp3" type="audio/mpeg"></audio>');
                 } 
          
             
@@ -64,7 +63,7 @@
           //change images path
           changeImageSrc();
           findElementsWithBgImage();
-          changeAudioSrc();
+          //changeAudioSrc();
         })();
 
        function pausedaudio() {
@@ -77,32 +76,23 @@
        
         $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
         function goBack() {
-            $.mobile.changePage("sub-space-bh-galaxies.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-space-bh-galaxies.html");
         }
         
         $("#pol2").on('tap', function() {
          $('#sagittariusalink')[0].click();
-         mworldViewMedia(1, 'sagittariusa');
+         mworldViewMedia(app.kidid, 'sagittariusa');
         });
        
        $("#pol1").on('tap', function() {
          $('#centermwlink')[0].click();
-         mworldViewMedia(1, 'centermw');
+         mworldViewMedia(app.kidid, 'centermw');
        });
        /* ******************** */
     $("#bhingalaxyaudioplbtn").on('tap', function() {
-      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      if(!playing) {
-        bhingalaxyaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        kidid = window.localStorage["kidid"];
-        mworldPlayAudio(kidid, 'bhingalaxyaudio');
-        playing = true;
-      } else {
-        bhingalaxyaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-      }
+      bhingalaxyaudio.play();
+      mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
     
     $("#bhingalaxyaudiofbtn").on('tap', function() {

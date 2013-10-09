@@ -34,50 +34,50 @@ FS.assets.space = [
 	*/
 
 	//blackhole video
-	{id : 'blackholevideo', src : 'video/blackhole_3-SD_for_Apple_Devices.m4v' },
+	//{id : 'blackholevideo', src : 'video/blackhole_3-SD_for_Apple_Devices.m4v' },
 
 	//blackhole sub-space-bh.html mp3
-	{id : 'RevisedIntro', src : 'audio/RevisedIntro.mp3'},
-	{id : 'mainbg', src : 'audio/mainbg.mp3'},
+	//{id : 'RevisedIntro', src : 'audio/RevisedIntro.mp3'},
+	//{id : 'mainbg', src : 'audio/mainbg.mp3'},
 	//sub-space-bh-whatisbh.html audio video
-	{id : 'eatinggas', src : 'video/eatinggas.m4v'},
-	{id : 'WhatIsBlackHole', src : 'audio/WhatIsBlackHole.mp3'},
+	//{id : 'eatinggas', src : 'video/eatinggas.m4v'},
+	//{id : 'WhatIsBlackHole', src : 'audio/WhatIsBlackHole.mp3'},
 	//sub-space-bh-supernova.html
-	{id : 'supernovaeso', src : "video/supernovaeso.m4v"},
-	{id : 'SuperNova', src : 'audio/SuperNova.mp3'},
+	//{id : 'supernovaeso', src : "video/supernovaeso.m4v"},
+	//{id : 'SuperNova', src : 'audio/SuperNova.mp3'},
 	//sub-space-bh-supergiantpage.html
 	//{id : 'supergiantnar', src : 'audio/supergiantnar.mp3'},
 	//sub-space-bh-supergiant.html
-	{id : 'supergiant', src : 'audio/supergiant.mp3'},
+	//{id : 'supergiant', src : 'audio/supergiant.mp3'},
 	//sub-space-bh-snexplosion.html
-	{id : 'supernovahubble', src : 'video/supernovahubble.m4v'},
-	{id : 'HowBigAreThey', src : 'audio/HowBigAreThey.mp3'},
+	//{id : 'supernovahubble', src : 'video/supernovahubble.m4v'},
+	//{id : 'HowBigAreThey', src : 'audio/HowBigAreThey.mp3'},
 	//sub-space-bh-quassars.html
-	{id : 'quasar-sfx1', src : 'video/quasar-sfx1.m4v'},
-	{id : 'Page20_0', src : 'audio/Page20_0.mp3'},
+	//{id : 'quasar-sfx1', src : 'video/quasar-sfx1.m4v'},
+	//{id : 'Page20_0', src : 'audio/Page20_0.mp3'},
 	//sub-space-bh-nscollide.html
-	{id : 'collidingns', src : 'video/collidingns.m4v'},
-	{id : 'Page15_0', src : 'audio/Page15_0.mp3'},
+	//{id : 'collidingns', src : 'video/collidingns.m4v'},
+	//{id : 'Page15_0', src : 'audio/Page15_0.mp3'},
 	//sub-space-bh-neutron.html
-	{id : 'NeutronStar', src : 'audio/NeutronStar.mp3'},
+	//{id : 'NeutronStar', src : 'audio/NeutronStar.mp3'},
 	//sub-space-bh-lifeabh.html	
-	{id : 'page16v1', src : 'audio/page16v1.mp3'},
+	//{id : 'page16v1', src : 'audio/page16v1.mp3'},
 	//sub-space-bh-gravity.html
-	{id : 'Gravity', src : 'audio/Gravity.mp3'},
+	//{id : 'Gravity', src : 'audio/Gravity.mp3'},
 	//sub-space-bh-galaxies.html
-	{id : 'Page18_0', src : 'audio/Page18_0.mp3'},
+	//{id : 'Page18_0', src : 'audio/Page18_0.mp3'},
 	//sub-space-bh-formgold.html
-	{id : 'GoldFormation', src : 'audio/GoldFormation.mp3'},
+	//{id : 'GoldFormation', src : 'audio/GoldFormation.mp3'},
 	//sub-space-bh-comefrom.html
-	{id : 'WhereBlackHolesComeFrom', src : 'audio/WhereBlackHolesComeFrom.mp3'},
+	//{id : 'WhereBlackHolesComeFrom', src : 'audio/WhereBlackHolesComeFrom.mp3'},
 	//sub-space-bh-blackhole.html
-	{id : 'FromToBlackhole', src : 'audio/FromToBlackhole.mp3'},
+	//{id : 'FromToBlackhole', src : 'audio/FromToBlackhole.mp3'},
 	//sub-space-bh-binaries.html
-	{id : 'Page21', src : 'audio/Page21.mp3'},
+	//{id : 'Page21', src : 'audio/Page21.mp3'},
 	//sub-space-bh-bhingalaxy.html
-	{id : 'page19bh', src : 'audio/page19bh.mp3'},
+	//{id : 'page19bh', src : 'audio/page19bh.mp3'},
 	//sub-space-bh-bhgo.html
-	{id : 'Page22_0', src : 'audio/Page22_0.mp3'},
+	//{id : 'Page22_0', src : 'audio/Page22_0.mp3'},
 
 	{id : 'whatbhbtn', src : 'images/5-8/Space/Black_Holes/whatbhbtn.png'},
 	{id : 'comebtn', src : 'images/5-8/Space/Black_Holes/comebtn.png'},
@@ -163,7 +163,7 @@ FS.assets.space = [
 
 FS.assets.aGreece = [
 	//sub-ancient.htm
-	{id : 'greeceAncient_Greece', src : 'video/Ancient_Greece.m4v'},
+	//{id : 'greeceAncient_Greece', src : 'video/Ancient_Greece.m4v'},
 
 	//sub-ac-greece.html
 	{id : 'greecehomebtn', src : 'images/5-8/Ancient_Civilizations/Greece/homebtn.png'},
@@ -178,7 +178,7 @@ FS.assets.aGreece = [
 	{id : 'greecelegacyb', src : 'images/5-8/Ancient_Civilizations/Greece/legacyb.png'},
 	{id : 'greecewaagbtnb', src : 'images/5-8/Ancient_Civilizations/Greece/waagbtnb.png'},
 	//audio
-	{id : 'greeceIntro', src : 'audio/Intro.mp3'},
+	//{id : 'greeceIntro', src : 'audio/Intro.mp3'},
 
 	{id : 'greecebottomhome', src : 'images/5-8/bottomhome.png'},
 	{id : 'greecebonustalk', src : 'images/5-8/Ancient_Civilizations/Greece/game/bonustalk.png'},
@@ -191,21 +191,21 @@ FS.assets.aGreece = [
 	{id : 'greecetemplespol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/templespol.jpg'},
 	{id : 'greeceleonidas1pol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidas1pol.jpg'},
 	//audio
-	{id : 'greecePage9', src : 'audio/Page9.mp3'},
+	//{id : 'greecePage9', src : 'audio/Page9.mp3'},
 	//sub-ac-greece-temple.html
 	{id : 'greeceparthenon2pol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/parthenon2pol.jpg'},
 	{id : 'greeceacropolispol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/acropolispol.jpg'},
 	{id : 'greeceparthenon', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/parthenon.jpg'},
 	{id : 'greeceacropolis', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/acropolis.jpg'},
 	//audio
-	{id : 'greecePage11', src : 'audio/Page%2011.mp3'},
+	//{id : 'greecePage11', src : 'audio/Page%2011.mp3'},
 	//sub-ac-greece-storytelling.html
 	{id : 'greecehearagpol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/hearagpol.jpg'},
 	{id : 'greecesound', src : 'images/sound.png'},
 	{id : 'greeceiliadpol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/iliadpol.jpg'},
 	{id : 'greeceodysseypol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/odysseypol.jpg'},
 	//audio
-	{id : 'greecePage15', src : 'audio/Page15.mp3'},
+	//{id : 'greecePage15', src : 'audio/Page15.mp3'},
 	//sub-ac-greece-spartans.html
 	{id : 'greeceleonidaspol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidaspol.jpg'},
 	{id : 'greecepeloponnesepol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/peloponnesepol.jpg'},
@@ -213,7 +213,7 @@ FS.assets.aGreece = [
 	{id : 'greeceleonidas', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidas.jpg'},
 	{id : 'greecepeloponnese', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/peloponnese.jpg'},
 	//audio
-	{id : 'greecePage12', src : 'audio/Page12.mp3'},
+	//{id : 'greecePage12', src : 'audio/Page12.mp3'},
 	//sub-ac-greece-romans.html
 	{id : 'greeceromepol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/romepol.jpg'},
 	{id : 'greecetaorminapol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/taorminapol.jpg'},
@@ -222,7 +222,7 @@ FS.assets.aGreece = [
 	{id : 'greecetaormina', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/taormina.jpg'},
 	{id : 'greecepaestum_3', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/paestum_3.jpg'},
 	//audio
-	{id : 'greecePage23', src : 'audio/Page23.mp3'},
+	//{id : 'greecePage23', src : 'audio/Page23.mp3'},
 	//sub-ac-greece-phoenician.html
 	{id : 'greecesidon1pol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sidon1pol.jpg'},
 	{id : 'greececarthage2pol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage2pol.jpg'},
@@ -231,20 +231,20 @@ FS.assets.aGreece = [
 	{id : 'greececarthage2', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage2.jpg'},
 	{id : 'greececarthage1', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage1.jpg'},
 	//audio
-	{id : 'greecePage27', src : 'audio/Page27.mp3'},
+	//{id : 'greecePage27', src : 'audio/Page27.mp3'},
 	//sub-ac-greece-persians.html
 	{id : 'greecepersepolispol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persepolispol.jpg'},
 	{id : 'greecepersianeducpol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persianeducpol.jpg'},
 	{id : 'greecepersopolis', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persopolis.jpg'},
 	//audio
-	{id : 'greecePage24', src : 'audio/Page24.mp3'},
+	//{id : 'greecePage24', src : 'audio/Page24.mp3'},
 	//sub-ac-greece-persian-education.html
 	{id : 'greecexenophonpol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/xenophonpol.jpg'},
 	{id : 'greeceTomb_of_Cyruspol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/Tomb_of_Cyruspol.jpg'},
 	{id : 'greecexenophon', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/xenophon.jpg'},
 	{id : 'greeceTomb_of_Cyrus', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/Tomb_of_Cyrus.jpg'},
 	//audio
-	{id : 'greecePage25', src : 'audio/Page25.mp3'},
+	//{id : 'greecePage25', src : 'audio/Page25.mp3'},
 
 	{id : 'greeceolympicq', src : 'images/5-8/Ancient_Civilizations/Greece/game/olympicq.png'},
 	{id : 'greeceolym-disc', src : 'images/5-8/Ancient_Civilizations/Greece/game/olym-disc.png'},
@@ -257,9 +257,9 @@ FS.assets.aGreece = [
 	{id : 'greecegreektribesbtn', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/greektribesbtn.png'},
 	{id : 'greeceminoansbtn', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/minoansbtn.png'},
 	//audio
-	{id : 'greecePage2', src : 'audio/Page2.mp3'},
-	{id : 'greecePage14', src : 'audio/Page14.mp3'},
-	{id : 'greecePage17', src : 'audio/Page17.mp3'},
+	//{id : 'greecePage2', src : 'audio/Page2.mp3'},
+	//{id : 'greecePage14', src : 'audio/Page14.mp3'},
+	//{id : 'greecePage17', src : 'audio/Page17.mp3'},
 	//sub-ac-greece-mycenaeans.html
 	{id : 'greeceliongatepol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/liongatepol.jpg'},
 	{id : 'greecemycenaetodaypol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/mycenaetodaypol.jpg'},
@@ -268,36 +268,36 @@ FS.assets.aGreece = [
 	{id : 'greecemycenaetoday', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/mycenaetoday.jpg'},
 	{id : 'greeceliongate', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/liongate.jpg'},
 	//audio
-	{id : 'greecePage6mycene', src : 'audio/Page6mycene.mp3'},
-	{id : 'greecePage5', src : 'audio/Page5.mp3'},
+	// {id : 'greecePage6mycene', src : 'audio/Page6mycene.mp3'},
+	// {id : 'greecePage5', src : 'audio/Page5.mp3'},
 	//sub-ac-greece-minoansend.html
 	{id : 'greecesantoriniquiztimepol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santoriniquiztimepol.jpg'},
 	{id : 'greecesantorinipol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santorinipol.jpg'},
 	{id : 'greecesantorini', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santorini.jpg'},
 	//audio
-	{id : 'greecePage8b', src : 'audio/Page8b.mp3'},
+	//{id : 'greecePage8b', src : 'audio/Page8b.mp3'},
 	//sub-ac-greece-minoans.html
 	{id : 'greecevolcanopol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/volcanopol.jpg'},
 	{id : 'greecetheseuspol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/theseuspol.jpg'},
 	//audio
-	{id : 'greecePage7', src : 'audio/Page7.mp3'},
+	//{id : 'greecePage7', src : 'audio/Page7.mp3'},
 	//sub-ac-greece-lydiansmoney.html
 	{id : 'greecetrade-pomeg', src : 'images/5-8/Ancient_Civilizations/Greece/game/trade-pomeg.png'},
 	{id : 'greecetrade-chilli', src : 'images/5-8/Ancient_Civilizations/Greece/game/trade-chilli.png'},
 	{id : 'greecetrade-grapes', src : 'images/5-8/Ancient_Civilizations/Greece/game/trade-grapes.png'},
 	{id : 'greecetradeq', src : 'images/5-8/Ancient_Civilizations/Greece/game/tradeq.png'},
 	//audio
-	{id : 'greecePage30', src : 'audio/Page30.mp3'},
-	{id : 'greecePage22', src : 'audio/Page22.mp3'},
+	//{id : 'greecePage30', src : 'audio/Page30.mp3'},
+	//{id : 'greecePage22', src : 'audio/Page22.mp3'},
 	//sub-ac-greece-lydians.html
 	{id : 'greecelydianspol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/lydianspol.jpg'},
 	{id : 'greecedelphicitypol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/delphicitypol.jpg'},
 	{id : 'greecedelphicity', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/delphicity.jpg'},
 	//audio
-	{id : 'greecePage20', src : 'audio/Page20.mp3'},
+	//{id : 'greecePage20', src : 'audio/Page20.mp3'},
 	//sub-ac-greece-lifeinag.html
 	//audio
-	{id : 'greecePage13', src : 'audio/Page13.mp3'},
+	//{id : 'greecePage13', src : 'audio/Page13.mp3'},
 	{id : 'greeceagorabtn', src : 'images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agorabtn.png'},
 	{id : 'greeceagschoolbtn', src : 'images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agschoolbtn.png'},
 	{id : 'greecetrojanbtn', src : 'images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/trojanbtn.png'},
@@ -307,7 +307,7 @@ FS.assets.aGreece = [
 	{id : 'greecearchitechturepol', src : 'images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/architechturepol.jpg'},
 	{id : 'greecepythapol', src : 'images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/pythapol.jpg'},
 	{id : 'greecetheatre', src : 'images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/theatre.jpg'},
-	{id : 'greecePage29', src : 'audio/Page29.mp3'},
+	//{id : 'greecePage29', src : 'audio/Page29.mp3'},
 	//sub-ac-greece-legacy-architecture.html
 	{id : 'greecearchi1pol', src : 'images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi1pol.jpg'},
 	{id : 'greecearchi2pol', src : 'images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi2pol.jpg'},
@@ -320,19 +320,19 @@ FS.assets.aGreece = [
 	//sub-ac-greece-iliad.html
 	{id : 'greecetalkbubble', src : 'images/5-8/Ancient_Civilizations/Greece/game/talkbubble.png'},
 	//audio
-	{id : 'greecePage16', src : 'audio/Page16.mp3'},
+	//{id : 'greecePage16', src : 'audio/Page16.mp3'},
 	//sub-ac-greece-hittites.html
 	{id : 'greecehearhittitespol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/hearhittitespol.jpg'},
 	{id : 'greecehittitespol', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/hittitespol.jpg'},
 	{id : 'greecehittites', src : 'images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/hittites.jpg'},
 	//audio
-	{id : 'greecePage3', src : 'audio/Page3.mp3'},
+	//{id : 'greecePage3', src : 'audio/Page3.mp3'},
 	//sub-ac-greece-gilgamesh.html
 	{id : 'greecehearinbabpol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinbabpol.jpg'},
 	{id : 'greecehearinengpol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinengpol.jpg'},
 	//audio
-	{id : 'greecegilgameshbabylonian', src : 'audio/gilgameshbabylonian.mp3'},
-	{id : 'greecegilgameshenglish', src : 'audio/gilgameshenglish.mp3'},
+	// {id : 'greecegilgameshbabylonian', src : 'audio/gilgameshbabylonian.mp3'},
+	// {id : 'greecegilgameshenglish', src : 'audio/gilgameshenglish.mp3'},
 	
 	//sub-ac-greece-egyptians.html
 	{id : 'greecesphinxpol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sphinxpol.jpg'},
@@ -344,7 +344,7 @@ FS.assets.aGreece = [
 	{id : 'greeceegypt_art_2', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_2.jpg'},
 	{id : 'greeceegypt_art_1', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_1.jpg'},
 	//audio
-	{id : 'greecePage26', src : 'audio/Page26.mp3'},
+	//{id : 'greecePage26', src : 'audio/Page26.mp3'},
 	//sub-ac-greece-babylonians.html
 	{id : 'greecebabart1pol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babart1pol.jpg'},
 	{id : 'greecebabart2pol', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babart2pol.jpg'},
@@ -352,7 +352,7 @@ FS.assets.aGreece = [
 	{id : 'greecebabart1', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babart1.jpg'},
 	{id : 'greecebabart2', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babart2.jpg'},
 	//audio
-	{id : 'greecePage28', src : 'audio/Page28.mp3'},
+	//{id : 'greecePage28', src : 'audio/Page28.mp3'},
 	//sub-ac-greece-aroundag.html
 	{id : 'greececivscramtrigger', src : 'images/5-8/Ancient_Civilizations/Greece/game/civscramtrigger.png'},
 	{id : 'greeceromansicon', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/romansicon.png'},
@@ -362,12 +362,12 @@ FS.assets.aGreece = [
 	{id : 'greecebabyloniansicon', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babyloniansicon.png'},
 	{id : 'greeceegyptiansicon', src : 'images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egyptiansicon.png'},
 	//audio
-	{id : 'greecePage18', src : 'audio/Page18.mp3'},
+	//{id : 'greecePage18', src : 'audio/Page18.mp3'},
 	//sub-ac-greece-agora.html
 	{id : 'greeceagora', src : 'images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agora.jpg'},
 	{id : 'greeceagorapol', src : 'images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agorapol.jpg'},
 	//audio
-	{id : 'greecePage19', src : 'audio/Page19.mp3'},
+	//{id : 'greecePage19', src : 'audio/Page19.mp3'},
 
 	//game-ag1.html
 	{id : 'ag1-coin-save', src : 'images/5-8/Ancient_Civilizations/Greece/game/coin-save.png'},
@@ -418,7 +418,7 @@ FS.assets.aGreece = [
 ];
 
 
-var cssBackgroundImages = [
+FS.assets.cssBackgroundImages = [
 	{id:'final_world_background',src:'images/5-8/Home_Screen/final_world_background.png'},
 	//{id:'homepage',src:'images/9-12/Home_Screen/homepage.jpg'},
 	{id:'bartmusic',src:'images/5-8/Home_Screen/bartmusic.png'},
@@ -495,78 +495,7 @@ var cssBackgroundImages = [
 	{id:'avatarcreatorbg',src:'images/avatar/avatarcreatorbg.jpg'},
 	{id:'menuhousing',src:'images/5-8/Ancient_Civilizations/Greece/menuhousing.png'},
 	{id:'micpanel',src:'images/audio/micpanel.png'},
-  
-  //added for coaches
-  {id:'albertsprites',src:'images/avatar/albertsprites.png'},
-  {id:'apron-mary',src:'images/avatar/apron-mary.png'},
-  {id:'avatar-acc',src:'images/avatar/avatar-acc.png'},
-  {id:'avatar-choose',src:'images/avatar/avatar-choose.png'},
-  {id:'avatar-clothes',src:'images/avatar/avatar-clothes.png'},
-  {id:'avatar-eye',src:'images/avatar/avatar-eye.png'},
-  {id:'avatar-fh',src:'images/avatar/avatar-fh.png'},
-  {id:'avatar-gadgets',src:'images/avatar/avatar-gadgets.png'},
-  {id:'avatar-head',src:'images/avatar/avatar-head.png'},
-  {id:'avatar-backbtn',src:'images/avatar/avatar-backbtn.png'},
-  {id:'bag-jane',src:'images/avatar/bag-jane.png'},
-  {id:'bag-janeopt',src:'images/avatar/bag-janeopt.png'},
-  {id:'beard',src:'images/avatar/beard.png'},
-  {id:'coachalbert',src:'images/avatar/coachalbert.png'},
-  {id:'coachjane',src:'images/avatar/coachjane.png'},
-  {id:'coachjoe',src:'images/avatar/coachjoe.png'},
-  {id:'coachmary',src:'images/avatar/coachmary.png'},
-  {id:'coachmay',src:'images/avatar/coachmay.png'},
-  {id:'coachrico',src:'images/avatar/coachrico.png'},
-  {id:'darksg',src:'images/avatar/darksg.png'},
-  {id:'gglass-jane',src:'images/avatar/gglass-jane.png'},
-  {id:'glasses-albert',src:'images/avatar/glasses-albert.png'},
-  {id:'glasses-joe',src:'images/avatar/glasses-joe.png'},
-  {id:'glasses-mary',src:'images/avatar/glasses-mary.png'},
-  {id:'glasses-may',src:'images/avatar/glasses-may.png'},
-  {id:'goatee',src:'images/avatar/goatee.png'},
-  {id:'hat',src:'images/avatar/hat.png'},
-  {id:'hat-joe',src:'images/avatar/hat-joe.png'},
-  {id:'headphone-jane',src:'images/avatar/headphone-jane.png'},
-  {id:'jacket',src:'images/avatar/jacket.png'},
-  {id:'jacket-chow',src:'images/avatar/jacket-show.png'},
-  {id:'janesprites',src:'images/avatar/janesprites.png'},
-  {id:'joesprites',src:'images/avatar/joesprites.png'},
-  {id:'marysprites',src:'images/avatar/marysprites.png'},
-  {id:'maysprites',src:'images/avatar/maysprites.png'},
-  {id:'mg-albert',src:'images/avatar/mg-albert.png'},
-  {id:'none',src:'images/avatar/none.png'},
-  {id:'ricosprites',src:'images/avatar/ricosprites.png'},
-  {id:'avatar-savebtn',src:'images/avatar/avatar-savebtn.png'},
-  {id:'shades-jane',src:'images/avatar/shades-jane.png'},
-  {id:'shades-joe',src:'images/avatar/shades-joe.png'},
-  {id:'shades-mary',src:'images/avatar/shades-mary.png'},
-  {id:'shades-may',src:'images/avatar/shades-may.png'},
-  {id:'tab-jane',src:'images/avatar/tab-jane.png'},
-  {id:'wapron-mary',src:'images/avatar/wapron-mary.png'},
-  {id:'yellowsg',src:'images/avatar/yellowsg.png'},
-  //added for coaches end
-  
-  //added for new toolbar and audio bar
-  {id:'credits',src:'images/5-8/Space/credits.png'},
-  {id:'ctrlpnl',src:'images/5-8/Space/ctrlpnl.png'},
-  {id:'fw',src:'images/5-8/Space/fw.png'},
-  {id:'info',src:'images/5-8/Space/info.png'},
-  {id:'map',src:'images/5-8/Space/map.png'},
-  {id:'menu',src:'images/5-8/Space/menu.png'},
-  {id:'mic',src:'images/5-8/Space/mic.png'},
-  {id:'mpoints',src:'images/5-8/Space/mpoints.png'},
-  {id:'play',src:'images/5-8/Space/play.png'},
-  {id:'rw',src:'images/5-8/Space/rw.png'},
-  
-  //added for new toolbar and audio bar end
 
-	//skins
-	/*{id : 'sclose', src : 'skins/default/close.png'},
-	{id : 's-loading', src : 'skins/default/loading.gif'},
-	{id : 'snext', src : 'skins/default/next.png'},
-	{id : 'spause', src : 'skins/default/pause.png'},
-	{id : 'splay', src : 'skins/default/play.png'},
-	{id : 'splayvideo_64', src : 'skins/default/playvideo_64.png'},
-	{id : 'sprev', src : 'skins/default/prev.png'},*/
 	//sprites
 	{id : 'ja1', src : 'sprites/ja1.png'},
 	{id : 'ja2', src : 'sprites/ja2.png'},
@@ -596,7 +525,7 @@ var cssBackgroundImages = [
 ];
 
 //add css images to preload array
-$.each( cssBackgroundImages, function() {
+/*$.each( FS.assets.cssBackgroundImages, function() {
    FS.assets.aGreece.push(this);
    FS.assets.space.push(this);
-});
+});*/

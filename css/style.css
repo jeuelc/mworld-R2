@@ -1,10 +1,10 @@
 /* i-C-a */
 
-body { background:#000000; font-size:17px;}
+body { background:#000000 !important; font-size:17px;}
 
 #kid {
   width:1024px;
-  height:720px !important;
+  height:740px !important;
   margin:auto;
   background:url('images/5-8/Home_Screen/final_world_background.png') no-repeat;
   overflow: hidden !important;
@@ -13,7 +13,7 @@ body { background:#000000; font-size:17px;}
 
 #kid2 {
   width:1024px;
-  height:720px !important;
+  /*height:740px !important;*/
   margin:auto;
   background:url('images/9-12/Home_Screen/homepage.jpg') no-repeat;
   /*overflow: hidden !important;*/
@@ -344,19 +344,19 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 
 #space {
   background:url('images/5-8/Space/spacebg.png') no-repeat;
-  height:748px;
+  /*height:748px;*/
   width:1024px !important;
 }
 
 #space2 {
   background:url('images/9-12/Space/spacebg.png') no-repeat;
-  height:748px;
+  /*height:748px;*/
   width:1024px !important;
 }
 
 #blackholes {
   background:url('images/5-8/Space/Black_Holes/bhnavbg.jpg') no-repeat;
-  height:748px !important;
+  /*height:748px !important;*/
   overflow:hidden !important;
   width:1024px !important;
 }
@@ -364,7 +364,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 #whatisbh, #supergiant, #supernova, #snexplosion, #formgold, #neutron, #blackhole,
 #nscollide, #lifeabh, #galaxies, #bhingalaxy, #quasars, #binaries, #bhgo {
   background:url('images/5-8/Space/Black_Holes/bhbg.jpg') no-repeat;
-  height:748px !important;
+  /*height:748px !important;*/
   overflow:hidden !important;
   width:1024px !important;
 }
@@ -915,59 +915,24 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 /***********slider button************/
 .menubtnholder {
   position:absolute;
-  top:660px;
-  left:0px;
+  top:630px;
+  left:-10px;
   z-index:21;
 }
 
-.menubtnbh {
-  background:url('images/5-8/Space/menu.png') no-repeat 0 -90px;
-  height:90px;
-  width:90px;
-}
-
-.homebtnbh {
-  background:url('images/5-8/Space/map.png') no-repeat 0 -74px;
-  height:74px;
-  width:80px;
-}
-
-.mpbtnbh {
-  background:url('images/5-8/Space/mpoints.png') no-repeat 0 -84px;
-  height:79px;
-  width:80px;
-}
-
-.cpbtnbh {
-  background:url('images/5-8/Space/ctrlpnl.png') no-repeat 0 -74px;
-  height:74px;
-  width:74px;
-}
-
-.infobtnbh {
-  background:url('images/5-8/Space/info.png') no-repeat 0 -74px;
-  height:74px;
-  width:74px;
-}
-
-.credsbtnbh {
-  background:url('images/5-8/Space/credits.png') no-repeat 0 -74px;
-  height:74px;
-  width:74px;
-}
-
-.homebtnholder, .cpbtnholder, .buildbtnholder, .mpbtnholder, .credsbtnholder, .infobtnholder {
+.homebtnholder, .cpbtnholder, .buildbtnholder, .mpbtnholder {
   position:absolute;
-  top:670px;
+  top:630px;
   left:-93px;
   z-index:20;
 }
 
 .menuhousing {
-  /*background:url('images/5-8/Ancient_Civilizations/Greece/menuhousing.png');*/
+  background:url('images/5-8/Ancient_Civilizations/Greece/menuhousing.png');
   width:660px;
   height:145px;
   position:absolute;
+  /*top:267px;*/
   top:603px;
   left:-660px;
   z-index:19;
@@ -1089,7 +1054,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   height:82px;
   position:absolute;
   left:398px;
-  top:684px;
+  top:671px;
   text-align:center;
 }
 
@@ -1178,47 +1143,16 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   left:827px;
   width:169px;
   height:137px;
-  /*background:url("images/audio/micpanel.png") no-repeat 0 0;*/
+  background:url("images/audio/micpanel.png") no-repeat 0 0;
   padding-left:28px;
 }
 
 .plbh, .psbh, .bbh, .fbh {
-  position:absolute;
-  top:670px;
-  left:1024px;
-  z-index:20;
-} 
-
-.micbtnholder {
-  position:absolute;
-  top:664px;
-  left:942px;
-  width:81px;
-  height:81px;
-}
-
-.micbtnbh {
-  background:url('images/5-8/Space/mic.png') no-repeat 0 -81px;
-  height:81px;
-  width:81px;
-}
-
-.rwbh {
-  background:url('images/5-8/Space/rw.png') no-repeat 0 -73px;
-  height:73px;
-  width:73px;
-}
-
-.plpsbh {
-  background:url('images/5-8/Space/play.png') no-repeat 0 -73px;
-  height:73px;
-  width:73px;
-}
-
-.fwbh {
-  background:url('images/5-8/Space/fw.png') no-repeat 0 -73px;
-  height:73px;
-  width:73px;
+  width:29px;
+  height:29px;
+  float:left;
+  margin-top:93px;
+  margin-left:3px;
 }
 /************* /new rules ***********/
 
@@ -1246,27 +1180,16 @@ ul.slides {
 }
 /************* /mzone-space*********/
 
-/********* invisible world **********/
-#game-iw1 {
-  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/game1bg.jpg') no-repeat 0 0;
-  width:1024px;
-  height:748px;
-  overflow:hidden;
+[data-role="page"], [data-role="content"] {
+    height: 100% !important;
+    padding:0 !important;
 }
 
-#overlay {
-  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/overlay.png');
-}
+/* loading page */
+.loading-status {
+  width:400px;margin:0 auto;text-align:center;
+} 
 
-.quarks {
-  width:266px;
-  height:74px;
-  position:absolute;
+.loading-page-loader {
+  width:60px;margin:0 auto;
 }
-
-#topquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tq.png') no-repeat 0 0; }
-#upquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/uq.png') no-repeat 0 0; }
-#downquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/dq.png') no-repeat 0 0; }
-#strangequark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/sq.png') no-repeat 0 0; }
-#charmquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/cq.png') no-repeat 0 0; }
-/********* invisible world -end ******/

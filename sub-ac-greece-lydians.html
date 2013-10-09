@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div data-role="page" id="lydians">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
  <script src="js/hammer.js"></script>
   <script src="js/jquery.hammer.js"></script>
   <script src="js/slidebar.js"></script>
@@ -59,11 +60,11 @@
     sound = new Audio(); // 'sound' is now an audio object
     sound2 = new Audio(); // 'sound' is now an audio object
     sound3 = new Audio(); // 'sound' is now an audio object
-    
+    mworldPageVisit(app.kidid, 'The-Lydians');
     (function() {
       
         if(sound.canPlayType('audio/mpeg')) {
-          $('#actualaudio-lydians').html('<audio id="lydiansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page20.mp3" type="audio/mpeg"></audio>');
+          $('#actualaudio-lydians').html('<audio id="lydiansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page20.mp3" type="audio/mpeg"></audio>');
         } 
     
     $("#lydians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
@@ -71,7 +72,7 @@
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
     })();
     
     (function() {
@@ -109,7 +110,7 @@
          });
     })();
     function goBack() {
-      $.mobile.changePage("sub-ac-greece-aroundag.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece-aroundag.html");
     }
     
     
@@ -140,6 +141,7 @@
   	/* ******************** */
     $("#lydiansaudioplbtn").on('tap', function() {
       lydiansaudio.play();
+      mworldPlayAudio(app.kidid, 'lydiansaudio');
       agsoundbg.pause(); agsoundbg.currentTime = 0; 
       $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });

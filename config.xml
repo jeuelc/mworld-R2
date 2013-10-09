@@ -6,7 +6,7 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.16">
+        version   = "0.0.17">
 
 
 
@@ -15,7 +15,7 @@
 
 
     <description>
-      slide back to previous page
+      a copy of mworld88 repository
     </description>
 
 

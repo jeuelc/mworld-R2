@@ -11,27 +11,30 @@
   </div><!--end of content-->
   <script>
     $(function() {
+      mworldPageVisit(app.kidid, 'Loading-page');
       $("#spaceLoading").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       if(sessionStorage.assetsName != undefined && sessionStorage.nextPage != undefined) {
-        var assetsArr, runStatus;
+        var assetsArr, runStatus, firstRunVar = [];
         switch(sessionStorage.assetsName) {
           case 'bh' :
             assetsArr = FS.assets.space;
             if(assetsArr.length > 0 ) {
-              app.firstRun.space.bh = false;
+              firstRunVar = ['space','bh'];
+              //app.firstRun.space.bh = false;
             }
             break;
           case 'greece' :
             assetsArr = FS.assets.aGreece;
             if(assetsArr.length > 0 ) {
-              app.firstRun.ancient.greece = false;
+              //app.firstRun.ancient.greece = false;
+              firstRunVar = ['ancient','greece'];
             }
             break;
           default:
             assetsArr = [];
         }
         if(assetsArr.length > 0 ) {
-          loadAppFiles(assetsArr, $('#dwfiles'), sessionStorage.nextPage, true);
+          loadAppFiles(assetsArr, $('#dwfiles'), sessionStorage.nextPage, true, firstRunVar);
         }
         else
           $.mobile.changePage(sessionStorage.nextPage);

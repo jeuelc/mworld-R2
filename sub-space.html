@@ -20,14 +20,15 @@
       <div id="pre-bh" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;">
         <div class="previdcontainer">
           <video id="bhvideo" width="1024" height="722" preload>
-            <source src="video/blackhole_3-SD_for_Apple_Devices.m4v" type="video/mp4">
+            <source src="http://mworld88assetstest.s3.amazonaws.com/video/blackhole_3-SD_for_Apple_Devices.m4v" type="video/mp4">
          </video>
        </div>
       </div> <!--/pre-bh -->
   </div><!--end of content-->
   <script>
     $(function() {
-      changeVideoSrc();
+      mworldPageVisit(app.kidid, 'Space');
+      //changeVideoSrc();
       // changeImageSrc();
       // findElementsWithBgImage();
       $("#space").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
@@ -64,6 +65,7 @@
         $.mobile.changePage(spacepage);
       }
       else {
+        mworldViewMedia(app.kidid, 'bhvideo');
         $("#pre-bh").css({"visibility":"visible", "z-index":2});
         bhvideo.play();        
       }
@@ -82,6 +84,7 @@
       if(data.prevPage.attr('id') == 'spaceLoading'){
         if(!app.firstRun.space.bh){
           $("#pre-bh").css({"visibility":"visible", "z-index":2});
+          mworldViewMedia(app.kidid, 'bhvideo');
           bhvideo.play();
         }
       }

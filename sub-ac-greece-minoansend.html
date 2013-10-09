@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="minoansend" data-role="page">
+    <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
     <script src="js/hammer.js"></script>
     <script src="js/jquery.hammer.js"></script>
     <script src="js/slidebar.js"></script>
@@ -61,6 +62,7 @@
     </div>
     <script>
         sound = new Audio(); // 'sound' is now an audio object
+        mworldPageVisit(app.kidid, 'The-End-of-the-Minoans');
         (function() {
             $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
             $('div#polb1').css("z-index", 1);
@@ -71,7 +73,7 @@
             //$('#node-body-minoans').html(data[0].Body);
             
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-minoansend').html('<audio id="minoansendaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page8b.mp3" type="audio/mpeg"></audio>');
+                $('#actualaudio-minoansend').html('<audio id="minoansendaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page8b.mp3" type="audio/mpeg"></audio>');
             } 
          
     
@@ -80,10 +82,10 @@
           //change images path
           changeImageSrc();
           findElementsWithBgImage();
-          changeAudioSrc();
+          //changeAudioSrc();
         })();
         function goBack() {
-            $.mobile.changePage("sub-ac-greece-minoans.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-ac-greece-minoans.html");
         }
     
         $('#start-minoansend').on('click', function() {
@@ -122,6 +124,7 @@
         /* ******************** */
         $("#minoansendaudioplbtn").on('tap', function() {
             minoansendaudio.play();
+            mworldPlayAudio(app.kidid, 'minoansendaudio');
             agsoundbg.pause(); agsoundbg.currentTime = 0; 
             $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
         });

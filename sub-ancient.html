@@ -20,7 +20,7 @@
     <div id="pre-ag" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;">
       <div class="previdcontainer">
         <video id="agvideo" width="1024" height="722" preload>
-          <source src="video/Ancient_Greece.m4v" type="video/mp4">
+          <source src="http://mworld88assetstest.s3.amazonaws.com/video/Ancient_Greece.m4v" type="video/mp4">
        </video>
      </div>
      <!--<div style="float:right;margin-top:5px;margin-right:10px;z-index:999;"><a href="#" id="proceedtoag"><img src="css/images/5-8/Space/Black_Holes/skipvidbtn.png"></a></div>-->
@@ -28,14 +28,15 @@
   </div> <!-- end content -->  
     <script>
 				$(function() {
+          mworldPageVisit(app.kidid, 'Ancient-Civilisation');
           //agvideo = document.getElementById("agvideo");
 					$("#ancient").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
           agvideo.addEventListener('ended', function() { 
             //agvideo.webkitExitFullscreen();
             agsoundbg.play(); 
-            $.mobile.changePage("sub-ac-greece.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-ac-greece.html");  
           });
-          changeVideoSrc();
+          //changeVideoSrc();
 				});
         
     function goBack() {
@@ -62,6 +63,7 @@
         $.mobile.changePage('spaceloading.html');
       }
       else {
+        mworldViewMedia(app.kidid, 'agvideo');
         $("#pre-ag").css({"visibility":"visible"});
         agvideo.play();
       }
@@ -78,6 +80,7 @@
     $('#ancient').live('pagebeforeshow', function(evt, data){
       if(data.prevPage.attr('id') == 'spaceLoading'){
         if(!app.firstRun.ancient.greece){
+          mworldViewMedia(app.kidid, 'agvideo');
           $("#pre-ag").css({"visibility":"visible"});
           agvideo.play();
         }

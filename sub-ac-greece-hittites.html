@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="hittites" data-role="page">
+    <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
     <script src="js/hammer.js"></script>
     <script src="js/jquery.hammer.js"></script>
     <script src="js/slidebar.js"></script>
@@ -63,6 +64,7 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
+        mworldPageVisit(app.kidid, 'The-Hittites');
         (function() {
             $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
             $('div#pol1').css("z-index", 2);
@@ -76,7 +78,7 @@
             //$('#node-body-hittites').html(data[0].Body);
             
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-hittites').html('<audio id="hittitesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page3.mp3" type="audio/mpeg"></audio>');
+                $('#actualaudio-hittites').html('<audio id="hittitesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page3.mp3" type="audio/mpeg"></audio>');
             } 
          
     
@@ -85,7 +87,7 @@
           //change images path
           changeImageSrc();
           findElementsWithBgImage();
-          changeAudioSrc();
+          //changeAudioSrc();
         })();
     
         (function() {
@@ -125,7 +127,7 @@
       })(); */
     
         function goBack() {
-            $.mobile.changePage("sub-ac-greece-origins.html", {transition: "slide", reverse: true });
+            $.mobile.changePage("sub-ac-greece-origins.html");
         }
     
         $('#startpop').on('click', function() {
@@ -163,6 +165,7 @@
         /* ******************** */
         $("#hittitesaudioplbtn").on('tap', function() {
             hittitesaudio.play();
+            mworldPlayAudio(app.kidid, 'hittitesaudio');
             agsoundbg.pause(); agsoundbg.currentTime = 0; 
             $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
         });

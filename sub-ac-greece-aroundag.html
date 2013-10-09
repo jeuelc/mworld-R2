@@ -1,5 +1,6 @@
 <!-- i-C-a -->
 <div id="aroundag" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebar.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
@@ -31,7 +32,7 @@
     </div> <!--end of content-->
   </div></div><!--/anisold-->
   <script>
-    
+    mworldPageVisit(app.kidid, 'The-world-around-ancient-Greece');
     $(function() {
       $("#aroundag").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       $("node-content-kinghatpray").swipe("disabled");
@@ -40,7 +41,7 @@
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
-      changeAudioSrc();
+      //changeAudioSrc();
     });
     
     function lighterJar() {
@@ -50,7 +51,7 @@
     }
     
     function goBack() {
-      $.mobile.changePage("sub-ac-greece.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-ac-greece.html");
     }
     $('.homelinkag').on('tap', function() { 
       mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
