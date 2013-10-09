@@ -6,13 +6,13 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.18">
+        version   = "0.0.19">
     <name>Mworld-R2</name>
 
 
 
     <description>
-      slide back to previous page
+      fix menu and audio buttons
     </description>
 
 
