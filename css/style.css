@@ -915,20 +915,56 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 /***********slider button************/
 .menubtnholder {
   position:absolute;
-  top:630px;
-  left:-10px;
+  top:660px;
+  left:0px;
   z-index:21;
 }
 
-.homebtnholder, .cpbtnholder, .buildbtnholder, .mpbtnholder {
+.menubtnbh {
+  background:url('images/5-8/Space/menu.png') no-repeat 0 -90px;
+  height:90px;
+  width:90px;
+}
+
+.homebtnbh {
+  background:url('images/5-8/Space/map.png') no-repeat 0 -74px;
+  height:74px;
+  width:80px;
+}
+
+.mpbtnbh {
+  background:url('images/5-8/Space/mpoints.png') no-repeat 0 -84px;
+  height:79px;
+  width:80px;
+}
+
+.cpbtnbh {
+  background:url('images/5-8/Space/ctrlpnl.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.infobtnbh {
+  background:url('images/5-8/Space/info.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.credsbtnbh {
+  background:url('images/5-8/Space/credits.png') no-repeat 0 -74px;
+  height:74px;
+  width:74px;
+}
+
+.homebtnholder, .cpbtnholder, .buildbtnholder, .mpbtnholder, .credsbtnholder, .infobtnholder {
   position:absolute;
-  top:630px;
+  top:670px;
   left:-93px;
   z-index:20;
 }
 
 .menuhousing {
-  background:url('images/5-8/Ancient_Civilizations/Greece/menuhousing.png');
+  /*background:url('images/5-8/Ancient_Civilizations/Greece/menuhousing.png');*/
   width:660px;
   height:145px;
   position:absolute;
@@ -1143,16 +1179,47 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   left:827px;
   width:169px;
   height:137px;
-  background:url("images/audio/micpanel.png") no-repeat 0 0;
+  /*background:url("images/audio/micpanel.png") no-repeat 0 0;*/
   padding-left:28px;
 }
 
 .plbh, .psbh, .bbh, .fbh {
-  width:29px;
-  height:29px;
-  float:left;
-  margin-top:93px;
-  margin-left:3px;
+  position:absolute;
+  top:670px;
+  left:1024px;
+  z-index:20;
+} 
+
+.micbtnholder {
+  position:absolute;
+  top:664px;
+  left:942px;
+  width:81px;
+  height:81px;
+}
+
+.micbtnbh {
+  background:url('images/5-8/Space/mic.png') no-repeat 0 -81px;
+  height:81px;
+  width:81px;
+}
+
+.rwbh {
+  background:url('images/5-8/Space/rw.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.plpsbh {
+  background:url('images/5-8/Space/play.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
+}
+
+.fwbh {
+  background:url('images/5-8/Space/fw.png') no-repeat 0 -73px;
+  height:73px;
+  width:73px;
 }
 /************* /new rules ***********/
 

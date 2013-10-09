@@ -3,11 +3,12 @@
   <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
-  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
-  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
-  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
-  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
-  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
     <script src="js/hammer.js"></script>
     <script src="js/jquery.hammer.js"></script>
     <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div><!--/bonus-ags-->
@@ -47,18 +48,18 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-     <div class="audiopanel">
-       <div class="bbh"><img id="lifeabhaudiobbtn" src="images/audio/audio-back.png"></div>
-       <div class="plbh"><img id="lifeabhaudioplbtn" src="images/audio/audio-play.png"></div>
-       <div class="psbh"><img id="lifeabhaudiopsbtn" src="images/audio/audio-pause.png"></div>
-       <div class="fbh"><img id="lifeabhaudiofbtn" src="images/audio/audio-forw.png"></div>
-       <div id="actualaudio-lifeabh" style="visibility:hidden;"></div>
-     </div>
+     <div class="micbtnholder"><div class="micbtnbh"></div></div>
+    <div class="bbh"><div class="rwbh" id="lifeabhaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="lifeabhaudioplbtn"></div></div>
+    <div class="fbh"><div class="fwbh" id="lifeabhaudiofbtn" ></div></div>
+    <div id="actualaudio-lifeabh" style="visibility:hidden;"></div>
     
     <script>
+        var playing;
         sound = new Audio();
         soundpop = new Audio();
         (function() {
+            playing = false;
             mworldPageVisit(app.kidid, 'Universe-Around-A-Black-Hole');
             $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
             $('div#pol1').css("z-index", 2);
@@ -110,9 +111,16 @@
 
 /* ******************** */
     $("#lifeabhaudioplbtn").on('tap', function() {
-      lifeabhaudio.play();
-      mworldPlayAudio(app.kidid, 'lifeabhaudio');
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      if(!playing) {
+        lifeabhaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'lifeabhaudio');
+        playing = true;
+      } else {
+        lifeabhaudio.pause();
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
     });
     
     $("#lifeabhaudiofbtn").on('tap', function() {
