@@ -54,7 +54,7 @@ function mworldPageVisit(kidid, pageid) {
       //alert("This is coach action: "+coachaction);
       switch (coachaction) {
         case "1":
-          //alert("The coach says 'Hi'");
+          alert("The coach says 'Hi'");
           setTimeout(function() {
               $('.coachcontainer').animate({'left':'750px'}, 1500);
               navigator.notification.alert('the coach says hi', function(){}, 'Coach', 'ok');
@@ -65,8 +65,10 @@ function mworldPageVisit(kidid, pageid) {
           break;
         case "2":
           $('.coachcontainer').css({'top':'300px'});
+          alert("The coach says 'try this game'");
           setTimeout(function() {
               $('.coachcontainer').animate({'left':'200px'}, 800);
+              navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
             }, 2000);
           $('.coachcontainer').on('tap', function() {
             $.mobile.changePage("game-bh1.html", {transition: "flip"});
