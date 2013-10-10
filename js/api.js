@@ -57,6 +57,7 @@ function mworldPageVisit(kidid, pageid) {
           //alert("The coach says 'Hi'");
           setTimeout(function() {
               $('.coachcontainer').animate({'left':'750px'}, 1500);
+              navigator.notification.alert('the coach says hi', function(){}, 'Coach', 'ok');
             }, 2000);
           $('.coachcontainer').on('tap', function() {
             $('.coachcontainer').animate({'left':'-225px'}, 1500);
