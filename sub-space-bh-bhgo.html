@@ -43,7 +43,7 @@
         var playing;
         (function() {
           playing = false;
-          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
+          
           if(sound.canPlayType('audio/mpeg')) {
               $('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page22_0.mp3" type="audio/mpeg"></audio>');
           } 
@@ -56,6 +56,7 @@
           changeImageSrc();
           findElementsWithBgImage();
           //changeAudioSrc();
+          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
         })();
 
         $('.homelinkbh').on('tap', function() { 
