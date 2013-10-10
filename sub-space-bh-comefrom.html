@@ -54,7 +54,10 @@
     $("#nsl").on('tap', function() { $.mobile.changePage("sub-space-bh-neutron.html", {transition:"slide"}); });
     $("#bhl").on('tap', function() { $.mobile.changePage("sub-space-bh-blackhole.html", {transition:"slide"}); });
     
-   $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+   $('.homelinkbh').on('tap', function() { 
+    buttonEffectsBH();
+    mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+  });
    function goBack() {
       $.mobile.changePage("sub-space-bh.html", {transition: "slide", reverse: true });
     }

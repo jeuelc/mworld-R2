@@ -59,7 +59,10 @@
     })();
 
 
-    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+    });
     $('#start-gravity').on('click', function() {
     	$('#actualaudio-gravity').show();
       var oldHeight = $('#node-body-holder').height();

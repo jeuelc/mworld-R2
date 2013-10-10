@@ -87,7 +87,10 @@
     $('#html5-lightbox-overlay').on('tap', function() { bgsoundbh.play(); });
     $('#html5-close').on('tap', function() { bgsoundbh.play(); });
     
-    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+    });
     
     $('#start2').on('click', function() {
     	$('#actualaudio2').show();

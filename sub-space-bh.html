@@ -63,7 +63,10 @@
     })();
     
 
-    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+    });
     
     function goBack() {
       $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
@@ -108,6 +111,22 @@
     $("#bhaudiopsbtn").on('tap', function() {
       bhaudio.pause();
       $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+    
+    $('.navbtn2').on('tap', function() { 
+      nav2Effects(); 
+    });
+    
+    $('.navbtn3').on('tap', function() { 
+      nav3Effects(); 
+    });
+    
+    $('.navbtn4').on('tap', function() { 
+      nav4Effects(); 
     });
   </script>
 </div> <!--//home-->

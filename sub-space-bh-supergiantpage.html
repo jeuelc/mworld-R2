@@ -40,7 +40,10 @@
     function goBack() { $.mobile.changePage("sub-space-bh-supergiant.html", {transition: "slide", reverse: true }); }
     function pausedaudio() { bgsoundbh.play(); }
     function pausebg() { bgsoundbh.pause(); }
-    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+    });
     $("#startnarrate").on('tap', function() {
       //$("#supergiantnarholder").css({"visibility":"visible"});
       supergiantnar.play();

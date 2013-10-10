@@ -38,7 +38,10 @@
     changeImageSrc();
     findElementsWithBgImage();
     
-    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    $('.homelinkbh').on('tap', function() { 
+      buttonEffectsBH();
+      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
+    });
     
     function goBack() {
       $.mobile.changePage("sub-space-bh-blackhole.html", {transition: "slide", reverse: true });
