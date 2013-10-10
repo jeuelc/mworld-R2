@@ -88,6 +88,10 @@
         var username = $('#username').val();
         var password = $('#password').val();
         if(username != '' && password != '') {
+          if(!checkConnection()){
+            navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
+              return false;
+          }
           window.localStorage.setItem("kidid", mworldLogin(username, password));
           
           if(parseInt(window.localStorage.getItem("kidid")) > 0) {

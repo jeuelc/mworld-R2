@@ -29,35 +29,46 @@
         
         var subjectId = $(this).attr("id");
         if(subjectId == "naturalworldlink2") {
-              naturalsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                naturalsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0; },500);
               $.mobile.changePage( "sub-naturalworld.html", { transition: "flip" });
         } else if(subjectId == "spacelink2") {
           //navigator.notification.alert('clicked');
-              spacesoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                spacesoundbg.play();mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              },500);
               $.mobile.changePage("sub-space.html", { transition: "flip" });
         } else if(subjectId == "langcultlink2") {
-              langcultsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                langcultsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0; },500);
               $.mobile.changePage( "sub-languageculture.html", { transition: "flip" });
         } else if(subjectId == "animalslink2") {
-              animalsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                animalsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;  },500);
               $.mobile.changePage( "sub-animals.html", { transition: "flip" });
         } else if(subjectId == "peopleplaceslink2") {
-              peopleplacessoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                peopleplacessoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0; },500);
               $.mobile.changePage( "sub-peopleplaces.html", { transition: "flip" });
         } else if(subjectId == "wondersciencelink2") {
-              sciencesoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                sciencesoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;  },500);
               $.mobile.changePage( "sub-wonderscience.html", { transition: "flip" });
         } else if(subjectId == "humanbodylink2") {
-              humanbodysoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                humanbodysoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;  },500);
               $.mobile.changePage( "sub-humanbody.html", { transition: "flip" });
         } else if(subjectId == "modernworldlink2") {
-              modernsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                modernsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;   },500);
               $.mobile.changePage( "sub-modernworld.html", { transition: "flip" });
         } else if(subjectId == "ancientlink2") {
-              ancientsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                ancientsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;  },500);
               $.mobile.changePage( "sub-ancient.html", { transition: "flip" });
         } else if(subjectId == "artmusiclink2") {
-              artmusicsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0;
+              setTimeout(function(){
+                artmusicsoundbg.play(); mainaudiobg.pause(); mainaudiobg.currentTime = 0; },500);
               $.mobile.changePage( "sub-artmusic.html", { transition: "flip" });
         } 
       });

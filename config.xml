@@ -6,17 +6,11 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.20">
+        version   = "0.0.21">
     <name>Mworld-R2</name>
-
-
-
     <description>
-      changed the assets path
+      internet connection check in login; click on any chapter before music load issue fixed; action cards resizing on click.
     </description>
-
-
-
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 
         Jeuel Condahan

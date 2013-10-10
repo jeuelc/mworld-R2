@@ -239,3 +239,13 @@ $(function(){
           });
       }
   }
+  
+  // added to enlarge button on click
+$('.pPiece').on('tap', function() {
+  var pPiece_id = $(this).attr('id');
+  $('div#'+pPiece_id+' > img').css("-webkit-transform", "scale(1.1, 1.1)");
+  setTimeout(function() {
+      $('div#'+pPiece_id+' > img').css("-webkit-transform", "scale(1, 1)");
+    }, 300);
+});
+// added to enlarge button on click end
