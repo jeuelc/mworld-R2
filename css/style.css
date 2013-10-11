@@ -12,8 +12,9 @@ body { background:#000000 !important; font-size:17px;}
 }
 
 #kid2 {
-  width:1024px;
-  /*height:740px !important;*/
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden;
   margin:auto;
   background:url('images/9-12/Home_Screen/homepage.jpg') no-repeat;
   /*overflow: hidden !important;*/
@@ -129,6 +130,12 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   height:748px !important;
   width:1024px !important;
   overflow:hidden !important;
+}
+
+#spaceLoading {
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;  
 }
 
 #ancientgreece, #originsofgreece, #hittites, #kinghatpray, #mycenaeans, #minoans, #lifeinag,  
@@ -344,8 +351,9 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 
 #space {
   background:url('images/5-8/Space/spacebg.png') no-repeat;
-  /*height:748px;*/
+  height:748px !important;
   width:1024px !important;
+  overflow:hidden;
 }
 
 #space2 {

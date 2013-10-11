@@ -26,13 +26,16 @@
       </div> <!--/pre-bh -->
   </div><!--end of content-->
   <script>
+    var videoStatus, videoEvent;
     $(function() {
       mworldPageVisit(app.kidid, 'Space');
       //changeVideoSrc();
       // changeImageSrc();
       // findElementsWithBgImage();
       $("#space").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-      
+      bhvideo.addEventListener('playing', function(){
+        videoStatus = true;
+      });
       bhvideo.addEventListener('ended', function() { 
             //agvideo.webkitExitFullscreen();
             bgsoundbh.play(); 
@@ -41,9 +44,21 @@
     });
         
     function goBack() {
-      $.mobile.changePage("home.html");
-      mainaudiobg.play();
-      spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+      if(videoStatus != undefined){
+        videoEvent = true;
+        videoStatus = undefined;
+        bhvideo.pause();
+        bhvideo.currentTime = 0;
+        spacesoundbg.play();
+        $("#pre-bh").css({"visibility":"hidden", "z-index":0});
+        
+        //$.mobile.changePage("sub-space.html");
+      }
+      else {
+        $.mobile.changePage("home.html");
+        mainaudiobg.play();
+        spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+      }
     }
     
     $('.homelinkspace').on('tap', function() { 
@@ -72,7 +87,9 @@
       //agvideo.webkitEnterFullscreen();
     });
     
-    $("#bhvideo").on('tap', function() {
+    $("#bhvideo").on('tap', function() {      
+      if(videoEvent != undefined){ videoEvent = undefined; return; }
+      videoStatus = undefined;
       bhvideo.pause();
       bhvideo.currentTime = 0;
       bgsoundbh.play();

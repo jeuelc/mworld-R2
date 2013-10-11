@@ -27,26 +27,44 @@
     </div> <!--/pre-ac -->
   </div> <!-- end content -->  
     <script>
-				$(function() {
-          mworldPageVisit(app.kidid, 'Ancient-Civilisation');
-          //agvideo = document.getElementById("agvideo");
-					$("#ancient").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-          agvideo.addEventListener('ended', function() { 
-            //agvideo.webkitExitFullscreen();
-            agsoundbg.play(); 
-            $.mobile.changePage("sub-ac-greece.html");  
-          });
-          //changeVideoSrc();
-				});
+      var avideoStatus, avideoEvent;
+			$(function() {
+        mworldPageVisit(app.kidid, 'Ancient-Civilisation');
+        //agvideo = document.getElementById("agvideo");
+				$("#ancient").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+        agvideo.addEventListener('playing', function(){
+          avideoStatus = true;
+        });
+        agvideo.addEventListener('ended', function() { 
+          //agvideo.webkitExitFullscreen();
+          agsoundbg.play(); 
+          $.mobile.changePage("sub-ac-greece.html");  
+        });
+        //changeVideoSrc();
+			});
         
     function goBack() {
-      $.mobile.changePage("home.html");
-      ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
-      mainaudiobg.play();
+      if(avideoStatus != undefined){
+        avideoEvent = true;
+        avideoStatus = undefined;
+        agvideo.pause();
+        agvideo.currentTime = 0;
+        ancientsoundbg.play();
+        $("#pre-ag").css({"visibility":"hidden", "z-index":0});
+        
+        //$.mobile.changePage("sub-space.html");
+      }
+      else {
+        $.mobile.changePage("home.html");
+        ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
+        mainaudiobg.play();
+      }
     }
     
     $("#agvideo").on('tap', function() {
       //agvideo.webkitExitFullscreen();
+      if(avideoEvent != undefined){ avideoEvent = undefined; return; }
+      avideoStatus = undefined;
       agsoundbg.play();
       $.mobile.changePage("sub-ac-greece.html");
     });

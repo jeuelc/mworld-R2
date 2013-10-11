@@ -6,10 +6,10 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.24">
+        version   = "0.0.25">
     <name>Mworld-R2</name>
     <description>
-      coach coming in fix 5
+      beta test with corrections
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 
