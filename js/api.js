@@ -68,7 +68,7 @@ function mworldPageVisit(kidid, pageid) {
             setTimeout(function() {
                 $('#bhgo > .coachcontainer').animate({'left':'200px'}, 800);
                 navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
-              }, 2000);
+              }, 1);
           
           $('.coachcontainer').on('tap', function() {
             $.mobile.changePage("game-bh1.html", {transition: "flip"});
