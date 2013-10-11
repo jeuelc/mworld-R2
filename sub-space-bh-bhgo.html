@@ -56,9 +56,11 @@
           changeImageSrc();
           findElementsWithBgImage();
           //changeAudioSrc();
-          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
         })();
 
+        $("#bhgo").on( "pageshow", function( event, ui ) {
+          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
+        });
         $('.homelinkbh').on('tap', function() { 
           buttonEffectsBH();
           mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;

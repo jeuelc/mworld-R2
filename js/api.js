@@ -64,11 +64,11 @@ function mworldPageVisit(kidid, pageid) {
           break;
         case "2":
           
-            $('#bhgo > .coachcontainer').css({'top':'300px'});
+            $('.coachcontainer').css({'top':'300px'});
             setTimeout(function() {
-                $('#bhgo > .coachcontainer').animate({'left':'200px'}, 800);
+                $('.coachcontainer').animate({'left':'200px'}, 800);
                 navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
-              }, 1);
+              }, 2000);
           
           $('.coachcontainer').on('tap', function() {
             $.mobile.changePage("game-bh1.html", {transition: "flip"});
