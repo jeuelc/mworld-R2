@@ -66,7 +66,7 @@ function mworldPageVisit(kidid, pageid) {
           
             $('#bhgo > .coachcontainer').css({'top':'300px'});
             setTimeout(function() {
-                $('.coachcontainer').animate({'left':'200px'}, 800);
+                $('#bhgo > .coachcontainer').animate({'left':'200px'}, 800);
                 navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
               }, 2000);
           
