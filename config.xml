@@ -6,10 +6,10 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.25">
+        version   = "0.0.26">
     <name>Mworld-R2</name>
     <description>
-      explicit 3
+      new background for space
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 
