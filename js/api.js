@@ -63,11 +63,13 @@ function mworldPageVisit(kidid, pageid) {
           });
           break;
         case "2":
-          $('.coachcontainer').css({'top':'300px'});
-          setTimeout(function() {
-              $('.coachcontainer').animate({'left':'200px'}, 800);
-              navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
-            }, 2000);
+          $("#bhgo").on('pageshow', function() {
+            $('.coachcontainer').css({'top':'300px'});
+            setTimeout(function() {
+                $('.coachcontainer').animate({'left':'200px'}, 800);
+                navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
+              }, 2000);
+          });
           $('.coachcontainer').on('tap', function() {
             $.mobile.changePage("game-bh1.html", {transition: "flip"});
           });
