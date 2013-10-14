@@ -85,10 +85,12 @@ $('.micbtnbh').on('tap', function() {
     $('.bbh').css({'opacity':1});
     $('.plbh').css({'opacity':1});
     $('.fbh').css({'opacity':1});
-    $('.bbh').animate({'left':'808px'}, 1000, "easeInOutBack");
-    $('.fbh').animate({'left':'876px'}, 1100, "easeInOutBack");
+    $('.bbh').animate({'left':'742px'}, 1000, "easeInOutBack");
+    $('.plbh').animate({'left':'808px'}, 1100, "easeInOutBack");
+    $('.fbh').animate({'left':'876px'}, 1200, "easeInOutBack");
   } else {
-    $('.bbh').animate({'left':'907px','opacity':0}, 500, "easeInBack", function() { $('.bbh').css({'left':'1024px'}); });
+    $('.bbh').animate({'left':'842px','opacity':0}, 500, "easeInBack", function() { $('.bbh').css({'left':'1024px'}); });
+    $('.plbh').animate({'left':'908px','opacity':0}, 500, "easeInBack", function() { $('.plbh').css({'left':'1024px'}); });
     $('.fbh').animate({'left':'976px','opacity':0}, 500, "easeInBack", function() { $('.fbh').css({'left':'1024px'}); });
   }
 });
