@@ -6,10 +6,10 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.27">
+        version   = "0.0.28">
     <name>Mworld-R2</name>
     <description>
-      Rajiv's fix; audio button; z-index of videos; (updated 2)
+      on ready
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 
