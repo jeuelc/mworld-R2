@@ -39,8 +39,9 @@
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
     </div><!--end of content-->
   </div><!--/spacechar-->
-  <div class="micbtnholder"><div class="micbtnbh" id="supernovaaudioplbtn"></div></div>
+  <div class="micbtnholder"><div class="micbtnbh" id="playstopsupernova"></div></div>
   <div class="bbh"><div class="rwbh" id="supernovaaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="supernovaaudioplbtn"></div></div>
   <div class="fbh"><div class="fwbh" id="supernovaaudiofbtn" ></div></div>
   <div id="actualaudio-supernova" style="visibility:hidden;"></div>
   <div id="supernovaesoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
@@ -130,11 +131,24 @@
     $("#pol1").on('tap', function() {
       mworldViewMedia(app.kidid, 'supernovaeso');
       $("#supernovaesoholder").css({"visibility":"visible", "z-index":10});
-      $("#supernovaeso").css({"z-index":9});
+      $("#supernovaeso").css({"z-index":999});
       bgsoundbh.pause();
       supernovaeso.play();
     });
     /* ******************** */
+    $("#playstopsupernova").on('tap', function() {
+      if(!playing) {
+        supernovaaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'supernovaaudio');
+        playing = true;
+      } else {
+        supernovaaudio.pause(); supernovaaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#supernovaaudioplbtn").on('tap', function() {
       if(!playing) {
         supernovaaudio.play();

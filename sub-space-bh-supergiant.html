@@ -60,8 +60,9 @@
     </div><!--end of content-->
   </div><!--/spacechar-->
   
-  <div class="micbtnholder"><div class="micbtnbh" id="supergiantaudioplbtn"></div></div>
+  <div class="micbtnholder"><div class="micbtnbh" id="playstopsupergiant"></div></div>
   <div class="bbh"><div class="rwbh" id="supergiantaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="supergiantaudioplbtn"></div></div>
   <div class="fbh"><div class="fwbh" id="supergiantaudiofbtn" ></div></div>
   <div id="actualaudio-supergiant" style="visibility:hidden;"></div>
   
@@ -154,6 +155,19 @@
       //$("#hittites").swipe("enable");
     });
     /* ******************** */
+    $("#playstopsupergiant").on('tap', function() {
+      if(!playing) {
+        supergiantaudio.play();
+        mworldPlayAudio(app.kidid, 'supergiantaudio');
+        $('.micbtnbh').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        supergiantaudio.pause(); supergiantaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#supergiantaudioplbtn").on('tap', function() {
       if(!playing) {
         supergiantaudio.play();

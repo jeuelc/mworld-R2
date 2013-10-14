@@ -32,8 +32,9 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-    <div class="micbtnholder"><div class="micbtnbh" id="quasarsaudioplbtn"></div></div>
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopquasars"></div></div>
     <div class="bbh"><div class="rwbh" id="quasarsaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="quasarsaudioplbtn"></div></div>
     <div class="fbh"><div class="fwbh" id="quasarsaudiofbtn" ></div></div>
     <div id="actualaudio-quasars" style="visibility:hidden;"></div>
     <div id="quasarvidholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
@@ -88,7 +89,7 @@
        
       $("#polb1").on('tap', function() {
          $("#quasarvidholder").css({"visibility":"visible", "z-index":10});
-         $("#quasarvid").css({"z-index":9});
+         $("#quasarvid").css({"z-index":999});
          mworldViewMedia(app.kidid, 'quasarvid');
          bgsoundbh.pause();
          quasarvid.play();
@@ -102,6 +103,19 @@
       quasarvid.currentTime = 0;
     });
         /* ******************** */
+    $("#playstopquasars").on('tap', function() {
+      if(!playing) {
+        quasarsaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'quasarsaudio');
+        playing = true;
+      } else {
+        quasarsaudio.pause(); quasarsaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#quasarsaudioplbtn").on('tap', function() {
       if(!playing) {
         quasarsaudio.play();

@@ -35,8 +35,9 @@
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
     </div><!--end of content-->
   </div><!--/spacechar-->
-  <div class="micbtnholder"><div class="micbtnbh" id="wibhaudioplbtn"></div></div>
+  <div class="micbtnholder"><div class="micbtnbh" id="playstopwhatisbh"></div></div>
   <div class="bbh"><div class="rwbh" id="wibhaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="wibhaudioplbtn"></div></div>
   <div class="fbh"><div class="fwbh" id="wibhaudiofbtn" ></div></div>
   <div id="actualaudio-wibh" style="visibility:hidden;"></div>
   <div id="eatinggasholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
@@ -105,12 +106,25 @@
     });
     $("#pol2").on('tap', function() {
       $("#eatinggasholder").css({"visibility":"visible", "z-index":10});
-      $("#eatinggas").css({"z-index":9});
+      $("#eatinggas").css({"z-index":999});
       bgsoundbh.pause();
       eatinggas.play();
       mworldViewMedia(app.kidid, 'eatinggas');
     });
     /* ******************** */
+    $("#playstopwhatisbh").on('tap', function() {
+      if(!playing) {
+        wibhaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'wibhaudio');
+        playing = true;
+      } else {
+        wibhaudio.pause(); wibhaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#wibhaudioplbtn").on('tap', function() {
       if(!playing) {
         wibhaudio.play();

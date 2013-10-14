@@ -38,8 +38,9 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-    <div class="micbtnholder"><div class="micbtnbh" id="bhingalaxyaudioplbtn"></div></div>
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopbhingalaxy"></div></div>
     <div class="bbh"><div class="rwbh" id="bhingalaxyaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="bhingalaxyaudioplbtn"></div></div>
     <div class="fbh"><div class="fwbh" id="bhingalaxyaudiofbtn" ></div></div>
     <div id="actualaudio-bhingalaxy" style="visibility:hidden;"></div>
     <script>
@@ -91,7 +92,7 @@
          mworldViewMedia(app.kidid, 'centermw');
        });
        /* ******************** */
-    $("#bhingalaxyaudioplbtn").on('tap', function() {
+    $("#playstopbhingalaxy").on('tap', function() {
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
       if(!playing) {
         bhingalaxyaudio.play();
@@ -100,6 +101,20 @@
         playing = true;
       } else {
         bhingalaxyaudio.pause();
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#bhingalaxyaudioplbtn").on('tap', function() {
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      if(!playing) {
+        bhingalaxyaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
+        playing = true;
+      } else {
+        bhingalaxyaudio.pause(); bhingalaxyaudio.currentTime = 0;
         $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }

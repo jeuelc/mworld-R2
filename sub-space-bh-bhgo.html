@@ -31,8 +31,9 @@
     <!--<section class="container" style="height:670px;margin-top:-600px;">
       <div class="spriteComing"></div>
     </section> -->
-    <div class="micbtnholder"><div class="micbtnbh" id="bhgoaudioplbtn"></div></div>
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopbhgo"></div></div>
     <div class="bbh"><div class="rwbh" id="bhgoaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="bhgoaudioplbtn"></div></div>
     <div class="fbh"><div class="fwbh" id="bhgoaudiofbtn" ></div></div>
     <div id="actualaudio-bhgo" style="visibility:hidden;"></div>
     
@@ -84,6 +85,20 @@
         })
         
 /* ******************** */
+    $("#playstopbhgo").on('tap', function() {
+      if(!playing) {
+        bhgoaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'bhgoaudio');
+        playing = true;
+      } else {
+        bhgoaudio.pause(); bhgoaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+
     $("#bhgoaudioplbtn").on('tap', function() {
       if(!playing) {
         bhgoaudio.play();

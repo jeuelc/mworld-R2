@@ -37,9 +37,9 @@
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
     </div> <!-- end content -->  
     
-  
-    <div class="micbtnholder"><div class="micbtnbh" id="bhaudioplbtn"></div></div>
+    <div class="micbtnholder"><div class="micbtnbh" id="playstopbh"></div></div>
     <div class="bbh"><div class="rwbh" id="bhaudiobbtn"></div></div>
+    <div class="plbh"><div class="plpsbh" id="bhaudioplbtn"></div></div>
     <div class="fbh"><div class="fwbh" id="bhaudiofbtn"></div></div>
     <div id="actualaudio-bh" style="visibility:hidden;"></div>
     
@@ -83,6 +83,18 @@
       bgsoundbh.pause();
     }
     /* ******************** */
+    $("#playstopbh").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        bhaudio.pause(); bhaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#bhaudioplbtn").on('tap', function() {
       if(!playing) {
         bhaudio.play();

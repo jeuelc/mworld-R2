@@ -46,7 +46,6 @@
     function goBack() {
       if(avideoStatus != undefined){
         avideoEvent = true;
-        avideoStatus = undefined;
         agvideo.pause();
         agvideo.currentTime = 0;
         ancientsoundbg.play();
@@ -64,6 +63,7 @@
     $("#agvideo").on('tap', function() {
       //agvideo.webkitExitFullscreen();
       if(avideoEvent != undefined){ avideoEvent = undefined; return; }
+      if(avideoStatus == undefined){ return; }
       avideoStatus = undefined;
       agsoundbg.play();
       $.mobile.changePage("sub-ac-greece.html");

@@ -43,8 +43,9 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-  <div class="micbtnholder"><div class="micbtnbh" id="galaxiesaudioplbtn"></div></div>
+  <div class="micbtnholder"><div class="micbtnbh" id="playstopgalaxies"></div></div>
   <div class="bbh"><div class="rwbh" id="galaxiesaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="galaxiesaudioplbtn"></div></div>
   <div class="fbh"><div class="fwbh" id="galaxiesaudiofbtn" ></div></div>
   <div id="actualaudio-galaxies" style="visibility:hidden;"></div>
     <script>
@@ -105,6 +106,19 @@
          mworldViewMedia(app.kidid, 'andromeda');
        });
     /* ******************** */
+    $("#playstopgalaxies").on('tap', function() {
+      if(!playing) {
+        galaxiesaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'galaxiesaudio');
+        playing = true;
+      } else {
+        galaxiesaudio.pause(); galaxiesaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#galaxiesaudioplbtn").on('tap', function() {
       if(!playing) {
         galaxiesaudio.play();

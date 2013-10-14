@@ -32,8 +32,9 @@
             </div><!--end of content-->
         </div>
     </div><!--/anisold-->
-     <div class="micbtnholder"><div class="micbtnbh" id="binariesaudioplbtn"></div></div>
+     <div class="micbtnholder"><div class="micbtnbh" id="playstopbinaries"></div></div>
       <div class="bbh"><div class="rwbh" id="binariesaudiobbtn"></div></div>
+      <div class="plbh"><div class="plpsbh" id="binariesaudioplbtn"></div></div>
       <div class="fbh"><div class="fwbh" id="binariesaudiofbtn" ></div></div>
       <div id="actualaudio-binaries" style="visibility:hidden;"></div>
     <script>
@@ -78,6 +79,19 @@
           mworldViewMedia(app.kidid, 'cygnus-x1');
         });
         /* ******************** */
+    $("#playstopbinaries").on('tap', function() {
+      if(!playing) {
+        binariesaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'binariesaudio');
+        playing = true;
+      } else {
+        binariesaudio.pause();binariesaudio.currentTime = 0;
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
     $("#binariesaudioplbtn").on('tap', function() {
       if(!playing) {
         binariesaudio.play();

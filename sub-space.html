@@ -46,7 +46,6 @@
     function goBack() {
       if(videoStatus != undefined){
         videoEvent = true;
-        videoStatus = undefined;
         bhvideo.pause();
         bhvideo.currentTime = 0;
         spacesoundbg.play();
@@ -89,6 +88,7 @@
     
     $("#bhvideo").on('tap', function() {      
       if(videoEvent != undefined){ videoEvent = undefined; return; }
+      if(videoStatus == undefined){ return; }
       videoStatus = undefined;
       bhvideo.pause();
       bhvideo.currentTime = 0;
