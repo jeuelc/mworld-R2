@@ -130,7 +130,7 @@
     
     $("#pol1").on('tap', function() {
       mworldViewMedia(app.kidid, 'supernovaeso');
-      $("#supernovaesoholder").css({"visibility":"visible", "z-index":10});
+      $("#supernovaesoholder").css({"visibility":"visible", "z-index":998});
       $("#supernovaeso").css({"z-index":999});
       bgsoundbh.pause();
       supernovaeso.play();
@@ -152,12 +152,9 @@
     $("#supernovaaudioplbtn").on('tap', function() {
       if(!playing) {
         supernovaaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'supernovaaudio');
         playing = true;
       } else {
         supernovaaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

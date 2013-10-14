@@ -105,7 +105,7 @@
       $.mobile.changePage("sub-space-bh-gravity.html", { transition: "slide" });
     });
     $("#pol2").on('tap', function() {
-      $("#eatinggasholder").css({"visibility":"visible", "z-index":10});
+      $("#eatinggasholder").css({"visibility":"visible", "z-index":998});
       $("#eatinggas").css({"z-index":999});
       bgsoundbh.pause();
       eatinggas.play();
@@ -128,12 +128,9 @@
     $("#wibhaudioplbtn").on('tap', function() {
       if(!playing) {
         wibhaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'wibhaudio');
         playing = true;
       } else {
         wibhaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

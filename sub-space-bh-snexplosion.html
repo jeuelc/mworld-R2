@@ -96,7 +96,7 @@
       bgsoundbh.pause();
     }
     $("#polb1").on('tap', function() {
-      $("#supernovahubbleholder").css({"visibility":"visible", "z-index":10});
+      $("#supernovahubbleholder").css({"visibility":"visible", "z-index":998});
       $("#supernovahubble").css({"z-index":999});
       bgsoundbh.pause();
       supernovahubble.play();
@@ -127,12 +127,9 @@
     $("#snexplosionaudioplbtn").on('tap', function() {
       if(!playing) {
         snexplosionaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'snexplosionaudio');
         playing = true;
       } else {
         snexplosionaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

@@ -129,12 +129,9 @@
     $("#lifeabhaudioplbtn").on('tap', function() {
       if(!playing) {
         lifeabhaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'lifeabhaudio');
         playing = true;
       } else {
         lifeabhaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

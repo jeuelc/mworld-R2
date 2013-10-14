@@ -91,7 +91,7 @@
        }
        
        $("#polb1").on('tap', function() {
-         $("#collidingnsholder").css({"visibility":"visible", "z-index":10});
+         $("#collidingnsholder").css({"visibility":"visible", "z-index":998});
          $("#collidingns").css({"z-index":999});
          bgsoundbh.pause();
          collidingns.play();
@@ -122,12 +122,9 @@
     $("#nscollideaudioplbtn").on('tap', function() {
       if(!playing) {
         nscollideaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'nscollideaudio');
         playing = true;
       } else {
         nscollideaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

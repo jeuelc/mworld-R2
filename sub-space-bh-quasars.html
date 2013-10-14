@@ -88,7 +88,7 @@
      }
        
       $("#polb1").on('tap', function() {
-         $("#quasarvidholder").css({"visibility":"visible", "z-index":10});
+         $("#quasarvidholder").css({"visibility":"visible", "z-index":998});
          $("#quasarvid").css({"z-index":999});
          mworldViewMedia(app.kidid, 'quasarvid');
          bgsoundbh.pause();
@@ -119,12 +119,9 @@
     $("#quasarsaudioplbtn").on('tap', function() {
       if(!playing) {
         quasarsaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'quasarsaudio');
         playing = true;
       } else {
         quasarsaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

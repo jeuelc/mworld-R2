@@ -110,12 +110,9 @@
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
       if(!playing) {
         bhingalaxyaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
         playing = true;
       } else {
         bhingalaxyaudio.pause(); bhingalaxyaudio.currentTime = 0;
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

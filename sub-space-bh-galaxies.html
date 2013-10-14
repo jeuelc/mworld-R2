@@ -122,12 +122,9 @@
     $("#galaxiesaudioplbtn").on('tap', function() {
       if(!playing) {
         galaxiesaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'galaxiesaudio');
         playing = true;
       } else {
         galaxiesaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

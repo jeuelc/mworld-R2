@@ -87,12 +87,9 @@
     $("#comefromaudioplbtn").on('tap', function() {
       if(!playing) {
         comefromaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'comefromaudio');
         playing = true;
       } else {
         comefromaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

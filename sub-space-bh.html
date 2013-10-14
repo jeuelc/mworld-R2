@@ -87,6 +87,7 @@
       if(!playing) {
         bhaudio.play();
         $('.micbtnbh').css('background-position-x', '-81px');
+        mworldPlayAudio(app.kidid, 'bhaudio');
         playing = true;
       } else {
         bhaudio.pause(); bhaudio.currentTime = 0;
@@ -98,13 +99,9 @@
     $("#bhaudioplbtn").on('tap', function() {
       if(!playing) {
         bhaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        kidid = window.localStorage["kidid"];
-        mworldPlayAudio(kidid, 'bhaudio');
         playing = true;
       } else {
         bhaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});

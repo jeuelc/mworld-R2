@@ -168,12 +168,9 @@
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
       if(!playing) {
         formgoldaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'formgoldaudio');
         playing = true;
       } else {
         formgoldaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });

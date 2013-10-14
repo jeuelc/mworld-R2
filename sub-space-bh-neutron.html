@@ -112,12 +112,9 @@
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
       if(!playing) {
         neutronaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'neutronaudio');
         playing = true;
       } else {
         neutronaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
       }
     });
