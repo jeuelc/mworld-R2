@@ -370,7 +370,8 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 }
 
 #whatisbh, #supergiant, #supernova, #snexplosion, #formgold, #neutron, #blackhole,
-#nscollide, #lifeabh, #galaxies, #bhingalaxy, #quasars, #binaries, #bhgo {
+#nscollide, #lifeabh, #galaxies, #bhingalaxy, #quasars, #binaries, #bhgo,
+#Where-Do-Black-Holes-Go, #Black-Holes, #What-Is-A-Black-Hole {
   background:url('images/5-8/Space/Black_Holes/bhbg.jpg') no-repeat;
   /*height:748px !important;*/
   overflow:hidden !important;
@@ -391,7 +392,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   width:1024px !important;
 }
 
-#gravity {
+#gravity, #Gravity {
   background:url('images/5-8/Space/Black_Holes/What_is_BH/gravitybg.jpg') no-repeat;
   height:748px !important;
   overflow:hidden !important;
