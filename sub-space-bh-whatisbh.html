@@ -50,7 +50,6 @@
     sound = new Audio(); // 'sound' is now an audio object
     (function() {		
       playing = false;
-      mworldPageVisit(app.kidid, 'What-Is-A-Black-Hole');
       $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#pol1').css("z-index", 1);      
       $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");      
@@ -74,6 +73,10 @@
       findElementsWithBgImage();
       //changeAudioVideoSrc();
     })();
+    
+    $(document).ready(function() {
+      mworldPageVisit(app.kidid, 'What-Is-A-Black-Hole');
+    });
 
 
     $("#eatinggas").on('tap', function() {

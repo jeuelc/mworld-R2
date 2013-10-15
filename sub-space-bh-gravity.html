@@ -45,7 +45,6 @@
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
       playing = false;
-      mworldPageVisit(app.kidid, 'Gravity');
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/Gravity.mp3" type="audio/mpeg"></audio>');
       } 
@@ -57,7 +56,10 @@
       findElementsWithBgImage();
       //changeAudioSrc();
     })();
-
+    
+    $(document).ready(function() {
+      mworldPageVisit(app.kidid, 'Gravity');
+    });
 
     $('.homelinkbh').on('tap', function() { 
       buttonEffectsBH();

@@ -48,7 +48,6 @@
     var playing;
     (function() {
       playing = false;
-      mworldPageVisit(app.kidid, 'Black-Holes');
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-bh').html('<audio id="bhaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
       } 
@@ -62,7 +61,10 @@
 
     })();
     
-
+    $(document).ready(function() {
+      mworldPageVisit(app.kidid, 'Black-Holes');
+    });
+    
     $('.homelinkbh').on('tap', function() { 
       buttonEffectsBH();
       mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
