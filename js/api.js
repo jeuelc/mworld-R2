@@ -16,7 +16,7 @@ function mworldLogin(username, password){
   return result;
 }
 
-function mworldLoadCoach(kidid) {
+/*function mworldLoadCoach(kidid) {
   var result = "";
   $.ajax({
     type:"POST",
@@ -27,7 +27,7 @@ function mworldLoadCoach(kidid) {
     if(coachstate != '') { result = coachstate; }  
   });
   return result;
-}
+} */
 
 function mworldSaveCoach(kidid, coachStatus) {
   $.ajax({
@@ -48,12 +48,6 @@ function mworldPageVisit(kidid, pageid) {
   }).done(function(coachaction) {
     if(coachaction > 0) {
       //alert("na-preserve ang kidid: "+kidid);
-      $('#'+pageid+'-coachcontainer').html('<div id="avatarbody" style="background-attachment: scroll; background-color: transparent; width: 200px; height: 320px; top: 6px; position: relative; background-position: 0px 50%; background-repeat: no-repeat no-repeat; "><div id="avatarhair" style="background-image: none; width: 198px; height: 122px; top: 29px; left: 12px; position: relative; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; " ></div><div id="avatarhair-joe" style="width: 192px; height: 188px; position: relative; left: 21px; top: -6px; background-image: none; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatarhair-jane" style="width: 192px; height: 122px; position: relative; left: 13px; top: 65px; background-image: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes" style="width: 192px; height: 122px; left: 18px; top: -52px; background-image: none; position: relative; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes-joe" style="width: 192px; height: 122px; position: relative; left: 9px; top: -137px; background-image: none; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes-jane" style="width: 192px; height: 122px; position: relative; left: 10px; top: -49px; background-image: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes-albert" style="width: 192px; height: 122px; position: relative; left: 3px; top: 66px; background-image: none; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes-may" style="width: 192px; height: 122px; position: relative; left: 8px; top: 74px; background-image: none; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatareyes-mary" style="width: 192px; height: 122px; position: relative; left: 8px; top: 74px; background-image: none; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatarfh" style="background-image: none; top: -146px; left: 13px; width: 198px; height: 122px; position: relative; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; " ></div><div id="avatargadget-jane" style="width: 192px; height: 122px; position: relative; left: 33px; top: -113px; background-image: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatarcoat" style="width: 198px; height: 122px; left: 22px; top: -231px; background-image: none; position: relative; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avatarclothes-mary" style="width: 198px; height: 122px; position: relative; background-image: none; left: 17px; top: 37px; display: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div><div id="avataracc-jane" style="width: 192px; height: 122px; position: relative; left: 11px; top: -222px; background-image: none; background-position: 50% 50%; background-repeat: no-repeat no-repeat; "></div></div>');
-      $('#'+pageid+'-coachcontainer').css('z-index',10);
-      
-      if($('#'+pageid+'-coachcontainer').length > 0) {
-      
-        loadCoachAccessories(kidid);
         //alert("This is coach action: "+coachaction);
         switch (coachaction) {
           case "1":
@@ -82,7 +76,7 @@ function mworldPageVisit(kidid, pageid) {
             alert("You are now a master of this page. You are the best");
             break;
         }  
-      }
+      
     }
   });
 }
@@ -142,7 +136,7 @@ function mworldSaveQuiz(kidid, correct, quizid) {
   }).done();
 }
 
-function loadCoachAccessories(kidid) {
+/*function loadCoachAccessories(kidid) {
 //alert("mao ni return "+avatarcontent);
     mayhg = mayew = mayfh = maygadget = mayclothing = maybag = 0;
     maryhg = maryew = maryfh = marygadget = maryclothing = marybag = 0;
@@ -450,4 +444,4 @@ function loadCoachAccessories(kidid) {
         $('#avataracc-jane').css('background-image', 'url(css/images/avatar/bag-jane.png)');
         break;
     }
-  }
+  }*/
