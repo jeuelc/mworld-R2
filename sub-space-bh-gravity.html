@@ -42,9 +42,11 @@
   <!--<script language="javascript" type="text/javascript" src="js/coachscript.js"></script>-->
   <script>
     var playing;
+    var paused;
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
       playing = false;
+      paused = true;
       if(sound.canPlayType('audio/mpeg')) {
         $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/Gravity.mp3" type="audio/mpeg"></audio>');
       } 
@@ -96,20 +98,22 @@
         $('.micbtnbh').css('background-position-x', '-81px');
         mworldPlayAudio(app.kidid, 'gravityaudio');
         playing = true;
+        paused = false;
       } else {
         gravityaudio.pause();gravityaudio.currentTime = 0;
         $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
+        paused = true;
       }
     });
     
     $("#gravityaudioplbtn").on('tap', function() {
-      if(!playing) {
+      if(paused) {
         gravityaudio.play();
-        playing = true;
+        paused = false;
       } else {
         gravityaudio.pause();
-        playing = false;
+        paused = true;
       }
     });
     

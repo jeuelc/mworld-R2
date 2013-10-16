@@ -51,10 +51,12 @@
   </div> 
   <script>
     var playing;
+    var paused;
     sound3 = new Audio(); // 'sound' is now an audio object
     soundpop1 = new Audio(); // 'sound' is now an audio object
     (function() {				
       playing = false;
+      paused = true;
       mworldPageVisit(app.kidid, 'Supernova-How-Big-They-Are');
       $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
       $('div#polb1').css("z-index", 1);
@@ -117,20 +119,22 @@
         $('.micbtnbh').css('background-position-x', '-81px');
         mworldPlayAudio(app.kidid, 'snexplosionaudio');
         playing = true;
+        paused = false;
       } else {
         snexplosionaudio.pause(); snexplosionaudio.currentTime = 0;
         $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
+        paused = true;
       }
     });
     
     $("#snexplosionaudioplbtn").on('tap', function() {
-      if(!playing) {
+      if(paused) {
         snexplosionaudio.play();
-        playing = true;
+        paused = false;
       } else {
         snexplosionaudio.pause();
-        playing = false;
+        paused = true;
       }
     });
     

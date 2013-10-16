@@ -50,9 +50,11 @@
   <div id="actualaudio-galaxies" style="visibility:hidden;"></div>
     <script>
         var playing;
+        var paused;
         sound = new Audio();
         (function() {
             playing = false;
+            paused = true;
             mworldPageVisit(app.kidid, 'Galaxies-And-Black-Holes');
             $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
             $('div#polb1').css("z-index", 2);
@@ -112,20 +114,22 @@
         $('.micbtnbh').css('background-position-x', '-81px');
         mworldPlayAudio(app.kidid, 'galaxiesaudio');
         playing = true;
+        paused = false;
       } else {
         galaxiesaudio.pause(); galaxiesaudio.currentTime = 0;
         $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
+        paused = true;
       }
     });
     
     $("#galaxiesaudioplbtn").on('tap', function() {
-      if(!playing) {
+      if(paused) {
         galaxiesaudio.play();
-        playing = true;
+        paused = false;
       } else {
         galaxiesaudio.pause();
-        playing = false;
+        paused = true;
       }
     });
     

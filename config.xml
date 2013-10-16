@@ -6,10 +6,10 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.29">
+        version   = "0.0.30">
     <name>Mworld-R2</name>
     <description>
-      black holes fix
+      audio buttons logic fix
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 

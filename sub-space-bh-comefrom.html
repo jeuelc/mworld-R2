@@ -34,8 +34,10 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     var playing;
+    var paused;
     (function() {
       playing = false;
+      paused = true;
       mworldPageVisit(app.kidid, 'How-Is-A-Black-Hole-Formed');
            /* $('#node-body-minoans').html(data[0].Body);*/
       if(sound.canPlayType('audio/mpeg')) {
@@ -77,20 +79,22 @@
         $('.micbtnbh').css('background-position-x', '-81px');
         mworldPlayAudio(app.kidid, 'comefromaudio');
         playing = true;
+        paused = false;
       } else {
         comefromaudio.pause();comefromaudio.currentTime = 0;
         $('.micbtnbh').css('background-position-x', '0px');
         playing = false;
+        paused = true;
       }
     });
     
     $("#comefromaudioplbtn").on('tap', function() {
-      if(!playing) {
+      if(paused) {
         comefromaudio.play();
-        playing = true;
+        paused = false;
       } else {
         comefromaudio.pause();
-        playing = false;
+        paused = true;
       }
     });
     
