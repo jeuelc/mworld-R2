@@ -1,6 +1,6 @@
 <!-- i-C-a -->
-<div id="Gravity" data-role="page">
-  <div id="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
+<div id="gravity" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><div class="homebtnbh"></div></div>
@@ -49,7 +49,7 @@
         $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/Gravity.mp3" type="audio/mpeg"></audio>');
       } 
       
-      $("#Gravity").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#gravity").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc();
@@ -126,6 +126,9 @@
     $("#gravityaudiopsbtn").on('tap', function() {
       gravityaudio.pause();
       $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    $('.botlogoholder').on('tap', function(){
+      playClickSound();
     });
   </script>
 </div>

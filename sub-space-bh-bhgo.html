@@ -1,6 +1,6 @@
 <!-- i-C-a -->
-<div id="Where-Do-Black-Holes-Go" data-role="page">
-  <div id="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
+<div id="bhgo" data-role="page">
+  <div class="coachcontainer" style="position:absolute;top:0px;left:0px;width:225px;height:320px;"></div>
   <script src="js/slidebarbh.js"></script>
   <div class="menuhousing"></div>
   <div class="homebtnholder"><div class="homebtnbh"></div></div>
@@ -101,10 +101,8 @@
     $("#bhgoaudioplbtn").on('tap', function() {
       if(!playing) {
         bhgoaudio.play();
-        playing = true;
       } else {
         bhgoaudio.pause();
-        playing = false;
       }
       //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
     });
@@ -124,5 +122,8 @@
       $(".audiopanel").css({"backgroundPosition":"0px 0px"});
     });
 
+    $('.botlogoholder').on('tap', function(){
+      playClickSound();
+    });
     </script>
 </div>

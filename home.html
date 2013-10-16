@@ -26,7 +26,7 @@
     $(document).ready(function(e) {
       mworldPageVisit(app.kidid, 'Home');
       $('area').on('tap', function(event) {
-        
+        playClickSound();
         var subjectId = $(this).attr("id");
         if(subjectId == "naturalworldlink2") {
               setTimeout(function(){

@@ -197,16 +197,6 @@ function trackUserPageVisit() {
     });
 }
 
-function playClickSound(){
-    btnClickSound.play();
-}
-
-function bottomHomeBtnSound() {
-    $('.botlogoholder').on('tap', function(){
-      btnClickSound.play();
-    });
-}
-
 /*function extractLastPart(bgStyle) {
     if(bgStyle.indexOf('url') != -1 && bgStyle.indexOf('(',bgStyle.indexOf('url')) ){
         var startPos = bgStyle.indexOf('(',bgStyle.indexOf('url'));
@@ -216,19 +206,3 @@ function bottomHomeBtnSound() {
         }
     }
 }*/
-
-
-var globalSounds = [
-    {id : 'btnClickSound', src : 'audio/ButtonClick-Blip.mp3'},
-    {id : 'cardSlideSound', src : 'audio/CardSlide.mp3'},
-    {id : 'menuOpenSound', src : 'audio/MenuOpen.mp3'},
-    {id : 'menuCloseSound', src : 'audio/MenuClose.mp3'}
-];
-
-var preloadGlobalSound = new createjs.LoadQueue(false);
-preloadGlobalSound.addEventListener('complete', function() {
-}); 
-preloadGlobalSound.addEventListener('progress', function(){
-    navigator.notification.alert(preloadGlobalSound.progress*100|0)
-}); 
-preloadGlobalSound.loadManifest(globalSounds);

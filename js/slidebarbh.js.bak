@@ -18,7 +18,6 @@ $('.menubtnbh').on('tap', function() {
     }, 300);
   var housingpos = $('.menuhousing').position();
   if(housingpos.left == -234) {
-    menuCloseSound.play();
     $('.menuhousing').animate({'left':'-334px','opacity':0}, 500, "easeInBack", function() { $('.menuhousing').css({'left':'-660px'}); });
     $('.homebtnholder').animate({'left':'3px','opacity':0}, 500, "easeInBack", function() { $('.homebtnholder').css({'left':'-93px'}); });
     $('.mpbtnholder').animate({'left':'80px','opacity':0}, 500, "easeInBack", function() { $('.mpbtnholder').css({'left':'-93px'}); });
@@ -26,7 +25,6 @@ $('.menubtnbh').on('tap', function() {
     $('.infobtnholder').animate({'left':'222px','opacity':0}, 500, "easeInBack", function() { $('.infobtnholder').css({'left':'-93px'}); });
     $('.credsbtnholder').animate({'left':'288px','opacity':0}, 500, "easeInBack", function() { $('.credsbtnholder').css({'left':'-93px'}); });
   } else {
-    menuOpenSound.play();
     $('.menuhousing').css({'opacity':1});
     $('.credsbtnholder').css({'opacity':1});
     $('.infobtnholder').css({'opacity':1});

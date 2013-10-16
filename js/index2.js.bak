@@ -79,22 +79,6 @@ odysseyaudiobg.src = "http://back.uvmate.com/sites/default/files/subjectsaudio/O
 var olympicsaudiobg = new Audio();
 olympicsaudiobg.src = "http://back.uvmate.com/sites/default/files/subjectsaudio/Olympics.mp3";
 
-var btnClickSound = new Audio();
-btnClickSound.src = "audio/ButtonClick-Blip.mp3";
-//btnClickSound.addEventListener('ended', function() { btnClickSound.play(); });
-
-var cardSlideSound = new Audio();
-cardSlideSound.src = "audio/CardSlide.mp3";
-//cardSlideSound.addEventListener('ended', function() { cardSlideSound.play(); });
-
-var menuOpenSound = new Audio();
-menuOpenSound.src = "audio/MenuOpen.mp3";
-//menuOpenSound.addEventListener('ended', function() { menuOpenSound.play(); });
-
-var menuCloseSound = new Audio();
-menuCloseSound.src = "audio/MenuClose.mp3";
-//menuCloseSound.addEventListener('ended', function() { menuCloseSound.play(); });
-
 function pauseagbg() { 
   //agsoundbg.volume = 0.1;
   agsoundbg.pause();

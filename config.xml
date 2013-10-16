@@ -6,18 +6,16 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.28">
+        version   = "0.0.29">
     <name>Mworld-R2</name>
     <description>
-      coachscript 10
+      audio response for buttons
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
 
         Jeuel Condahan
 
     </author>
-
-    
 
     <preference name="orientation" value="landscape" />
     <preference name="fullscreen" value="true" />
