@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div id="What-Is-A-Black-Hole" data-role="page">	
+<div id="whatisbh" data-role="page">	
   <div id="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/hammer.js"></script>	
   <script src="js/jquery.hammer.js"></script>
@@ -45,7 +45,7 @@
       <source src="http://mworld88assetstest.s3.amazonaws.com/video/eatinggas.m4v" type="video/mp4">
     </video>
   </div> 
-  <script language="javascript" type="text/javascript" src="js/coachscript.js"></script>
+  <!--<script language="javascript" type="text/javascript" src="js/coachscript.js"></script>-->
   <script>
     var playing;
     sound = new Audio(); // 'sound' is now an audio object
@@ -67,13 +67,13 @@
         bgsoundbh.play(); 
       });
     
-      $("#What-Is-A-Black-Hole").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#whatisbh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioVideoSrc();
-      //mworldPageVisit(app.kidid, 'What-Is-A-Black-Hole');
+      mworldPageVisit(app.kidid, 'What-Is-A-Black-Hole');
     })();
 
     $("#eatinggas").on('tap', function() {

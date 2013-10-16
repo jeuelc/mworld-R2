@@ -39,7 +39,7 @@
     
     <!--<script src="js/spritespin.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript" src="js/script.js"></script>-->
-    <script language="javascript" type="text/javascript" src="js/coachscript.js"></script>
+    <!--<script language="javascript" type="text/javascript" src="js/coachscript.js"></script>-->
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         var playing;
@@ -50,7 +50,7 @@
               $('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page22_0.mp3" type="audio/mpeg"></audio>');
           } 
     
-            $("#Where-Do-Black-Holes-Go").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            $("#bhgo").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
           
           var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
           $('#bonus-bh2').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
@@ -59,7 +59,7 @@
           findElementsWithBgImage();
           //changeAudioSrc();
           //setTimeout(loadCoachAccessories(kidid), 2000);
-          //mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
+          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
         })();
         
         $('.homelinkbh').on('tap', function() { 
