@@ -16,7 +16,7 @@ function mworldLogin(username, password){
   return result;
 }
 
-/*function mworldLoadCoach(kidid) {
+function mworldLoadCoach(kidid) {
   var result = "";
   $.ajax({
     type:"POST",
@@ -27,7 +27,7 @@ function mworldLogin(username, password){
     if(coachstate != '') { result = coachstate; }  
   });
   return result;
-} */
+} 
 
 function mworldSaveCoach(kidid, coachStatus) {
   $.ajax({
@@ -136,7 +136,7 @@ function mworldSaveQuiz(kidid, correct, quizid) {
   }).done();
 }
 
-/*function loadCoachAccessories(kidid) {
+function loadCoachAccessories(kidid) {
 //alert("mao ni return "+avatarcontent);
     mayhg = mayew = mayfh = maygadget = mayclothing = maybag = 0;
     maryhg = maryew = maryfh = marygadget = maryclothing = marybag = 0;
@@ -444,4 +444,4 @@ function mworldSaveQuiz(kidid, correct, quizid) {
         $('#avataracc-jane').css('background-image', 'url(css/images/avatar/bag-jane.png)');
         break;
     }
-  }*/
+  }
