@@ -55,22 +55,22 @@ function mworldPageVisit(kidid, pageid) {
         switch (coachaction) {
           case "1":
             setTimeout(function() {
-                $('#'+pageid+' > .coachcontainer').animate({'left':'750px'}, 1500);
+                $('.coachcontainer').animate({'left':'750px'}, 1500);
                 navigator.notification.alert('the coach says hi', function(){}, 'Coach', 'ok');
               }, 2000);
-            $('#'+pageid+' > .coachcontainer').on('tap', function() {
-              $('#'+pageid+' > .coachcontainer').animate({'left':'-225px'}, 1500);
+            $('.coachcontainer').on('tap', function() {
+              $('.coachcontainer').animate({'left':'-225px'}, 1500);
             });
             break;
           case "2":
               
-              $('#'+pageid+' > .coachcontainer').css({'top':'300px'});
+              $('.coachcontainer').css({'top':'300px'});
               setTimeout(function() {
-                  $('#'+pageid+' > .coachcontainer').animate({'left':'200px'}, 800);
+                  $('.coachcontainer').animate({'left':'200px'}, 800);
                   navigator.notification.alert('try this game', function(){}, 'Coach', 'ok');
                 }, 2);
             
-            $('#'+pageid+'-coachcontainer').on('tap', function() {
+            $('.coachcontainer').on('tap', function() {
               //$.mobile.changePage("game-bh1.html", {transition: "flip"});
               navigator.notification.alert('im here', function(){}, 'Coach', 'ok');
             });
