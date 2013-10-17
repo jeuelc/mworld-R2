@@ -64,8 +64,12 @@ bgsoundbh.src = "audio/blackhole.mp3";
 bgsoundbh.addEventListener('ended', function() { bgsoundbh.play(); });
 
 var mainaudiobg = new Audio();
-mainaudiobg.src = "http://back.uvmate.com/sites/default/files/subjectsaudio/mainbg.mp3";
+mainaudiobg.src = "audio/mainbg.mp3";
 mainaudiobg.addEventListener('ended', function() { mainaudiobg.play(); });
+
+var invisibleworldbg = new Audio();
+invisibleworldbg.src = "audio/invisibleworld.mp3";
+invisibleworldbg.addEventListener('ended', function() { invisibleworldbg.play(); });
 
 var iliadaudiobg = new Audio();
 iliadaudiobg.src = "http://back.uvmate.com/sites/default/files/subjectsaudio/Hector_vs_Achilles.mp3";
