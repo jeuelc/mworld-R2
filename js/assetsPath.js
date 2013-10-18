@@ -1,8 +1,18 @@
 // Space chapter - Black hole assets
 FS.assets.invisibleworld = [
-  {id : 'bottomhomewos', src : 'images/9-12/The_Wonders_of_Science/bottomhomewos.png'}
-  //{id : '', src : 'images/9-12/The_Wonders_of_Science'}
-  //{id : '', src : 'images/9-12/The_Wonders_of_Science'}
+  {id : 'bottomhomewos', src : 'images/9-12/The_Wonders_of_Science/bottomhomewos.png'},
+  {id : 'playwos', src : 'images/9-12/The_Wonders_of_Science/playwos.png'},
+  {id : 'micwos', src : 'images/9-12/The_Wonders_of_Science/micwos.png'},
+  {id : 'rwwos', src : 'images/9-12/The_Wonders_of_Science/rwwos.png'},
+  {id : 'mpointswos', src : 'images/9-12/The_Wonders_of_Science/mpointswos.png'},
+  {id : 'menuwos', src : 'images/9-12/The_Wonders_of_Science/menuwos.png'},
+  {id : 'mapwos', src : 'images/9-12/The_Wonders_of_Science/mapwos.png'},
+  {id : 'infowos', src : 'images/9-12/The_Wonders_of_Science/infowos.png'},
+  {id : 'fwwos', src : 'images/9-12/The_Wonders_of_Science/fwwos.png'},
+  {id : 'ctrlpnlwos', src : 'images/9-12/The_Wonders_of_Science/ctrlpnlwos.png'},
+  {id : 'creditswos', src : 'images/9-12/The_Wonders_of_Science/creditswos.png'},
+  //{id : '', src : 'images/9-12/The_Wonders_of_Science/'}
+  
 ];
 
 FS.assets.space = [
