@@ -1,4 +1,10 @@
 // Space chapter - Black hole assets
+FS.assets.invisibleworld = [
+  {id : 'bottomhomewos', src : 'images/9-12/The_Wonders_of_Science/bottomhomewos.png'}
+  //{id : '', src : 'images/9-12/The_Wonders_of_Science'}
+  //{id : '', src : 'images/9-12/The_Wonders_of_Science'}
+];
+
 FS.assets.space = [
 	//{id : 'stud2', src : 'images/stud2.png'},
 	//{id : 'homepage', src : 'images/9-12/Home_Screen/homepage.jpg'},
