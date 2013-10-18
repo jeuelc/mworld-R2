@@ -86,9 +86,14 @@
     $('#wonderscience').live('pagebeforeshow', function(evt, data){
       if(data.prevPage.attr('id') == 'spaceLoading'){
         if(!app.firstRun.wos.iw){
-          $("#pre-iw").css({"visibility":"visible", "z-index":2});
+          /*$("#pre-iw").css({"visibility":"visible", "z-index":2});
           mworldViewMedia(app.kidid, 'iwvideo');
-          iwvideo.play();
+          iwvideo.play();*/
+          if(iwVideoEvent != undefined) { iwVideoEvent = undefined; return; }
+          if(iwVideoStatus == undefined) { return; }
+          iwVideoStatus = undefined;
+          invisibleworldbg.play();
+          $.mobile.changePage('sub-wonderscience-invisibleworld.html');
         }
       }
     });
