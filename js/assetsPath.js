@@ -16,8 +16,11 @@ FS.assets.invisibleworld = [
   {id : 'zooming-in', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/zomming-in.png'},
   {id : 'what-else-is-out-there', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-else-is-out-there.png'},
   {id : 'how-strange-can-it-get', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/how-strange-can-it-get.png'},
-  //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World'},
-  
+  {id : 'light', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/light.png'},
+  {id : 'cosmicrays', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrays.png'},
+  {id : 'antimatter', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_out_There/antimatter.png'},
+  {id : 'darkmatterdarkenergy', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/darkmatterdarkenergy.png'},
+  //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_out_There/'},
 ];
 
 FS.assets.space = [
@@ -529,6 +532,9 @@ FS.assets.cssBackgroundImages = [
 	{id:'avatarcreatorbg',src:'images/avatar/avatarcreatorbg.jpg'},
 	{id:'menuhousing',src:'images/5-8/Ancient_Civilizations/Greece/menuhousing.png'},
 	{id:'micpanel',src:'images/audio/micpanel.png'},
+  
+  //for wonders of science
+  {id:'wondersciencebg', src:'images/9-12/The_Wonders_of_Science/wondersciencebg.jpg'},
   
   //added for coaches
   {id:'albertsprites',src:'images/avatar/albertsprites.png'},
