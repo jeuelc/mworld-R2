@@ -72,9 +72,14 @@
         sessionStorage.nextPage = 'sub-wonderscience.html';
         $.mobile.changePage('spaceloading.html');
       } else {
-        mworldViewMedia(app.kidid, 'iwvideo');
+        if(iwVideoEvent != undefined) { iwVideoEvent = undefined; return; }
+        if(iwVideoStatus == undefined) { return; }
+        iwVideoStatus = undefined;
+        invisibleworldbg.play();
+        $.mobile.changePage('sub-wonderscience-invisibleworld.html');
+        /*mworldViewMedia(app.kidid, 'iwvideo');
         $('#pre-iw').css({"visibility":"visible", "z-index":2});
-        iwvideo.play();
+        iwvideo.play();*/
       }
     });
     
