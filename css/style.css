@@ -118,13 +118,6 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   overflow:hidden !important;
 }
 
-#wonderscience2 {
-  background:url('images/9-12/The_Wonders_of_Science/wondersciencebg.jpg') no-repeat;
-  height: 748px !important;
-  width:1024px !important;
-  overflow:hidden !important;
-}
-
 #aroundag {
   background:url('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/waagbg.jpg') no-repeat;
   height:748px !important;
@@ -1270,6 +1263,13 @@ ul.slides {
   width:60px;margin:0 auto;
 }
 /********* the wonders of science  **********/
+#wonderscience {
+  background:url('images/9-12/The_Wonders_of_Science/wondersciencebg.jpg') no-repeat;
+  height: 748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
 .plwos, .pswos, .bwos, .fwos {
   position:absolute;
   top:670px;

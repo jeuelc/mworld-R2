@@ -27,7 +27,7 @@ var app = {
         naturalWorld : true,
         ancient : { greece : true},
         languages : true,
-        wonders : true,
+        wos : {iw : true},
         humanBody : true,
         artAndMusic : true,
         modrenWorld : true,
