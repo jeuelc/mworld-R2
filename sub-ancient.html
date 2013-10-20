@@ -81,14 +81,9 @@
         $.mobile.changePage('spaceloading.html');
       }
       else {
-        /*mworldViewMedia(app.kidid, 'agvideo');
+        mworldViewMedia(app.kidid, 'agvideo');
         $("#pre-ag").css({"visibility":"visible"});
-        agvideo.play();*/
-        if(avideoEvent != undefined){ avideoEvent = undefined; return; }
-        if(avideoStatus == undefined){ return; }
-        avideoStatus = undefined;
-        agsoundbg.play();
-        $.mobile.changePage("sub-ac-greece.html");
+        agvideo.play();
       }
       //agvideo.webkitEnterFullscreen();
     });
@@ -103,14 +98,9 @@
     $('#ancient').live('pagebeforeshow', function(evt, data){
       if(data.prevPage.attr('id') == 'spaceLoading'){
         if(!app.firstRun.ancient.greece){
-          /*mworldViewMedia(app.kidid, 'agvideo');
+          mworldViewMedia(app.kidid, 'agvideo');
           $("#pre-ag").css({"visibility":"visible"});
-          agvideo.play(); */
-          if(avideoEvent != undefined){ avideoEvent = undefined; return; }
-          if(avideoStatus == undefined){ return; }
-          avideoStatus = undefined;
-          agsoundbg.play();
-          $.mobile.changePage("sub-ac-greece.html");
+          agvideo.play(); 
         }
       }
     });
