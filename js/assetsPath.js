@@ -11,7 +11,6 @@ FS.assets.invisibleworld = [
   {id : 'fwwos', src : 'images/9-12/The_Wonders_of_Science/fwwos.png'},
   {id : 'ctrlpnlwos', src : 'images/9-12/The_Wonders_of_Science/ctrlpnlwos.png'},
   {id : 'creditswos', src : 'images/9-12/The_Wonders_of_Science/creditswos.png'},
-  {id : 'invisibleworldbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/invisibleworldbg.jpg'},
   {id : 'what-is-everything-made-of', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-is-everything-made-of.png'},
   {id : 'zooming-in', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/zomming-in.png'},
   {id : 'what-else-is-out-there', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-else-is-out-there.png'},
@@ -456,6 +455,7 @@ FS.assets.aGreece = [
 
 
 FS.assets.cssBackgroundImages = [
+  {id : 'invisibleworldbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/invisibleworldbg.jpg'},
 	{id:'final_world_background',src:'images/5-8/Home_Screen/final_world_background.png'},
 	//{id:'homepage',src:'images/9-12/Home_Screen/homepage.jpg'},
 	{id:'bartmusic',src:'images/5-8/Home_Screen/bartmusic.png'},
