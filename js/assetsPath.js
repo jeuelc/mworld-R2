@@ -12,7 +12,7 @@ FS.assets.invisibleworld = [
   {id : 'ctrlpnlwos', src : 'images/9-12/The_Wonders_of_Science/ctrlpnlwos.png'},
   {id : 'creditswos', src : 'images/9-12/The_Wonders_of_Science/creditswos.png'},
   {id : 'what-is-everything-made-of', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-is-everything-made-of.png'},
-  {id : 'zooming-in', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/zomming-in.png'},
+  {id : 'zooming-in', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/zooming-in.png'},
   {id : 'what-else-is-out-there', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-else-is-out-there.png'},
   {id : 'how-strange-can-it-get', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/how-strange-can-it-get.png'},
   {id : 'light', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/light.png'},
