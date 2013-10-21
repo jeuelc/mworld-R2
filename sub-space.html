@@ -29,9 +29,6 @@
     var videoStatus, videoEvent;
     $(function() {
       mworldPageVisit(app.kidid, 'Space');
-      //changeVideoSrc();
-      // changeImageSrc();
-      // findElementsWithBgImage();
       $("#space").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       bhvideo.addEventListener('playing', function(){
         videoStatus = true;
@@ -50,10 +47,7 @@
         bhvideo.currentTime = 0;
         spacesoundbg.play();
         $("#pre-bh").css({"visibility":"hidden", "z-index":0});
-        
-        //$.mobile.changePage("sub-space.html");
-      }
-      else {
+      } else {
         $.mobile.changePage("home.html");
         mainaudiobg.play();
         spacesoundbg.pause(); spacesoundbg.currentTime = 0;
@@ -67,7 +61,6 @@
     $('#bhmovielink').on('tap', function() { 
       spacesoundbg.pause(); spacesoundbg.currentTime = 0;
       
-      //var spacepage = "sub-space.html";
       if(app.firstRun.space.bh){
         if(!checkConnection()){
           navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
@@ -77,8 +70,7 @@
         sessionStorage.assetsName = 'bh';
         sessionStorage.nextPage = "sub-space.html";
         $.mobile.changePage(spacepage);
-      }
-      else {
+      } else {
         mworldViewMedia(app.kidid, 'bhvideo');
         $("#pre-bh").css({"visibility":"visible", "z-index":2});
         bhvideo.play();        
