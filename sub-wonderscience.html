@@ -32,7 +32,7 @@
         mworldPageVisit(app.kidid, 'The-Wonders-of-Science');
         $("#wonderscience").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         iwvideo.addEventListener('playing', function() {
-          videoStatus = true;
+          iwVideoStatus = true;
         });
         iwvideo.addEventListener('ended', function() {
           invisibleworldbg.play();
@@ -77,10 +77,9 @@
       }
     });
     
-    $("#iwvideo").on('tap', function() {
-      alert("tap event triggered");
-      if(iwVideoEvent != undefined) { iwVideoEvent = undefined; return; }
-      if(iwVideoStatus == undefined) { return; }
+    $("#iwvideo").on('tap', function() {      
+      if(iwVideoEvent != undefined){ iwVideoEvent = undefined; return; }
+      if(iwVideoStatus == undefined){ return; }
       iwVideoStatus = undefined;
       iwvideo.pause();
       iwvideo.currentTime = 0;
