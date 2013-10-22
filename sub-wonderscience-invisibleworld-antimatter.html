@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="whatelseisoutthere">
+<div data-role="page" id="antimatter">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <div class="menuhousing"></div>
@@ -9,26 +9,22 @@
   <div class="infobtnholder"><div class="infobtnwos"></div></div>
   <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
-  <div class="navtitleholderiw"><h1>What Else is<br>Out There?</h1></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Antimatter!</h1></div>
     <div data-role="content" class="kidzcontent">
-      <div class="naviw-content">
-        <p>The particle zoo has many more things in it than the particles making up the atoms in the material 'stuff' around us.  Light is something we see every day, but it's not made up of atoms.</p>
-        <p>Instead, it's made from fuzzy lumps of light called photons. There are also special atoms, called anti-matter, found in the depths of space.</p>
-        <p>Anti-matter and other members of the particle zoo arrive as beams from outer space, called cosmic rays.  There are some things so mysterious that we don't yet know what they're made of! These include dark matter and dark energy.</p>
-        <p>Perhaps one day you will be the detective scientist who solves the mystery of dark matter and dark energy!</p>
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/gravitypol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattergame.png" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
       </div>
-        
-      <div class="navbtn1">
-        <p><a href="#" data-transition="slide"><img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/light.png"></a></p>
-      </div>
-      <div class="navbtn2">
-        <p><a href="#" data-transition="slide" ><img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrays.png"></a></p>
-      </div>
-      <div class="navbtn3">
-        <p><a href="#" data-transition="slide" ><img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimatter.png"></a></p>
-      </div>
-      <div class="navbtn4">
-        <p><a href="#" data-transition="slide" ><img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/darkmatterdarkenergy.png"></a></p>
+      <div class="bpcontentwos">
+        <p>Anti-matter atoms in the depths of space are different to the atoms in the world. Instead of having electrons swirling around a nucleus made from protons and neutrons, anti-matter atoms have anti-electrons swirling around a nucleus made from anti-protons and anti-neutrons. Anti-electrons and anti-protons and anti-neutrons also belong to the Particle Zoo. These and other anti-particles can occur inside anti-matter atoms, or by themselves.</p>
+        <p>When matter bumps into anti-matter something amazing happens. The matter and antimatter annihilate! Annihilation means that something is destroyed and disappears. This annihilation creates an explosion which makes photons to appear.</p>
       </div>
         
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
@@ -46,8 +42,13 @@
     (function() {
       playing = false;
       paused = true;
+      
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#pol1').css("z-index", 1);      
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");      
+      $('#eatinggasholder').css({"visibility":"hidden", "z-index":-10});	
     
-      $("#whatelseisoutthere").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#antimatter").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
@@ -63,15 +64,15 @@
     });
     
     function goBack() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-wonderscience-invisibleworld-whatelseisoutthere.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {
-      bgsoundbh.play();
+      invisibleworldbg.play();
     }
     
     function pausebg() {
-      bgsoundbh.pause();
+      invisibleworldbg.pause();
     }
     /* ******************** */
     /*$("#playstopbh").on('tap', function() {
@@ -136,4 +137,5 @@
     });
     
   </script>
+  <script src="js/twocardLogic.js"></script>
 </div> <!--//home-->
