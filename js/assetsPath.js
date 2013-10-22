@@ -30,7 +30,10 @@ FS.assets.invisibleworld = [
   {id : 'cluster', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cluster.jpg'},
   {id : 'piechartpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartpol.png'},
   {id : 'piechartjpeg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartjpeg.jpg'},
-  //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/'},
+  {id : 'weirdbuttruepol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/weirdbuttruepol.png'},
+  {id : 'howstrangetfpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/howstrangetfpol.png'},
+  {id : 'quantumsupercomppol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercomppol.png'},
+  //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/'},
 ];
 
 FS.assets.space = [
