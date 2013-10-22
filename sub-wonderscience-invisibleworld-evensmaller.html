@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="powerfulmicroscopes">
+<div data-role="page" id="evensmaller">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <script src="js/hammer.js"></script>
@@ -11,24 +11,27 @@
   <div class="infobtnholder"><div class="infobtnwos"></div></div>
   <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
-  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Powerful Microscopes</h1></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Even Smaller</h1></div>
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
-        <a id="semlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sem.jpg', 'Scanning Electron Microscope used to see the invisible.')" href="#">click here</a>
-        <a id="bloodlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/blood.jpg', 'Scanning electron microscope image of human blood. In this image you can spot red blood cells, and white blood cells including lymphocytes and others.')" href="#">click here</a>
         <div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
-             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sempol.png" alt="" />
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piequizpol.png" alt="" />
           </div>
           <div id="pol2"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bloodpol.png" alt="" />
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrayspol.png" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/superkamiokandepol.png" alt="" />
           </div>
         </div><!--/zoomwrapper-->
       </div>
       <div class="bpcontentwos">
-        <p>Using an electron microscope is a bit like giving your eyes a super power the power to see something previously invisible  atoms! </p>
-        <p>When you look at atoms in an electron microscope, they appear as fuzzy white dots arranged in various patterns. It took a long time for scientists to find clever ways to build an electron microscope able to see atoms. They can take pictures of these atoms for you to see, making the invisible world visible!</p>
+        <p>Is there anything that can act as a 'bionic eye' to take pictures of things smaller than atoms?  Nobody has yet found a clever way to do this!  So, how do we 'see' things that are smaller than atoms?</p>
+        <p>The answer is: we can see them indirectly. Suppose you were invisible, and standing on a crowded train.  Other people would know you were there, because they would bump into you!  They'd know indirectly that you were there, because of the effect of you bumping into them, even though they couldn't see you.</p>
+        <p>Another example; imagine you have a cold.  Sneezing and your sore throat indirectly let you know you have a cold, even though the virus causing your cold is too tiny for you to see.  The same thing happens with atoms!  We can't see them directly, but we can see them indirectly!</p>
+        <p>A challenge for you; can you think of more examples of things you know to be true but cannot be seen directly with your own eyes?  Open the 'Read Me' cards on the left for some more examples.</p>
       </div>
         
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
@@ -47,26 +50,27 @@
       playing = false;
       paused = true;
       
-      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
-      $('div#pol1').css("z-index", 1);      
-      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");      
-      $('#eatinggasholder').css({"visibility":"hidden", "z-index":-10});	
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
     
-      $("#powerfulmicroscopes").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#evensmaller").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Dark-Matter-Dark-Energy');
+      mworldPageVisit(app.kidid, 'Cosmic-Rays');
     })();
     
     $('#pol2').on('tap', function() {
-      $('#bloodlink')[0].click();
+      $('#cosmicrayslink')[0].click();
     });
     
-    $('#pol1').on('tap', function() {
-      $('#semlink')[0].click();
+    $('#pol3').on('tap', function() {
+      $('#superkamiokandelink')[0].click();
     });
 
     $('.homelinkbh').on('tap', function() { 
@@ -132,5 +136,5 @@
     });
     
   </script>
-  <script src="js/twocardLogic.js"></script>
+  <script src="js/threecardLogic.js"></script>
 </div> <!--//home-->
