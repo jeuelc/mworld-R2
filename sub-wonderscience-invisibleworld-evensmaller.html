@@ -17,13 +17,13 @@
       <div class="sidebarleft-half">
         <div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
-             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piequizpol.png" alt="" />
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/playingdetectivepol.png" alt="" />
           </div>
           <div id="pol2"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrayspol.png" alt="" />
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bubblecluespol.png" alt="" />
           </div>
           <div id="pol3"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/superkamiokandepol.png" alt="" />
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/biggesttosmallestpolpol.png" alt="" />
           </div>
         </div><!--/zoomwrapper-->
       </div>
@@ -62,15 +62,19 @@
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Cosmic-Rays');
+      mworldPageVisit(app.kidid, 'Even-Smaller');
     })();
     
+    $('#pol1').on('tap', function() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-playingdetective.html", {transition: "slide"});
+    });
+    
     $('#pol2').on('tap', function() {
-      $('#cosmicrayslink')[0].click();
+      $.mobile.changePage("sub-wonderscience-invisibleworld-bubbleclues.html", {transition: "slide"});
     });
     
     $('#pol3').on('tap', function() {
-      $('#superkamiokandelink')[0].click();
+      $.mobile.changePage("sub-wonderscience-invisibleworld-biggesttosmallest.html", {transition: "slide"});
     });
 
     $('.homelinkbh').on('tap', function() { 

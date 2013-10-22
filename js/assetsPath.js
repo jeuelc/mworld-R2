@@ -39,6 +39,9 @@ FS.assets.invisibleworld = [
   {id : 'sem', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sem.jpg'},
   {id : 'bloodpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bloodpol.png'},
   {id : 'blood', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/blood.jpg'},
+  {id : 'biggesttosmallestpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/biggesttosmallestpol.png'},
+  {id : 'bubblecluespol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bubblecluespol.png'},
+  {id : 'playingdetectivepol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/playingdetectivepol.png'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/'},
 ];
 
