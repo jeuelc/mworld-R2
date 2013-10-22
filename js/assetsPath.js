@@ -23,9 +23,13 @@ FS.assets.invisibleworld = [
   {id : 'antimattertfpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattertfpol.png'},
   {id : 'piequizpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piequizpol.png'},
   {id : 'cosmicrayspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrayspol.png'},
+  {id : 'cosmicrays', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrays.jpg'},
   {id : 'superkamiokandepol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/superkamiokandepol.png'},
+  {id : 'superkamiokande', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/superkamiokande.jpg'},
   {id : 'clusterpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/clusterpol.png'},
+  {id : 'cluster', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cluster.jpg'},
   {id : 'piechartpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartpol.png'},
+  {id : 'piechartjpeg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartjpeg.jpg'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/'},
 ];
 
