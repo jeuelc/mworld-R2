@@ -469,7 +469,8 @@ FS.assets.aGreece = [
 
 
 FS.assets.cssBackgroundImages = [
-  {id : 'quantumsupercompsbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_it_Get/quantumsupercompsbg'},
+  {id : 'weirdbuttruebg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_it_Get/weirdbuttruebg.jpg'},
+  {id : 'quantumsupercompsbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_it_Get/quantumsupercompsbg.jpg'},
   {id : 'invisibleworldbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/invisibleworldbg.jpg'},
 	{id:'final_world_background',src:'images/5-8/Home_Screen/final_world_background.png'},
 	//{id:'homepage',src:'images/9-12/Home_Screen/homepage.jpg'},
