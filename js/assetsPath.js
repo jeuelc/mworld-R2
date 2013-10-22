@@ -16,7 +16,7 @@ FS.assets.invisibleworld = [
   {id : 'what-else-is-out-there', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/what-else-is-out-there.png'},
   {id : 'how-strange-can-it-get', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/how-strange-can-it-get.png'},
   {id : 'light', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/light.png'},
-  {id : 'cosmicrays', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrays.png'},
+  {id : 'cosmicraysbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicraysbtn.png'},
   {id : 'antimatter', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_out_There/antimatter.png'},
   {id : 'darkmatterdarkenergy', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/darkmatterdarkenergy.png'},
   {id : 'antimattergamepol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_out_There/antimattergamepol.png'},
