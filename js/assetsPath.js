@@ -24,6 +24,8 @@ FS.assets.invisibleworld = [
   {id : 'piequizpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piequizpol.png'},
   {id : 'cosmicrayspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cosmicrayspol.png'},
   {id : 'superkamiokandepol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/superkamiokandepol.png'},
+  {id : 'clusterpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/clusterpol.png'},
+  {id : 'piechartpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartpol.png'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/'},
 ];
 

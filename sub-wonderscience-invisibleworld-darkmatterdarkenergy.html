@@ -13,12 +13,14 @@
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
+        <a id="clusterlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/cluster.jpg', 'This composite image shows the galaxy cluster known as the bullet cluster.  This cluster provides some of the strongest evidence for dark matter because light travelling near the cluster is bent by the invisible Dark matter. (credit:X-ray: NASA/CXC/CfA/M.Markevitch et al.; Optical: NASA/STScI; Magellan/U.Arizona/D.Clowe et al.; Lensing Map: NASA/STScI; ESO WFI; Magellan/U.Arizona/D.Clowe et al.)')" href="#">click here</a>
+        <a id="piechartlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechart.png', 'Pie chart showing that most of the 'stuff' out there is not normal matter!')" href="#">click here</a>
         <div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
-             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattertfpol.png" alt="" />
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/clusterpol.png" alt="" />
           </div>
           <div id="pol2"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattergamepol.png" alt="" />
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/piechartpol.png" alt="" />
           </div>
         </div><!--/zoomwrapper-->
       </div>
@@ -48,15 +50,22 @@
       $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");      
       $('#eatinggasholder').css({"visibility":"hidden", "z-index":-10});	
     
-      $("#antimatter").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#darkmatterdarkenergy").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'What-Else-Is-Out-There');
+      mworldPageVisit(app.kidid, 'Dark-Matter-Dark-Energy');
     })();
     
+    $('#pol2').on('tap', function() {
+      $('#piechartlink')[0].click();
+    });
+    
+    $('#pol1').on('tap', function() {
+      $('#clusterlink')[0].click();
+    });
 
     $('.homelinkbh').on('tap', function() { 
       buttonEffectsBH();
@@ -118,22 +127,6 @@
     
     $('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
       playClickSound();
-    });
-    
-    $('.navbtn1').on('tap', function() { 
-      nav1Effects(); 
-    });
-    
-    $('.navbtn2').on('tap', function() { 
-      nav2Effects(); 
-    });
-    
-    $('.navbtn3').on('tap', function() { 
-      nav3Effects(); 
-    });
-    
-    $('.navbtn4').on('tap', function() { 
-      nav4Effects(); 
     });
     
   </script>
