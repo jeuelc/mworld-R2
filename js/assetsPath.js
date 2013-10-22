@@ -35,6 +35,10 @@ FS.assets.invisibleworld = [
   {id : 'quantumsupercomppol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercomppol.png'},
   {id : 'powerfulmicroscopesbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/powerfulmicroscopesbtn.png'},
   {id : 'evensmallerbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/evensmallerbtn.png'},
+  {id : 'sempol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sempol.png'},
+  {id : 'sem', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/sem.jpg'},
+  {id : 'bloodpol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bloodpol.png'},
+  {id : 'blood', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/blood.jpg'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/'},
 ];
 
