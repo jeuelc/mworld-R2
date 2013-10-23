@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="whatiseverythingmadeof">
+<div data-role="page" id="nucleus">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <script src="js/hammer.js"></script>
@@ -13,26 +13,20 @@
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
     <div data-role="content" class="kidzcontent">
       
-      <div class="storypagetitlewos"><h1>What is Everything Made Of?</h1></div>
-      <div class="storypagewos">
-        <p>Everything you see around you is made from very tiny things called atoms.  You can make anything you see in the world by putting atoms together. They're so small that millions of atoms sitting side by side would be as thick as a hair on your head!</p>
-        <p>You can't see an atom sitting by itself  it's invisible!  Yet when you put enough atoms together, you can make anything you see in the world around you.</p>
+      <div class="storypagetitlewos" style="top:100px;"><h1>Nucleus</h1></div>
+      <div class="storypagewos" style="top:166px;">
+        <p>Atoms have a small ball in their centre, called a nucleus, which the electrons buzz around. The nucleus is so small, that if we could enlarge an atom to the size of the gigantic London Eye ferris wheel, the nucleus would be the size of a crayon's tip!</p>
+        <p>The nucleus is made up of even smaller balls called protons and neutrons.  The number of protons determines the name of an atom.  Oxygen atoms in the air we breathe have eight protons in their nucleus.  Carbon atoms, which are spread throughout our bodies and through the bodies of most living things on Earth, have six protons in their nucleus.</p>
+        <p>Hydrogen has only one proton.  Water has hydrogen as one of its ingredients (the other is oxygen).  Our sun and most of the stars we see in the sky are mainly made of hydrogen.  Some atoms have lots of protons.  The metal called lead has 82 protons, and a recently discovered atom called Ununseptium has 117!</p>
       </div>
-      <div id="instructions" style="position:absolute;top:520px;left:420px;width:100px;height:100px;">
-        Drag the magnifying glass over the hand to find out more.
+      <div style="position:absolute;top:520px;left:400px;width:100px;height:100px;">
+        Tap "protons" or "neutrons" to find out more.
       </div>
-      <div id="magnifyhand" style="width:361px;height:714px;left:26px;top:34px;position:absolute;"></div>
-      <div id="livello" style="width:469px;height:511px;left:73px;top:145px;position:absolute;visibility:hidden;z-index:0;">
-        <div id="nucleuslink" style="width:50px;height:50px;left:210px;top:200px;background:transparent;position:absolute"></div>
-        <div class="electronlink" style="width:50px;height:50px;left:160px;top:280px;background:transparent;position:absolute"></div>
-        <div class="electronlink" style="width:50px;height:50px;left:260px;top:125px;background:transparent;position:absolute"></div>
-        <div class="electronlink" style="width:50px;height:50px;left:110px;top:243px;background:transparent;position:absolute"></div>
-        <div class="electronlink" style="width:50px;height:50px;left:310px;top:158px;background:transparent;position:absolute"></div>
+      <div id="protonslink" style="width:50px;height:50px;left:350px;top:340px;background:transparent;position:absolute">
+        Protons
       </div>
-      <div id="zoomwrapper">
-        <div id="mglass" style="left:392px;top:416px;position:absolute;">
-           <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png" alt="" />
-        </div>
+      <div id="neutronslink" style="width:50px;height:50px;left:160px;top:392px;background:transparent;position:absolute">
+        Neutrons
       </div>
     </div> <!-- end content -->  
     
@@ -49,13 +43,13 @@
       playing = false;
       paused = true;
     
-      $("#whatiseverythingmadeof").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#nucleus").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'What-Is-Everything-Made-Of');
+      mworldPageVisit(app.kidid, 'Buzzing-Electron');
     })();
 
     $('.homelinkbh').on('tap', function() { 
@@ -63,16 +57,15 @@
       mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
     });
     
-    $('.electronlink').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-buzzingelectron.html", {transition: "slide"});
+    $('#protonslink').on('tap', function() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
     });
     
-    $('#nucleuslink').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-nucleus.html", {transition: "slide"});
+    $('#neutronslink').on('tap', function() {
+      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
     });
-    
     function goBack() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-wonderscience-invisibleworld-whatiseverythingmadeof.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {
@@ -129,5 +122,4 @@
     });
     
   </script>
-  <script src="js/magnifyingglassLogic.js"></script>
 </div> <!--//home-->
