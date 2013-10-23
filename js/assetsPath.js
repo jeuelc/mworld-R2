@@ -54,6 +54,7 @@ FS.assets.invisibleworld = [
   {id : 'cmspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/cmspol.png'},
   {id : 'tunnels', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnels.jpg'},
   {id : 'tunnelspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnelspol.png'},
+  {id : 'magnifyingglass', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/'},
 ];
 
@@ -490,6 +491,8 @@ FS.assets.aGreece = [
 
 
 FS.assets.cssBackgroundImages = [
+  {id : 'livello', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/livello.png'},
+  {id : 'magnifyhand', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyhand.png'},
   {id : 'whatiseverythingmadeofbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/whatiseverythingmadeofbg.jpg'},
   {id : 'weirdbuttruebg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/weirdbuttruebg.jpg'},
   {id : 'quantumsupercompsbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercompsbg.jpg'},
