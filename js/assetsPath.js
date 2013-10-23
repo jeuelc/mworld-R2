@@ -48,6 +48,12 @@ FS.assets.invisibleworld = [
   {id : 'bebcinstalled', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bebcinstalled.jpg'},
   {id : 'bluebubblespol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bluebubblespol.png'},
   {id : 'bluebubbles', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bluebubbles.jpg'},
+  {id : 'atlas', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/atlas.jpg'},
+  {id : 'atlaspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/atlaspol.png'},
+  {id : 'cms', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/cms.jpg'},
+  {id : 'cmspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/cmspol.png'},
+  {id : 'tunnels', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnels.jpg'},
+  {id : 'tunnelspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnelspol.png'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/'},
 ];
 
