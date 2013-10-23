@@ -1384,6 +1384,20 @@ ul.slides {
   background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/livello.png');
 }
 
+#neutron {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/neutronbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
+#buzzingelectron {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/buzzingelectronbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
 #whatiseverythingmadeof {
   background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/whatiseverythingmadeofbg.jpg') no-repeat;
   height:748px !important;
