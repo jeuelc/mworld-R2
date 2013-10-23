@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="evensmaller">
+<div data-role="page" id="blueclues">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <script src="js/hammer.js"></script>
@@ -11,27 +11,29 @@
   <div class="infobtnholder"><div class="infobtnwos"></div></div>
   <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
-  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Even Smaller</h1></div>
+  <div class="navtitleholderiw" style="padding-top:14px;"><h1>Blue Clues</h1></div>
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
+        <a id="bebclink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bebc.jpg', 'This image of real particle tracks has been artistically enhanced.  Liquid hydrogen is used to create bubbles along the paths that the particles travel. Image taken at the Big European Bubble Chamber (BEBC).   (Courtesy CERN)')" href="#">click here</a>
+        <a id="bluebubbleslink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bluebubbles.jpg', 'Bubbles highlight particle tracks.  This image was taken with CERN's first liquid hydrogen bubble chamber.   (Courtesy CERN)')" href="#">click here</a>
+        <a id="bebcinstalledlink" style="visibility:hidden;" onclick="htmlLightbox('images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bebcinstalled.jpg', 'Big European Bubble Chamber (BEBC) being installed at CERN.   (Courtesy CERN)')" href="#">click here</a>
         <div id="zoomwrapper">
-          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
-             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/playingdetectivepol.png" alt="" />
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bebcpol.png" alt="" />
           </div>
-          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bubblecluespol.png" alt="" />
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bluebubblespol.png" alt="" />
           </div>
-          <div id="pol3"class="pPiece" style="left:75px;top:290px;">
-            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/biggesttosmallestpol.png" alt="" />
+          <div id="polb3"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/bebcinstalledpol.png" alt="" />
           </div>
         </div><!--/zoomwrapper-->
       </div>
       <div class="bpcontentwos">
-        <p>Is there anything that can act as a 'bionic eye' to take pictures of things smaller than atoms?  Nobody has yet found a clever way to do this!  So, how do we 'see' things that are smaller than atoms?</p>
-        <p>The answer is: we can see them indirectly. Suppose you were invisible, and standing on a crowded train.  Other people would know you were there, because they would bump into you!  They'd know indirectly that you were there, because of the effect of you bumping into them, even though they couldn't see you.</p>
-        <p>Another example; imagine you have a cold.  Sneezing and your sore throat indirectly let you know you have a cold, even though the virus causing your cold is too tiny for you to see.  The same thing happens with atoms!  We can't see them directly, but we can see them indirectly!</p>
-        <p>A challenge for you; can you think of more examples of things you know to be true but cannot be seen directly with your own eyes?  Open the 'Read Me' cards on the left for some more examples.</p>
+        <p>Imagine that some soap bubbles are floating past you.  From seeing the bubbles, you know someone nearby must be making them, even if you can't see the person. </p>
+        <p>Particles such as neutrons and protons and electrons can make bubbles too!  When one of these very tiny particles passes through certain liquids, it makes little bubbles that can be photographed.  Scientists do this with something called a bubble chamber.  Just as you can indirectly 'see' an invisible person by the people they bump into, you can indirectly 'see' tiny moving particles such as neutrons by the trail of bubbles they cause in a bubble chamber.</p>
+        <p>Images from these bubbles give a lot of information about the Particle Zoo.  Many of the particles in the Particle Zoo were first discovered using bubble chambers. There are other instruments which also give indirect pictures of particle trails, but the pictures they give are not as pretty as bubble-chamber pictures!</p>
       </div>
         
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
@@ -50,31 +52,31 @@
       playing = false;
       paused = true;
       
-      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      $('div#pol1').css("z-index", 2);
-      $('div#pol2').css("z-index", 1);
-      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb1').css("z-index", 2);
+      $('div#polb2').css("z-index", 1);
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
     
-      $("#evensmaller").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#blueclues").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Even-Smaller');
+      mworldPageVisit(app.kidid, 'Blue-Clues');
     })();
     
-    $('#pol1').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-playingdetective.html", {transition: "slide"});
+    $('#polb1').on('tap', function() {
+      $('#bebclink')[0].click();
     });
     
-    $('#pol2').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-bubbleclues.html", {transition: "slide"});
+    $('#polb2').on('tap', function() {
+      $('#bluebubbleslink')[0].click();
     });
     
-    $('#pol3').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-biggesttosmallest.html", {transition: "slide"});
+    $('#polb3').on('tap', function() {
+      $('#bebcinstalledlink')[0].click();
     });
 
     $('.homelinkbh').on('tap', function() { 
@@ -83,7 +85,7 @@
     });
     
     function goBack() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-zoomingin.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-wonderscience-invisibleworld-evensmaller.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {
@@ -140,5 +142,5 @@
     });
     
   </script>
-  <script src="js/threecardLogic.js"></script>
+  <script src="js/threecardLogicb.js"></script>
 </div> <!--//home-->
