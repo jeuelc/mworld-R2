@@ -643,7 +643,36 @@ FS.assets.cssBackgroundImages = [
 	{id : 'jae11', src : 'sprites/jae11.png'},
 	{id : 'jae12', src : 'sprites/jae12.png'},
 	{id : 'jae13', src : 'sprites/jae13.png'},
-	{id : 'jae14', src : 'sprites/jae14.png'}
+	{id : 'jae14', src : 'sprites/jae14.png'},
+  //Avatar and coach images
+	{id : 'bag-jane', src : 'images/avatar/bag-jane.png'},
+	{id : 'wapron-mary', src : 'images/avatar/wapron-mary.png'},
+	{id : 'apron-mary', src : 'images/avatar/apron-mary.png'},
+	{id : 'jacket', src : 'images/avatar/jacket.png'},
+	{id : 'tab-jane', src : 'images/avatar/tab-jane.png'},
+	{id : 'beard', src : 'images/avatar/beard.png'},
+	{id : 'goatee', src : 'images/avatar/goatee.png'},
+	{id : 'shades-mary', src : 'images/avatar/shades-mary.png'},
+	{id : 'glasses-mary', src : 'images/avatar/glasses-mary.png'},
+	{id : 'shades-may', src : 'images/avatar/shades-may.png'},
+	{id : 'glasses-may', src : 'images/avatar/glasses-may.png'},
+	{id : 'mg-albert', src : 'images/avatar/mg-albert.png'},
+	{id : 'glasses-albert', src : 'images/avatar/glasses-albert.png'},
+	{id : 'gglass-jane', src : 'images/avatar/gglass-jane.png'},
+	{id : 'shades-jane', src : 'images/avatar/shades-jane.png'},
+	{id : 'shades-joe', src : 'images/avatar/shades-joe.png'},
+	{id : 'glasses-joe', src : 'images/avatar/glasses-joe.png'},
+	{id : 'yellowsg', src : 'images/avatar/yellowsg.png'},
+	{id : 'darksg', src : 'images/avatar/darksg.png'},
+	{id : 'headphone-jane', src : 'images/avatar/headphone-jane.png'},
+	{id : 'hat-joe', src : 'images/avatar/hat-joe.png'},
+	{id : 'hat', src : 'images/avatar/hat.png'},
+	{id : 'marysprites', src : 'images/avatar/marysprites.png'},
+	{id : 'maysprites', src : 'images/avatar/maysprites.png'},
+	{id : 'albertsprites', src : 'images/avatar/albertsprites.png'},
+	{id : 'janesprites', src : 'images/avatar/janesprites.png'},
+	{id : 'joesprites', src : 'images/avatar/joesprites.png'},
+	{id : 'ricosprites', src : 'images/avatar/ricosprites.png'}
 ];
 
 //add css images to preload array

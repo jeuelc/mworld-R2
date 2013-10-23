@@ -232,3 +232,9 @@ preloadGlobalSound.addEventListener('progress', function(){
     navigator.notification.alert(preloadGlobalSound.progress*100|0)
 }); 
 preloadGlobalSound.loadManifest(globalSounds);
+
+function pageTrackOnPageShow(pageid, title) {
+    $('#'+pageid).on('pageshow', function(evt, data){
+        mworldPageVisit(app.kidid, title);
+    });
+}

@@ -1431,3 +1431,86 @@ ul.slides {
   overflow:hidden !important;
   width:1024px !important;
 }
+#openquiz {
+  background-color:green;
+  position: absolute;
+  z-index: 2;
+  height: 50px;
+  width: 100px;
+}
+#question {
+  text-align: center;
+  padding-top: 40px;
+  width: inherit;
+  height: 18px;
+}
+#quiz {
+  width:968px;
+  height:720px !important;
+  margin:auto;
+  background:url(images/5-8/Space/Mission_Mars/M2M_Quiz-frame.png) no-repeat;
+  overflow: hidden !important;
+}
+#close {
+  position: absolute;
+  left: 894px;
+  top: 70px;
+  z-index: 2;
+}
+#result {
+  border: 3px solid #30acc8;
+  background-color:#06222c;
+  border-radius: 10px;
+  width: 245px;
+  position: absolute;
+  text-align: center;
+  left: 570px;
+  top: 10px;
+  height: 290px;
+  padding-top: 90px;
+  z-index: 2;
+}
+.display {
+  width: inherit;
+  height: 400px;
+  position: absolute;
+  display: block;
+  margin-top: 100px;
+}
+.option {
+  border: 3px solid #30acc8;            
+  background-color:#06222c;
+  width: 245px;
+  position: absolute;
+  text-align: center;
+  border-radius: 10px;
+  left: 570px;
+  z-index: 2;
+}
+.display h5 {
+  padding-right: 10px;
+  padding-left: 10px;
+  color: whitesmoke;
+}
+.display h4 {
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #00feff;
+}
+#overlay{
+  background-color: black;
+  opacity: 0.7;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  z-index: 0;
+}
+#quizpzrent {
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  z-index: 1;
+  display: block;
+}
