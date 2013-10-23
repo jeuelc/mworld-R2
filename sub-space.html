@@ -28,8 +28,12 @@
   <script>
     var videoStatus, videoEvent;
     $(function() {
-      mworldPageVisit(app.kidid, 'Space');
-      $("#space").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      pageTrackOnPageShow('space', 'Space');
+
+
+
+      var spaceMainPage = $("#space");
+      spaceMainPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       bhvideo.addEventListener('playing', function(){
         videoStatus = true;
       });
@@ -38,6 +42,56 @@
             bgsoundbh.play(); 
             $.mobile.changePage("sub-space-bh.html");  
           });
+      spaceMainPage.find('.homelinkspace').on('tap', function() { 
+        mainaudiobg.play(); spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+      });
+      
+      spaceMainPage.find('#bhmovielink').on('tap', function() { 
+        spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+        
+        //var spacepage = "sub-space.html";
+        if(app.firstRun.space.bh){
+          if(!checkConnection()){
+            navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
+            return false;
+          }
+          var spacepage = "spaceloading.html";
+          sessionStorage.assetsName = 'bh';
+          sessionStorage.nextPage = "sub-space.html";
+          $.mobile.changePage(spacepage);
+        }
+        else {
+          mworldViewMedia(app.kidid, 'bhvideo');
+          spaceMainPage.find("#pre-bh").css({"visibility":"visible", "z-index":2});
+          bhvideo.play();        
+        }
+        //agvideo.webkitEnterFullscreen();
+      });
+      
+      spaceMainPage.find("#bhvideo").on('tap', function() {      
+        if(videoEvent != undefined){ videoEvent = undefined; return; }
+        if(videoStatus == undefined){ return; }
+        videoStatus = undefined;
+        bhvideo.pause();
+        bhvideo.currentTime = 0;
+        bgsoundbh.play();
+        $.mobile.changePage("sub-space-bh.html");
+      });
+      
+      
+      spaceMainPage.live('pagebeforeshow', function(evt, data){
+        if(data.prevPage.attr('id') == 'spaceLoading'){
+          if(!app.firstRun.space.bh){
+            $("#pre-bh").css({"visibility":"visible", "z-index":2});
+            mworldViewMedia(app.kidid, 'bhvideo');
+            bhvideo.play();
+          }
+        }
+      });
+      
+      $('.aclink, .botlogoholder').on('tap', function(){
+        playClickSound();
+      });
     });
         
     function goBack() {
@@ -46,61 +100,16 @@
         bhvideo.pause();
         bhvideo.currentTime = 0;
         spacesoundbg.play();
-        $("#pre-bh").css({"visibility":"hidden", "z-index":0});
-      } else {
+        spaceMainPage.find("#pre-bh").css({"visibility":"hidden", "z-index":0});
+        
+        //$.mobile.changePage("sub-space.html");
+      }
+      else {
         $.mobile.changePage("home.html");
         mainaudiobg.play();
         spacesoundbg.pause(); spacesoundbg.currentTime = 0;
       }
     }
     
-    $('.homelinkspace').on('tap', function() { 
-      mainaudiobg.play(); spacesoundbg.pause(); spacesoundbg.currentTime = 0;
-    });
-    
-    $('#bhmovielink').on('tap', function() { 
-      spacesoundbg.pause(); spacesoundbg.currentTime = 0;
-      
-      if(app.firstRun.space.bh){
-        if(!checkConnection()){
-          navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
-          return false;
-        }
-        var spacepage = "spaceloading.html";
-        sessionStorage.assetsName = 'bh';
-        sessionStorage.nextPage = "sub-space.html";
-        $.mobile.changePage(spacepage);
-      } else {
-        mworldViewMedia(app.kidid, 'bhvideo');
-        $("#pre-bh").css({"visibility":"visible", "z-index":2});
-        bhvideo.play();        
-      }
-      //agvideo.webkitEnterFullscreen();
-    });
-    
-    $("#bhvideo").on('tap', function() {      
-      if(videoEvent != undefined){ videoEvent = undefined; return; }
-      if(videoStatus == undefined){ return; }
-      videoStatus = undefined;
-      bhvideo.pause();
-      bhvideo.currentTime = 0;
-      bgsoundbh.play();
-      $.mobile.changePage("sub-space-bh.html");
-    });
-    
-
-    $('#space').live('pagebeforeshow', function(evt, data){
-      if(data.prevPage.attr('id') == 'spaceLoading'){
-        if(!app.firstRun.space.bh){
-          $("#pre-bh").css({"visibility":"visible", "z-index":2});
-          mworldViewMedia(app.kidid, 'bhvideo');
-          bhvideo.play();
-        }
-      }
-    });
-
-    $('.aclink, .botlogoholder').on('tap', function(){
-      playClickSound();
-    });
       </script>
 </div>

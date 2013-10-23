@@ -53,65 +53,66 @@
         sound = new Audio(); // 'sound' is now an audio object
         mworldPageVisit(app.kidid, 'The-Minoans');
         (function() {
-            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#pol1').css("z-index", 1);
-            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-            $('#volcvidholder').css({"visibility":"hidden", "z-index":-10});
+            var minoansPage = $('#minoans');
+            minoansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            minoansPage.find('div#pol1').css("z-index", 1);
+            minoansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            minoansPage.find('#volcvidholder').css({"visibility":"hidden", "z-index":-10});
             //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=19";
      
             //$('#node-body-minoans').html(data[0].Body);
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-minoans').html('<audio id="minoansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page7.mp3" type="audio/mpeg"></audio>');
+                minoansPage.find('#actualaudio-minoans').html('<audio id="minoansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page7.mp3" type="audio/mpeg"></audio>');
             } 
          
     
-            $("#minoans").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            minoansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('minoans');
+            findElementsWithBgImage('minoans');
+            //changeAudioSrc();
+        
+            minoansPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+        
+            minoansPage.find("#pol2").on('tap', function() {
+                starttheseusaudiobg();
+                pauseagbg();
+                $.mobile.changePage("sub-ac-greece-theseus.html", {transition:"slide"});
+            });
+        
+            minoansPage.find("#pol1").on('tap', function() {
+                $.mobile.changePage("sub-ac-greece-minoansend.html", {transition:"slide"});  
+            });
+            /* ******************** */
+            minoansPage.find("#minoansaudioplbtn").on('tap', function() {
+                minoansaudio.play();
+                mworldPlayAudio(app.kidid, 'minoansaudio');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                minoansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            minoansPage.find("#minoansaudiofbtn").on('tap', function() {
+                var ctime = minoansaudio.currentTime;
+                minoansaudio.currentTime = ctime + 10;
+            });
+        
+            minoansPage.find("#minoansaudiobbtn").on('tap', function() {
+                var ctime = minoansaudio.currentTime;
+                minoansaudio.currentTime = ctime - 10;
+            });
+        
+            minoansPage.find("#minoansaudiopsbtn").on('tap', function() {
+                minoansaudio.pause();
+            });
         })();
     
     
         function goBack() {
             $.mobile.changePage("sub-ac-greece-origins.html");
         }
-    
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-    
-        $("#pol2").on('tap', function() {
-            starttheseusaudiobg();
-            pauseagbg();
-            $.mobile.changePage("sub-ac-greece-theseus.html", {transition:"slide"});
-        });
-    
-        $("#pol1").on('tap', function() {
-            $.mobile.changePage("sub-ac-greece-minoansend.html", {transition:"slide"});  
-        });
-        /* ******************** */
-        $("#minoansaudioplbtn").on('tap', function() {
-            minoansaudio.play();
-            mworldPlayAudio(app.kidid, 'minoansaudio');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#minoansaudiofbtn").on('tap', function() {
-            var ctime = minoansaudio.currentTime;
-            minoansaudio.currentTime = ctime + 10;
-        });
-    
-        $("#minoansaudiobbtn").on('tap', function() {
-            var ctime = minoansaudio.currentTime;
-            minoansaudio.currentTime = ctime - 10;
-        });
-    
-        $("#minoansaudiopsbtn").on('tap', function() {
-            minoansaudio.pause();
-        });
 
         bottomHomeBtnSound();
     </script>

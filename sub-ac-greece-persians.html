@@ -49,61 +49,62 @@
         sound = new Audio(); // 'sound' is now an audio object
         mworldPageVisit(app.kidid, 'The-Persians');
         (function() {
-	
-            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#pol1').css("z-index", 1);
-            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            var persiansPage = $('#persians');
+            persiansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            persiansPage.find('div#pol1').css("z-index", 1);
+            persiansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
 	
       
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-persians').html('<audio id="persianaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page24.mp3" type="audio/mpeg"></audio>');
+                persiansPage.find('#actualaudio-persians').html('<audio id="persianaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page24.mp3" type="audio/mpeg"></audio>');
             } 
     
-            $("#persians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            persiansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
             
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('persians');
+            findElementsWithBgImage('persians');
+            //changeAudioSrc();
+
+            persiansPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+    	
+            persiansPage.find("#pol1").on('tap', function() {
+                $('#persepolis')[0].click();
+            });
+    	
+            persiansPage.find("#pol2").on('tap', function() {
+                $.mobile.changePage("sub-ac-greece-persian-education.html", {transition: "slide"});
+            });
+    	
+            /* ******************** */
+            persiansPage.find("#persianaudioplbtn").on('tap', function() {
+                persianaudio.play();
+                mworldPlayAudio(app.kidid, 'persianaudio');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                persiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            persiansPage.find("#persianaudiofbtn").on('tap', function() {
+                var ctime = persianaudio.currentTime;
+                persianaudio.currentTime = ctime + 10;
+            });
+        
+            persiansPage.find("#persianaudiobbtn").on('tap', function() {
+                var ctime = persianaudio.currentTime;
+                persianaudio.currentTime = ctime - 10;
+            });
+        
+            persiansPage.find("#persianaudiopsbtn").on('tap', function() {
+                persianaudio.pause();
+                persiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
         })();
     
         function goBack() {
             $.mobile.changePage("sub-ac-greece-aroundag.html");
         }
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-	
-        $("#pol1").on('tap', function() {
-            $('#persepolis')[0].click();
-        });
-	
-        $("#pol2").on('tap', function() {
-            $.mobile.changePage("sub-ac-greece-persian-education.html", {transition: "slide"});
-        });
-	
-        /* ******************** */
-        $("#persianaudioplbtn").on('tap', function() {
-            persianaudio.play();
-            mworldPlayAudio(app.kidid, 'persianaudio');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#persianaudiofbtn").on('tap', function() {
-            var ctime = persianaudio.currentTime;
-            persianaudio.currentTime = ctime + 10;
-        });
-    
-        $("#persianaudiobbtn").on('tap', function() {
-            var ctime = persianaudio.currentTime;
-            persianaudio.currentTime = ctime - 10;
-        });
-    
-        $("#persianaudiopsbtn").on('tap', function() {
-            persianaudio.pause();
-            $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-        });
 
         bottomHomeBtnSound();
     </script>

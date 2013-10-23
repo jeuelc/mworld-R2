@@ -56,72 +56,77 @@
     sound = new Audio();
     mworldPageVisit(app.kidid, 'Greek-Architecture');
     (function() {
-      $('div#polb1').css("z-index", 3);
-      $('div#polb2').css("z-index", 2);
-      $('div#polb3').css("z-index", 1);
-      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
-      $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
-      $('div#polb4 > img').css("-webkit-transform", "rotate(-3deg)");
+      var architecturePage = $('#architecture');
+      var polb1Div = architecturePage.find('div#polb1'),
+          polb2Div = architecturePage.find('div#polb2'),
+          polb3Div = architecturePage.find('div#polb3'),
+          polb4Div = architecturePage.find('div#polb4');
+      polb1Div.css("z-index", 3);
+      polb2Div.css("z-index", 2);
+      polb3Div.css("z-index", 1);
+      polb1Div.find('img').css("-webkit-transform", "rotate(0deg)");
+      polb2Div.find('img').css("-webkit-transform", "rotate(5deg)");
+      polb3Div.find('img').css("-webkit-transform", "rotate(-3deg)");
+      polb4Div.find('img').css("-webkit-transform", "rotate(-3deg)");
     
       
       if(sound.canPlayType('audio/mpeg')) {
-        $('#actualaudio-archi').html('<audio id="archiaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
+        architecturePage.find('#actualaudio-archi').html('<audio id="archiaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
       } 
     
-      $("#architecture").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      architecturePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('architecture');
+      findElementsWithBgImage('architecture');
       //changeAudioSrc();
-    })();
+      
+      function goBack() {
+        $.mobile.changePage("sub-ac-greece-legacy.html");
+      }
+      
+      architecturePage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      
+      polb1Div.on('tap', function() {
+        $('#archi1link')[0].click();
+      });
+      polb2Div.on('tap', function() {
+        $('#archi2link')[0].click();
+      });
+      polb3Div.on('tap', function() {
+        $('#archi3link')[0].click();
+      });
+      polb4Div.on('tap', function() {
+        $('#archi4link')[0].click();
+      });
     
-    function goBack() {
-      $.mobile.changePage("sub-ac-greece-legacy.html");
-    }
-    
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    
-    $("#polb1").on('tap', function() {
-      $('#archi1link')[0].click();
-    });
-    $("#polb2").on('tap', function() {
-      $('#archi2link')[0].click();
-    });
-    $("#polb3").on('tap', function() {
-      $('#archi3link')[0].click();
-    });
-    $("#polb4").on('tap', function() {
-      $('#archi4link')[0].click();
-    });
-  
-   /* ******************** */
-    $("#archiaudioplbtn").on('tap', function() {
-      archiaudio.play();
-      mworldPlayAudio(app.kidid, 'archiaudio');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#archiaudiofbtn").on('tap', function() {
-      var ctime = archiaudio.currentTime;
-      archiaudio.currentTime = ctime + 10;
-    });
-    
-    $("#archiaudiobbtn").on('tap', function() {
-      var ctime = archiaudio.currentTime;
-      archiaudio.currentTime = ctime - 10;
-    });
-    
-    $("#archiaudiopsbtn").on('tap', function() {
-      archiaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
+     /* ******************** */
+      architecturePage.find("#archiaudioplbtn").on('tap', function() {
+        archiaudio.play();
+        mworldPlayAudio(app.kidid, 'archiaudio');
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        architecturePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      architecturePage.find("#archiaudiofbtn").on('tap', function() {
+        var ctime = archiaudio.currentTime;
+        archiaudio.currentTime = ctime + 10;
+      });
+      
+      architecturePage.find("#archiaudiobbtn").on('tap', function() {
+        var ctime = archiaudio.currentTime;
+        archiaudio.currentTime = ctime - 10;
+      });
+      
+      architecturePage.find("#archiaudiopsbtn").on('tap', function() {
+        archiaudio.pause();
+        architecturePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+      });
 
-    bottomHomeBtnSound();
+      bottomHomeBtnSound();
+    })();
   </script>
   <script src="js/fourcardLogicb.js"></script>
 </div>

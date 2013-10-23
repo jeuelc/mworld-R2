@@ -64,99 +64,103 @@
         sound = new Audio(); // 'sound' is now an audio object
         mworldPageVisit(app.kidid, 'The-End-of-the-Minoans');
         (function() {
-            $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#polb1').css("z-index", 1);
-            $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
-            $('#f1_container').css({"visibility":"hidden", "z-index":0});
+            var minoansendPage = $('#minoansend');
+            minoansendPage.find('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+            minoansendPage.find('div#polb1').css("z-index", 1);
+            minoansendPage.find('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+            minoansendPage.find('#f1_container').css({"visibility":"hidden", "z-index":0});
     
      
             //$('#node-body-minoans').html(data[0].Body);
             
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-minoansend').html('<audio id="minoansendaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page8b.mp3" type="audio/mpeg"></audio>');
+                minoansendPage.find('#actualaudio-minoansend').html('<audio id="minoansendaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page8b.mp3" type="audio/mpeg"></audio>');
             } 
          
     
-            $("#minoansend").swipe( { swipeRight:goBack, allowPageScroll:"auto", excludedElements:$.fn.swipe.defaults.excludedElements+", #backofcard"} );
+            minoansendPage.swipe( { swipeRight:goBack, allowPageScroll:"auto", excludedElements:$.fn.swipe.defaults.excludedElements+", #backofcard"} );
     
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('minoansend');
+            findElementsWithBgImage('minoansend');
+            //changeAudioSrc();
+            $('#start-minoansend').on('click', function() {
+                minoansendPage.find('#actualaudio-minoansend').show();
+                var oldHeight = $('#node-body-holder').height();
+                var newHeight = oldHeight - minoansendPage.find('#actualaudio-minoansend').height();
+                $('#node-body-holder').height(newHeight);
+            });
+            minoansendPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+            minoansendPage.find("#polb1").on('tap', function() {
+                $('#santorinilink')[0].click();
+            });
+            var f1ContainerMinoan = minoansendPage.find("#f1_container"),
+                f1CardMinoan = minoansendPage.find('#f1_card'),
+                polb2Var = minoansendPage.find("#polb2");
+            f1ContainerMinoan.on('tap', function() {
+                f1CardMinoan.css({"-webkit-transform": "rotateY(0deg)"});
+                f1CardMinoan.css({"-moz-transform": "rotateY(0deg)"});
+                f1CardMinoan.css({"-o-transform": "rotateY(0deg)"});
+                f1CardMinoan.css({"transform": "rotateY(0deg)"});
+                setTimeout(function() {
+                    polb2Var.css({"visibility":"visible", "z-index":2});
+                    f1CardMinoan.css({"visibility":"hidden", "z-index":0});
+                }, 1000);
+            });
+        
+            polb2Var.on('tap', function() {
+                f1CardMinoan.css({"visibility":"visible", "z-index":10});
+                $(this).css({"visibility":"hidden"});
+                f1CardMinoan.css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+                f1CardMinoan.css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+                f1CardMinoan.css({"-o-transform": "rotateY(180deg)"});
+                f1CardMinoan.css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+                //$("#hittites").swipe("disable");
+                //$("#dopple").css({"visibility":"hidden"});
+            });
+            /* ******************** */
+            minoansendPage.find("#minoansendaudioplbtn").on('tap', function() {
+                minoansendaudio.play();
+                mworldPlayAudio(app.kidid, 'minoansendaudio');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                minoansendPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            minoansendPage.find("#minoansendaudiofbtn").on('tap', function() {
+                var ctime = minoansendaudio.currentTime;
+                minoansendaudio.currentTime = ctime + 10;
+            });
+        
+            minoansendPage.find("#minoansendaudiobbtn").on('tap', function() {
+                var ctime = minoansendaudio.currentTime;
+                minoansendaudio.currentTime = ctime - 10;
+            });
+        
+            minoansendPage.find("#minoansendaudiopsbtn").on('tap', function() {
+                minoansendaudio.pause();
+            });
+            
+            minoansendPage.find(".quizanswerselection").click(function() {
+                var answer = $(this).text().substr(1, 1);
+                if (answer == "a") {
+                    alert("Correct");
+                } else if (answer == "b") {
+                    alert("Wrong");
+                } else if (answer == "c") {
+                    alert("Wrong");
+                } else if (answer == "d") {
+                    alert("Wrong");
+                }
+            });
+
+            bottomHomeBtnSound();
         })();
         function goBack() {
             $.mobile.changePage("sub-ac-greece-minoans.html");
         }
     
-        $('#start-minoansend').on('click', function() {
-            $('#actualaudio-minoansend').show();
-            var oldHeight = $('#node-body-holder').height();
-            var newHeight = oldHeight - $('#actualaudio-minoansend').height();
-            $('#node-body-holder').height(newHeight);
-        });
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-        $("#polb1").on('tap', function() {
-            $('#santorinilink')[0].click();
-        });
-        $("#f1_container").on('tap', function() {
-            $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
-            $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
-            $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
-            $('#f1_card').css({"transform": "rotateY(0deg)"});
-            setTimeout(function() {
-                $("#polb2").css({"visibility":"visible", "z-index":2});
-                $('#f1_container').css({"visibility":"hidden", "z-index":0});
-            }, 1000);
-        });
-    
-        $("#polb2").on('tap', function() {
-            $('#f1_container').css({"visibility":"visible", "z-index":10});
-            $(this).css({"visibility":"hidden"});
-            $('#f1_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
-            $('#f1_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
-            $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
-            $('#f1_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
-            //$("#hittites").swipe("disable");
-            //$("#dopple").css({"visibility":"hidden"});
-        });
-        /* ******************** */
-        $("#minoansendaudioplbtn").on('tap', function() {
-            minoansendaudio.play();
-            mworldPlayAudio(app.kidid, 'minoansendaudio');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#minoansendaudiofbtn").on('tap', function() {
-            var ctime = minoansendaudio.currentTime;
-            minoansendaudio.currentTime = ctime + 10;
-        });
-    
-        $("#minoansendaudiobbtn").on('tap', function() {
-            var ctime = minoansendaudio.currentTime;
-            minoansendaudio.currentTime = ctime - 10;
-        });
-    
-        $("#minoansendaudiopsbtn").on('tap', function() {
-            minoansendaudio.pause();
-        });
-        
-        $(".quizanswerselection").click(function() {
-            var answer = $(this).text().substr(1, 1);
-            if (answer == "a") {
-                alert("Correct");
-            } else if (answer == "b") {
-                alert("Wrong");
-            } else if (answer == "c") {
-                alert("Wrong");
-            } else if (answer == "d") {
-                alert("Wrong");
-            }
-        });
-
-        bottomHomeBtnSound();
     </script>
     <script src="js/twocardLogicb.js"></script>
 </div>

@@ -44,23 +44,58 @@
   <script>
     (function() {
       mworldPageVisit(app.kidid, 'The-Olympic-Games');
+      var olympicsPage = $('#olympics');
       if(sound.canPlayType('audio/mpeg')) {
-        $('#actualaudio-olympics').html('<audio id="olympicsnar" controls preload onpause="playolympics()" onplay="pauseolympics()"><source src="'+FS.remotePath+'audio/Page14.mp3" type="audio/mpeg"></audio>');
+        olympicsPage.find('#actualaudio-olympics').html('<audio id="olympicsnar" controls preload onpause="playolympics()" onplay="pauseolympics()"><source src="'+FS.remotePath+'audio/Page14.mp3" type="audio/mpeg"></audio>');
       } 
     
-    $("#olympics").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      olympicsPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('olympics');
+      findElementsWithBgImage('olympics');
       //changeAudioSrc();
+      $('#start-olympics').on('click', function() {
+        olympicsPage.find('#actualaudio-olympics').show();
+        var oldHeight = $('#node-body-holder').height();
+        var newHeight = oldHeight - olympicsPage.find('#actualaudio-olympics').height();
+        $('#node-body-holder').height(newHeight);
+      });
+
+      olympicsPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      
+      olympicsPage.find(".olym").on('tap', function() {
+        var ansId = $(this).attr("id");
+        if(ansId == "beachv") {
+          alert("You're right! Beach volleyball did not originate from Ancient Greece.");
+        } else {
+          alert("Sorry, you got it wrong.");
+        }
+      });
+      /* ******************** */
+      olympicsPage.find("#olympicsaudioplbtn").on('tap', function() {
+        olympicsnar.play();
+        mworldPlayAudio(app.kidid, 'olympicsnar');
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        olympicsPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      olympicsPage.find("#olympicsaudiofbtn").on('tap', function() {
+        var ctime = olympicsnar.currentTime;
+        olympicsnar.currentTime = ctime + 10;
+      });
+      
+      olympicsPage.find("#olympicsaudiobbtn").on('tap', function() {
+        var ctime = olympicsnar.currentTime;
+        olympicsnar.currentTime = ctime - 10;
+      });
+      
+      olympicsPage.find("#olympicsaudiopsbtn").on('tap', function() {
+        olympicsnar.pause();
+      });
     })();
-    $('#start-olympics').on('click', function() {
-      $('#actualaudio-olympics').show();
-      var oldHeight = $('#node-body-holder').height();
-      var newHeight = oldHeight - $('#actualaudio-olympics').height();
-      $('#node-body-holder').height(newHeight);
-    });
     
     function playolympics() {
       olympicsaudiobg.pause();
@@ -75,39 +110,6 @@
       olympicsaudiobg.pause();
       agsoundbg.play();
     }
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    
-    $(".olym").on('tap', function() {
-      var ansId = $(this).attr("id");
-      if(ansId == "beachv") {
-        alert("You're right! Beach volleyball did not originate from Ancient Greece.");
-      } else {
-        alert("Sorry, you got it wrong.");
-      }
-    });
-    /* ******************** */
-    $("#olympicsaudioplbtn").on('tap', function() {
-      olympicsnar.play();
-      mworldPlayAudio(app.kidid, 'olympicsnar');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#olympicsaudiofbtn").on('tap', function() {
-      var ctime = olympicsnar.currentTime;
-      olympicsnar.currentTime = ctime + 10;
-    });
-    
-    $("#olympicsaudiobbtn").on('tap', function() {
-      var ctime = olympicsnar.currentTime;
-      olympicsnar.currentTime = ctime - 10;
-    });
-    
-    $("#olympicsaudiopsbtn").on('tap', function() {
-      olympicsnar.pause();
-    });
 
     bottomHomeBtnSound();
   </script>

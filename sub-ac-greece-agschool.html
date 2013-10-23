@@ -46,62 +46,63 @@
         sound = new Audio();
         mworldPageVisit(app.kidid, 'School-in-Ancient-Greece');
         (function() {
-            
-                if(sound.canPlayType('audio/mpeg')) {
-                    
-                    $('#actualaudio-agschool').html('<audio id="agschoolaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page18.mp3" type="audio/mpeg"></audio>');
-                } 
+          var agschoolPage = $('#agschool');
+          var actualaudioAgschool = agschoolPage.find('#actualaudio-agschool');
+          if(sound.canPlayType('audio/mpeg')) {
+              
+              actualaudioAgschool.html('<audio id="agschoolaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page18.mp3" type="audio/mpeg"></audio>');
+          } 
             
     
-            $("#agschool").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          agschoolPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
           //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
+          changeImageSrc('agschool');
+          findElementsWithBgImage('agschool');
           //changeAudioSrc();
-        })();
-    
-        $('#start-agschool').on('click', function() {
-            $('#actualaudio-agschool').show();
-            var oldHeight = $('#node-body-holder').height();
-            var newHeight = oldHeight - $('#actualaudio-agschool').height();
-            $('#node-body-holder').height(newHeight);
-        });
-    
-        function goBack() {
-            $.mobile.changePage("sub-ac-greece-lifeinag.html");
-        }
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-      $("#bonus-ags").on('tap', function() {
-        $.mobile.changePage("game-ag1.html");
-        mapmakerbg.play();
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      })
-      /* ******************** */
-    $("#agschoolaudioplbtn").on('tap', function() {
-      agschoolaudio.play();
-      mworldPlayAudio(app.kidid, 'agschoolaudio');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#agschoolaudiofbtn").on('tap', function() {
-      var ctime = agschoolaudio.currentTime;
-      agschoolaudio.currentTime = ctime + 10;
-    });
-    
-    $("#agschoolaudiobbtn").on('tap', function() {
-      var ctime = agschoolaudio.currentTime;
-      agschoolaudio.currentTime = ctime - 10;
-    });
-    
-    $("#agschoolaudiopsbtn").on('tap', function() {
-      agschoolaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
+      
+          $('#start-agschool').on('click', function() {
+              actualaudioAgschool.show();
+              var oldHeight = $('#node-body-holder').height();
+              var newHeight = oldHeight - actualaudioAgschool.height();
+              $('#node-body-holder').height(newHeight);
+          });
+      
+          function goBack() {
+              $.mobile.changePage("sub-ac-greece-lifeinag.html");
+          }
+          agschoolPage.find('.homelinkag').on('tap', function() { 
+              mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          });
+          agschoolPage.find("#bonus-ags").on('tap', function() {
+            $.mobile.changePage("game-ag1.html");
+            mapmakerbg.play();
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          })
+          /* ******************** */
+          agschoolPage.find("#agschoolaudioplbtn").on('tap', function() {
+            agschoolaudio.play();
+            mworldPlayAudio(app.kidid, 'agschoolaudio');
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            agschoolPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+          });
+          
+          agschoolPage.find("#agschoolaudiofbtn").on('tap', function() {
+            var ctime = agschoolaudio.currentTime;
+            agschoolaudio.currentTime = ctime + 10;
+          });
+          
+          agschoolPage.find("#agschoolaudiobbtn").on('tap', function() {
+            var ctime = agschoolaudio.currentTime;
+            agschoolaudio.currentTime = ctime - 10;
+          });
+          
+          agschoolPage.find("#agschoolaudiopsbtn").on('tap', function() {
+            agschoolaudio.pause();
+            agschoolPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+          });
 
-    bottomHomeBtnSound();
+          bottomHomeBtnSound();
+        })();
     </script>
 </div>

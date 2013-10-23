@@ -30,26 +30,23 @@
   <script>
     (function() {
       mworldPageVisit(app.kidid, 'Supergiant');
-      $("#supergiantpage").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var superGiantMainPage = $('#supergiantpage');
+      superGiantMainPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      superGiantMainPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+      superGiantMainPage.find("#startnarrate").on('tap', function() {
+        //$("#supergiantnarholder").css({"visibility":"visible"});
+        supergiantnar.play();
+      });
+      superGiantMainPage.find('.botlogoholder').on('tap', function(){
+        playClickSound();
     })();
 
     //change images path
-    changeImageSrc();
-    findElementsWithBgImage();
+    changeImageSrc('supergiantpage');
+    findElementsWithBgImage('supergiantpage');
     //changeAudioSrc();
     function goBack() { $.mobile.changePage("sub-space-bh-supergiant.html", {transition: "slide", reverse: true }); }
     function pausedaudio() { bgsoundbh.play(); }
     function pausebg() { bgsoundbh.pause(); }
-    $('.homelinkbh').on('tap', function() { 
-      buttonEffectsBH();
-      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-    });
-    $("#startnarrate").on('tap', function() {
-      //$("#supergiantnarholder").css({"visibility":"visible"});
-      supergiantnar.play();
-    });
-    $('.botlogoholder').on('tap', function(){
-      playClickSound();
-    });
   </script>
 </div>

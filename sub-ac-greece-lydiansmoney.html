@@ -49,59 +49,60 @@
     sound = new Audio(); // 'sound' is now an audio object
     mworldPageVisit(app.kidid, 'The-Lydians-and-Money');
     (function() {
-	
-            if(sound.canPlayType('audio/mpeg')) {
-              
-              $('#actualaudio-lydiansmoney').html('<audio id="lydiansmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page22.mp3" type="audio/mpeg"></audio>');
-            } 
+      var lydiansmoneyPage = $('#lydiansmoney');
+      if(sound.canPlayType('audio/mpeg')) {
+        
+        lydiansmoneyPage.find('#actualaudio-lydiansmoney').html('<audio id="lydiansmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page22.mp3" type="audio/mpeg"></audio>');
+      } 
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('lydiansmoney');
+      findElementsWithBgImage('lydiansmoney');
       //changeAudioSrc();
+
+      lydiansmoneyPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      function goBack() {
+        $.mobile.changePage("sub-ac-greece-lydians.html");
+      }
+      
+      lydiansmoneyPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      lydiansmoneyPage.find(".trade").on('tap', function() {
+        var ansId = $(this).attr("id");
+        if(ansId == "chilli") {
+          alert("Well done! You've earned 100 points.");
+        } else {
+          alert("Sorry, not quite... try again");
+        }
+      });
+      
+      /* ******************** */
+      lydiansmoneyPage.find("#lydiansmaudioplbtn").on('tap', function() {
+        lydiansmaudio.play();
+        mworldPlayAudio(app.kidid, 'lydiansmaudio');
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        lydiansmoneyPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      lydiansmoneyPage.find("#lydiansmaudiofbtn").on('tap', function() {
+        var ctime = lydiansmaudio.currentTime;
+        lydiansmaudio.currentTime = ctime + 10;
+      });
+      
+      lydiansmoneyPage.find("#lydiansmaudiobbtn").on('tap', function() {
+        var ctime = lydiansmaudio.currentTime;
+        lydiansmaudio.currentTime = ctime - 10;
+      });
+      
+      lydiansmoneyPage.find("#lydiansmaudiopsbtn").on('tap', function() {
+        lydiansmaudio.pause();
+        lydiansmoneyPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+      });
+
+      bottomHomeBtnSound();
     })();
     
-    $("#lydiansmoney").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
-    function goBack() {
-      $.mobile.changePage("sub-ac-greece-lydians.html");
-    }
-    
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    $(".trade").on('tap', function() {
-      var ansId = $(this).attr("id");
-      if(ansId == "chilli") {
-        alert("Well done! You've earned 100 points.");
-      } else {
-        alert("Sorry, not quite... try again");
-      }
-    });
-    
-    /* ******************** */
-    $("#lydiansmaudioplbtn").on('tap', function() {
-      lydiansmaudio.play();
-      mworldPlayAudio(app.kidid, 'lydiansmaudio');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#lydiansmaudiofbtn").on('tap', function() {
-      var ctime = lydiansmaudio.currentTime;
-      lydiansmaudio.currentTime = ctime + 10;
-    });
-    
-    $("#lydiansmaudiobbtn").on('tap', function() {
-      var ctime = lydiansmaudio.currentTime;
-      lydiansmaudio.currentTime = ctime - 10;
-    });
-    
-    $("#lydiansmaudiopsbtn").on('tap', function() {
-      lydiansmaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
-
-    bottomHomeBtnSound();
   </script>
 </div> <!--//home-->

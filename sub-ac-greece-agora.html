@@ -41,15 +41,55 @@
         sound = new Audio();
         mworldPageVisit(app.kidid, 'The-Agora');
         (function() {
+            var agoraPage = $('#agora');
+            var actualaudioAgora = agoraPage.find('#actualaudio-agora');
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-agora').html('<audio id="agoraaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page19.mp3" type="audio/mpeg"></audio>');
+                actualaudioAgora.html('<audio id="agoraaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page19.mp3" type="audio/mpeg"></audio>');
             } 
-            $("#agora").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            agoraPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
             
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('agora');
+            findElementsWithBgImage('agora');
+            //changeAudioSrc();
+            
+            $('#start-agora').on('click', function() {
+                actualaudioAgora.show();
+                var oldHeight = $('#node-body-holder').height();
+                var newHeight = oldHeight - actualaudioAgora.height();
+                $('#node-body-holder').height(newHeight);
+            });
+            function goBack() {
+                $.mobile.changePage("sub-ac-greece-lifeinag.html");
+            }
+            agoraPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+        
+            /* ******************** */
+            agoraPage.find("#agoraaudioplbtn").on('tap', function() {
+                agoraaudio.play();
+                mworldPlayAudio(app.kidid, 'agoraaudio');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                agoraPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            agoraPage.find("#agoraaudiofbtn").on('tap', function() {
+                var ctime = agoraaudio.currentTime;
+                agoraaudio.currentTime = ctime + 10;
+            });
+        
+            agoraPage.find("#agoraaudiobbtn").on('tap', function() {
+                var ctime = agoraaudio.currentTime;
+                agoraaudio.currentTime = ctime - 10;
+            });
+        
+            agoraPage.find("#agoraaudiopsbtn").on('tap', function() {
+                agoraaudio.pause();
+                agoraPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
+
+            bottomHomeBtnSound();
         })();
         (function() {
             var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=78";
@@ -61,42 +101,5 @@
                 $('#pottery').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Greek Pottery used for voting');")
             });
         })();
-        $('#start-agora').on('click', function() {
-            $('#actualaudio-agora').show();
-            var oldHeight = $('#node-body-holder').height();
-            var newHeight = oldHeight - $('#actualaudio-agora').height();
-            $('#node-body-holder').height(newHeight);
-        });
-        function goBack() {
-            $.mobile.changePage("sub-ac-greece-lifeinag.html");
-        }
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-    
-        /* ******************** */
-        $("#agoraaudioplbtn").on('tap', function() {
-            agoraaudio.play();
-            mworldPlayAudio(app.kidid, 'agoraaudio');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#agoraaudiofbtn").on('tap', function() {
-            var ctime = agoraaudio.currentTime;
-            agoraaudio.currentTime = ctime + 10;
-        });
-    
-        $("#agoraaudiobbtn").on('tap', function() {
-            var ctime = agoraaudio.currentTime;
-            agoraaudio.currentTime = ctime - 10;
-        });
-    
-        $("#agoraaudiopsbtn").on('tap', function() {
-            agoraaudio.pause();
-            $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-        });
-
-        bottomHomeBtnSound();
     </script>
 </div>

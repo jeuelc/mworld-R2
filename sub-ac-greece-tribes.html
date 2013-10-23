@@ -44,8 +44,8 @@
     (function() {
       mworldPageVisit(app.kidid, 'The-Greek-Tribes');
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('tribesofgreece');
+      findElementsWithBgImage('tribesofgreece');
       //changeAudioSrc();
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=66";
         $.getJSON( url, function( data ) {
@@ -86,53 +86,54 @@
             }
          });
     
-    $("#tribesofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
     })();
     
     (function() {
-      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      $('div#pol1').css("z-index", 1);
-      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      var tribesofgreecePage = $("#tribesofgreece");
+      tribesofgreecePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      tribesofgreecePage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      tribesofgreecePage.find('div#pol1').css("z-index", 1);
+      tribesofgreecePage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
     
+      $('#start-tribes1').on('click', function() {
+      	$('#actualaudio-tribes1').show();
+        var oldHeight = $('#node-body-holder1').height();
+        var newHeight = oldHeight - $('#actualaudio-tribes1').height();
+        $('#node-body-holder1').height(newHeight);
+      });
+      
+      $('#start-tribes2').on('click', function() {
+      	$('#actualaudio-tribes2').show();
+        var oldHeight = $('#node-body-holder2').height();
+        var newHeight = oldHeight - $('#actualaudio-tribes2').height();
+        $('#node-body-holder2').height(newHeight);
+      });
+      
+      $('#start-tribes3').on('click', function() {
+      	$('#actualaudio-tribes3').show();
+        var oldHeight = $('#node-body-holder3').height();
+        var newHeight = oldHeight - $('#actualaudio-tribes3').height();
+        $('#node-body-holder3').height(newHeight);
+      });
+      function goBack() {
+        $.mobile.changePage("sub-ac-greece-origins.html");
+      }
+      tribesofgreecePage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      
+      tribesofgreecePage.find("#pol2").on('tap', function() {
+        $.mobile.changePage("sub-ac-greece-spartans.html");
+      });
+      
+      tribesofgreecePage.find("#pol1").on('tap', function() {
+        $.mobile.changePage("sub-ac-greece-temples.html");
+      });
+
+      bottomHomeBtnSound();
     })();
     
-    $('#start-tribes1').on('click', function() {
-    	$('#actualaudio-tribes1').show();
-      var oldHeight = $('#node-body-holder1').height();
-      var newHeight = oldHeight - $('#actualaudio-tribes1').height();
-      $('#node-body-holder1').height(newHeight);
-    });
-    
-    $('#start-tribes2').on('click', function() {
-    	$('#actualaudio-tribes2').show();
-      var oldHeight = $('#node-body-holder2').height();
-      var newHeight = oldHeight - $('#actualaudio-tribes2').height();
-      $('#node-body-holder2').height(newHeight);
-    });
-    
-    $('#start-tribes3').on('click', function() {
-    	$('#actualaudio-tribes3').show();
-      var oldHeight = $('#node-body-holder3').height();
-      var newHeight = oldHeight - $('#actualaudio-tribes3').height();
-      $('#node-body-holder3').height(newHeight);
-    });
-    function goBack() {
-      $.mobile.changePage("sub-ac-greece-origins.html");
-    }
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    
-    $("#pol2").on('tap', function() {
-      $.mobile.changePage("sub-ac-greece-spartans.html");
-    });
-    
-    $("#pol1").on('tap', function() {
-      $.mobile.changePage("sub-ac-greece-temples.html");
-    });
-
-    bottomHomeBtnSound();
   </script>
   <script src="js/twocardLogic.js"></script>
 </div>

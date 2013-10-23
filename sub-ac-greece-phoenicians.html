@@ -52,78 +52,75 @@
         sound = new Audio(); // 'sound' is now an audio object
         mworldPageVisit(app.kidid, 'The-Phoenicians');
         (function() {
-	
-            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#pol1').css("z-index", 2);
-            $('div#pol2').css("z-index", 1);
-            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-            $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-	
-	
-	
+            var phoeniciansPage = $('#phoenicians');
+            phoeniciansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            phoeniciansPage.find('div#pol1').css("z-index", 2);
+            phoeniciansPage.find('div#pol2').css("z-index", 1);
+            phoeniciansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            phoeniciansPage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");	
       
             if(sound.canPlayType('audio/mpeg')) {
-              
-                $('#actualaudio-phoenicians').html('<audio id="phoeaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page27.mp3" type="audio/mpeg"></audio>');
+                phoeniciansPage.find('#actualaudio-phoenicians').html('<audio id="phoeaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page27.mp3" type="audio/mpeg"></audio>');
             } 
     
-            $("#phoenicians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            phoeniciansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('phoenicians');
+            findElementsWithBgImage('phoenicians');
+            //changeAudioSrc();
+        
+            $('#start-phoenicians').on('click', function() {
+                phoeniciansPage.find('#actualaudio-phoenicians').show();
+                var oldHeight = $('#node-body-holder').height();
+                var newHeight = oldHeight - phoeniciansPage.find('#actualaudio-phoenicians').height();
+                $('#node-body-holder').height(newHeight);
+            });
+
+            phoeniciansPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+    	
+            phoeniciansPage.find("#pol3").on('tap', function() {
+                $('#carthage1')[0].click();
+            });
+        
+            phoeniciansPage.find("#pol2").on('tap', function() {
+                $('#carthage2')[0].click();
+            });
+        
+            phoeniciansPage.find("#pol1").on('tap', function() {
+                $('#sidon1')[0].click();
+            });
+    	
+            /* ******************** */
+            phoeniciansPage.find("#phoeaudioplbtn").on('tap', function() {
+                phoeaudio.play();
+                mworldPlayAudio(app.kidid, 'phoeaudio');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                phoeniciansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            phoeniciansPage.find("#phoeaudiofbtn").on('tap', function() {
+                var ctime = phoeaudio.currentTime;
+                phoeaudio.currentTime = ctime + 10;
+            });
+        
+            phoeniciansPage.find("#phoeaudiobbtn").on('tap', function() {
+                var ctime = phoeaudio.currentTime;
+                phoeaudio.currentTime = ctime - 10;
+            });
+        
+            phoeniciansPage.find("#phoeaudiopsbtn").on('tap', function() {
+                phoeaudio.pause();
+                phoeniciansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
         })();
     
-    
-        $('#start-phoenicians').on('click', function() {
-            $('#actualaudio-phoenicians').show();
-            var oldHeight = $('#node-body-holder').height();
-            var newHeight = oldHeight - $('#actualaudio-phoenicians').height();
-            $('#node-body-holder').height(newHeight);
-        });
     
         function goBack() {
             $.mobile.changePage("sub-ac-greece-aroundag.html");
         }
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-	
-        $("#pol3").on('tap', function() {
-            $('#carthage1')[0].click();
-        });
-    
-        $("#pol2").on('tap', function() {
-            $('#carthage2')[0].click();
-        });
-    
-        $("#pol1").on('tap', function() {
-            $('#sidon1')[0].click();
-        });
-	
-        /* ******************** */
-        $("#phoeaudioplbtn").on('tap', function() {
-            phoeaudio.play();
-            mworldPlayAudio(app.kidid, 'phoeaudio');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#phoeaudiofbtn").on('tap', function() {
-            var ctime = phoeaudio.currentTime;
-            phoeaudio.currentTime = ctime + 10;
-        });
-    
-        $("#phoeaudiobbtn").on('tap', function() {
-            var ctime = phoeaudio.currentTime;
-            phoeaudio.currentTime = ctime - 10;
-        });
-    
-        $("#phoeaudiopsbtn").on('tap', function() {
-            phoeaudio.pause();
-            $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-        });
 	
         bottomHomeBtnSound();
     </script>

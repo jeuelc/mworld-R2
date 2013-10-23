@@ -48,24 +48,56 @@
         sound = new Audio(); // 'sound' is now an audio object
         (function() {
             mworldPageVisit(app.kidid, 'Greek-temples');
-            $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#polb1').css("z-index", 1);
-            $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");;
+            var templesofgreecePage = $('#templesofgreece')
+            templesofgreecePage.find('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+            templesofgreecePage.find('div#polb1').css("z-index", 1);
+            templesofgreecePage.find('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");;
       
         
             //$('#node-body-oag').html(data[0].Body);
          
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-temples').html('<audio id="templesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page%2011.mp3" type="audio/mpeg"></audio>');
+                templesofgreecePage.find('#actualaudio-temples').html('<audio id="templesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page%2011.mp3" type="audio/mpeg"></audio>');
             } 
          
     
-            $("#templesofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            templesofgreecePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('templesofgreece');
+            findElementsWithBgImage('templesofgreece');
+            //changeAudioSrc();
+            templesofgreecePage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+            templesofgreecePage.find("#polb1").on('tap', function() {
+                $('#parthenonlink')[0].click();
+            });
+            templesofgreecePage.find("#polb2").on('tap', function() {
+                $('#acropolislink')[0].click();
+            });
+            /* ******************** */
+            templesofgreecePage.find("#templesaudioplbtn").on('tap', function() {
+                templesaudio.play();
+                mworldPlayAudio(app.kidid, 'templesaudio');
+                templesofgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+
+            templesofgreecePage.find("#templesaudiofbtn").on('tap', function() {
+                var ctime = templesaudio.currentTime;
+                templesaudio.currentTime = ctime + 10;
+            });
+
+            templesofgreecePage.find("#templesaudiobbtn").on('tap', function() {
+                var ctime = templesaudio.currentTime;
+                templesaudio.currentTime = ctime - 10;
+            });
+
+            templesofgreecePage.find("#templesaudiopsbtn").on('tap', function() {
+                templesaudio.pause();
+            });
+
+            bottomHomeBtnSound();
         })();
     
         (function() {
@@ -83,37 +115,6 @@
             $.mobile.changePage("sub-ac-greece-tribes.html");
         }
     
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-        $("#polb1").on('tap', function() {
-            $('#parthenonlink')[0].click();
-        });
-        $("#polb2").on('tap', function() {
-            $('#acropolislink')[0].click();
-        });
-        /* ******************** */
-        $("#templesaudioplbtn").on('tap', function() {
-            templesaudio.play();
-            mworldPlayAudio(app.kidid, 'templesaudio');
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#templesaudiofbtn").on('tap', function() {
-            var ctime = templesaudio.currentTime;
-            templesaudio.currentTime = ctime + 10;
-        });
-    
-        $("#templesaudiobbtn").on('tap', function() {
-            var ctime = templesaudio.currentTime;
-            templesaudio.currentTime = ctime - 10;
-        });
-    
-        $("#templesaudiopsbtn").on('tap', function() {
-            templesaudio.pause();
-        });
-
-        bottomHomeBtnSound();
     </script>
     <script src="js/twocardLogicb.js"></script>
 </div>

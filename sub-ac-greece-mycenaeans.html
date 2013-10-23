@@ -68,73 +68,73 @@
         soundpop = new Audio(); // 'sound' is now an audio object
         (function() {
             mworldPageVisit(app.kidid, 'The-Mycenaens');
+            var mycenaeansPage = $('#mycenaeans');
             /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
             //$('#node-body-hittites').html(data[0].Body);            
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="'+FS.remotePath+'audio/Page5.mp3" type="audio/mpeg"></audio>');
+                mycenaeansPage.find('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="'+FS.remotePath+'audio/Page5.mp3" type="audio/mpeg"></audio>');
             } 
     
-            $("#mycenaeans").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            mycenaeansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
-          //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
-          //changeAudioSrc();
+            //change images path
+            changeImageSrc('mycenaeans');
+            findElementsWithBgImage('mycenaeans');
+            //changeAudioSrc();
+            mycenaeansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            mycenaeansPage.find('div#pol1').css("z-index", 2);
+            mycenaeansPage.find('div#pol2').css("z-index", 1);
+            mycenaeansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            mycenaeansPage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      
+            mycenaeansPage.find("#playhomernar").on('tap', function() {
+              homernar.play();
+              mworldPlayAudio(app.kidid, 'homernar');
+            });
+
+            mycenaeansPage.find('.homelinkag').on('tap', function() { 
+                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            });
+        
+            mycenaeansPage.find("#pol3").on('tap', function() {
+                $('#goldmasklink')[0].click();
+            });
+        
+            mycenaeansPage.find("#pol2").on('tap', function() {
+                $('#mycenaetodaylink')[0].click();
+            });
+        
+            mycenaeansPage.find("#pol1").on('tap', function() {
+                $('#liongatelink')[0].click();
+            });
+            /* ******************** */
+            mycenaeansPage.find("#myceneaudioplbtn").on('tap', function() {
+                mycenenar.play();
+                mworldPlayAudio(app.kidid, 'mycenenar');
+                agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                mycenaeansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+            });
+        
+            mycenaeansPage.find("#myceneaudiofbtn").on('tap', function() {
+                var ctime = mycenenar.currentTime;
+                mycenenar.currentTime = ctime + 10;
+            });
+        
+            mycenaeansPage.find("#myceneaudiobbtn").on('tap', function() {
+                var ctime = mycenenar.currentTime;
+                mycenenar.currentTime = ctime - 10;
+            });
+        
+            mycenaeansPage.find("#myceneaudiopsbtn").on('tap', function() {
+                mycenenar.pause();
+            });
         })();
     
-        (function() {
-            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#pol1').css("z-index", 2);
-            $('div#pol2').css("z-index", 1);
-            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-            $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-      
-        })();
         
-        $("#playhomernar").on('tap', function() {
-          homernar.play();
-          mworldPlayAudio(app.kidid, 'homernar');
-        });
     
         function goBack() {
             $.mobile.changePage("sub-ac-greece-origins.html");
         }
-        $('.homelinkag').on('tap', function() { 
-            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        });
-    
-        $("#pol3").on('tap', function() {
-            $('#goldmasklink')[0].click();
-        });
-    
-        $("#pol2").on('tap', function() {
-            $('#mycenaetodaylink')[0].click();
-        });
-    
-        $("#pol1").on('tap', function() {
-            $('#liongatelink')[0].click();
-        });
-        /* ******************** */
-        $("#myceneaudioplbtn").on('tap', function() {
-            mycenenar.play();
-            mworldPlayAudio(app.kidid, 'mycenenar');
-            agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-        });
-    
-        $("#myceneaudiofbtn").on('tap', function() {
-            var ctime = mycenenar.currentTime;
-            mycenenar.currentTime = ctime + 10;
-        });
-    
-        $("#myceneaudiobbtn").on('tap', function() {
-            var ctime = mycenenar.currentTime;
-            mycenenar.currentTime = ctime - 10;
-        });
-    
-        $("#myceneaudiopsbtn").on('tap', function() {
-            mycenenar.pause();
-        });
 
         bottomHomeBtnSound();
     </script>

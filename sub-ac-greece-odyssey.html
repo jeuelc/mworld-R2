@@ -31,23 +31,51 @@
     sound = new Audio();
     (function() {
       mworldPageVisit(app.kidid, 'The-Odyssey');
+      var odysseyPage = $('#odyssey');
       if(sound.canPlayType('audio/mpeg')) {
-        $('#actualaudio-odyssey').html('<audio id="odysseynar" controls preload onpause="playodyssey()" onplay="pauseodyssey()"><source src="'+FS.remotePath+'audio/Page17.mp3" type="audio/mpeg"></audio>');
+        odysseyPage.find('#actualaudio-odyssey').html('<audio id="odysseynar" controls preload onpause="playodyssey()" onplay="pauseodyssey()"><source src="'+FS.remotePath+'audio/Page17.mp3" type="audio/mpeg"></audio>');
       } 
     
-    $('#start-oddysey').on('click', function() {
-      $('#actualaudio-oddysey').show();
-      var oldHeight = $('#node-body-holder').height();
-      var newHeight = oldHeight - $('#actualaudio-oddysey').height();
-      $('#node-body-holder').height(newHeight);
-    });
-    
-    $("#odyssey").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $('#start-oddysey').on('click', function() {
+        $('#actualaudio-oddysey').show();
+        var oldHeight = $('#node-body-holder').height();
+        var newHeight = oldHeight - $('#actualaudio-oddysey').height();
+        $('#node-body-holder').height(newHeight);
+      });
+      
+      odysseyPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('odyssey');
+      findElementsWithBgImage('odyssey');
       //changeAudioSrc();
+
+      odysseyPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      
+      /* ******************** */
+      odysseyPage.find("#odysseyaudioplbtn").on('tap', function() {
+        odysseynar.play();
+        mworldPlayAudio(app.kidid, 'odysseynar');
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        odysseyPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      odysseyPage.find("#odysseyaudiofbtn").on('tap', function() {
+        var ctime = odysseynar.currentTime;
+        odysseynar.currentTime = ctime + 10;
+      });
+      
+      odysseyPage.find("#odysseyaudiobbtn").on('tap', function() {
+        var ctime = odysseynar.currentTime;
+        odysseynar.currentTime = ctime - 10;
+      });
+      
+      odysseyPage.find("#odysseyaudiopsbtn").on('tap', function() {
+        odysseynar.pause();
+        odysseyPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+      });
     })();
     
     function pauseodyssey() {
@@ -63,32 +91,6 @@
       odysseyaudiobg.pause();
       agsoundbg.play();
     }
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    
-    /* ******************** */
-    $("#odysseyaudioplbtn").on('tap', function() {
-      odysseynar.play();
-      mworldPlayAudio(app.kidid, 'odysseynar');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#odysseyaudiofbtn").on('tap', function() {
-      var ctime = odysseynar.currentTime;
-      odysseynar.currentTime = ctime + 10;
-    });
-    
-    $("#odysseyaudiobbtn").on('tap', function() {
-      var ctime = odysseynar.currentTime;
-      odysseynar.currentTime = ctime - 10;
-    });
-    
-    $("#odysseyaudiopsbtn").on('tap', function() {
-      odysseynar.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
 
     bottomHomeBtnSound();
   </script>

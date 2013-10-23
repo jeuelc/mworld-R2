@@ -56,31 +56,84 @@
             playing = false;
             paused = true;
             mworldPageVisit(app.kidid, 'Galaxies-And-Black-Holes');
+            var galaxiesPage = $("#galaxies");
             $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-            $('div#polb1').css("z-index", 2);
-            $('div#polb2').css("z-index", 1);
+            galaxiesPage.find('div#polb1').css("z-index", 2);
+            galaxiesPage.find('div#polb2').css("z-index", 1);
             $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
             $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
            
              if(sound.canPlayType('audio/mpeg')) {
-                 $('#actualaudio-galaxies').html('<audio controls preload id="galaxiesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page18_0.mp3" type="audio/mpeg"></audio>');
+                galaxiesPage.find('#actualaudio-galaxies').html('<audio controls preload id="galaxiesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page18_0.mp3" type="audio/mpeg"></audio>');
              } 
           
     
-            $("#galaxies").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            galaxiesPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
             
             //change images path
-            changeImageSrc();
-            findElementsWithBgImage();
+            changeImageSrc('galaxies');
+            findElementsWithBgImage('galaxies');
             //changeAudioSrc();
-        })();
-        
+            galaxiesPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH(); mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+            
+            galaxiesPage.find("#polb3").on('tap', function() {
+             $.mobile.changePage("sub-space-bh-bhingalaxy.html", {transition: "slide"});
+            });
 
-        $('.homelinkbh').on('tap', function() { 
-          buttonEffectsBH();
-          mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-        });
-    
+            galaxiesPage.find("#polb2").on('tap', function() {
+               $('#ngclink')[0].click();
+               mworldViewMedia(app.kidid, 'ngc');
+            });
+
+            galaxiesPage.find("#polb1").on('tap', function() {
+             $('#andromedalink')[0].click();
+             mworldViewMedia(app.kidid, 'andromeda');
+            });
+            
+            galaxiesPage.find("#playstopgalaxies").on('tap', function() {
+              if(!playing) {
+                galaxiesaudio.play();
+                galaxiesPage.find('.micbtnbh').css('background-position-x', '-81px');
+                mworldPlayAudio(app.kidid, 'galaxiesaudio');
+                playing = true;
+                paused = false;
+              } else {
+                galaxiesaudio.pause(); galaxiesaudio.currentTime = 0;
+                galaxiesPage.find('.micbtnbh').css('background-position-x', '0px');
+                playing = false;
+                paused = true;
+              }
+            });
+            
+            galaxiesPage.find("#galaxiesaudioplbtn").on('tap', function() {
+              if(paused) {
+                galaxiesaudio.play();
+                paused = false;
+              } else {
+                galaxiesaudio.pause();
+                paused = true;
+              }
+            });
+            
+            galaxiesPage.find("#galaxiesaudiofbtn").on('tap', function() {
+              var ctime = galaxiesaudio.currentTime;
+              galaxiesaudio.currentTime = ctime + 10;
+            });
+            
+            galaxiesPage.find("#galaxiesaudiobbtn").on('tap', function() {
+              var ctime = galaxiesaudio.currentTime;
+              galaxiesaudio.currentTime = ctime - 10;
+            });
+            
+            galaxiesPage.find("#galaxiesaudiopsbtn").on('tap', function() {
+              galaxiesaudio.pause();
+              galaxiesPage.find(".galaxiesaudiopanel").css({"backgroundPosition":"0px 0px"});
+            });
+
+            galaxiesPage.find('.botlogoholder').on('tap', function(){
+              playClickSound();
+            });
+        })();
     
         function goBack() {
             $.mobile.changePage("sub-space-bh-lifeabh.html", {transition: "slide", reverse: true });
@@ -93,64 +146,6 @@
        function pausebg() {
          bgsoundbh.pause();
        }
-       
-       $("#polb3").on('tap', function() {
-         $.mobile.changePage("sub-space-bh-bhingalaxy.html", {transition: "slide"});
-       });
-       
-       $("#polb2").on('tap', function() {
-         $('#ngclink')[0].click();
-         mworldViewMedia(app.kidid, 'ngc');
-       });
-       
-       $("#polb1").on('tap', function() {
-         $('#andromedalink')[0].click();
-         mworldViewMedia(app.kidid, 'andromeda');
-       });
-    /* ******************** */
-    $("#playstopgalaxies").on('tap', function() {
-      if(!playing) {
-        galaxiesaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'galaxiesaudio');
-        playing = true;
-        paused = false;
-      } else {
-        galaxiesaudio.pause(); galaxiesaudio.currentTime = 0;
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-        paused = true;
-      }
-    });
-    
-    $("#galaxiesaudioplbtn").on('tap', function() {
-      if(paused) {
-        galaxiesaudio.play();
-        paused = false;
-      } else {
-        galaxiesaudio.pause();
-        paused = true;
-      }
-    });
-    
-    $("#galaxiesaudiofbtn").on('tap', function() {
-      var ctime = galaxiesaudio.currentTime;
-      galaxiesaudio.currentTime = ctime + 10;
-    });
-    
-    $("#galaxiesaudiobbtn").on('tap', function() {
-      var ctime = galaxiesaudio.currentTime;
-      galaxiesaudio.currentTime = ctime - 10;
-    });
-    
-    $("#galaxiesaudiopsbtn").on('tap', function() {
-      galaxiesaudio.pause();
-      $(".galaxiesaudiopanel").css({"backgroundPosition":"0px 0px"});
-    });
-
-    $('.botlogoholder').on('tap', function(){
-      playClickSound();
-    });
     </script>
    <script src="js/threecardLogicb.js"></script>
 </div>

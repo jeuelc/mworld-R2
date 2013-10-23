@@ -45,25 +45,71 @@
           playing = false;
           paused = true;
             mworldPageVisit(app.kidid, 'Binaries');
-
+            var binariesPages = $("#binaries");
             if(sound.canPlayType('audio/mpeg')) {
-                $('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page21.mp3" type="audio/mpeg"></audio>');
+              binariesPages.find('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page21.mp3" type="audio/mpeg"></audio>');
             } 
             
     
-            $("#binaries").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            binariesPages.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
 
             //change images path
-            changeImageSrc();
-            findElementsWithBgImage();
+            changeImageSrc('binaries');
+            findElementsWithBgImage('binaries');
             //changeAudioSrc();
+            binariesPages.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+            binariesPages.find("#polb1").on('tap', function() {
+              binariesPages.find('#cygnus-x1link')[0].click();
+              mworldViewMedia(app.kidid, 'cygnus-x1');
+            });
+            
+            binariesPages.find("#playstopbinaries").on('tap', function() {
+              if(!playing) {
+                binariesaudio.play();
+                binariesPages.find('.micbtnbh').css('background-position-x', '-81px');
+                mworldPlayAudio(app.kidid, 'binariesaudio');
+                playing = true;
+                paused = false;
+              } else {
+                binariesaudio.pause();binariesaudio.currentTime = 0;
+                binariesPages.find('.micbtnbh').css('background-position-x', '0px');
+                playing = false;
+                paused = true;
+              }
+            });
+            
+            binariesPages.find("#binariesaudioplbtn").on('tap', function() {
+              if(paused) {
+                binariesaudio.play();
+                paused = false;
+              } else {
+                binariesaudio.pause();
+                paused = true;
+              }
+            });
+            
+            binariesPages.find("#binariesaudiofbtn").on('tap', function() {
+              var ctime = binariesaudio.currentTime;
+              binariesaudio.currentTime = ctime + 10;
+            });
+            
+            binariesPages.find("#binariesaudiobbtn").on('tap', function() {
+              var ctime = binariesaudio.currentTime;
+              binariesaudio.currentTime = ctime - 10;
+            });
+            
+            binariesPages.find("#binariesaudiopsbtn").on('tap', function() {
+              binariesaudio.pause();
+              binariesPages.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
+
+            binariesPages.find('.botlogoholder').on('tap', function(){
+              playClickSound();
+            });
         })();
 
-        $('.homelinkbh').on('tap', function() { 
-          buttonEffectsBH();
-          mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-        });
+        
         function goBack() {
             $.mobile.changePage("sub-space-bh-lifeabh.html", {transition: "slide", reverse: true });
         }
@@ -76,49 +122,5 @@
           bgsoundbh.pause();
         }
         
-        $("#polb1").on('tap', function() {
-          $('#cygnus-x1link')[0].click();
-          mworldViewMedia(app.kidid, 'cygnus-x1');
-        });
-        /* ******************** */
-    $("#playstopbinaries").on('tap', function() {
-      if(!playing) {
-        binariesaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'binariesaudio');
-        playing = true;
-        paused = false;
-      } else {
-        binariesaudio.pause();binariesaudio.currentTime = 0;
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-        paused = true;
-      }
-    });
-    
-    $("#binariesaudioplbtn").on('tap', function() {
-      if(paused) {
-        binariesaudio.play();
-        paused = false;
-      } else {
-        binariesaudio.pause();
-        paused = true;
-      }
-    });
-    
-    $("#binariesaudiofbtn").on('tap', function() {
-      var ctime = binariesaudio.currentTime;
-      binariesaudio.currentTime = ctime + 10;
-    });
-    
-    $("#binariesaudiobbtn").on('tap', function() {
-      var ctime = binariesaudio.currentTime;
-      binariesaudio.currentTime = ctime - 10;
-    });
-    
-    $("#binariesaudiopsbtn").on('tap', function() {
-      binariesaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
     </script>
 </div>

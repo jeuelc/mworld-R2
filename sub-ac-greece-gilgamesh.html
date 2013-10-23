@@ -68,26 +68,88 @@
   <script>
     mworldPageVisit(app.kidid, 'Gilgamesh');
     (function() {
-      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-      $('div#polb1').css("z-index", 1);
-      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
-      $('#f1_container').css({"visibility":"hidden", "z-index":0});
-      $('#f2_container').css({"visibility":"hidden", "z-index":0});
+      var gilgameshPage = $('#gilgamesh');
+      var polb1Div = gilgameshPage.find('div#polb1'),
+          polb2Div = gilgameshPage.find('div#polb2'),
+          f1ContainerDiv = gilgameshPage.find('#f1_container'),
+          f2ContainerDiv = gilgameshPage.find('#f2_container'),
+          f1CardDiv = gilgameshPage.find('#f1_card'),
+          f2CardDiv = gilgameshPage.find('#f2_card');
+      polb1Div.find('img').css("-webkit-transform", "rotate(0deg)");
+      polb1Div.css("z-index", 1);
+      polb2Div.find('img').css("-webkit-transform", "rotate(5deg)");
+      f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
+      f2ContainerDiv.css({"visibility":"hidden", "z-index":0});
 	
 	
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=101";
-     $.getJSON( url, function( data ) {
-            
-           /* $('#node-body-hittites').html(data[0].Body);*/
-            
-         });
+      $.getJSON( url, function( data ) {            
+           /* $('#node-body-hittites').html(data[0].Body);*/            
+      });
     
-      $("#gilgamesh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      gilgameshPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('gilgamesh');
+      findElementsWithBgImage('gilgamesh');
       //changeAudioSrc();
+      gilgameshPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+  	
+      gilgameshPage.find("#donegiglgababy").on('tap', function() {
+        f1CardDiv.css({"-webkit-transform": "rotateY(0deg)"});
+        f1CardDiv.css({"-moz-transform": "rotateY(0deg)"});
+        f1CardDiv.css({"-o-transform": "rotateY(0deg)"});
+        f1CardDiv.css({"transform": "rotateY(0deg)"});
+        gilgab.pause();
+        agsoundbg.play();
+        setTimeout(function() {
+          polb1Div.css({"visibility":"visible", "z-index":3});
+          f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
+        }, 1000);
+        //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+        //$("#hittites").swipe("enable");
+      });
+      
+      polb1Div.on('tap', function() {
+        f1ContainerDiv.css({"visibility":"visible", "z-index":10});
+        $(this).css({"visibility":"hidden"});
+        f1CardDiv.css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+        f1CardDiv.css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+        f1CardDiv.css({"-o-transform": "rotateY(180deg)"});
+        f1CardDiv.css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+        //$("#hittites").swipe("disable");
+        //$("#dopple").css({"visibility":"hidden"});
+      });
+      
+      gilgameshPage.find("#donegiglgaeng").on('tap', function() {
+        f2CardDiv.css({"-webkit-transform": "rotateY(0deg)"});
+        f2CardDiv.css({"-moz-transform": "rotateY(0deg)"});
+        f2CardDiv.css({"-o-transform": "rotateY(0deg)"});
+        f2CardDiv.css({"transform": "rotateY(0deg)"});
+        gilgae.pause();
+        agsoundbg.play();
+        setTimeout(function() {
+          polb2Div.css({"visibility":"visible", "z-index":3});
+          f2ContainerDiv.css({"visibility":"hidden", "z-index":0});
+        }, 1000);
+        //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+        //$("#hittites").swipe("enable");
+      });
+      
+      polb2Div.on('tap', function() {
+        f2ContainerDiv.css({"visibility":"visible", "z-index":10});
+        $(this).css({"visibility":"hidden"});
+        f2CardDiv.css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+        f2CardDiv.css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+        f2CardDiv.css({"-o-transform": "rotateY(180deg)"});
+        f2CardDiv.css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+        //$("#hittites").swipe("disable");
+        //$("#dopple").css({"visibility":"hidden"});
+      });
+  	
+  	  bottomHomeBtnSound();
     })();
     
     function goBack() {
@@ -99,65 +161,8 @@
 
     
     /*$('#start-hittites').on('click', function() {
-    	$('#actualaudio-hittites').show();
+      $('#actualaudio-hittites').show();
     });*/
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-	
-	$("#donegiglgababy").on('tap', function() {
-      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
-      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
-      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
-      $('#f1_card').css({"transform": "rotateY(0deg)"});
-      gilgab.pause();
-      agsoundbg.play();
-      setTimeout(function() {
-        $("#polb1").css({"visibility":"visible", "z-index":3});
-        $('#f1_container').css({"visibility":"hidden", "z-index":0});
-      }, 1000);
-      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-      //$("#hittites").swipe("enable");
-    });
-    
-    $("#polb1").on('tap', function() {
-      $('#f1_container').css({"visibility":"visible", "z-index":10});
-      $(this).css({"visibility":"hidden"});
-      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
-      $('#f1_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
-      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
-      $('#f1_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
-      //$("#hittites").swipe("disable");
-      //$("#dopple").css({"visibility":"hidden"});
-    });
-    
-    $("#donegiglgaeng").on('tap', function() {
-      $('#f2_card').css({"-webkit-transform": "rotateY(0deg)"});
-      $('#f2_card').css({"-moz-transform": "rotateY(0deg)"});
-      $('#f2_card').css({"-o-transform": "rotateY(0deg)"});
-      $('#f2_card').css({"transform": "rotateY(0deg)"});
-      gilgae.pause();
-      agsoundbg.play();
-      setTimeout(function() {
-        $("#polb2").css({"visibility":"visible", "z-index":3});
-        $('#f2_container').css({"visibility":"hidden", "z-index":0});
-      }, 1000);
-      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-      //$("#hittites").swipe("enable");
-    });
-    
-    $("#polb2").on('tap', function() {
-      $('#f2_container').css({"visibility":"visible", "z-index":10});
-      $(this).css({"visibility":"hidden"});
-      $('#f2_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
-      $('#f2_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
-      $('#f2_card').css({"-o-transform": "rotateY(180deg)"});
-      $('#f2_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
-      //$("#hittites").swipe("disable");
-      //$("#dopple").css({"visibility":"hidden"});
-    });
-	
-	  bottomHomeBtnSound();
   </script>
    <script src="js/twocardLogicb.js"></script>
 </div>

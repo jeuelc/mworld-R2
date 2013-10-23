@@ -31,23 +31,21 @@
     sound = new Audio(); // 'sound' is now an audio object
     (function() {		
       mworldPageVisit(app.kidid, 'How-Can-You-See-A-Black-Hole');
-      $("#seebh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      var seebhPage = $("#seebh");
+      seebhPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      seebhPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+      
+      seebhPage.find('.botlogoholder').on('tap', function(){
+        playClickSound();
+      });
     })();
     
     //change images path
-    changeImageSrc();
-    findElementsWithBgImage();
-    
-    $('.homelinkbh').on('tap', function() { 
-      buttonEffectsBH();
-      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-    });
+    changeImageSrc('seebh');
+    findElementsWithBgImage('seebh');
     
     function goBack() {
       $.mobile.changePage("sub-space-bh-blackhole.html", {transition: "slide", reverse: true });
     }
-    $('.botlogoholder').on('tap', function(){
-      playClickSound();
-    });
   </script>
 </div>

@@ -50,22 +50,79 @@
           playing = false;
           paused = true;
           mworldPageVisit(app.kidid, 'The-Black-Hole-in-Our-Galaxy');
-          $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-          $('div#pol1').css("z-index", 2);
-          $('div#pol2').css("z-index", 1);
-          $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+          var bhingalaxyPage = $("#bhingalaxy");
+          bhingalaxyPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+          bhingalaxyPage.find('div#pol1').css("z-index", 2);
+          bhingalaxyPage.find('div#pol2').css("z-index", 1);
+          bhingalaxyPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
             
-                if(sound.canPlayType('audio/mpeg')) {
-                    $('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/page19bh.mp3" type="audio/mpeg"></audio>');
-                } 
+          if(sound.canPlayType('audio/mpeg')) {
+              bhingalaxyPage.find('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/page19bh.mp3" type="audio/mpeg"></audio>');
+          } 
          
             
-            $("#bhingalaxy").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );    
+          bhingalaxyPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );   
       
           //change images path
-          changeImageSrc();
-          findElementsWithBgImage();
+          changeImageSrc('bhingalaxy');
+          findElementsWithBgImage('bhingalaxy');
           //changeAudioSrc();
+          
+          bhingalaxyPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+          
+          bhingalaxyPage.find("#pol2").on('tap', function() {
+           $('#sagittariusalink')[0].click();
+           mworldViewMedia(app.kidid, 'sagittariusa');
+          });
+         
+          bhingalaxyPage.find("#pol1").on('tap', function() {
+            $('#centermwlink')[0].click();
+            mworldViewMedia(app.kidid, 'centermw');
+          });
+          
+          bhingalaxyPage.find("#playstopbhingalaxy").on('tap', function() {
+            if(!playing) {
+              bhingalaxyaudio.play();
+              bhingalaxyPage.find('.micbtnbh').css('background-position-x', '-81px');
+              mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
+              playing = true;
+              paused = false;
+            } else {
+              bhingalaxyaudio.pause();
+              bhingalaxyPage.find('.micbtnbh').css('background-position-x', '0px');
+              playing = false;
+              paused = true;
+            }
+          });
+          
+          bhingalaxyPage.find("#bhingalaxyaudioplbtn").on('tap', function() {
+            if(paused) {
+              bhingalaxyaudio.play();
+              paused = false;
+            } else {
+              bhingalaxyaudio.pause(); bhingalaxyaudio.currentTime = 0;
+              paused = true;
+            }
+          });
+          
+          bhingalaxyPage.find("#bhingalaxyaudiofbtn").on('tap', function() {
+            var ctime = bhingalaxyaudio.currentTime;
+            bhingalaxyaudio.currentTime = ctime + 10;
+          });
+          
+          bhingalaxyPage.find("#bhingalaxyaudiobbtn").on('tap', function() {
+            var ctime = bhingalaxyaudio.currentTime;
+            bhingalaxyaudio.currentTime = ctime - 10;
+          });
+          
+          bhingalaxyPage.find("#bhingalaxyaudiopsbtn").on('tap', function() {
+            bhingalaxyaudio.pause();
+            bhingalaxyPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+          });
+
+          bhingalaxyPage.find('.botlogoholder').on('tap', function(){
+            playClickSound();
+          });
         })();
 
        function pausedaudio() {
@@ -76,69 +133,9 @@
          bgsoundbh.pause();
        }
        
-        $('.homelinkbh').on('tap', function() { 
-          buttonEffectsBH();
-          mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-        });
-        function goBack() {
-            $.mobile.changePage("sub-space-bh-galaxies.html", {transition: "slide", reverse: true });
-        }
-        
-        $("#pol2").on('tap', function() {
-         $('#sagittariusalink')[0].click();
-         mworldViewMedia(app.kidid, 'sagittariusa');
-        });
-       
-       $("#pol1").on('tap', function() {
-         $('#centermwlink')[0].click();
-         mworldViewMedia(app.kidid, 'centermw');
-       });
-       /* ******************** */
-    $("#playstopbhingalaxy").on('tap', function() {
-      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      if(!playing) {
-        bhingalaxyaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'bhingalaxyaudio');
-        playing = true;
-        paused = false;
-      } else {
-        bhingalaxyaudio.pause();
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-        paused = true;
+      function goBack() {
+          $.mobile.changePage("sub-space-bh-galaxies.html", {transition: "slide", reverse: true });
       }
-    });
-    
-    $("#bhingalaxyaudioplbtn").on('tap', function() {
-      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      if(paused) {
-        bhingalaxyaudio.play();
-        paused = false;
-      } else {
-        bhingalaxyaudio.pause(); bhingalaxyaudio.currentTime = 0;
-        paused = true;
-      }
-    });
-    
-    $("#bhingalaxyaudiofbtn").on('tap', function() {
-      var ctime = bhingalaxyaudio.currentTime;
-      bhingalaxyaudio.currentTime = ctime + 10;
-    });
-    
-    $("#bhingalaxyaudiobbtn").on('tap', function() {
-      var ctime = bhingalaxyaudio.currentTime;
-      bhingalaxyaudio.currentTime = ctime - 10;
-    });
-    
-    $("#bhingalaxyaudiopsbtn").on('tap', function() {
-      bhingalaxyaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
-
-    $('.botlogoholder').on('tap', function(){
-      playClickSound();
-    });
     </script>
     <script src="js/twocardLogic.js"></script>
 </div>

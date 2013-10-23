@@ -25,7 +25,7 @@
   <script>
     $(document).ready(function(e) {
       mworldPageVisit(app.kidid, 'Home');
-      $('area').on('tap', function(event) {
+      $('div#kid2 area').on('tap', function(event) {
         playClickSound();
         var subjectId = $(this).attr("id");
         if(subjectId == "naturalworldlink2") {
@@ -75,66 +75,74 @@
     });
     
     $(function() {
+      var homePageVar = $('div#kid2');
+      var spacecraftHome = homePageVar.find('div#spacecraft'),
+          scheadHome = homePageVar.find('div#schead'),
+          sctailHome = homePageVar.find('div#sctail'),
+          waterfallHome = homePageVar.find('div#waterfall'),
+          fountainHome = homePageVar.find('div#fountain');
+
+      function moveSpaceCraft() {
+        spacecraftHome.css('top', '114px');
+        setTimeout(function() {spacecraftHome.css('top', '113px')}, 250);
+        setTimeout(function() {spacecraftHome.css('top', '114px')}, 500);
+        setTimeout(function() {spacecraftHome.css('top', '115px')}, 750);
+        animatespacecraft = setTimeout(moveSpaceCraft, 1000);
+      }
+      
+      function turnPilot() {
+        scheadHome.css('background-position', '-53px center');
+        setTimeout(function() {scheadHome.css('background-position', '-106px center');}, 100);
+        setTimeout(function() {scheadHome.css('background-position', '-53px center');}, 1000);
+        setTimeout(function() {scheadHome.css('background-position', '0px center');}, 1100);
+        animatepilot = setTimeout(turnPilot, 6000);
+      }
+      
+      function fireBooster() {
+        sctailHome.css('background-position', '-47px center');
+        setTimeout(function() {sctailHome.css('background-position', '-94px center');}, 100);
+        setTimeout(function() {sctailHome.css('background-position', '-47px center');}, 200);
+        setTimeout(function() {sctailHome.css('background-position', '0px center');}, 300);
+        animateblast = setTimeout(fireBooster, 400);
+      }
+      
+      function waterFalls() {
+        waterfallHome.css('background-position', '-164px center');
+        setTimeout(function() {waterfallHome.css('background-position', '-328px center');}, 200);
+        setTimeout(function() {waterfallHome.css('background-position', '-492px center');}, 400);
+        setTimeout(function() {waterfallHome.css('background-position', '-656px center');}, 600);
+        setTimeout(function() {waterfallHome.css('background-position', '0px center');}, 800);
+        animatewaterfalls = setTimeout(waterFalls, 1000);
+      }
+      
+      function waterFountain() {
+        fountainHome.css('background-position', '-60px center');
+        setTimeout(function() {fountainHome.css('background-position', '-120px center');}, 80);
+        setTimeout(function() {fountainHome.css('background-position', '-180px center');}, 160);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 240);
+        setTimeout(function() {fountainHome.css('background-position', '-300px center');}, 320);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 400);
+        setTimeout(function() {fountainHome.css('background-position', '-180px center');}, 480);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 560);
+        setTimeout(function() {fountainHome.css('background-position', '-300px center');}, 640);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 720);
+        setTimeout(function() {fountainHome.css('background-position', '-180px center');}, 800);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 880);
+        setTimeout(function() {fountainHome.css('background-position', '-300px center');}, 960);
+        setTimeout(function() {fountainHome.css('background-position', '-240px center');}, 1040);
+        setTimeout(function() {fountainHome.css('background-position', '-180px center');}, 1120);
+        setTimeout(function() {fountainHome.css('background-position', '-120px center');}, 1200);
+        setTimeout(function() {fountainHome.css('background-position', '-60px center');}, 1280);
+        setTimeout(function() {fountainHome.css('background-position', '0px center');}, 1360);
+        animatefountain = setTimeout(waterFountain, 2500);
+      }
       animateblast = setTimeout(fireBooster, 100);
       animatespacecraft = setTimeout(moveSpaceCraft, 200);
       animatepilot = setTimeout(turnPilot, 5000);
       animatewaterfalls = setTimeout(waterFalls, 100);
       animatefountain = setTimeout(waterFountain, 2500);
+      
+
     });
-    
-    function moveSpaceCraft() {
-      $('#spacecraft').css('top', '114px');
-      setTimeout(function() {$('#spacecraft').css('top', '113px')}, 250);
-      setTimeout(function() {$('#spacecraft').css('top', '114px')}, 500);
-      setTimeout(function() {$('#spacecraft').css('top', '115px')}, 750);
-      animatespacecraft = setTimeout(moveSpaceCraft, 1000);
-    }
-    
-    function turnPilot() {
-      $('#schead').css('background-position', '-53px center');
-      setTimeout(function() {$('#schead').css('background-position', '-106px center');}, 100);
-      setTimeout(function() {$('#schead').css('background-position', '-53px center');}, 1000);
-      setTimeout(function() {$('#schead').css('background-position', '0px center');}, 1100);
-      animatepilot = setTimeout(turnPilot, 6000);
-    }
-    
-    function fireBooster() {
-      $('#sctail').css('background-position', '-47px center');
-      setTimeout(function() {$('#sctail').css('background-position', '-94px center');}, 100);
-      setTimeout(function() {$('#sctail').css('background-position', '-47px center');}, 200);
-      setTimeout(function() {$('#sctail').css('background-position', '0px center');}, 300);
-      animateblast = setTimeout(fireBooster, 400);
-    }
-    
-    function waterFalls() {
-      $('#waterfall').css('background-position', '-164px center');
-      setTimeout(function() {$('#waterfall').css('background-position', '-328px center');}, 200);
-      setTimeout(function() {$('#waterfall').css('background-position', '-492px center');}, 400);
-      setTimeout(function() {$('#waterfall').css('background-position', '-656px center');}, 600);
-      setTimeout(function() {$('#waterfall').css('background-position', '0px center');}, 800);
-      animatewaterfalls = setTimeout(waterFalls, 1000);
-    }
-    
-    function waterFountain() {
-      $('#fountain').css('background-position', '-60px center');
-      setTimeout(function() {$('#fountain').css('background-position', '-120px center');}, 80);
-      setTimeout(function() {$('#fountain').css('background-position', '-180px center');}, 160);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 240);
-      setTimeout(function() {$('#fountain').css('background-position', '-300px center');}, 320);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 400);
-      setTimeout(function() {$('#fountain').css('background-position', '-180px center');}, 480);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 560);
-      setTimeout(function() {$('#fountain').css('background-position', '-300px center');}, 640);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 720);
-      setTimeout(function() {$('#fountain').css('background-position', '-180px center');}, 800);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 880);
-      setTimeout(function() {$('#fountain').css('background-position', '-300px center');}, 960);
-      setTimeout(function() {$('#fountain').css('background-position', '-240px center');}, 1040);
-      setTimeout(function() {$('#fountain').css('background-position', '-180px center');}, 1120);
-      setTimeout(function() {$('#fountain').css('background-position', '-120px center');}, 1200);
-      setTimeout(function() {$('#fountain').css('background-position', '-60px center');}, 1280);
-      setTimeout(function() {$('#fountain').css('background-position', '0px center');}, 1360);
-      animatefountain = setTimeout(waterFountain, 2500);
-    }
   </script>
 </div>

@@ -52,39 +52,77 @@
     soundiliad = new Audio();
     mworldPageVisit(app.kidid, 'Iliad');
     (function() {
-            if(sound.canPlayType('audio/mpeg')) {
-              
-              $('#actualaudio-iliad').html('<audio id="iliadnar" controls preload onpause="playiliad()" onplay="pauseiliad()"><source src="'+FS.remotePath+'audio/Page16.mp3" type="audio/mpeg"></audio>');
-            } 
+      var iliadPage = $('#iliad');
+      var actualaudioIliad = iliadPage.find('#actualaudio-iliad');
+      if(sound.canPlayType('audio/mpeg')) {
+        
+        actualaudioIliad.html('<audio id="iliadnar" controls preload onpause="playiliad()" onplay="pauseiliad()"><source src="'+FS.remotePath+'audio/Page16.mp3" type="audio/mpeg"></audio>');
+      } 
     
-    $("#iliad").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      iliadPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('iliad');
+      findElementsWithBgImage('iliad');
       //changeAudioSrc();
+      
+      $('#start-iliad').on('click', function() {
+        actualaudioIliad.show();
+        var oldHeight = $('#node-body-holder').height();
+        var newHeight = oldHeight - actualaudioIliad.height();
+        $('#node-body-holder').height(newHeight);
+      });
+      
+      iliadPage.find('#greekiliad').on('click', function() {
+        soundiliad.play();
+        iliadaudiobg.pause();
+      });
+      iliadPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      
+      iliadPage.find("#achillessubmit").on('tap', function() {
+        var achillesanswer = iliadPage.find('#achillesans').val();
+        if(achillesanswer.toLowerCase() == "achilles" || achillesanswer.toLowerCase() == "achilles heels" || achillesanswer.toLowerCase() == "achilles tendon" || achillesanswer.toLowerCase() == "heel") {
+          alert("You got it right! "+achillesanswer+" is named after Achilles.");
+        } else {
+          alert("Not quite.");
+        }
+      });
+      /* ******************** */
+      iliadPage.find("#iliadaudioplbtn").on('tap', function() {
+        iliadnar.play();
+        mworldPlayAudio(app.kidid, 'iliadnar');
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        iliadPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      iliadPage.find("#iliadaudiofbtn").on('tap', function() {
+        var ctime = iliadnar.currentTime;
+        iliadnar.currentTime = ctime + 10;
+      });
+      
+      iliadPage.find("#iliadaudiobbtn").on('tap', function() {
+        var ctime = iliadnar.currentTime;
+        iliadnar.currentTime = ctime - 10;
+      });
+      
+      iliadPage.find("#iliadaudiopsbtn").on('tap', function() {
+        iliadnar.pause();
+        iliadPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+      });
+
+      bottomHomeBtnSound();
     })();
     
     (function() { 
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=108";
       $.getJSON( url, function( data ) {
         if(soundiliad.canPlayType('audio/mpeg')) {
-              soundiliad.src = data[0].Audio;
-            }
+          soundiliad.src = data[0].Audio;
+        }
       });
     })();
-    
-    $('#start-iliad').on('click', function() {
-      $('#actualaudio-iliad').show();
-      var oldHeight = $('#node-body-holder').height();
-      var newHeight = oldHeight - $('#actualaudio-iliad').height();
-      $('#node-body-holder').height(newHeight);
-    });
-    
-    $('#greekiliad').on('click', function() {
-      soundiliad.play();
-      iliadaudiobg.pause();
-    });
     
     function goBack() {
       $.mobile.changePage("sub-ac-greece-storytelling.html");
@@ -100,41 +138,5 @@
     function playiliad() {
       //iliadaudiobg.play();
     }
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    
-    $("#achillessubmit").on('tap', function() {
-      var achillesanswer = $('#achillesans').val();
-      if(achillesanswer.toLowerCase() == "achilles" || achillesanswer.toLowerCase() == "achilles heels" || achillesanswer.toLowerCase() == "achilles tendon" || achillesanswer.toLowerCase() == "heel") {
-        alert("You got it right! "+achillesanswer+" is named after Achilles.");
-      } else {
-        alert("Not quite.");
-      }
-    });
-    /* ******************** */
-    $("#iliadaudioplbtn").on('tap', function() {
-      iliadnar.play();
-      mworldPlayAudio(app.kidid, 'iliadnar');
-      agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#iliadaudiofbtn").on('tap', function() {
-      var ctime = iliadnar.currentTime;
-      iliadnar.currentTime = ctime + 10;
-    });
-    
-    $("#iliadaudiobbtn").on('tap', function() {
-      var ctime = iliadnar.currentTime;
-      iliadnar.currentTime = ctime - 10;
-    });
-    
-    $("#iliadaudiopsbtn").on('tap', function() {
-      iliadnar.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
-
-    bottomHomeBtnSound();
   </script>
 </div>

@@ -35,17 +35,43 @@
     sound = new Audio(); // 'sound' is now an audio object
     (function() {
       mworldPageVisit(app.kidid, 'Theseus-and-the-minotaur');
+      var theseusPage = $("#theseus");
             //$('#node-body').html(data[0].Body);
-    if(sound.canPlayType('audio/mpeg')) {
-      $('#actualaudio-theseus').html('<audio id="theseusaudio" controls preload  onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page9.mp3" type="audio/mpeg"></audio>');
-    } 
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-theseus').html('<audio id="theseusaudio" controls preload  onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page9.mp3" type="audio/mpeg"></audio>');
+      } 
     
-    $("#theseus").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      theseusPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('theseus');
+      findElementsWithBgImage('theseus');
       //changeAudioSrc();
+      theseusPage.find('.homelinkag').on('tap', function() { 
+        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      });
+      /* ******************** */
+      theseusPage.find("#theseusaudioplbtn").on('tap', function() {
+        theseusaudio.play();
+        mworldPlayAudio(app.kidid, 'theseusaudio');
+        theseusPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      });
+      
+      theseusPage.find("#theseusaudiofbtn").on('tap', function() {
+        var ctime = theseusaudio.currentTime;
+        theseusaudio.currentTime = ctime + 10;
+      });
+      
+      theseusPage.find("#theseusaudiobbtn").on('tap', function() {
+        var ctime = theseusaudio.currentTime;
+        theseusaudio.currentTime = ctime - 10;
+      });
+      
+      theseusPage.find("#theseusaudiopsbtn").on('tap', function() {
+        theseusaudio.pause();
+      });
+      
+      bottomHomeBtnSound();
     })();
     
     function goBack() {
@@ -61,30 +87,5 @@
     function playthbg() {
       //theseusaudiobg.play();
     }
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-    });
-    /* ******************** */
-    $("#theseusaudioplbtn").on('tap', function() {
-      theseusaudio.play();
-      mworldPlayAudio(app.kidid, 'theseusaudio');
-      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-    });
-    
-    $("#theseusaudiofbtn").on('tap', function() {
-      var ctime = theseusaudio.currentTime;
-      theseusaudio.currentTime = ctime + 10;
-    });
-    
-    $("#theseusaudiobbtn").on('tap', function() {
-      var ctime = theseusaudio.currentTime;
-      theseusaudio.currentTime = ctime - 10;
-    });
-    
-    $("#theseusaudiopsbtn").on('tap', function() {
-      theseusaudio.pause();
-    });
-    
-    bottomHomeBtnSound();
   </script>
 </div>

@@ -47,28 +47,80 @@
     (function() {
       playing = false;
       paused = true;
+      var gravityPage = $("#gravity");
       if(sound.canPlayType('audio/mpeg')) {
-        $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/Gravity.mp3" type="audio/mpeg"></audio>');
+        gravityPage.find('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="'+FS.remotePath+'audio/Gravity.mp3" type="audio/mpeg"></audio>');
       } 
       
-      $("#gravity").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      gravityPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
-      changeImageSrc();
-      findElementsWithBgImage();
+      changeImageSrc('gravity');
+      findElementsWithBgImage('gravity');
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Gravity');
+      gravityPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH(); mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+      $('#start-gravity').on('click', function() {
+      	gravityPage.find('#actualaudio-gravity').show();
+        var oldHeight = $('#node-body-holder').height();
+        var newHeight = oldHeight - gravityPage.find('#actualaudio-gravity').height();
+        $('#node-body-holder').height(newHeight);
+      });
+      gravityPage.find("#submitans2").on('tap', function() {
+        var tfans2 = gravityPage.find('#tfanswer2').val();
+        if(tfans2.toLowerCase() == "false") {
+          alert("Correct, you've earned 100 MPoints.");
+        } else {
+          alert("Sorry, that's not right, try again...");
+        }
+      });
+      
+      gravityPage.find("#playstopgravity").on('tap', function() {
+        if(!playing) {
+          gravityaudio.play();
+          gravityPage.find('.micbtnbh').css('background-position-x', '-81px');
+          mworldPlayAudio(app.kidid, 'gravityaudio');
+          playing = true;
+          paused = false;
+        } else {
+          gravityaudio.pause();gravityaudio.currentTime = 0;
+          gravityPage.find('.micbtnbh').css('background-position-x', '0px');
+          playing = false;
+          paused = true;
+        }
+      });
+      
+      gravityPage.find("#gravityaudioplbtn").on('tap', function() {
+        if(paused) {
+          gravityaudio.play();
+          paused = false;
+        } else {
+          gravityaudio.pause();
+          paused = true;
+        }
+      });
+      
+      gravityPage.find("#gravityaudiofbtn").on('tap', function() {
+        var ctime = gravityaudio.currentTime;
+        gravityaudio.currentTime = ctime + 10;
+      });
+      
+      gravityPage.find("#gravityaudiobbtn").on('tap', function() {
+        var ctime = gravityaudio.currentTime;
+        gravityaudio.currentTime = ctime - 10;
+      });
+      
+      gravityPage.find("#gravityaudiopsbtn").on('tap', function() {
+        gravityaudio.pause();
+        gravityPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+      });
+      gravityPage.find('.botlogoholder').on('tap', function(){
+        playClickSound();
+      });
     })();
 
-    $('.homelinkbh').on('tap', function() { 
-      buttonEffectsBH();
-      mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;
-    });
-    $('#start-gravity').on('click', function() {
-    	$('#actualaudio-gravity').show();
-      var oldHeight = $('#node-body-holder').height();
-      var newHeight = oldHeight - $('#actualaudio-gravity').height();
-      $('#node-body-holder').height(newHeight);
+    
+    $('#gravity').on('pageshow',function(){
+      mworldPageVisit(app.kidid, 'Gravity');
     });
     
     function goBack() {
@@ -83,56 +135,6 @@
       bgsoundbh.pause();
     }
     
-    $("#submitans2").on('tap', function() {
-      var tfans2 = $('#tfanswer2').val();
-      if(tfans2.toLowerCase() == "false") {
-        alert("Correct, you've earned 100 MPoints.");
-      } else {
-        alert("Sorry, that's not right, try again...");
-      }
-    });
-    /* ******************** */
-    $("#playstopgravity").on('tap', function() {
-      if(!playing) {
-        gravityaudio.play();
-        $('.micbtnbh').css('background-position-x', '-81px');
-        mworldPlayAudio(app.kidid, 'gravityaudio');
-        playing = true;
-        paused = false;
-      } else {
-        gravityaudio.pause();gravityaudio.currentTime = 0;
-        $('.micbtnbh').css('background-position-x', '0px');
-        playing = false;
-        paused = true;
-      }
-    });
     
-    $("#gravityaudioplbtn").on('tap', function() {
-      if(paused) {
-        gravityaudio.play();
-        paused = false;
-      } else {
-        gravityaudio.pause();
-        paused = true;
-      }
-    });
-    
-    $("#gravityaudiofbtn").on('tap', function() {
-      var ctime = gravityaudio.currentTime;
-      gravityaudio.currentTime = ctime + 10;
-    });
-    
-    $("#gravityaudiobbtn").on('tap', function() {
-      var ctime = gravityaudio.currentTime;
-      gravityaudio.currentTime = ctime - 10;
-    });
-    
-    $("#gravityaudiopsbtn").on('tap', function() {
-      gravityaudio.pause();
-      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
-    });
-    $('.botlogoholder').on('tap', function(){
-      playClickSound();
-    });
   </script>
 </div>

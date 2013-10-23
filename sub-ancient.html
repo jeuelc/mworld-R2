@@ -30,8 +30,27 @@
       var avideoStatus, avideoEvent;
 			$(function() {
         mworldPageVisit(app.kidid, 'Ancient-Civilisation');
+        var ancientMainPage = $("#ancient");
+
+        function goBack() {
+          if(avideoStatus != undefined){
+            avideoEvent = true;
+            agvideo.pause();
+            agvideo.currentTime = 0;
+            ancientsoundbg.play();
+            $("#pre-ag").css({"visibility":"hidden", "z-index":0});
+            
+            //$.mobile.changePage("sub-space.html");
+          }
+          else {
+            $.mobile.changePage("home.html");
+            ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
+            mainaudiobg.play();
+          }
+        }
+        
         //agvideo = document.getElementById("agvideo");
-				$("#ancient").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+				ancientMainPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         agvideo.addEventListener('playing', function(){
           avideoStatus = true;
         });
@@ -41,72 +60,59 @@
           $.mobile.changePage("sub-ac-greece.html");  
         });
         //changeVideoSrc();
-			});
+        ancientMainPage.find("#agvideo").on('tap', function() {
+          //agvideo.webkitExitFullscreen();
+          if(avideoEvent != undefined){ avideoEvent = undefined; return; }
+          if(avideoStatus == undefined){ return; }
+          avideoStatus = undefined;
+          agsoundbg.play();
+          $.mobile.changePage("sub-ac-greece.html");
+        });
         
-    function goBack() {
-      if(avideoStatus != undefined){
-        avideoEvent = true;
-        agvideo.pause();
-        agvideo.currentTime = 0;
-        ancientsoundbg.play();
-        $("#pre-ag").css({"visibility":"hidden", "z-index":0});
+        ancientMainPage.find('#agmovielink').on('tap', function() { 
+          ancientsoundbg.pause(); ancientsoundbg.currentTime = 0;  
+          if(app.firstRun.ancient.greece){        
+            if(!checkConnection()){
+              navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
+              return false;
+            }
+            sessionStorage.assetsName = 'greece';
+            sessionStorage.nextPage = "sub-ancient.html";
+            $.mobile.changePage('spaceloading.html');
+          }
+          else {
+            mworldViewMedia(app.kidid, 'agvideo');
+            ancientMainPage.find("#pre-ag").css({"visibility":"visible"});
+            agvideo.play();
+          }
+          //agvideo.webkitEnterFullscreen();
+        });
+        ancientMainPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
+        });
+        if(ancientMainPage.find('#proceedtoag').length > 0) {
+          ancientMainPage.find('#proceedtoag').on('tap', function() {
+              agsoundbg.play();
+              $.mobile.changePage("sub-ac-greece.html");
+          });
+        }
+
+        ancientMainPage.live('pagebeforeshow', function(evt, data){
+          if(data.prevPage.attr('id') == 'spaceLoading'){
+            if(!app.firstRun.ancient.greece){
+              mworldViewMedia(app.kidid, 'agvideo');
+              ancientMainPage.find("#pre-ag").css({"visibility":"visible"});
+              agvideo.play();
+            }
+          }
+        });
+
+        ancientMainPage.find('.aclink, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
         
-        //$.mobile.changePage("sub-space.html");
-      }
-      else {
-        $.mobile.changePage("home.html");
-        ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
-        mainaudiobg.play();
-      }
-    }
+      });
+        
     
-    $("#agvideo").on('tap', function() {
-      //agvideo.webkitExitFullscreen();
-      if(avideoEvent != undefined){ avideoEvent = undefined; return; }
-      if(avideoStatus == undefined){ return; }
-      avideoStatus = undefined;
-      agsoundbg.play();
-      $.mobile.changePage("sub-ac-greece.html");
-    });
-    
-    $('#agmovielink').on('tap', function() { 
-      ancientsoundbg.pause(); ancientsoundbg.currentTime = 0;  
-      if(app.firstRun.ancient.greece){        
-        if(!checkConnection()){
-          navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
-          return false;
-        }
-        sessionStorage.assetsName = 'greece';
-        sessionStorage.nextPage = "sub-ancient.html";
-        $.mobile.changePage('spaceloading.html');
-      }
-      else {
-        mworldViewMedia(app.kidid, 'agvideo');
-        $("#pre-ag").css({"visibility":"visible"});
-        agvideo.play();
-      }
-      //agvideo.webkitEnterFullscreen();
-    });
-    $('.homelinkag').on('tap', function() { 
-      mainaudiobg.play(); ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
-    });
-    $('#proceedtoag').on('tap', function() {
-        agsoundbg.play();
-        $.mobile.changePage("sub-ac-greece.html");
-    });
-
-    $('#ancient').live('pagebeforeshow', function(evt, data){
-      if(data.prevPage.attr('id') == 'spaceLoading'){
-        if(!app.firstRun.ancient.greece){
-          mworldViewMedia(app.kidid, 'agvideo');
-          $("#pre-ag").css({"visibility":"visible"});
-          agvideo.play(); 
-        }
-      }
-    });
-
-    $('.aclink, .botlogoholder').on('tap', function(){
-      playClickSound();
-    });
 			</script>
 </div>
