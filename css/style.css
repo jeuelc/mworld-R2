@@ -1376,6 +1376,13 @@ ul.slides {
 }
 /********* the wonders of science -end **********/
 /***********invisible world *********/
+#whatiseverythingmadeofbg {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/whatiseverythingmadeofbg.jpg') no-repeat;
+  height:748px !important;
+  width:1024px !important;
+  overflow:hidden !important;
+}
+
 #weirdbuttrue {
   background:url('images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/weirdbuttruebg.jpg') no-repeat;
   height:748px !important;
@@ -1391,7 +1398,7 @@ ul.slides {
 }
 
 #invisibleworld, #whatelseisoutthere, #antimatter, #cosmicrays, #darkmatterdarkenergy, #lightfuzzylumps, #howstrangecanitget, #zoomingin,
-#evensmaller, #powerfulmicroscopes, #blueclues, #playingdetective {
+#evensmaller, #powerfulmicroscopes, #bubbleclues, #playingdetective {
   background:url('images/9-12/The_Wonders_of_Science/Invisible_World/invisibleworldbg.jpg') no-repeat;
   height:748px !important;
   width:1024px !important;
