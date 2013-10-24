@@ -1376,6 +1376,23 @@ ul.slides {
 }
 /********* the wonders of science -end **********/
 /***********invisible world *********/
+#topquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tq.png') no-repeat 0 0; }
+#upquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/uq.png') no-repeat 0 0; }
+#downquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/dq.png') no-repeat 0 0; }
+#strangequark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/sq.png') no-repeat 0 0; }
+#charmquark { background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/cq.png') no-repeat 0 0; }
+
+#game-iw1 {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/game1bg.jpg') no-repeat 0 0;
+  width:1024px;
+  height:748px;
+  overflow:hidden;
+}
+
+#overlayiwg1 {
+  background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/overlay.png');
+}
+
 #magnifyhand {
   background:url('images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyhand.png');
 }

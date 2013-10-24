@@ -55,6 +55,11 @@ FS.assets.invisibleworld = [
   {id : 'tunnels', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnels.jpg'},
   {id : 'tunnelspol', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/tunnelspol.png'},
   {id : 'magnifyingglass', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png'},
+  {id : 'sillyquark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/sillyquark.png'},
+  {id : 'ex', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/ex.png'},
+  {id : 'iwg1backbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/backbtn.png'},
+  {id : 'correctplank', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/correctplank.png'},
+  {id : 'wrongplank', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/wrongplank.png'},
   //{id : '', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/Zooming_In/'},
 ];
 
@@ -491,6 +496,13 @@ FS.assets.aGreece = [
 
 
 FS.assets.cssBackgroundImages = [
+  {id : 'topquark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/tq.png'},
+  {id : 'upquark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/uq.png'},
+  {id : 'downquark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/dq.png'},
+  {id : 'strangequark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/sq.png'},
+  {id : 'charmquark', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/cq.png'},
+  {id : 'game-iw1', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/game1bg.jpg'},
+  {id : 'overlayiwg1', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/overlay.png'},
   {id : 'quarksbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/quarksbg.jpg'},
   {id : 'neutronbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/neutronbg.jpg'},
   {id : 'buzzingelectronbg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/buzzingelectronbg.jpg'},
