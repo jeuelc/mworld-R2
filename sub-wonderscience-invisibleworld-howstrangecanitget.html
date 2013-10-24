@@ -21,9 +21,6 @@
               <img id="dopple" src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/howstrangetfpol.png">
             </div>
             <div id="backofcard" class="back face center" style="background:#000000;">
-              <div style="width:100px;height:40px;position:relative;top:157px;left:200px;">
-                <input type="text" id="tfanswer1" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
-              </div>
               <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
                 <p>Every second billions of particles from cosmic rays travel straight through us.<p>
                 <p>
@@ -178,11 +175,11 @@
       playClickSound();
     });
     
-    $('trueans').on('tap', function() {
+    $('#trueans').on('tap', function() {
       navigator.notification.alert('You got it right!', function(){}, 'True or False', 'ok');
     });
     
-    $('falseans').on('tap', function() {
+    $('#falseans').on('tap', function() {
       navigator.notification.alert('You got it wrong!', function(){}, 'True or False', 'ok');
     });
   </script>

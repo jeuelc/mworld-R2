@@ -15,6 +15,25 @@
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattergamepol.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:#000000;">
+              <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
+                <p>Dark matter is matter that is black.<p>
+                <p>
+                  <span style="width:50%;float:left;"><a href="#" id="trueans">True</a></span>
+                  <span style="width:50%;float:left;"><a href="#" id="falseans">False</a></span>
+                </p>
+                <p style="text-align:center;">
+                  <a id="canceltf" href="#">Cancel</a>
+                </p>
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
         <div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
              <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Else_Is_Out_There/antimattertfpol.png" alt="" />
@@ -59,6 +78,25 @@
       mworldPageVisit(app.kidid, 'Antimatter');
     })();
     
+    $("#canceltf").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+    });
+    
+    $('#pol1').on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
 
     $('.homelinkbh').on('tap', function() { 
       buttonEffectsBH();
@@ -122,6 +160,13 @@
       playClickSound();
     });
     
+    $('#trueans').on('tap', function() {
+      navigator.notification.alert('You got it wrong!', function(){}, 'True or False', 'ok');
+    });
+    
+    $('#falseans').on('tap', function() {
+      navigator.notification.alert('You got it right!', function(){}, 'True or False', 'ok');
+    });
   </script>
   <script src="js/twocardLogic.js"></script>
 </div> <!--//home-->

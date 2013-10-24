@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="quarks">
+<div data-role="page" id="particlezoo">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <script src="js/hammer.js"></script>
@@ -12,14 +12,12 @@
   <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
     <div data-role="content" class="kidzcontent">
-      
-      <div class="storypagetitlewos"><h1>Quarks</h1></div>
+      <div class="storypagetitlewos"><h1>Particle Zoo</h1></div>
       <div class="storypagewos">
-        <p>We've learnt that all atoms have a nucleus at their centre and that the nucleus is made up of protons and neutrons.  Do you think the protons and neutrons made of smaller parts too?  And what about those things, are they made up of things that are even smaller? Do you think there a limit to how small these parts can be?</p>
-        <p>Protons and Neutrons are made from quarks! Each proton is made from three quarks, and each neutron is made from three quarks.  The quarks that make up protons and neutrons are given funny names.  They're called "up" quarks and "down" quarks.  A proton is made from two "up" quarks and one "down" quarks.  A neutron is made from one "up" quark and two "down" quarks.</p>
-        <p>What makes up the quarks?  We don't know yet, although we're working on finding out the answer.  Perhaps you would like to become a scientist one day, and find out what makes up quarks!</p>
+        <p>We've learned that the 'stuff' in the world around us is made from atoms.  These atoms are made from particles called protons, neutrons and electrons.  The protons and neutrons are made from "up" and "down" quarks.</p>
+        <p>There are other types of quarks as well, called "top", "bottom", "charmed" and "strange".  These quarks are not part of the atoms in the ordinary things we see around us every day.  However, scientists can make them, and sometimes they arrive on Earth as beams from outer space known as cosmic rays.  There are lots of particles that make up all the things in the world.  They're all part of the Particle Zoo!</p>
+        <p>Electrons, "up" quarks and "down" quarks are the most common members of the Particle Zoo, while other bizarre particles such as "charmed" quarks are the more unusual animals in the zoo.  Other unusual members of the zoo are "strange" quarks, "W bosons", "Z bosons", "neutrinos", "muons" and "tauons".</p>
       </div>
-      <div id="particlezoolink" style="position:absolute;top:500px;left:378px;width:130px;height:100px;"></div>
     </div> <!-- end content -->  
     
     <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
@@ -35,13 +33,13 @@
       playing = false;
       paused = true;
     
-      $("#quarks").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#particlezoo").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Quarks');
+      mworldPageVisit(app.kidid, 'Particle-Zoo');
     })();
 
     $('.homelinkbh').on('tap', function() { 
@@ -49,12 +47,8 @@
       mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
     });
     
-    $('#particlezoolink').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-particlezoo.html", {transition: "slide"});
-    });
-    
     function goBack() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {
@@ -111,5 +105,4 @@
     });
     
   </script>
-  <script src="js/magnifyingglassLogic.js"></script>
 </div> <!--//home-->
