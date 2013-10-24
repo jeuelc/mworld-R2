@@ -17,6 +17,11 @@
     <div class="v-spacer"></div>
   </div> <!-- end content -->  
   <script>
+    (function() {
+      changeImageSrc();
+      findElementsWithBgImage();
+    })();
+    
     var answers = 0;
     $('#backbtn').on('tap', function() {
       //whatamimp3.pause();bgsoundbh.play();
