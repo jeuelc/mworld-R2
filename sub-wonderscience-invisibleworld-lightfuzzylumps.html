@@ -14,11 +14,14 @@
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
       </div>
+      
       <div class="bpcontentwos">
         <p>Light is made from fuzzy lumps of light called photons. Some photons we can see. These are called visible light. We can see visible light photons in all of the colours of the rainbow. When you look at anything in the world your eye is collecting visible-light photons and turning them into the image you see.</p>
         <p>There are also photons we can't see, invisible light.  For example, when you feel heat from a hot light globe or a warm fire, then your skin is sensing invisible infrared photons. When you warm your food in a microwave oven, invisible microwave photons pass into your food to heat it up. If you've been to the doctor to get an x-ray photograph of your bones, the photos are taken using invisible x-ray photons.</p>
       </div>
-        
+      <div id="mglass" style="left:392px;top:416px;position:absolute;">
+         <img src="images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/magnifyingglass.png" alt="" />
+      </div>
       <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
     </div> <!-- end content -->  
     
@@ -47,6 +50,10 @@
     $('.homelinkbh').on('tap', function() { 
       buttonEffectsBH();
       mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
+    });
+    
+    $('#mglass').on('tap', function() {
+       $.mobile.changePage("game-iw1.html", {transition: "slide"});
     });
     
     function goBack() {
