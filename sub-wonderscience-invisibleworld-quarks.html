@@ -1,5 +1,5 @@
 <!-- i-C-a -->
-<div data-role="page" id="nucleus">
+<div data-role="page" id="quarks">
   <div class="coachcontainer" style="position:absolute;top:0px;left:-225px;width:225px;height:320px;"></div>
   <script src="js/slidebarwos.js"></script>
   <script src="js/hammer.js"></script>
@@ -13,21 +13,13 @@
   <div class="menubtnholder"><div class="menubtnwos"></div></div>
     <div data-role="content" class="kidzcontent">
       
-      <div class="storypagetitlewos" style="top:60px;"><h1>Nucleus</h1></div>
-      <div class="storypagewos" style="top:126px;">
-        <p>Atoms have a small ball in their centre, called a nucleus, which the electrons buzz around. The nucleus is so small, that if we could enlarge an atom to the size of the gigantic London Eye ferris wheel, the nucleus would be the size of a crayon's tip!</p>
-        <p>The nucleus is made up of even smaller balls called protons and neutrons.  The number of protons determines the name of an atom.  Oxygen atoms in the air we breathe have eight protons in their nucleus.  Carbon atoms, which are spread throughout our bodies and through the bodies of most living things on Earth, have six protons in their nucleus.</p>
-        <p>Hydrogen has only one proton.  Water has hydrogen as one of its ingredients (the other is oxygen).  Our sun and most of the stars we see in the sky are mainly made of hydrogen.  Some atoms have lots of protons.  The metal called lead has 82 protons, and a recently discovered atom called Ununseptium has 117!</p>
+      <div class="storypagetitlewos"><h1>Quarks</h1></div>
+      <div class="storypagewos">
+        <p>We've learnt that all atoms have a nucleus at their centre and that the nucleus is made up of protons and neutrons.  Do you think the protons and neutrons made of smaller parts too?  And what about those things, are they made up of things that are even smaller? Do you think there a limit to how small these parts can be?</p>
+        <p>Protons and Neutrons are made from quarks! Each proton is made from three quarks, and each neutron is made from three quarks.  The quarks that make up protons and neutrons are given funny names.  They're called "up" quarks and "down" quarks.  A proton is made from two "up" quarks and one "down" quarks.  A neutron is made from one "up" quark and two "down" quarks.</p>
+        <p>What makes up the quarks?  We don't know yet, although we're working on finding out the answer.  Perhaps you would like to become a scientist one day, and find out what makes up quarks!</p>
       </div>
-      <div style="position:absolute;top:520px;left:400px;width:100px;height:100px;">
-        Tap "protons" or "neutrons" to find out more.
-      </div>
-      <div id="protonslink" style="width:50px;height:50px;left:350px;top:340px;background:transparent;position:absolute;color:#FFFFFF;">
-        Protons
-      </div>
-      <div id="neutronslink" style="width:50px;height:50px;left:160px;top:392px;background:transparent;position:absolute;color:#FFFFFF;">
-        Neutrons
-      </div>
+      <div id="particlezoolink" style="position:absolute;top:500px;left:378px;width:130px;height:100px;"></div>
     </div> <!-- end content -->  
     
     <div class="micbtnholder"><div class="micbtnwos" id="playstopbh"></div></div>
@@ -43,13 +35,13 @@
       playing = false;
       paused = true;
     
-      $("#nucleus").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("#quarks").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
       //change images path
       changeImageSrc();
       findElementsWithBgImage();
       //changeAudioSrc();
-      mworldPageVisit(app.kidid, 'Nucleus');
+      mworldPageVisit(app.kidid, 'Quarks');
     })();
 
     $('.homelinkbh').on('tap', function() { 
@@ -57,15 +49,12 @@
       mainaudiobg.play(); invisibleworldbg.pause(); invisibleworldbg.currentTime = 0;
     });
     
-    $('#protonslink').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
+    $('.particlezoolink').on('tap', function() {
+      $.mobile.changePage("game-iw1.html", {transition: "slide"});
     });
     
-    $('#neutronslink').on('tap', function() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-quarks.html", {transition: "slide"});
-    });
     function goBack() {
-      $.mobile.changePage("sub-wonderscience-invisibleworld-whatiseverythingmadeof.html", {transition: "slide", reverse: true });
+      $.mobile.changePage("sub-wonderscience-invisibleworld.html", {transition: "slide", reverse: true });
     }
     
     function pausedaudio() {
@@ -122,4 +111,5 @@
     });
     
   </script>
+  <script src="js/magnifyingglassLogic.js"></script>
 </div> <!--//home-->
