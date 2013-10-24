@@ -15,6 +15,28 @@
     <div data-role="content" class="kidzcontent">
       <div class="v-spacer"></div>
       <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/howstrangetfpol.png">
+            </div>
+            <div id="backofcard" class="back face center" style="background:#000000;">
+              <div style="width:100px;height:40px;position:relative;top:157px;left:200px;">
+                <input type="text" id="tfanswer1" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
+              </div>
+              <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
+                <p>Every second billions of particles from cosmic rays travel straight through us.<p>
+                <p>
+                  <span style="width:50%;float:left;"><a href="#" id="trueans">True</a></span>
+                  <span style="width:50%;float:left;"><a href="#" id="falseans">False</a></span>
+                </p>
+                <p style="text-align:center;">
+                  <a id="canceltf" href="#">Cancel</a>
+                </p>
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
         <div id="zoomwrapper">
           <div id="pol1" class="pPiece" style="left:100px;top:270px;">
              <img src="images/9-12/The_Wonders_of_Science/Invisible_World/How_Strange_Can_It_Get/quantumsupercomppol.png" alt="" />
@@ -63,6 +85,28 @@
       //changeAudioSrc();
       mworldPageVisit(app.kidid, 'How-Strange-Can-It-Get');
     })();
+    
+    $("#canceltf").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol3").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    
+    $('#pol3').on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+    });
     
     $('#pol2').on('tap', function() {
       $.mobile.changePage("sub-wonderscience-invisibleworld-weirdbuttrue.html", {transition: "slide"});
@@ -134,6 +178,13 @@
       playClickSound();
     });
     
+    $('trueans').on('tap', function() {
+      navigator.notification.alert('You got it right!', function(){}, 'True or False', 'ok');
+    });
+    
+    $('falseans').on('tap', function() {
+      navigator.notification.alert('You got it wrong!', function(){}, 'True or False', 'ok');
+    });
   </script>
   <script src="js/threecardLogic.js"></script>
 </div> <!--//home-->
