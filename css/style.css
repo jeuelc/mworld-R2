@@ -1283,7 +1283,7 @@ ul.slides {
   overflow-y:scroll;
   font-family:"Chalkboard SE";
   font-size:18px;
-  font-weight:bold;
+  font-weight:normal;
   text-align:left;
 }
 
@@ -1456,6 +1456,10 @@ ul.slides {
   height:748px !important;
   width:1024px !important;
   overflow:hidden !important;
+}
+
+.navtitleholderiw h1 {
+  color:#FFFFFF;
 }
 
 .navtitleholderiw {
