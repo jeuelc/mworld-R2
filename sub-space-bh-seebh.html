@@ -30,13 +30,15 @@
   <script>
     sound = new Audio(); // 'sound' is now an audio object
     (function() {		
-      mworldPageVisit(app.kidid, 'How-Can-You-See-A-Black-Hole');
       var seebhPage = $("#seebh");
       seebhPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       seebhPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
       
       seebhPage.find('.botlogoholder').on('tap', function(){
         playClickSound();
+      });
+      seebhPage.on('pageshow', function(){
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'How-Can-You-See-A-Black-Hole'); },500);
       });
     })();
     

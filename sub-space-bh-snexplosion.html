@@ -57,88 +57,87 @@
     (function() {				
       playing = false;
       paused = true;
-      mworldPageVisit(app.kidid, 'Supernova-How-Big-They-Are');
       var snexplosionPage = $('#snexplosion');
+      snexplosionPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      changeImageSrc('snexplosion');
+      findElementsWithBgImage('snexplosion');
       $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
       snexplosionPage.find('div#polb1').css("z-index", 1);
       
-      if(sound.canPlayType('audio/mpeg')) {
-        snexplosionPage.find('#actualaudio-snexplosion').html('<audio controls preload id="snexplosionaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/HowBigAreThey.mp3" type="audio/mpeg"></audio>');
-      } 
+      snexplosionPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          snexplosionPage.find('#actualaudio-snexplosion').html('<audio controls preload id="snexplosionaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/HowBigAreThey.mp3" type="audio/mpeg"></audio>');
+        } 
+        
+        supernovahubble.addEventListener('ended', function() { 
+          //minoanvolcano.webkitExitFullscreen();
+          snexplosionPage.find("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
+          snexplosionPage.find("#supernovahubble").css({"z-index":-1});
+          bgsoundbh.play(); 
+        });
       
-      supernovahubble.addEventListener('ended', function() { 
-        //minoanvolcano.webkitExitFullscreen();
-        snexplosionPage.find("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
-        snexplosionPage.find("#supernovahubble").css({"z-index":-1});
-        bgsoundbh.play(); 
-      });
-    
-    snexplosionPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
-      //change images path
-      changeImageSrc('snexplosion');
-      findElementsWithBgImage('snexplosion');
-      //changeAudioVideoSrc();
-      snexplosionPage.find("#polb1").on('tap', function() {
-        snexplosionPage.find("#supernovahubbleholder").css({"visibility":"visible", "z-index":10});
-        snexplosionPage.find("#supernovahubble").css({"z-index":9});
-        bgsoundbh.pause();
-        supernovahubble.play();
-        mworldViewMedia(app.kidid, 'supernovahubble');
-      });
-      
-      snexplosionPage.find("#supernovahubble").on('tap', function() {
-        snexplosionPage.find("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
-        snexplosionPage.find("#supernovahubble").css({"z-index":-1});
-        bgsoundbh.play();
-        supernovahubble.pause();
-        supernovahubble.currentTime = 0;
-      });
-      /* ******************** */
-      snexplosionPage.find("#playstopsnexplosion").on('tap', function() {
-        if(!playing) {
-          snexplosionaudio.play();
-          snexplosionPage.find('.micbtnbh').css('background-position-x', '-81px');
-          mworldPlayAudio(app.kidid, 'snexplosionaudio');
-          playing = true;
-          paused = false;
-        } else {
-          snexplosionaudio.pause(); snexplosionaudio.currentTime = 0;
-          snexplosionPage.find('.micbtnbh').css('background-position-x', '0px');
-          playing = false;
-          paused = true;
-        }
-      });
-      
-      snexplosionPage.find("#snexplosionaudioplbtn").on('tap', function() {
-        if(paused) {
-          snexplosionaudio.play();
-          paused = false;
-        } else {
+        snexplosionPage.find("#polb1").on('tap', function() {
+          snexplosionPage.find("#supernovahubbleholder").css({"visibility":"visible", "z-index":10});
+          snexplosionPage.find("#supernovahubble").css({"z-index":9});
+          bgsoundbh.pause();
+          supernovahubble.play();
+          mworldViewMedia(app.kidid, 'supernovahubble');
+        });
+        
+        snexplosionPage.find("#supernovahubble").on('tap', function() {
+          snexplosionPage.find("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
+          snexplosionPage.find("#supernovahubble").css({"z-index":-1});
+          bgsoundbh.play();
+          supernovahubble.pause();
+          supernovahubble.currentTime = 0;
+        });
+        /* ******************** */
+        snexplosionPage.find("#playstopsnexplosion").on('tap', function() {
+          if(!playing) {
+            snexplosionaudio.play();
+            snexplosionPage.find('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'snexplosionaudio');
+            playing = true;
+            paused = false;
+          } else {
+            snexplosionaudio.pause(); snexplosionaudio.currentTime = 0;
+            snexplosionPage.find('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        snexplosionPage.find("#snexplosionaudioplbtn").on('tap', function() {
+          if(paused) {
+            snexplosionaudio.play();
+            paused = false;
+          } else {
+            snexplosionaudio.pause();
+            paused = true;
+          }
+        });
+        
+        snexplosionPage.find("#snexplosionaudiofbtn").on('tap', function() {
+          var ctime = snexplosionaudio.currentTime;
+          snexplosionaudio.currentTime = ctime + 10;
+        });
+        
+        snexplosionPage.find("#snexplosionaudiobbtn").on('tap', function() {
+          var ctime = snexplosionaudio.currentTime;
+          snexplosionaudio.currentTime = ctime - 10;
+        });
+        
+        snexplosionPage.find("#snexplosionaudiopsbtn").on('tap', function() {
           snexplosionaudio.pause();
-          paused = true;
-        }
+          snexplosionPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+        snexplosionPage.find('.botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        snexplosionPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Supernova-How-Big-They-Are'); },500);
       });
-      
-      snexplosionPage.find("#snexplosionaudiofbtn").on('tap', function() {
-        var ctime = snexplosionaudio.currentTime;
-        snexplosionaudio.currentTime = ctime + 10;
-      });
-      
-      snexplosionPage.find("#snexplosionaudiobbtn").on('tap', function() {
-        var ctime = snexplosionaudio.currentTime;
-        snexplosionaudio.currentTime = ctime - 10;
-      });
-      
-      snexplosionPage.find("#snexplosionaudiopsbtn").on('tap', function() {
-        snexplosionaudio.pause();
-        snexplosionPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
-      snexplosionPage.find('.botlogoholder').on('tap', function(){
-        playClickSound();
-      });
-      snexplosionPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
-      
     })();
     
     function goBack() {

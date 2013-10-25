@@ -47,70 +47,71 @@
         (function() {
           pasused = true;
           playing = false;
-          mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go');
           var bhgoPage = $("#bhgo");
-          if(sound.canPlayType('audio/mpeg')) {
-              bhgoPage.find('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page22_0.mp3" type="audio/mpeg"></audio>');
-          } 
-    
           bhgoPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-          
-          var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
-          bhgoPage.find('#bonus-bh2').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
-          //change images path
           changeImageSrc('bhgo');
           findElementsWithBgImage('bhgo');
-          //changeAudioSrc();
-          //setTimeout(loadCoachAccessories(kidid), 2000);
-          bhgoPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+          
+          bhgoPage.on('pageshow', function(){
+            if(sound.canPlayType('audio/mpeg')) {
+                bhgoPage.find('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page22_0.mp3" type="audio/mpeg"></audio>');
+            } 
+      
+            
+            var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
+            bhgoPage.find('#bonus-bh2').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
+            bhgoPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
 
-          bhgoPage.find("#bonus-bh2").on('tap', function() {
-            bhcreator.play();bgsoundbh.pause();
-            $.mobile.changePage("game-bh1.html", {transition: "flip"});
-          });
-          
-          bhgoPage.find("#playstopbhgo").on('tap', function() {
-            if(!playing) {
-              bhgoaudio.play();
-              bhgoPage.find('.micbtnbh').css('background-position-x', '-81px');
-              mworldPlayAudio(app.kidid, 'bhgoaudio');
-              playing = true;
-              paused = false;
-            } else {
-              bhgoaudio.pause(); bhgoaudio.currentTime = 0;
-              bhgoPage.find('.micbtnbh').css('background-position-x', '0px');
-              playing = false;
-              paused = true;
-            }
-          });
-          
-          bhgoPage.find("#bhgoaudioplbtn").on('tap', function() {
-            if(paused) {
-              bhgoaudio.play();
-              paused = false;
-            } else {
+            bhgoPage.find("#bonus-bh2").on('tap', function() {
+              bhcreator.play();bgsoundbh.pause();
+              $.mobile.changePage("game-bh1.html", {transition: "flip"});
+            });
+            
+            bhgoPage.find("#playstopbhgo").on('tap', function() {
+              if(!playing) {
+                bhgoaudio.play();
+                bhgoPage.find('.micbtnbh').css('background-position-x', '-81px');
+                mworldPlayAudio(app.kidid, 'bhgoaudio');
+                playing = true;
+                paused = false;
+              } else {
+                bhgoaudio.pause(); bhgoaudio.currentTime = 0;
+                bhgoPage.find('.micbtnbh').css('background-position-x', '0px');
+                playing = false;
+                paused = true;
+              }
+            });
+            
+            bhgoPage.find("#bhgoaudioplbtn").on('tap', function() {
+              if(paused) {
+                bhgoaudio.play();
+                paused = false;
+              } else {
+                bhgoaudio.pause();
+                paused = true;
+              }
+            });
+            
+            bhgoPage.find("#bhgoaudiofbtn").on('tap', function() {
+              var ctime = bhgoaudio.currentTime;
+              bhgoaudio.currentTime = ctime + 10;
+            });
+            
+            bhgoPage.find("#bhgoaudiobbtn").on('tap', function() {
+              var ctime = bhgoaudio.currentTime;
+              bhgoaudio.currentTime = ctime - 10;
+            });
+            
+            bhgoPage.find("#bhgoaudiopsbtn").on('tap', function() {
               bhgoaudio.pause();
-              paused = true;
-            }
-          });
-          
-          bhgoPage.find("#bhgoaudiofbtn").on('tap', function() {
-            var ctime = bhgoaudio.currentTime;
-            bhgoaudio.currentTime = ctime + 10;
-          });
-          
-          bhgoPage.find("#bhgoaudiobbtn").on('tap', function() {
-            var ctime = bhgoaudio.currentTime;
-            bhgoaudio.currentTime = ctime - 10;
-          });
-          
-          bhgoPage.find("#bhgoaudiopsbtn").on('tap', function() {
-            bhgoaudio.pause();
-            bhgoPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-          });
+              bhgoPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
 
-          bhgoPage.find('.botlogoholder').on('tap', function(){
-            playClickSound();
+            bhgoPage.find('.botlogoholder').on('tap', function(){
+              playClickSound();
+            });
+            
+            setTimeout(function(){ mworldPageVisit(app.kidid, 'Where-Do-Black-Holes-Go'); },500);
           });
         })();
         

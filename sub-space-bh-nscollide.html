@@ -55,84 +55,92 @@
         (function() {
           playing = false;
           paused = true;
-          mworldPageVisit(app.kidid, 'Neutron-Stars-Collide');
           var nscollidePage = $("#nscollide");
-          if(sound.canPlayType('audio/mpeg')) {
-            nscollidePage.find('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page15_0.mp3" type="audio/mpeg"></audio>');
-          } 
-    
-            collidingns.addEventListener('ended', function() { 
-              //minoanvolcano.webkitExitFullscreen();
-              nscollidePage.find("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
-              nscollidePage.find("#collidingns").css({"z-index":-1});
-              bgsoundbh.play(); 
-            });
-            
-            nscollidePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
-            //change images path
-            changeImageSrc('nscollide');
-            findElementsWithBgImage('nscollide');
-            //changeAudioVideoSrc();
-            nscollidePage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
-            nscollidePage.find("#polb1").on('tap', function() {
-               nscollidePage.find("#collidingnsholder").css({"visibility":"visible", "z-index":10});
-               nscollidePage.find("#collidingns").css({"z-index":9});
-               bgsoundbh.pause();
-               collidingns.play();
-               mworldViewMedia(app.kidid, 'collidingns');
-            });
-               
-            nscollidePage.find("#collidingns").on('tap', function() {
-              nscollidePage.find("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
-              nscollidePage.find("#collidingns").css({"z-index":-1});
-              bgsoundbh.play();
-              collidingns.pause();
-              collidingns.currentTime = 0;
-            });
-            
-            nscollidePage.find("#playstopnscollide").on('tap', function() {
-              if(!playing) {
-                nscollideaudio.play();
-                nscollidePage.find('.micbtnbh').css('background-position-x', '-81px');
-                mworldPlayAudio(app.kidid, 'nscollideaudio');
-                playing = true;
-                paused = false;
-              } else {
-                nscollideaudio.pause();nscollideaudio.currentTime = 0;
-                nscollidePage.find('.micbtnbh').css('background-position-x', '0px');
-                playing = false;
-                paused = true;
-              }
-            });
-            
-            nscollidePage.find("#nscollideaudioplbtn").on('tap', function() {
-              if(paused) {
-                nscollideaudio.play();
-                paused = false;
-              } else {
+          nscollidePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          //change images path
+          changeImageSrc('nscollide');
+          findElementsWithBgImage('nscollide');
+          //changeAudioVideoSrc();
+
+          nscollidePage.on('pageshow', function(){
+            if(sound.canPlayType('audio/mpeg')) {
+              nscollidePage.find('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/Page15_0.mp3" type="audio/mpeg"></audio>');
+            } 
+      
+              collidingns.addEventListener('ended', function() { 
+                //minoanvolcano.webkitExitFullscreen();
+                nscollidePage.find("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
+                nscollidePage.find("#collidingns").css({"z-index":-1});
+                bgsoundbh.play(); 
+              });
+              
+              nscollidePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+              //change images path
+              changeImageSrc('nscollide');
+              findElementsWithBgImage('nscollide');
+              //changeAudioVideoSrc();
+              nscollidePage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+              nscollidePage.find("#polb1").on('tap', function() {
+                 nscollidePage.find("#collidingnsholder").css({"visibility":"visible", "z-index":10});
+                 nscollidePage.find("#collidingns").css({"z-index":9});
+                 bgsoundbh.pause();
+                 collidingns.play();
+                 mworldViewMedia(app.kidid, 'collidingns');
+              });
+                 
+              nscollidePage.find("#collidingns").on('tap', function() {
+                nscollidePage.find("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
+                nscollidePage.find("#collidingns").css({"z-index":-1});
+                bgsoundbh.play();
+                collidingns.pause();
+                collidingns.currentTime = 0;
+              });
+              
+              nscollidePage.find("#playstopnscollide").on('tap', function() {
+                if(!playing) {
+                  nscollideaudio.play();
+                  nscollidePage.find('.micbtnbh').css('background-position-x', '-81px');
+                  mworldPlayAudio(app.kidid, 'nscollideaudio');
+                  playing = true;
+                  paused = false;
+                } else {
+                  nscollideaudio.pause();nscollideaudio.currentTime = 0;
+                  nscollidePage.find('.micbtnbh').css('background-position-x', '0px');
+                  playing = false;
+                  paused = true;
+                }
+              });
+              
+              nscollidePage.find("#nscollideaudioplbtn").on('tap', function() {
+                if(paused) {
+                  nscollideaudio.play();
+                  paused = false;
+                } else {
+                  nscollideaudio.pause();
+                  paused = true;
+                }
+              });
+              
+              nscollidePage.find("#nscollideaudiofbtn").on('tap', function() {
+                var ctime = nscollideaudio.currentTime;
+                nscollideaudio.currentTime = ctime + 10;
+              });
+              
+              nscollidePage.find("#nscollideaudiobbtn").on('tap', function() {
+                var ctime = nscollideaudio.currentTime;
+                nscollideaudio.currentTime = ctime - 10;
+              });
+              
+              nscollidePage.find("#nscollideaudiopsbtn").on('tap', function() {
                 nscollideaudio.pause();
-                paused = true;
-              }
-            });
-            
-            nscollidePage.find("#nscollideaudiofbtn").on('tap', function() {
-              var ctime = nscollideaudio.currentTime;
-              nscollideaudio.currentTime = ctime + 10;
-            });
-            
-            nscollidePage.find("#nscollideaudiobbtn").on('tap', function() {
-              var ctime = nscollideaudio.currentTime;
-              nscollideaudio.currentTime = ctime - 10;
-            });
-            
-            nscollidePage.find("#nscollideaudiopsbtn").on('tap', function() {
-              nscollideaudio.pause();
-              nscollidePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-            });       
-            
-            nscollidePage.find('.botlogoholder').on('tap', function(){
-              playClickSound();
+                nscollidePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+              });       
+              
+              nscollidePage.find('.botlogoholder').on('tap', function(){
+                playClickSound();
+              });
+              setTimeout(function(){  mworldPageVisit(app.kidid, 'Neutron-Stars-Collide'); },500);
             });
         })();
         

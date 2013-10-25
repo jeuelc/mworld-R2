@@ -70,111 +70,114 @@
     (function() {			
       playing = false;
       paused = true;
-      mworldPageVisit(app.kidid, 'Supernova-And-The-Formation-Of-Gold');
       var formgoldPage = $("#formgold");
-      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
-      formgoldPage.find('div#polb1').css("z-index", 2);      
-      formgoldPage.find('div#polb2').css("z-index", 1);     
-      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");      
-      $('div#polb3 > img').css("-webkit-transform", "rotate(-5deg)"); 
-      $('#f1_container').css({"visibility":"hidden", "z-index":0});
-      
-      if(sound.canPlayType('audio/mpeg')) {        
-        formgoldPage.find('#actualaudio-formgold').html('<audio controls preload id="formgoldaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/GoldFormation.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       formgoldPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-      
-      //change images path
       changeImageSrc('formgold');
       findElementsWithBgImage('formgold');
-      //changeAudioSrc();
-      formgoldPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
-      
-      formgoldPage.find("#submitans").on('tap', function() {
-        var tfans1 = formgoldPage.find('#tfanswer1').val();
-        if(tfans1.toLowerCase() == "true") {
-          alert("That's right... nice job, you've earned 100 MPoints.");
-        } else {
-          alert("Sorry, that's not right, try again...");
-        }
-      });
-      var formgoldF1Card = formgoldPage.find('#f1_card'),
-      f1Container = formgoldPage.find('#f1_container');
-      formgoldPage.find("#backbtn1").on('tap', function() {
-        formgoldF1Card.css({"-webkit-transform": "rotateY(0deg)"});
-        formgoldF1Card.css({"-moz-transform": "rotateY(0deg)"});
-        formgoldF1Card.css({"-o-transform": "rotateY(0deg)"});
-        formgoldF1Card.css({"transform": "rotateY(0deg)"});
-        setTimeout(function() {
-          formgoldPage.find("#polb3").css({"visibility":"visible", "z-index":3});
-          f1Container.css({"visibility":"hidden", "z-index":0});
-        }, 1000);
-        //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-        //$("#hittites").swipe("enable");
-      });
-      
-      formgoldPage.find("#polb3").on('tap', function() {
-        f1Container.css({"visibility":"visible", "z-index":10});
-        $(this).css({"visibility":"hidden"});
-        formgoldF1Card.css({"-webkit-transform": "rotateY(180deg)"});
-        formgoldF1Card.css({"-moz-transform": "rotateY(180deg)"});
-        formgoldF1Card.css({"-o-transform": "rotateY(180deg)"});
-        formgoldF1Card.css({"transform": "rotateY(180deg)"});
-        //$("#hittites").swipe("disable");
-        //$("#dopple").css({"visibility":"hidden"});
-      });
-      formgoldPage.find("#polb2").on('tap', function() {      
-          $('#goldbarslink')[0].click();    
-          mworldViewMedia(app.kidid, 'goldbars');
-        });        
-      formgoldPage.find("#polb1").on('tap', function() {      
-          $('#snremainslink')[0].click();    
-          mworldViewMedia(app.kidid, 'snremains');
-        });  
-    
-      formgoldPage.find("#playstopformgold").on('tap', function() {
-        if(!playing) {
-          formgoldaudio.play();
-          formgoldPage.find('.micbtnbh').css('background-position-x', '-81px');
-          mworldPlayAudio(app.kidid, 'formgoldaudio');
-          playing = true;
-          paused = false;
-        } else {
-          formgoldaudio.pause();formgoldaudio.currentTime = 0;
-          formgoldPage.find('.micbtnbh').css('background-position-x', '0px');
-          playing = false;
-          paused = true;
-        }
-      });
-      
-      formgoldPage.find("#formgoldaudioplbtn").on('tap', function() {
-        if(paused) {
-          formgoldaudio.play();
-          paused = false;
-        } else {
-          formgoldaudio.pause();
-          paused = true;
-        }
-      });
-      
-      formgoldPage.find("#formgoldaudiofbtn").on('tap', function() {
-        var ctime = formgoldaudio.currentTime;
-        formgoldaudio.currentTime = ctime + 10;
-      });
-      
-      formgoldPage.find("#formgoldaudiobbtn").on('tap', function() {
-        var ctime = formgoldaudio.currentTime;
-        formgoldaudio.currentTime = ctime - 10;
-      });
-      
-      formgoldPage.find("#formgoldaudiopsbtn").on('tap', function() {
-        formgoldaudio.pause();
-        formgoldPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+      var polb1Var = formgoldPage.find('div#polb1'),
+          polb2Var = formgoldPage.find('div#polb2'),
+          polb3var = formgoldPage.find('div#polb3');
 
-      formgoldPage.find('.botlogoholder').on('tap', function(){
-        playClickSound();
+      polb1Var.find('img').css("-webkit-transform", "rotate(0deg)");      
+      polb1Var.css("z-index", 2);      
+      polb2Var.css("z-index", 1);      
+      polb2Var.find('img').css("-webkit-transform", "rotate(5deg)");      
+      polb3var.find('img').css("-webkit-transform", "rotate(-5deg)"); 
+      
+      formgoldPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {        
+          formgoldPage.find('#actualaudio-formgold').html('<audio controls preload id="formgoldaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/GoldFormation.mp3" type="audio/mpeg"></audio>');
+        } 
+      
+        formgoldPage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+        
+        formgoldPage.find("#submitans").on('tap', function() {
+          var tfans1 = formgoldPage.find('#tfanswer1').val();
+          if(tfans1.toLowerCase() == "true") {
+            alert("That's right... nice job, you've earned 100 MPoints.");
+          } else {
+            alert("Sorry, that's not right, try again...");
+          }
+        });
+        var formgoldF1Card = formgoldPage.find('#f1_card'),
+        f1Container = formgoldPage.find('#f1_container');
+        formgoldPage.find("#backbtn1").on('tap', function() {
+          formgoldF1Card.css({"-webkit-transform": "rotateY(0deg)"});
+          formgoldF1Card.css({"-moz-transform": "rotateY(0deg)"});
+          formgoldF1Card.css({"-o-transform": "rotateY(0deg)"});
+          formgoldF1Card.css({"transform": "rotateY(0deg)"});
+          setTimeout(function() {
+            formgoldPage.find("#polb3").css({"visibility":"visible", "z-index":3});
+            f1Container.css({"visibility":"hidden", "z-index":0});
+          }, 1000);
+          //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          //$("#hittites").swipe("enable");
+        });
+        
+        polb3var.on('tap', function() {
+          f1Container.css({"visibility":"visible", "z-index":10});
+          $(this).css({"visibility":"hidden"});
+          formgoldF1Card.css({"-webkit-transform": "rotateY(180deg)"});
+          formgoldF1Card.css({"-moz-transform": "rotateY(180deg)"});
+          formgoldF1Card.css({"-o-transform": "rotateY(180deg)"});
+          formgoldF1Card.css({"transform": "rotateY(180deg)"});
+          //$("#hittites").swipe("disable");
+          //$("#dopple").css({"visibility":"hidden"});
+        });
+        polb2Var.on('tap', function() {      
+            $('#goldbarslink')[0].click();    
+            mworldViewMedia(app.kidid, 'goldbars');
+          });        
+        polb1Var.on('tap', function() {      
+            $('#snremainslink')[0].click();    
+            mworldViewMedia(app.kidid, 'snremains');
+          }); 
+      
+        formgoldPage.find("#playstopformgold").on('tap', function() {
+          if(!playing) {
+            formgoldaudio.play();
+            formgoldPage.find('.micbtnbh').css('background-position-x', '-81px');
+            mworldPlayAudio(app.kidid, 'formgoldaudio');
+            playing = true;
+            paused = false;
+          } else {
+            formgoldaudio.pause();formgoldaudio.currentTime = 0;
+            formgoldPage.find('.micbtnbh').css('background-position-x', '0px');
+            playing = false;
+            paused = true;
+          }
+        });
+        
+        formgoldPage.find("#formgoldaudioplbtn").on('tap', function() {
+          if(paused) {
+            formgoldaudio.play();
+            paused = false;
+          } else {
+            formgoldaudio.pause();
+            paused = true;
+          }
+        });
+        
+        formgoldPage.find("#formgoldaudiofbtn").on('tap', function() {
+          var ctime = formgoldaudio.currentTime;
+          formgoldaudio.currentTime = ctime + 10;
+        });
+        
+        formgoldPage.find("#formgoldaudiobbtn").on('tap', function() {
+          var ctime = formgoldaudio.currentTime;
+          formgoldaudio.currentTime = ctime - 10;
+        });
+        
+        formgoldPage.find("#formgoldaudiopsbtn").on('tap', function() {
+          formgoldaudio.pause();
+          formgoldPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+
+        formgoldPage.find('.botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Supernova-And-The-Formation-Of-Gold'); }, 500);
       });
     })();
     

@@ -60,100 +60,103 @@
         (function() {
           playing = false;
           paused = true;
-          mworldPageVisit(app.kidid, 'From-Supergiant-To-Black-Hole');
-          var blackholePage = $("#blackhole");
-          blackholePage.find('div#pol1').css("z-index", 3);
-          blackholePage.find('div#pol2').css("z-index", 2);
-          blackholePage.find('div#pol3').css("z-index", 1);
-          blackholePage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-          blackholePage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-          blackholePage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-          blackholePage.find('div#pol4 > img').css("-webkit-transform", "rotate(-3deg)");
-            
-            
-          if(sound.canPlayType('audio/mpeg')) {
-             blackholePage.find('#actualaudio-blackhole').html('<audio controls preload id="blackholeaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/FromToBlackhole.mp3" type="audio/mpeg"></audio>');
-          } 
-            
-    
-            blackholePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-          
-          var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
-          blackholePage.find('#bonus-bh').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
+          blackholePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
           //change images path
           changeImageSrc('blackhole');
           findElementsWithBgImage('blackhole');
           //changeAudioSrc();
-          
-          blackholePage.find('#start-blackhole').on('click', function() {
-              blackholePage.find('#actualaudio-blackhole').show();
-              var oldHeight = $('#node-body-holder').height();
-              var newHeight = oldHeight - blackholePage.find('#actualaudio-blackhole').height();
-              $('#node-body-holder').height(newHeight);
-          });
-          blackholePage.find("#bonus-bh").on('tap', function() {
-            whatamimp3.play();bgsoundbh.pause();
-            $.mobile.changePage("game-bh2.html", {transition: "flip"});
-          });
-          
-          blackholePage.find("#pol1").on('tap', function() {      
-            $('#bhimg1link')[0].click();
-            mworldViewMedia(app.kidid, 'bhimg1');
-          });  
-        	blackholePage.find("#pol2").on('tap', function() {
-            $('#bhimg2link')[0].click();
-            mworldViewMedia(app.kidid, 'bhimg2');
-          });
-          blackholePage.find("#pol3").on('tap', function() {
-            $.mobile.changePage("sub-space-bh-nscollide.html", {transition:"slide"});
-          });     
-          blackholePage.find("#pol4").on('tap', function() {
-            $.mobile.changePage("sub-space-bh-seebh.html", {transition:"slide"});
-          });   
+          var pol1Var = blackholePage.find('div#pol1'),
+              pol2Var = blackholePage.find('div#pol2'),
+              pol3Var = blackholePage.find('div#pol3'),
+              pol4Var = blackholePage.find('div#pol4');
 
-          blackholePage.find("#playstopblackhole").on('tap', function() {
-            if(!playing) {
-              blackholeaudio.play();
-              blackholePage.find('.micbtnbh').css('background-position-x', '-81px');
-              mworldPlayAudio(app.kidid, 'blackholeaudio');
-              playing = true;
-              paused = false;
-            } else {
-              blackholeaudio.pause();blackholeaudio.currentTime = 0;
-              blackholePage.find('.micbtnbh').css('background-position-x', '0px');
-              playing = false;
-              paused = true;
-            }
-          });
-          
-          blackholePage.find("#blackholeaudioplbtn").on('tap', function() {
-            if(paused) {
-              blackholeaudio.play();
-              paused = false;
-            } else {
+          pol1Var.css("z-index", 3);
+          pol2Var.css("z-index", 2);
+          pol3Var.css("z-index", 1);
+          pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+          pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+          pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+          pol4Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+            
+          blackholePage.on('pageshow', function(){ 
+            if(sound.canPlayType('audio/mpeg')) {
+               blackholePage.find('#actualaudio-blackhole').html('<audio controls preload id="blackholeaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="'+FS.remotePath+'audio/FromToBlackhole.mp3" type="audio/mpeg"></audio>');
+            } 
+              
+            var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
+            blackholePage.find('#bonus-bh').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
+            
+            blackholePage.find('#start-blackhole').on('click', function() {
+                blackholePage.find('#actualaudio-blackhole').show();
+                var oldHeight = $('#node-body-holder').height();
+                var newHeight = oldHeight - blackholePage.find('#actualaudio-blackhole').height();
+                $('#node-body-holder').height(newHeight);
+            });
+            blackholePage.find("#bonus-bh").on('tap', function() {
+              whatamimp3.play();bgsoundbh.pause();
+              $.mobile.changePage("game-bh2.html", {transition: "flip"});
+            });
+            
+            pol1Var.on('tap', function() {      
+              $('#bhimg1link')[0].click();
+              mworldViewMedia(app.kidid, 'bhimg1');
+            });  
+          	pol2Var.on('tap', function() {
+              $('#bhimg2link')[0].click();
+              mworldViewMedia(app.kidid, 'bhimg2');
+            });
+            pol3Var.on('tap', function() {
+              $.mobile.changePage("sub-space-bh-nscollide.html", {transition:"slide"});
+            });     
+            pol4Var.on('tap', function() {
+              $.mobile.changePage("sub-space-bh-seebh.html", {transition:"slide"});
+            });   
+
+            blackholePage.find("#playstopblackhole").on('tap', function() {
+              if(!playing) {
+                blackholeaudio.play();
+                blackholePage.find('.micbtnbh').css('background-position-x', '-81px');
+                mworldPlayAudio(app.kidid, 'blackholeaudio');
+                playing = true;
+                paused = false;
+              } else {
+                blackholeaudio.pause();blackholeaudio.currentTime = 0;
+                blackholePage.find('.micbtnbh').css('background-position-x', '0px');
+                playing = false;
+                paused = true;
+              }
+            });
+            
+            blackholePage.find("#blackholeaudioplbtn").on('tap', function() {
+              if(paused) {
+                blackholeaudio.play();
+                paused = false;
+              } else {
+                blackholeaudio.pause();
+                paused = true;
+              }
+            });
+            
+            blackholePage.find("#blackholeaudiofbtn").on('tap', function() {
+              var ctime = blackholeaudio.currentTime;
+              blackholeaudio.currentTime = ctime + 10;
+            });
+            
+            blackholePage.find("#blackholeaudiobbtn").on('tap', function() {
+              var ctime = blackholeaudio.currentTime;
+              blackholeaudio.currentTime = ctime - 10;
+            });
+            
+            blackholePage.find("#blackholeaudiopsbtn").on('tap', function() {
               blackholeaudio.pause();
-              paused = true;
-            }
+              blackholePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+            });
+            blackholePage.find('.botlogoholder').on('tap', function(){
+              playClickSound();
+            });
+            blackholePage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});          
+            setTimeout(function(){ mworldPageVisit(app.kidid, 'From-Supergiant-To-Black-Hole'); },500);
           });
-          
-          blackholePage.find("#blackholeaudiofbtn").on('tap', function() {
-            var ctime = blackholeaudio.currentTime;
-            blackholeaudio.currentTime = ctime + 10;
-          });
-          
-          blackholePage.find("#blackholeaudiobbtn").on('tap', function() {
-            var ctime = blackholeaudio.currentTime;
-            blackholeaudio.currentTime = ctime - 10;
-          });
-          
-          blackholePage.find("#blackholeaudiopsbtn").on('tap', function() {
-            blackholeaudio.pause();
-            blackholePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-          });
-          blackholePage.find('.botlogoholder').on('tap', function(){
-            playClickSound();
-          });
-          blackholePage.find('.homelinkbh').on('tap', function() { buttonEffectsBH();mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});          
         })();
         
         (function() {

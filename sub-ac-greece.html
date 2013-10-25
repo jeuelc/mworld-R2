@@ -48,45 +48,48 @@
     sound = new Audio(); // 'sound' is now an audio object
     
     (function() { //this function executes when page is ready. this is jQuery's equivalent to onload
-      mworldPageVisit(app.kidid, 'Ancient-Greece');
       var ancientgreecePage = $("#ancientgreece");
-      if(sound.canPlayType('audio/mpeg')) {
-        ancientgreecePage.find('#actualaudio').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="agnar"><source src="'+FS.remotePath+'audio/Intro.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       ancientgreecePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-
       //change images path
       changeImageSrc('ancientgreece');
       findElementsWithBgImage('ancientgreece');
       //changeAudioSrc();
-      ancientgreecePage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      ancientgreecePage.find("#audioplbtn").on('tap', function() {
-        agnar.play();
-        mworldPlayAudio(app.kidid, 'agnar');
-        ancientgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      ancientgreecePage.find("#audiofbtn").on('tap', function() {
-        var ctime = agnar.currentTime;
-        agnar.currentTime = ctime + 10;
-      });
-      
-      ancientgreecePage.find("#audiobbtn").on('tap', function() {
-        var ctime = agnar.currentTime;
-        agnar.currentTime = ctime - 10;
-      });
-      
-      ancientgreecePage.find("#audiopsbtn").on('tap', function() {
-        agnar.pause();
-      });
 
-      ancientgreecePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
-        playClickSound();
-      });
+      ancientgreecePage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          ancientgreecePage.find('#actualaudio').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="agnar"><source src="'+FS.remotePath+'audio/Intro.mp3" type="audio/mpeg"></audio>');
+        } 
+      
+
+        ancientgreecePage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        ancientgreecePage.find("#audioplbtn").on('tap', function() {
+          agnar.play();
+          mworldPlayAudio(app.kidid, 'agnar');
+          ancientgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        ancientgreecePage.find("#audiofbtn").on('tap', function() {
+          var ctime = agnar.currentTime;
+          agnar.currentTime = ctime + 10;
+        });
+        
+        ancientgreecePage.find("#audiobbtn").on('tap', function() {
+          var ctime = agnar.currentTime;
+          agnar.currentTime = ctime - 10;
+        });
+        
+        ancientgreecePage.find("#audiopsbtn").on('tap', function() {
+          agnar.pause();
+        });
+
+        ancientgreecePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img, .botlogoholder').on('tap', function(){
+          playClickSound();
+        });
+        setTimeout(function(){ mworldPageVisit(app.kidid, 'Ancient-Greece'); },300);
+      });      
     })();
     
     function goBack() {

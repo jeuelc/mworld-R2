@@ -24,7 +24,6 @@
   </div> <!-- end content --> 
   <script>
     $(document).ready(function(e) {
-      mworldPageVisit(app.kidid, 'Home');
       $('div#kid2 area').on('tap', function(event) {
         playClickSound();
         var subjectId = $(this).attr("id");
@@ -76,6 +75,7 @@
     
     $(function() {
       var homePageVar = $('div#kid2');
+      mworldPageVisit(app.kidid, 'Home');
       var spacecraftHome = homePageVar.find('div#spacecraft'),
           scheadHome = homePageVar.find('div#schead'),
           sctailHome = homePageVar.find('div#sctail'),
