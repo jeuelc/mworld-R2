@@ -496,6 +496,21 @@ FS.assets.aGreece = [
 
 
 FS.assets.cssBackgroundImages = [
+  {id : 'iwgamedialog', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamedialog.png'},
+  {id : 'iwsubmitbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwsubmitbtn.png'},
+  {id : 'iwresetbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwresetbtn.png'},
+  {id : 'iwbackbtn', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwbackbtn.png'},
+  {id : 'iwgamepaper', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamepaper.png'},
+  {id : 'iwnucleuschoice', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwnucleuschoice.png'},
+  {id : 'iwatomchoice', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwatomchoice.png'},
+  {id : 'iwquarkchoice', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwquarkchoice.png'},
+  {id : 'iwprotonchoice', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwprotonchoice.png'},
+  {id : 'iwwrong', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwwrong.png'},
+  {id : 'iwcorrect', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcorrect.png'},
+  {id : 'iwcheckingbar', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcheckingbar.png'},
+  {id : 'iwtape2', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape2.png'},
+  {id : 'iwtape1', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape1.png'},
+  {id : 'invisibleworldgamebg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/invisibleworldgamebg.jpg'},
   {id : 'particlezoobg', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/What_Is_Everything_Made_Of/particlezoobg.jpg'},
   {id : 'tq', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/tq.png'},
   {id : 'uq', src : 'images/9-12/The_Wonders_of_Science/Invisible_World/game/uq.png'},
