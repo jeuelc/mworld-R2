@@ -266,25 +266,25 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 #node-content-theseus {
   width:80%;
   margin:140px auto 50px auto;
-  text-align:center;
+  text-align:left;
 }
 
 #node-content-kinghatpray {
   width:80%;
   margin:180px auto 60px auto;
-  text-align:center;
+  text-align:left;
 }
 
 #node-content {
   width:40%;
   margin:90px auto 0 auto;
-  text-align:center;
+  text-align:left;
 }
 
 #node-content-half {
   width:50%;
   margin:40px auto 0 auto; /*Rhomar   ******  */
-  text-align:center;
+  text-align:left;
   float:right;
 }
 
@@ -917,8 +917,8 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 /***********slider button************/
 .menubtnholder {
   position:absolute;
-  top:660px;
-  left:0px;
+  top:675px;
+  left:5px;
   z-index:21;
 }
 
@@ -1043,7 +1043,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   width:410px;
   height:359px;
   overflow-y:scroll;
-  text-align:center;
+  text-align:left;
   font-family:"Chalkboard SE";
   font-size:18px;
   font-weight:bold;
@@ -1133,7 +1133,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   position:absolute;
   left:550px;
   top:200px;
-  text-align:center;
+  text-align:left;
 }
 
 .storypagetitlebh h1 { color:#FFFFFF;}
@@ -1144,7 +1144,7 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
   position:absolute;
   left:550px;
   top:200px;
-  text-align:center;
+  text-align:left;
   color:#FFFFFF;
 }
 
@@ -1187,15 +1187,15 @@ a.fun.bsubjectlink { background:url("images/5-8/Home_Screen/bfun.png") no-repeat
 
 .plbh, .psbh, .bbh, .fbh {
   position:absolute;
-  top:670px;
+  top:683px;
   left:1024px;
   z-index:20;
 } 
 
 .micbtnholder {
   position:absolute;
-  top:664px;
-  left:942px;
+  top:680px;
+  left:934px;
   width:81px;
   height:81px;
 }
@@ -1269,7 +1269,7 @@ ul.slides {
   position:absolute;
   left:550px;
   top:200px;
-  text-align:center;
+  text-align:left;
 }
 
 .storypagetitlewos h1 { color:#FFFFFF;}
@@ -1296,7 +1296,7 @@ ul.slides {
 
 .plwos, .pswos, .bwos, .fwos {
   position:absolute;
-  top:670px;
+  top:683px;
   left:1024px;
   z-index:20;
 }
@@ -1468,7 +1468,7 @@ ul.slides {
   position:absolute;
   top:169px;
   left:305px;
-  text-align:center;
+  text-align:left;
   line-height:32px;
 }
 
