@@ -45,59 +45,61 @@
   </div>
   <script>
     sound = new Audio(); // 'sound' is now an audio object
-    mworldPageVisit(app.kidid, 'Origins-of-Ancient-Greece');
+    
     (function() {
       var originsofgreecePage = $('#originsofgreece');
-      //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=7";
-     //$.getJSON( url, function( data ) {
-            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
-            //$('#node-body-oag').html(data[0].Body);
-            
-      if(sound.canPlayType('audio/mpeg')) {
-        originsofgreecePage.find('#actualaudio-oag').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="oagnar"><source src="'+FS.remotePath+'audio/Page2.mp3" type="audio/mpeg"></audio>');
-      } 
-         //});
-    
-          
       originsofgreecePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc('originsofgreece');
       findElementsWithBgImage('originsofgreece');
       //changeAudioSrc();
-      originsofgreecePage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      /* ******************** */
-      originsofgreecePage.find("#oagaudioplbtn").on('tap', function() {
-        oagnar.play();
-        mworldPlayAudio(app.kidid, 'oagnar');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        originsofgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
+      //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=7";
+     //$.getJSON( url, function( data ) {
+            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+            //$('#node-body-oag').html(data[0].Body);
+      originsofgreecePage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          originsofgreecePage.find('#actualaudio-oag').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="oagnar"><source src="'+FS.remotePath+'audio/Page2.mp3" type="audio/mpeg"></audio>');
+        } 
+           //});
       
-      originsofgreecePage.find("#oagaudiofbtn").on('tap', function() {
-        var ctime = oagnar.currentTime;
-        oagnar.currentTime = ctime + 10;
-      });
-      
-      originsofgreecePage.find("#oagaudiobbtn").on('tap', function() {
-        var ctime = oagnar.currentTime;
-        oagnar.currentTime = ctime - 10;
-      });
-      
-      originsofgreecePage.find("#oagaudiopsbtn").on('tap', function() {
-        oagnar.pause();
-      });
+            
+        originsofgreecePage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        /* ******************** */
+        originsofgreecePage.find("#oagaudioplbtn").on('tap', function() {
+          oagnar.play();
+          mworldPlayAudio(app.kidid, 'oagnar');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          originsofgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        originsofgreecePage.find("#oagaudiofbtn").on('tap', function() {
+          var ctime = oagnar.currentTime;
+          oagnar.currentTime = ctime + 10;
+        });
+        
+        originsofgreecePage.find("#oagaudiobbtn").on('tap', function() {
+          var ctime = oagnar.currentTime;
+          oagnar.currentTime = ctime - 10;
+        });
+        
+        originsofgreecePage.find("#oagaudiopsbtn").on('tap', function() {
+          oagnar.pause();
+        });
 
-      originsofgreecePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img').on('tap', function(){
-        playClickSound();
-      });
-      $('#start-oag').on('click', function() {
-        originsofgreecePage.find('#actualaudio-oag').show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - originsofgreecePage.find('#actualaudio-oag').height();
-        $('#node-body-holder').height(newHeight);
+        originsofgreecePage.find('.navbtn1 img, .navbtn2 img, .navbtn3 img, .navbtn4 img').on('tap', function(){
+          playClickSound();
+        });
+        $('#start-oag').on('click', function() {
+          originsofgreecePage.find('#actualaudio-oag').show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - originsofgreecePage.find('#actualaudio-oag').height();
+          $('#node-body-holder').height(newHeight);
+        });
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Origins-of-Ancient-Greece');},app.AGTrackTime);
       });
     })();
 

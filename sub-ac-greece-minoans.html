@@ -51,61 +51,66 @@
     </div> <!--/pre-ac -->
     <script>
         sound = new Audio(); // 'sound' is now an audio object
-        mworldPageVisit(app.kidid, 'The-Minoans');
+        
         (function() {
             var minoansPage = $('#minoans');
-            minoansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            minoansPage.find('div#pol1').css("z-index", 1);
-            minoansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-            minoansPage.find('#volcvidholder').css({"visibility":"hidden", "z-index":-10});
-            //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=19";
-     
-            //$('#node-body-minoans').html(data[0].Body);
-            if(sound.canPlayType('audio/mpeg')) {
-                minoansPage.find('#actualaudio-minoans').html('<audio id="minoansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page7.mp3" type="audio/mpeg"></audio>');
-            } 
-         
-    
             minoansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
             //change images path
             changeImageSrc('minoans');
             findElementsWithBgImage('minoans');
             //changeAudioSrc();
+            var pol1Var = minoansPage.find('div#pol1'),
+                pol2Var = minoansPage.find('div#pol2');
+            pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+            pol1Var.css("z-index", 1);
+            pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+            //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=19";
+     
+            //$('#node-body-minoans').html(data[0].Body);
+            minoansPage.on('pageshow', function(){
+                if(sound.canPlayType('audio/mpeg')) {
+                    minoansPage.find('#actualaudio-minoans').html('<audio id="minoansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page7.mp3" type="audio/mpeg"></audio>');
+                } 
+             
+                minoansPage.find('#volcvidholder').css({"visibility":"hidden", "z-index":-10});
         
-            minoansPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-        
-            minoansPage.find("#pol2").on('tap', function() {
-                starttheseusaudiobg();
-                pauseagbg();
-                $.mobile.changePage("sub-ac-greece-theseus.html", {transition:"slide"});
-            });
-        
-            minoansPage.find("#pol1").on('tap', function() {
-                $.mobile.changePage("sub-ac-greece-minoansend.html", {transition:"slide"});  
-            });
-            /* ******************** */
-            minoansPage.find("#minoansaudioplbtn").on('tap', function() {
-                minoansaudio.play();
-                mworldPlayAudio(app.kidid, 'minoansaudio');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                minoansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            minoansPage.find("#minoansaudiofbtn").on('tap', function() {
-                var ctime = minoansaudio.currentTime;
-                minoansaudio.currentTime = ctime + 10;
-            });
-        
-            minoansPage.find("#minoansaudiobbtn").on('tap', function() {
-                var ctime = minoansaudio.currentTime;
-                minoansaudio.currentTime = ctime - 10;
-            });
-        
-            minoansPage.find("#minoansaudiopsbtn").on('tap', function() {
-                minoansaudio.pause();
+            
+                minoansPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+            
+                pol2Var.on('tap', function() {
+                    starttheseusaudiobg();
+                    pauseagbg();
+                    $.mobile.changePage("sub-ac-greece-theseus.html", {transition:"slide"});
+                });
+            
+                pol1Var.on('tap', function() {
+                    $.mobile.changePage("sub-ac-greece-minoansend.html", {transition:"slide"});  
+                });
+                /* ******************** */
+                minoansPage.find("#minoansaudioplbtn").on('tap', function() {
+                    minoansaudio.play();
+                    mworldPlayAudio(app.kidid, 'minoansaudio');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    minoansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                minoansPage.find("#minoansaudiofbtn").on('tap', function() {
+                    var ctime = minoansaudio.currentTime;
+                    minoansaudio.currentTime = ctime + 10;
+                });
+            
+                minoansPage.find("#minoansaudiobbtn").on('tap', function() {
+                    var ctime = minoansaudio.currentTime;
+                    minoansaudio.currentTime = ctime - 10;
+                });
+            
+                minoansPage.find("#minoansaudiopsbtn").on('tap', function() {
+                    minoansaudio.pause();
+                });
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Minoans');},app.AGTrackTime);
             });
         })();
     

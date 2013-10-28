@@ -47,58 +47,61 @@
     </div>
     <script>
         sound = new Audio(); // 'sound' is now an audio object
-        mworldPageVisit(app.kidid, 'The-Persians');
         (function() {
             var persiansPage = $('#persians');
-            persiansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            persiansPage.find('div#pol1').css("z-index", 1);
-            persiansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-	
-      
-            if(sound.canPlayType('audio/mpeg')) {
-                persiansPage.find('#actualaudio-persians').html('<audio id="persianaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page24.mp3" type="audio/mpeg"></audio>');
-            } 
-    
             persiansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
             
             //change images path
             changeImageSrc('persians');
             findElementsWithBgImage('persians');
             //changeAudioSrc();
+            var pol1Var = persiansPage.find('div#pol1'),
+                pol2Var = persiansPage.find('div#pol2');
+            pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+            pol1Var.css("z-index", 1);
+            pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+    
+            persiansPage.on('pageshow', function(){
+                if(sound.canPlayType('audio/mpeg')) {
+                    persiansPage.find('#actualaudio-persians').html('<audio id="persianaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page24.mp3" type="audio/mpeg"></audio>');
+                } 
+        
 
-            persiansPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-    	
-            persiansPage.find("#pol1").on('tap', function() {
-                $('#persepolis')[0].click();
-            });
-    	
-            persiansPage.find("#pol2").on('tap', function() {
-                $.mobile.changePage("sub-ac-greece-persian-education.html", {transition: "slide"});
-            });
-    	
-            /* ******************** */
-            persiansPage.find("#persianaudioplbtn").on('tap', function() {
-                persianaudio.play();
-                mworldPlayAudio(app.kidid, 'persianaudio');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                persiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            persiansPage.find("#persianaudiofbtn").on('tap', function() {
-                var ctime = persianaudio.currentTime;
-                persianaudio.currentTime = ctime + 10;
-            });
-        
-            persiansPage.find("#persianaudiobbtn").on('tap', function() {
-                var ctime = persianaudio.currentTime;
-                persianaudio.currentTime = ctime - 10;
-            });
-        
-            persiansPage.find("#persianaudiopsbtn").on('tap', function() {
-                persianaudio.pause();
-                persiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+                persiansPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+        	
+                pol1Var.on('tap', function() {
+                    $('#persepolis')[0].click();
+                });
+        	
+                pol2Var.on('tap', function() {
+                    $.mobile.changePage("sub-ac-greece-persian-education.html", {transition: "slide"});
+                });
+        	
+                /* ******************** */
+                persiansPage.find("#persianaudioplbtn").on('tap', function() {
+                    persianaudio.play();
+                    mworldPlayAudio(app.kidid, 'persianaudio');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    persiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                persiansPage.find("#persianaudiofbtn").on('tap', function() {
+                    var ctime = persianaudio.currentTime;
+                    persianaudio.currentTime = ctime + 10;
+                });
+            
+                persiansPage.find("#persianaudiobbtn").on('tap', function() {
+                    var ctime = persianaudio.currentTime;
+                    persianaudio.currentTime = ctime - 10;
+                });
+            
+                persiansPage.find("#persianaudiopsbtn").on('tap', function() {
+                    persianaudio.pause();
+                    persiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+                });
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Persians');},app.AGTrackTime);
             });
         })();
     

@@ -52,78 +52,84 @@
     sound = new Audio(); // 'sound' is now an audio object
     sound2 = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(app.kidid, 'Spartan-Society-and-War');
+      
       var spartansPage = $('#spartans');
-      spartansPage.find('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-      spartansPage.find('div#polb1').css("z-index", 2);
-      spartansPage.find('div#polb2').css("z-index", 1);
-      spartansPage.find('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
-      spartansPage.find('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
-            
-            
-      if(sound.canPlayType('audio/mpeg')) {        
-        spartansPage.find('#actualaudio-spartans').html('<audio id="spartansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page12.mp3" type="audio/mpeg"></audio>');
-      } 
-         
-    
       spartansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
       //change images path
       changeImageSrc('spartans');
       findElementsWithBgImage('spartans');
       //changeAudioSrc();
-      $('#start-spartans').on('click', function() {
-      	spartansPage.find('#actualaudio-spartans').show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - spartansPage.find('#actualaudio-spartans').height();
-        $('#node-body-holder').height(newHeight);
-      });
+      var polb1Var = spartansPage.find('div#polb1'),
+          polb2Var = spartansPage.find('div#polb2'),
+          polb3Var = spartansPage.find('div#polb3');
+
+      polb1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      polb1Var.css("z-index", 2);
+      polb2Var.css("z-index", 1);
+      polb2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      polb3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+            
+      spartansPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {        
+          spartansPage.find('#actualaudio-spartans').html('<audio id="spartansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page12.mp3" type="audio/mpeg"></audio>');
+        } 
+           
       
-      if(spartansPage.find('#spartancall').length > 0) {
-        spartansPage.find('#spartancall').on('click', function() {
-        	sound2.play();
+      
+        $('#start-spartans').on('click', function() {
+        	spartansPage.find('#actualaudio-spartans').show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - spartansPage.find('#actualaudio-spartans').height();
+          $('#node-body-holder').height(newHeight);
+        });
+        
+        if(spartansPage.find('#spartancall').length > 0) {
+          spartansPage.find('#spartancall').on('click', function() {
+          	sound2.play();
+            agsoundbg.pause();
+          });
+        }
+        
+        spartansPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        polb3Var.on('tap', function() {
+          sound2.play();
           agsoundbg.pause();
         });
-      }
-      
-      spartansPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      spartansPage.find("#polb3").on('tap', function() {
-        sound2.play();
-        agsoundbg.pause();
-      });
-      
-      spartansPage.find("#polb2").on('tap', function() {
-        $('#peloponneselink')[0].click();
-      });
-      
-      spartansPage.find("#polb1").on('tap', function() {
-        $('#leonidaslink')[0].click();
-      });
-      /* ******************** */
-      spartansPage.find("#spartansaudioplbtn").on('tap', function() {
-        spartansaudio.play();
-        mworldPlayAudio(app.kidid, 'spartansaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        spartansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      spartansPage.find("#spartansaudiofbtn").on('tap', function() {
-        var ctime = spartansaudio.currentTime;
-        spartansaudio.currentTime = ctime + 10;
-      });
-      
-      spartansPage.find("#spartansaudiobbtn").on('tap', function() {
-        var ctime = spartansaudio.currentTime;
-        spartansaudio.currentTime = ctime - 10;
-      });
-      
-      spartansPage.find("#spartansaudiopsbtn").on('tap', function() {
-        spartansaudio.pause();
-      });
+        
+        polb2Var.on('tap', function() {
+          $('#peloponneselink')[0].click();
+        });
+        
+        polb1Var.on('tap', function() {
+          $('#leonidaslink')[0].click();
+        });
+        /* ******************** */
+        spartansPage.find("#spartansaudioplbtn").on('tap', function() {
+          spartansaudio.play();
+          mworldPlayAudio(app.kidid, 'spartansaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          spartansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        spartansPage.find("#spartansaudiofbtn").on('tap', function() {
+          var ctime = spartansaudio.currentTime;
+          spartansaudio.currentTime = ctime + 10;
+        });
+        
+        spartansPage.find("#spartansaudiobbtn").on('tap', function() {
+          var ctime = spartansaudio.currentTime;
+          spartansaudio.currentTime = ctime - 10;
+        });
+        
+        spartansPage.find("#spartansaudiopsbtn").on('tap', function() {
+          spartansaudio.pause();
+        });
 
-      bottomHomeBtnSound();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Spartan-Society-and-War');},app.AGTrackTime);
+      });      
     })();
     
     

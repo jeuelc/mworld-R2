@@ -57,9 +57,14 @@
     </div>
     <script>
         sound = new Audio(); // 'sound' is now an audio object
-        mworldPageVisit(app.kidid, 'The-Babylonians');
         (function() {
             var babyloniansPage = $('#babylonians');
+            babyloniansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto" } );
+    
+            //change images path
+            changeImageSrc('babylonians');
+            findElementsWithBgImage('babylonians');
+            //changeAudioSrc();
             var pol1Div = babyloniansPage.find('div#pol1'),
                 pol2Div = babyloniansPage.find('div#pol2'),
                 pol3Div = babyloniansPage.find('div#pol3'),
@@ -71,71 +76,66 @@
             pol2Div.find('img').css("-webkit-transform", "rotate(5deg)");
             pol4Div.find('img').css("-webkit-transform", "rotate(-3deg)");
     
+            babyloniansPage.on('pageshow', function(){
+                if(sound.canPlayType('audio/mpeg')) {                  
+                    babyloniansPage.find('#actualaudio-babylonians').html('<audio id="babynar" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page28.mp3" type="audio/mpeg"></audio>');
+                }         
+
+                $('#start-babylonians').on('click', function() {
+                    babyloniansPage.find('#actualaudio-babylonians').show();
+                    var oldHeight = $('#node-body-holder').height();
+                    var newHeight = oldHeight - babyloniansPage.find('#actualaudio-babylonians').height();
+                    $('#node-body-holder').height(newHeight);
+                });
             
-            if(sound.canPlayType('audio/mpeg')) {
-              
-                babyloniansPage.find('#actualaudio-babylonians').html('<audio id="babynar" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page28.mp3" type="audio/mpeg"></audio>');
-            } 
-    
-            babyloniansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto" } );
-    
-            //change images path
-            changeImageSrc('babylonians');
-            findElementsWithBgImage('babylonians');
-            //changeAudioSrc();
+                babyloniansPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+            
+                pol3Div.on('tap', function() {
+                    $.mobile.changePage("sub-ac-greece-gilgamesh.html");
+                });
+            
+                pol2Div.on('tap', function() {
+                    $('#babart2link')[0].click();
+                });
+            
+                pol1Div.on('tap', function() {
+                    $('#babart1link')[0].click();
+                });
+            
+                /* ******************** */
+                babyloniansPage.find("#babyaudioplbtn").on('tap', function() {
+                    babynar.play();
+                    mworldPlayAudio(app.kidid, 'babynar');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    babyloniansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                babyloniansPage.find("#babyaudiofbtn").on('tap', function() {
+                    var ctime = babynar.currentTime;
+                    babynar.currentTime = ctime + 10;
+                });
+            
+                babyloniansPage.find("#babyaudiobbtn").on('tap', function() {
+                    var ctime = babynar.currentTime;
+                    babynar.currentTime = ctime - 10;
+                });
+            
+                babyloniansPage.find("#babyaudiopsbtn").on('tap', function() {
+                    babynar.pause();
+                    babyloniansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+                });
 
-            $('#start-babylonians').on('click', function() {
-                babyloniansPage.find('#actualaudio-babylonians').show();
-                var oldHeight = $('#node-body-holder').height();
-                var newHeight = oldHeight - babyloniansPage.find('#actualaudio-babylonians').height();
-                $('#node-body-holder').height(newHeight);
+                bottomHomeBtnSound();
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Babylonians');},app.AGTrackTime);
             });
-        
-            function goBack() {
-                $.mobile.changePage("sub-ac-greece-aroundag.html");
-            }
-            babyloniansPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-        
-            pol3Div.on('tap', function() {
-                $.mobile.changePage("sub-ac-greece-gilgamesh.html");
-            });
-        
-            pol2Div.on('tap', function() {
-                $('#babart2link')[0].click();
-            });
-        
-            pol1Div.on('tap', function() {
-                $('#babart1link')[0].click();
-            });
-        
-            /* ******************** */
-            babyloniansPage.find("#babyaudioplbtn").on('tap', function() {
-                babynar.play();
-                mworldPlayAudio(app.kidid, 'babynar');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                babyloniansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            babyloniansPage.find("#babyaudiofbtn").on('tap', function() {
-                var ctime = babynar.currentTime;
-                babynar.currentTime = ctime + 10;
-            });
-        
-            babyloniansPage.find("#babyaudiobbtn").on('tap', function() {
-                var ctime = babynar.currentTime;
-                babynar.currentTime = ctime - 10;
-            });
-        
-            babyloniansPage.find("#babyaudiopsbtn").on('tap', function() {
-                babynar.pause();
-                babyloniansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-            });
-
-            bottomHomeBtnSound();
         })();
     
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-aroundag.html");
+        }
+
         (function() {
             var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=98";
             $.getJSON( url, function( data ) {

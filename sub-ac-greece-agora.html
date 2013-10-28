@@ -39,58 +39,62 @@
     <script>
         //sound = new Audio(); // 'sound' is now an audio object
         sound = new Audio();
-        mworldPageVisit(app.kidid, 'The-Agora');
         (function() {
             var agoraPage = $('#agora');
             var actualaudioAgora = agoraPage.find('#actualaudio-agora');
-            if(sound.canPlayType('audio/mpeg')) {
-                actualaudioAgora.html('<audio id="agoraaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page19.mp3" type="audio/mpeg"></audio>');
-            } 
             agoraPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
             
             //change images path
             changeImageSrc('agora');
             findElementsWithBgImage('agora');
             //changeAudioSrc();
-            
-            $('#start-agora').on('click', function() {
-                actualaudioAgora.show();
-                var oldHeight = $('#node-body-holder').height();
-                var newHeight = oldHeight - actualaudioAgora.height();
-                $('#node-body-holder').height(newHeight);
-            });
-            function goBack() {
-                $.mobile.changePage("sub-ac-greece-lifeinag.html");
-            }
-            agoraPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-        
-            /* ******************** */
-            agoraPage.find("#agoraaudioplbtn").on('tap', function() {
-                agoraaudio.play();
-                mworldPlayAudio(app.kidid, 'agoraaudio');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                agoraPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            agoraPage.find("#agoraaudiofbtn").on('tap', function() {
-                var ctime = agoraaudio.currentTime;
-                agoraaudio.currentTime = ctime + 10;
-            });
-        
-            agoraPage.find("#agoraaudiobbtn").on('tap', function() {
-                var ctime = agoraaudio.currentTime;
-                agoraaudio.currentTime = ctime - 10;
-            });
-        
-            agoraPage.find("#agoraaudiopsbtn").on('tap', function() {
-                agoraaudio.pause();
-                agoraPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-            });
+            agoraPage.on('pageshow', function(){
+                if(sound.canPlayType('audio/mpeg')) {
+                    actualaudioAgora.html('<audio id="agoraaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page19.mp3" type="audio/mpeg"></audio>');
+                } 
+                
+                $('#start-agora').on('click', function() {
+                    actualaudioAgora.show();
+                    var oldHeight = $('#node-body-holder').height();
+                    var newHeight = oldHeight - actualaudioAgora.height();
+                    $('#node-body-holder').height(newHeight);
+                });
 
-            bottomHomeBtnSound();
+                agoraPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+            
+                /* ******************** */
+                agoraPage.find("#agoraaudioplbtn").on('tap', function() {
+                    agoraaudio.play();
+                    mworldPlayAudio(app.kidid, 'agoraaudio');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    agoraPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                agoraPage.find("#agoraaudiofbtn").on('tap', function() {
+                    var ctime = agoraaudio.currentTime;
+                    agoraaudio.currentTime = ctime + 10;
+                });
+            
+                agoraPage.find("#agoraaudiobbtn").on('tap', function() {
+                    var ctime = agoraaudio.currentTime;
+                    agoraaudio.currentTime = ctime - 10;
+                });
+            
+                agoraPage.find("#agoraaudiopsbtn").on('tap', function() {
+                    agoraaudio.pause();
+                    agoraPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+                });
+
+                bottomHomeBtnSound();
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Agora');},app.AGTrackTime);
+            });
         })();
+
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-lifeinag.html");
+        }
         (function() {
             var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=78";
             $.getJSON( url, function( data ) {

@@ -39,54 +39,56 @@
     <script language="javascript" type="text/javascript" src="js/script.js"></script>
   <script>
     $(function(){
-      var mathsciencemorePage = $('#mathsciencemore');
-      sound = new Audio(); // 'sound' is now an audio object
-      if(sound.canPlayType('audio/mpeg')) {
-        mathsciencemorePage.find('#actualaudio-msm').html('<audio id="msmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
-      } 
-     
       function goBack() {
         $.mobile.changePage("sub-ac-greece-legacy.html");
       }
+      var mathsciencemorePage = $('#mathsciencemore');
       mathsciencemorePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       
-      mworldPageVisit(app.kidid, 'Math-Science-and-More');
       //change images path
       changeImageSrc('mathsciencemore');
       findElementsWithBgImage('mathsciencemore');
       //changeAudioSrc();
-      mathsciencemorePage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      mathsciencemorePage.find("#bonus-msm").on('tap', function() {
-        $.mobile.changePage("game-ag3.html");
-      })
+      sound = new Audio(); // 'sound' is now an audio object
+      mathsciencemorePage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          mathsciencemorePage.find('#actualaudio-msm').html('<audio id="msmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
+        } 
+       
+        mathsciencemorePage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
         
-        /* ******************** */
-      mathsciencemorePage.find("#msmaudioplbtn").on('tap', function() {
-        msmaudio.play();
-        mworldPlayAudio(app.kidid, 'msmaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        mathsciencemorePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      mathsciencemorePage.find("#msmaudiofbtn").on('tap', function() {
-        var ctime = msmaudio.currentTime;
-        msmaudio.currentTime = ctime + 10;
-      });
-      
-      mathsciencemorePage.find("#msmaudiobbtn").on('tap', function() {
-        var ctime = msmaudio.currentTime;
-        msmaudio.currentTime = ctime - 10;
-      });
-      
-      mathsciencemorePage.find("#msmaudiopsbtn").on('tap', function() {
-        msmaudio.pause();
-        mathsciencemorePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+        mathsciencemorePage.find("#bonus-msm").on('tap', function() {
+          $.mobile.changePage("game-ag3.html");
+        })
+          
+          /* ******************** */
+        mathsciencemorePage.find("#msmaudioplbtn").on('tap', function() {
+          msmaudio.play();
+          mworldPlayAudio(app.kidid, 'msmaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          mathsciencemorePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        mathsciencemorePage.find("#msmaudiofbtn").on('tap', function() {
+          var ctime = msmaudio.currentTime;
+          msmaudio.currentTime = ctime + 10;
+        });
+        
+        mathsciencemorePage.find("#msmaudiobbtn").on('tap', function() {
+          var ctime = msmaudio.currentTime;
+          msmaudio.currentTime = ctime - 10;
+        });
+        
+        mathsciencemorePage.find("#msmaudiopsbtn").on('tap', function() {
+          msmaudio.pause();
+          mathsciencemorePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
 
-      bottomHomeBtnSound();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Math-Science-and-More');},app.AGTrackTime);
+      });
     });
     
   </script>

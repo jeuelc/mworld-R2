@@ -60,76 +60,78 @@
     sound = new Audio(); // 'sound' is now an audio object
     sound2 = new Audio(); // 'sound' is now an audio object
     sound3 = new Audio(); // 'sound' is now an audio object
-    mworldPageVisit(app.kidid, 'The-Lydians');
     (function() {
       var lydiansPage = $('#lydians');
-      if(sound.canPlayType('audio/mpeg')) {
-        lydiansPage.find('#actualaudio-lydians').html('<audio id="lydiansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page20.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       lydiansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc('lydians');
       findElementsWithBgImage('lydians');
       //changeAudioSrc();
-  	  lydiansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      lydiansPage.find('div#pol1').css("z-index", 1);
-      lydiansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");;
+      var pol1Var = lydiansPage.find('div#pol1'),
+          pol2Var = lydiansPage.find('div#pol2');
+  	  pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 1);
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+
+      lydiansPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          lydiansPage.find('#actualaudio-lydians').html('<audio id="lydiansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page20.mp3" type="audio/mpeg"></audio>');
+        } 
+        
+        $('#start-herod').on('click', function() {
+          $('#actualaudio-herod').show();
+        });
+        
+        $('#start-delphic').on('click', function() {
+          $('#actualaudio-delphic').show();
+        });
+        lydiansPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
       
-      function goBack() {
-        $.mobile.changePage("sub-ac-greece-aroundag.html");
-      }      
+        $('#homelinkag-lydians').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
       
-      $('#start-herod').on('click', function() {
-        $('#actualaudio-herod').show();
-      });
+        pol1Var.on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-lydiansmoney.html");
+        });
+        
+        pol2Var.on('tap', function() {
+          $('#delphi')[0].click();
+        });
+        /* ******************** */
+        lydiansPage.find("#lydiansaudioplbtn").on('tap', function() {
+          lydiansaudio.play();
+          mworldPlayAudio(app.kidid, 'lydiansaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          lydiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        lydiansPage.find("#lydiansaudiofbtn").on('tap', function() {
+          var ctime = lydiansaudio.currentTime;
+          lydiansaudio.currentTime = ctime + 10;
+        });
+        
+        lydiansPage.find("#lydiansaudiobbtn").on('tap', function() {
+          var ctime = lydiansaudio.currentTime;
+          lydiansaudio.currentTime = ctime - 10;
+        });
+        
+        lydiansPage.find("#lydiansaudiopsbtn").on('tap', function() {
+          lydiansaudio.pause();
+          lydiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
       
-      $('#start-delphic').on('click', function() {
-        $('#actualaudio-delphic').show();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'The-Lydians');},app.AGTrackTime);
       });
-      lydiansPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-  	
-      $('#homelinkag-lydians').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-  	
-  	
-  	
-      lydiansPage.find("#pol1").on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-lydiansmoney.html");
-      });
-      
-      lydiansPage.find("#pol2").on('tap', function() {
-        $('#delphi')[0].click();
-      });
-    	/* ******************** */
-      lydiansPage.find("#lydiansaudioplbtn").on('tap', function() {
-        lydiansaudio.play();
-        mworldPlayAudio(app.kidid, 'lydiansaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        lydiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      lydiansPage.find("#lydiansaudiofbtn").on('tap', function() {
-        var ctime = lydiansaudio.currentTime;
-        lydiansaudio.currentTime = ctime + 10;
-      });
-      
-      lydiansPage.find("#lydiansaudiobbtn").on('tap', function() {
-        var ctime = lydiansaudio.currentTime;
-        lydiansaudio.currentTime = ctime - 10;
-      });
-      
-      lydiansPage.find("#lydiansaudiopsbtn").on('tap', function() {
-        lydiansaudio.pause();
-        lydiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
-  	
-  	  bottomHomeBtnSound();
     })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-aroundag.html");
+    }      
     
     (function() {
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=79";

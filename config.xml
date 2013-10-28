@@ -6,10 +6,10 @@
 
         id        = "mworld.monash"
 
-        version   = "0.0.32">
+        version   = "0.0.33">
     <name>Mworld-R2</name>
     <description>
-      invisible world polishing
+      Rajiv's fix to coaches
     </description>
     <author href="http://www.uvmate.com" email="jeuelc@gmail.com">
         Jeuel Condahan

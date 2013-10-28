@@ -49,77 +49,81 @@
   </div>
   <script>    
     sound = new Audio();
-    mworldPageVisit(app.kidid, 'Legacy-of-Ancient-Greece');
     (function() {
       var legacyofgreecePage = $('#legacyofgreece');
       var actualaudioLegacy = legacyofgreecePage.find('#actualaudio-legacy');
-      legacyofgreecePage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      legacyofgreecePage.find('div#pol1').css("z-index", 2);
-      legacyofgreecePage.find('div#pol2').css("z-index", 1);
-      legacyofgreecePage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-      legacyofgreecePage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-	
-      
-      if(sound.canPlayType('audio/mpeg')) {
-        actualaudioLegacy.html('<audio id="legacyaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page29.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       legacyofgreecePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc('legacyofgreece');
       findElementsWithBgImage('legacyofgreece');
       //changeAudioSrc();
+      var pol1Var = legacyofgreecePage.find('div#pol1'),
+          pol2Var = legacyofgreecePage.find('div#pol2'),
+          pol3Var = legacyofgreecePage.find('div#pol3');
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 2);
+      pol2Var.css("z-index", 1);
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+  
+      legacyofgreecePage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          actualaudioLegacy.html('<audio id="legacyaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page29.mp3" type="audio/mpeg"></audio>');
+        } 
+      
 
-      $('#start-legacy').on('click', function() {
-        actualaudioLegacy.show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - actualaudioLegacy.height();
-        $('#node-body-holder').height(newHeight);
-      });
-      
-      function goBack() {
-        $.mobile.changePage("sub-ac-greece.html");
-      }
-      legacyofgreecePage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      legacyofgreecePage.find("#pol1").on('tap', function() {
-        $('#theatrelink')[0].click();
-      });
-      legacyofgreecePage.find("#pol2").on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-legacy-architecture.html", {transition: "slide"});
-      });
-      legacyofgreecePage.find("#pol3").on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-math-science-more.html", {transition: "slide"});
-      });
-      
-      /* ******************** */
-      legacyofgreecePage.find("#legacyaudioplbtn").on('tap', function() {
-        legacyaudio.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        mworldPlayAudio(app.kidid, 'legacyaudio');
-        legacyofgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      legacyofgreecePage.find("#legacyaudiofbtn").on('tap', function() {
-        var ctime = legacyaudio.currentTime;
-        legacyaudio.currentTime = ctime + 10;
-      });
-      
-      legacyofgreecePage.find("#legacyaudiobbtn").on('tap', function() {
-        var ctime = legacyaudio.currentTime;
-        legacyaudio.currentTime = ctime - 10;
-      });
-      
-      legacyofgreecePage.find("#legacyaudiopsbtn").on('tap', function() {
-        legacyaudio.pause();
-        legacyofgreecePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+        $('#start-legacy').on('click', function() {
+          actualaudioLegacy.show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - actualaudioLegacy.height();
+          $('#node-body-holder').height(newHeight);
+        });
+        
+        legacyofgreecePage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        pol1Var.on('tap', function() {
+          $('#theatrelink')[0].click();
+        });
+        pol2Var.on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-legacy-architecture.html", {transition: "slide"});
+        });
+        pol3Var.on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-math-science-more.html", {transition: "slide"});
+        });
+        
+        /* ******************** */
+        legacyofgreecePage.find("#legacyaudioplbtn").on('tap', function() {
+          legacyaudio.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          mworldPlayAudio(app.kidid, 'legacyaudio');
+          legacyofgreecePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        legacyofgreecePage.find("#legacyaudiofbtn").on('tap', function() {
+          var ctime = legacyaudio.currentTime;
+          legacyaudio.currentTime = ctime + 10;
+        });
+        
+        legacyofgreecePage.find("#legacyaudiobbtn").on('tap', function() {
+          var ctime = legacyaudio.currentTime;
+          legacyaudio.currentTime = ctime - 10;
+        });
+        
+        legacyofgreecePage.find("#legacyaudiopsbtn").on('tap', function() {
+          legacyaudio.pause();
+          legacyofgreecePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
 
-      bottomHomeBtnSound();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Legacy-of-Ancient-Greece');},app.AGTrackTime);
+      });
     })();
     
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece.html");
+    }
 	</script>
   <script src="js/threecardLogic.js"></script>
 </div>

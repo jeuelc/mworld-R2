@@ -54,9 +54,14 @@
   </div>
   <script>    
     sound = new Audio();
-    mworldPageVisit(app.kidid, 'Greek-Architecture');
     (function() {
       var architecturePage = $('#architecture');
+      architecturePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc('architecture');
+      findElementsWithBgImage('architecture');
+      //changeAudioSrc();
       var polb1Div = architecturePage.find('div#polb1'),
           polb2Div = architecturePage.find('div#polb2'),
           polb3Div = architecturePage.find('div#polb3'),
@@ -69,64 +74,59 @@
       polb3Div.find('img').css("-webkit-transform", "rotate(-3deg)");
       polb4Div.find('img').css("-webkit-transform", "rotate(-3deg)");
     
+      architecturePage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          architecturePage.find('#actualaudio-archi').html('<audio id="archiaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
+        } 
+        
+        architecturePage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        polb1Div.on('tap', function() {
+          $('#archi1link')[0].click();
+        });
+        polb2Div.on('tap', function() {
+          $('#archi2link')[0].click();
+        });
+        polb3Div.on('tap', function() {
+          $('#archi3link')[0].click();
+        });
+        polb4Div.on('tap', function() {
+          $('#archi4link')[0].click();
+        });
       
-      if(sound.canPlayType('audio/mpeg')) {
-        architecturePage.find('#actualaudio-archi').html('<audio id="archiaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page30.mp3" type="audio/mpeg"></audio>');
-      } 
-    
-      architecturePage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
-      //change images path
-      changeImageSrc('architecture');
-      findElementsWithBgImage('architecture');
-      //changeAudioSrc();
-      
-      function goBack() {
-        $.mobile.changePage("sub-ac-greece-legacy.html");
-      }
-      
-      architecturePage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      polb1Div.on('tap', function() {
-        $('#archi1link')[0].click();
-      });
-      polb2Div.on('tap', function() {
-        $('#archi2link')[0].click();
-      });
-      polb3Div.on('tap', function() {
-        $('#archi3link')[0].click();
-      });
-      polb4Div.on('tap', function() {
-        $('#archi4link')[0].click();
-      });
-    
-     /* ******************** */
-      architecturePage.find("#archiaudioplbtn").on('tap', function() {
-        archiaudio.play();
-        mworldPlayAudio(app.kidid, 'archiaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        architecturePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      architecturePage.find("#archiaudiofbtn").on('tap', function() {
-        var ctime = archiaudio.currentTime;
-        archiaudio.currentTime = ctime + 10;
-      });
-      
-      architecturePage.find("#archiaudiobbtn").on('tap', function() {
-        var ctime = archiaudio.currentTime;
-        archiaudio.currentTime = ctime - 10;
-      });
-      
-      architecturePage.find("#archiaudiopsbtn").on('tap', function() {
-        archiaudio.pause();
-        architecturePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+       /* ******************** */
+        architecturePage.find("#archiaudioplbtn").on('tap', function() {
+          archiaudio.play();
+          mworldPlayAudio(app.kidid, 'archiaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          architecturePage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        architecturePage.find("#archiaudiofbtn").on('tap', function() {
+          var ctime = archiaudio.currentTime;
+          archiaudio.currentTime = ctime + 10;
+        });
+        
+        architecturePage.find("#archiaudiobbtn").on('tap', function() {
+          var ctime = archiaudio.currentTime;
+          archiaudio.currentTime = ctime - 10;
+        });
+        
+        architecturePage.find("#archiaudiopsbtn").on('tap', function() {
+          archiaudio.pause();
+          architecturePage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
 
-      bottomHomeBtnSound();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Greek-Architecture');},app.AGTrackTime);
+      });
     })();
+
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-legacy.html");
+    }
   </script>
   <script src="js/fourcardLogicb.js"></script>
 </div>

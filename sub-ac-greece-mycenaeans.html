@@ -67,66 +67,70 @@
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
         (function() {
-            mworldPageVisit(app.kidid, 'The-Mycenaens');
             var mycenaeansPage = $('#mycenaeans');
-            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
-            //$('#node-body-hittites').html(data[0].Body);            
-            if(sound.canPlayType('audio/mpeg')) {
-                mycenaeansPage.find('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="'+FS.remotePath+'audio/Page5.mp3" type="audio/mpeg"></audio>');
-            } 
-    
             mycenaeansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         
             //change images path
             changeImageSrc('mycenaeans');
             findElementsWithBgImage('mycenaeans');
             //changeAudioSrc();
-            mycenaeansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-            mycenaeansPage.find('div#pol1').css("z-index", 2);
-            mycenaeansPage.find('div#pol2').css("z-index", 1);
-            mycenaeansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-            mycenaeansPage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-      
-            mycenaeansPage.find("#playhomernar").on('tap', function() {
-              homernar.play();
-              mworldPlayAudio(app.kidid, 'homernar');
-            });
+            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+            //$('#node-body-hittites').html(data[0].Body);   
+            var pol1Var = mycenaeansPage.find('div#pol1'),
+                pol2Var = mycenaeansPage.find('div#pol2'),
+                pol3Var = mycenaeansPage.find('div#pol3');
+            pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+            pol1Var.css("z-index", 2);
+            pol2Var.css("z-index", 1);
+            pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+            pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+            mycenaeansPage.on('pageshow', function(){
+                if(sound.canPlayType('audio/mpeg')) {
+                    mycenaeansPage.find('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="'+FS.remotePath+'audio/Page5.mp3" type="audio/mpeg"></audio>');
+                }     
+          
+                mycenaeansPage.find("#playhomernar").on('tap', function() {
+                  homernar.play();
+                  mworldPlayAudio(app.kidid, 'homernar');
+                });
 
-            mycenaeansPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-        
-            mycenaeansPage.find("#pol3").on('tap', function() {
-                $('#goldmasklink')[0].click();
-            });
-        
-            mycenaeansPage.find("#pol2").on('tap', function() {
-                $('#mycenaetodaylink')[0].click();
-            });
-        
-            mycenaeansPage.find("#pol1").on('tap', function() {
-                $('#liongatelink')[0].click();
-            });
-            /* ******************** */
-            mycenaeansPage.find("#myceneaudioplbtn").on('tap', function() {
-                mycenenar.play();
-                mworldPlayAudio(app.kidid, 'mycenenar');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                mycenaeansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            mycenaeansPage.find("#myceneaudiofbtn").on('tap', function() {
-                var ctime = mycenenar.currentTime;
-                mycenenar.currentTime = ctime + 10;
-            });
-        
-            mycenaeansPage.find("#myceneaudiobbtn").on('tap', function() {
-                var ctime = mycenenar.currentTime;
-                mycenenar.currentTime = ctime - 10;
-            });
-        
-            mycenaeansPage.find("#myceneaudiopsbtn").on('tap', function() {
-                mycenenar.pause();
+                mycenaeansPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+            
+                pol3Var.on('tap', function() {
+                    $('#goldmasklink')[0].click();
+                });
+            
+                pol2Var.on('tap', function() {
+                    $('#mycenaetodaylink')[0].click();
+                });
+            
+                pol1Var.on('tap', function() {
+                    $('#liongatelink')[0].click();
+                });
+                /* ******************** */
+                mycenaeansPage.find("#myceneaudioplbtn").on('tap', function() {
+                    mycenenar.play();
+                    mworldPlayAudio(app.kidid, 'mycenenar');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    mycenaeansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                mycenaeansPage.find("#myceneaudiofbtn").on('tap', function() {
+                    var ctime = mycenenar.currentTime;
+                    mycenenar.currentTime = ctime + 10;
+                });
+            
+                mycenaeansPage.find("#myceneaudiobbtn").on('tap', function() {
+                    var ctime = mycenenar.currentTime;
+                    mycenenar.currentTime = ctime - 10;
+                });
+            
+                mycenaeansPage.find("#myceneaudiopsbtn").on('tap', function() {
+                    mycenenar.pause();
+                });
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Mycenaens');},app.AGTrackTime);
             });
         })();
     

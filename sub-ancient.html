@@ -29,8 +29,10 @@
     <script>
       var avideoStatus, avideoEvent;
 			$(function() {
-        mworldPageVisit(app.kidid, 'Ancient-Civilisation');
         var ancientMainPage = $("#ancient");
+        ancientMainPage.on('pageshow', function(){
+          setTimeout(function(){mworldPageVisit(app.kidid, 'Ancient-Civilisation');},app.AGTrackTime);
+        });
 
         function goBack() {
           if(avideoStatus != undefined){

@@ -47,62 +47,67 @@
   </div>
   <script>
     sound = new Audio(); // 'sound' is now an audio object
-    mworldPageVisit(app.kidid, 'Persian-Education');
+    
     (function() {
       var persianeducationPage = $('#persianeducation');
-      persianeducationPage.find('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
-      persianeducationPage.find('div#polb1').css("z-index", 1);
-      persianeducationPage.find('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");;
-      
-      if(sound.canPlayType('audio/mpeg')) {
-        
-        persianeducationPage.find('#actualaudio-persianseduc').html('<audio id="perseducaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page25.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       persianeducationPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
     
       //change images path
       changeImageSrc('persianeducation');
       findElementsWithBgImage('persianeducation');
       //changeAudioSrc();
+      var polb1Var = persianeducationPage.find('div#polb1'),
+          polb2Var = persianeducationPage.find('div#polb2');
+      polb1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      polb1Var.css("z-index", 1);
+      polb2Var.find('img').css("-webkit-transform", "rotate(5deg)");;
+      
+      persianeducationPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          
+          persianeducationPage.find('#actualaudio-persianseduc').html('<audio id="perseducaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page25.mp3" type="audio/mpeg"></audio>');
+        } 
+      
 
-      $('#start-temples').on('click', function() {
-      	$('#actualaudio-temples').show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - $('#actualaudio-temples').height();
-        $('#node-body-holder').height(newHeight);
-      });
-      persianeducationPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      persianeducationPage.find("#polb1").on('tap', function() {
-        $('#xenophon')[0].click();
-      });
-      persianeducationPage.find("#polb2").on('tap', function() {
-        $('#cyrus')[0].click();
-      });
-      
-      /* ******************** */
-      persianeducationPage.find("#persianeducaudioplbtn").on('tap', function() {
-        perseducaudio.play();
-        mworldPlayAudio(app.kidid, 'perseducaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        persianeducationPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      persianeducationPage.find("#persianeducaudiofbtn").on('tap', function() {
-        var ctime = perseducaudio.currentTime;
-        perseducaudio.currentTime = ctime + 10;
-      });
-      
-      persianeducationPage.find("#persianeducaudiobbtn").on('tap', function() {
-        var ctime = perseducaudio.currentTime;
-        perseducaudio.currentTime = ctime - 10;
-      });
-      
-      persianeducationPage.find("#persianeducaudiopsbtn").on('tap', function() {
-        perseducaudio.pause();
-        $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        $('#start-temples').on('click', function() {
+        	$('#actualaudio-temples').show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - $('#actualaudio-temples').height();
+          $('#node-body-holder').height(newHeight);
+        });
+        persianeducationPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        polb1Var.on('tap', function() {
+          $('#xenophon')[0].click();
+        });
+        polb2Var.on('tap', function() {
+          $('#cyrus')[0].click();
+        });
+        
+        /* ******************** */
+        persianeducationPage.find("#persianeducaudioplbtn").on('tap', function() {
+          perseducaudio.play();
+          mworldPlayAudio(app.kidid, 'perseducaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          persianeducationPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        persianeducationPage.find("#persianeducaudiofbtn").on('tap', function() {
+          var ctime = perseducaudio.currentTime;
+          perseducaudio.currentTime = ctime + 10;
+        });
+        
+        persianeducationPage.find("#persianeducaudiobbtn").on('tap', function() {
+          var ctime = perseducaudio.currentTime;
+          perseducaudio.currentTime = ctime - 10;
+        });
+        
+        persianeducationPage.find("#persianeducaudiopsbtn").on('tap', function() {
+          perseducaudio.pause();
+          $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Persian-Education');},app.AGTrackTime);
       });
     })();
     

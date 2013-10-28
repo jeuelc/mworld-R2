@@ -66,9 +66,14 @@
   </div></div><!--/anisold-->
   
   <script>
-    mworldPageVisit(app.kidid, 'Gilgamesh');
     (function() {
       var gilgameshPage = $('#gilgamesh');
+      gilgameshPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc('gilgamesh');
+      findElementsWithBgImage('gilgamesh');
+      //changeAudioSrc();
       var polb1Div = gilgameshPage.find('div#polb1'),
           polb2Div = gilgameshPage.find('div#polb2'),
           f1ContainerDiv = gilgameshPage.find('#f1_container'),
@@ -80,19 +85,13 @@
       polb2Div.find('img').css("-webkit-transform", "rotate(5deg)");
       f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
       f2ContainerDiv.css({"visibility":"hidden", "z-index":0});
-	
-	
+  
+  
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=101";
       $.getJSON( url, function( data ) {            
            /* $('#node-body-hittites').html(data[0].Body);*/            
       });
     
-      gilgameshPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
-      //change images path
-      changeImageSrc('gilgamesh');
-      findElementsWithBgImage('gilgamesh');
-      //changeAudioSrc();
       gilgameshPage.find('.homelinkag').on('tap', function() { 
         mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
       });
@@ -150,6 +149,7 @@
       });
   	
   	  bottomHomeBtnSound();
+      setTimeout(function(){mworldPageVisit(app.kidid, 'Gilgamesh');},app.AGTrackTime);
     })();
     
     function goBack() {

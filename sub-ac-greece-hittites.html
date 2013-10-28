@@ -64,9 +64,14 @@
     <script>
         sound = new Audio(); // 'sound' is now an audio object
         soundpop = new Audio(); // 'sound' is now an audio object
-        mworldPageVisit(app.kidid, 'The-Hittites');
         (function() {
             var hittitesPage = $('#hittites');
+            hittitesPage.swipe( { swipeRight:goBack, allowPageScroll:"auto", excludedElements:$.fn.swipe.defaults.excludedElements+", #backofcard" } );
+    
+            //change images path
+            changeImageSrc('hittites');
+            findElementsWithBgImage('hittites');
+            //changeAudioSrc();
             var pol1Div = hittitesPage.find('div#pol1'),
                 pol2Div = hittitesPage.find('div#pol2'),
                 f1ContainerDiv = hittitesPage.find('#f1_container'),
@@ -79,88 +84,84 @@
             f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
       
       
-     
-            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
-            //$('#node-body-hittites').html(data[0].Body);
+            hittitesPage.on('pageshow', function(){
+                /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+                //$('#node-body-hittites').html(data[0].Body);
+                
+                if(sound.canPlayType('audio/mpeg')) {
+                    hittitesPage.find('#actualaudio-hittites').html('<audio id="hittitesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page3.mp3" type="audio/mpeg"></audio>');
+                } 
+             
+        
+                $('#start-hittites').on('click', function() {
+                    actualaudioHittites.show();
+                    var oldHeight = $('#node-body-holder').height();
+                    var newHeight = oldHeight - actualaudioHittites.height();
+                    $('#node-body-holder').height(newHeight);
+                });
             
-            if(sound.canPlayType('audio/mpeg')) {
-                hittitesPage.find('#actualaudio-hittites').html('<audio id="hittitesaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page3.mp3" type="audio/mpeg"></audio>');
-            } 
-         
-    
-            hittitesPage.swipe( { swipeRight:goBack, allowPageScroll:"auto", excludedElements:$.fn.swipe.defaults.excludedElements+", #backofcard" } );
-    
-            //change images path
-            changeImageSrc('hittites');
-            findElementsWithBgImage('hittites');
-            //changeAudioSrc();
-            $('#start-hittites').on('click', function() {
-                actualaudioHittites.show();
-                var oldHeight = $('#node-body-holder').height();
-                var newHeight = oldHeight - actualaudioHittites.height();
-                $('#node-body-holder').height(newHeight);
-            });
+                $('#startpop').on('click', function() {
+                    $('#actualaudiopop').show();
+                });
+                hittitesPage.find('.homelinkag').on('tap', function() { 
+                    mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                });
+            
+                f1ContainerDiv.on('tap', function() {
+                    f1CardDiv.css({"-webkit-transform": "rotateY(0deg)"});
+                    f1CardDiv.css({"-moz-transform": "rotateY(0deg)"});
+                    f1CardDiv.css({"-o-transform": "rotateY(0deg)"});
+                    f1CardDiv.css({"transform": "rotateY(0deg)"});
+                    setTimeout(function() {
+                        pol2Div.css({"visibility":"visible", "z-index":3});
+                        f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
+                    }, 1000);
+                    //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+                    //$("#hittites").swipe("enable");
+                });
+            
+                pol2Div.on('tap', function() {
+                    f1ContainerDiv.css({"visibility":"visible", "z-index":10});
+                    $(this).css({"visibility":"hidden"});
+                    f1CardDiv.css({"-webkit-transform": "rotateY(180deg)"});
+                    f1CardDiv.css({"-moz-transform": "rotateY(180deg)"});
+                    f1CardDiv.css({"-o-transform": "rotateY(180deg)"});
+                    f1CardDiv.css({"transform": "rotateY(180deg)"});
+                });
+            
+                pol1Div.on('tap', function() {
+                    $('#hittiteslink')[0].click();
+                });
+                /* ******************** */
+                hittitesPage.find("#hittitesaudioplbtn").on('tap', function() {
+                    hittitesaudio.play();
+                    mworldPlayAudio(app.kidid, 'hittitesaudio');
+                    agsoundbg.pause(); agsoundbg.currentTime = 0; 
+                    hittitesPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+                });
+            
+                hittitesPage.find("#hittitesaudiofbtn").on('tap', function() {
+                    var ctime = hittitesaudio.currentTime;
+                    hittitesaudio.currentTime = ctime + 10;
+                });
+            
+                hittitesPage.find("#hittitesaudiobbtn").on('tap', function() {
+                    var ctime = hittitesaudio.currentTime;
+                    hittitesaudio.currentTime = ctime - 10;
+                });
+            
+                hittitesPage.find("#hittitesaudiopsbtn").on('tap', function() {
+                    hittitesaudio.pause();
+                });
 
-            function goBack() {
-                $.mobile.changePage("sub-ac-greece-origins.html");
-            }
-        
-            $('#startpop').on('click', function() {
-                $('#actualaudiopop').show();
+                bottomHomeBtnSound();
+                setTimeout(function(){mworldPageVisit(app.kidid, 'The-Hittites');},app.AGTrackTime);
             });
-            hittitesPage.find('.homelinkag').on('tap', function() { 
-                mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-            });
-        
-            f1ContainerDiv.on('tap', function() {
-                f1CardDiv.css({"-webkit-transform": "rotateY(0deg)"});
-                f1CardDiv.css({"-moz-transform": "rotateY(0deg)"});
-                f1CardDiv.css({"-o-transform": "rotateY(0deg)"});
-                f1CardDiv.css({"transform": "rotateY(0deg)"});
-                setTimeout(function() {
-                    pol2Div.css({"visibility":"visible", "z-index":3});
-                    f1ContainerDiv.css({"visibility":"hidden", "z-index":0});
-                }, 1000);
-                //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-                //$("#hittites").swipe("enable");
-            });
-        
-            pol2Div.on('tap', function() {
-                f1ContainerDiv.css({"visibility":"visible", "z-index":10});
-                $(this).css({"visibility":"hidden"});
-                f1CardDiv.css({"-webkit-transform": "rotateY(180deg)"});
-                f1CardDiv.css({"-moz-transform": "rotateY(180deg)"});
-                f1CardDiv.css({"-o-transform": "rotateY(180deg)"});
-                f1CardDiv.css({"transform": "rotateY(180deg)"});
-            });
-        
-            pol1Div.on('tap', function() {
-                $('#hittiteslink')[0].click();
-            });
-            /* ******************** */
-            hittitesPage.find("#hittitesaudioplbtn").on('tap', function() {
-                hittitesaudio.play();
-                mworldPlayAudio(app.kidid, 'hittitesaudio');
-                agsoundbg.pause(); agsoundbg.currentTime = 0; 
-                hittitesPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-            });
-        
-            hittitesPage.find("#hittitesaudiofbtn").on('tap', function() {
-                var ctime = hittitesaudio.currentTime;
-                hittitesaudio.currentTime = ctime + 10;
-            });
-        
-            hittitesPage.find("#hittitesaudiobbtn").on('tap', function() {
-                var ctime = hittitesaudio.currentTime;
-                hittitesaudio.currentTime = ctime - 10;
-            });
-        
-            hittitesPage.find("#hittitesaudiopsbtn").on('tap', function() {
-                hittitesaudio.pause();
-            });
-
-            bottomHomeBtnSound();
         })();
+
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-origins.html");
+        }
     
         (function() {
             var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=12";

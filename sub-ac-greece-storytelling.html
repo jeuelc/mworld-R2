@@ -71,108 +71,115 @@
     sound = new Audio();
     soundpop = new Audio(); // 'sound' is now an audio object
     (function() {
-      mworldPageVisit(app.kidid, 'Greek-story-telling');
       var storytellingPage = $('#storytelling');
-      storytellingPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      storytellingPage.find('div#pol1').css("z-index", 2);
-      storytellingPage.find('div#pol2').css("z-index", 1);
-      storytellingPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-      storytellingPage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-      storytellingPage.find('#f1_container').css({"visibility":"hidden", "z-index":0});
-      
-      
-      if(sound.canPlayType('audio/mpeg')) {
-        storytellingPage.find('#actualaudio-storytelling').html('<audio id="storytellingaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page15.mp3" type="audio/mpeg"></audio>');
-      } 
-    
       storytellingPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
       //change images path
       changeImageSrc('storytelling');
       findElementsWithBgImage('storytelling');
       //changeAudioSrc();
-      $('#start-storytelling').on('click', function() {
-        storytellingPage.find('#actualaudio-storytelling').show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - storytellingPage.find('#actualaudio-storytelling').height();
-        $('#node-body-holder').height(newHeight);
-      });
-      
-      $('#odysseylink').on('click', function() {      
-      	startodysseyaudiobg();
-        pauseagbg();
-      });
-      
-      $('#iliadlink').on('click', function() {      
-      	startiliadaudiobg();
-        pauseagbg();
-      });
-      
-      $('#startpop').on('click', function() {
-      	$('#actualaudiopop').show();
-      });
-      
-      storytellingPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      var f1ContainerStory = storytellingPage.find("#f1_container"),
-          f1CardStory = storytellingPage.find('#f1_card');
-      f1ContainerStory.on('tap', function() {
-        f1CardStory.css({"-webkit-transform": "rotateY(0deg)"});
-        f1CardStory.css({"-moz-transform": "rotateY(0deg)"});
-        f1CardStory.css({"-o-transform": "rotateY(0deg)"});
-        f1CardStory.css({"transform": "rotateY(0deg)"});
-        setTimeout(function() {
-          storytellingPage.find("#pol3").css({"visibility":"visible", "z-index":3});
-          f1ContainerStory.css({"visibility":"hidden", "z-index":0});
-        }, 1000);
-      });
-      
-      storytellingPage.find("#pol3").on('tap', function() {
-        f1ContainerStory.css({"visibility":"visible", "z-index":10});
-        $(this).css({"visibility":"hidden"});
-        f1CardStory.css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
-        f1CardStory.css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
-        f1CardStory.css({"-o-transform": "rotateY(180deg)"});
-        f1CardStory.css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
-      });
-      
-      storytellingPage.find("#pol2").on('tap', function() {
-        startodysseyaudiobg();
-        pauseagbg();
-        $.mobile.changePage("sub-ac-greece-odyssey.html");
-      });
-      
-      storytellingPage.find("#pol1").on('tap', function() {
-        startiliadaudiobg();
-        pauseagbg();
-        $.mobile.changePage("sub-ac-greece-iliad.html");
-      });
-      /* ******************** */
-      storytellingPage.find("#storytellingaudioplbtn").on('tap', function() {
-        storytellingaudio.play();
-        mworldPlayAudio(app.kidid, 'storytellingaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        storytellingPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      storytellingPage.find("#storytellingaudiofbtn").on('tap', function() {
-        var ctime = storytellingaudio.currentTime;
-        storytellingaudio.currentTime = ctime + 10;
-      });
-      
-      storytellingPage.find("#storytellingaudiobbtn").on('tap', function() {
-        var ctime = storytellingaudio.currentTime;
-        storytellingaudio.currentTime = ctime - 10;
-      });
-      
-      storytellingPage.find("#storytellingaudiopsbtn").on('tap', function() {
-        storytellingaudio.pause();
-        storytellingPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+      var pol1Var = storytellingPage.find('div#pol1'),
+          pol2Var = storytellingPage.find('div#pol2'),
+          pol3Var = storytellingPage.find('div#pol3');
 
-      bottomHomeBtnSound();
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 2);
+      pol2Var.css("z-index", 1);
+      pol2Var.find('img').css("-webkit-transform", "rotate(5deg)");
+      pol3Var.find('img').css("-webkit-transform", "rotate(-3deg)");
+      
+      storytellingPage.on('pageshow', function(){
+        storytellingPage.find('#f1_container').css({"visibility":"hidden", "z-index":0});
+        
+        
+        if(sound.canPlayType('audio/mpeg')) {
+          storytellingPage.find('#actualaudio-storytelling').html('<audio id="storytellingaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page15.mp3" type="audio/mpeg"></audio>');
+        } 
+      
+      
+        $('#start-storytelling').on('click', function() {
+          storytellingPage.find('#actualaudio-storytelling').show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - storytellingPage.find('#actualaudio-storytelling').height();
+          $('#node-body-holder').height(newHeight);
+        });
+        
+        $('#odysseylink').on('click', function() {      
+        	startodysseyaudiobg();
+          pauseagbg();
+        });
+        
+        $('#iliadlink').on('click', function() {      
+        	startiliadaudiobg();
+          pauseagbg();
+        });
+        
+        $('#startpop').on('click', function() {
+        	$('#actualaudiopop').show();
+        });
+        
+        storytellingPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        var f1ContainerStory = storytellingPage.find("#f1_container"),
+            f1CardStory = storytellingPage.find('#f1_card');
+        f1ContainerStory.on('tap', function() {
+          f1CardStory.css({"-webkit-transform": "rotateY(0deg)"});
+          f1CardStory.css({"-moz-transform": "rotateY(0deg)"});
+          f1CardStory.css({"-o-transform": "rotateY(0deg)"});
+          f1CardStory.css({"transform": "rotateY(0deg)"});
+          setTimeout(function() {
+            pol3Var.css({"visibility":"visible", "z-index":3});
+            f1ContainerStory.css({"visibility":"hidden", "z-index":0});
+          }, 1000);
+        });
+        
+        pol3Var.on('tap', function() {
+          f1ContainerStory.css({"visibility":"visible", "z-index":10});
+          $(this).css({"visibility":"hidden"});
+          f1CardStory.css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+          f1CardStory.css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+          f1CardStory.css({"-o-transform": "rotateY(180deg)"});
+          f1CardStory.css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+        });
+        
+        pol2Var.on('tap', function() {
+          startodysseyaudiobg();
+          pauseagbg();
+          $.mobile.changePage("sub-ac-greece-odyssey.html");
+        });
+        
+        pol1Var.on('tap', function() {
+          startiliadaudiobg();
+          pauseagbg();
+          $.mobile.changePage("sub-ac-greece-iliad.html");
+        });
+        /* ******************** */
+        storytellingPage.find("#storytellingaudioplbtn").on('tap', function() {
+          storytellingaudio.play();
+          mworldPlayAudio(app.kidid, 'storytellingaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          storytellingPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        storytellingPage.find("#storytellingaudiofbtn").on('tap', function() {
+          var ctime = storytellingaudio.currentTime;
+          storytellingaudio.currentTime = ctime + 10;
+        });
+        
+        storytellingPage.find("#storytellingaudiobbtn").on('tap', function() {
+          var ctime = storytellingaudio.currentTime;
+          storytellingaudio.currentTime = ctime - 10;
+        });
+        
+        storytellingPage.find("#storytellingaudiopsbtn").on('tap', function() {
+          storytellingaudio.pause();
+          storytellingPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'Greek-story-telling');},app.AGTrackTime);
+      });
     })();
     
     function goBack() {

@@ -56,9 +56,14 @@
   </div>
   <script>
     sound = new Audio(); // 'sound' is now an audio object
-    mworldPageVisit(app.kidid, 'The-Egyptians');
     (function() {
       var egyptiansPage = $('#egyptians');
+      egyptiansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc('egyptians');
+      findElementsWithBgImage('egyptians');
+      //changeAudioSrc();
       var pol1Div = egyptiansPage.find('div#pol1'),
           pol2Div = egyptiansPage.find('div#pol2'),
           pol3Div = egyptiansPage.find('div#pol3'),
@@ -72,74 +77,72 @@
       pol3Div.find('img').css("-webkit-transform", "rotate(-3deg)");
       pol4Div.find('img').css("-webkit-transform", "rotate(-3deg)");
             
-      if(sound.canPlayType('audio/mpeg')) {
+      egyptiansPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          
+          egyptiansPage.find('#actualaudio-egyptians').html('<audio id="egyptaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page26.mp3" type="audio/mpeg"></audio>');
+        } 
+      
         
-        egyptiansPage.find('#actualaudio-egyptians').html('<audio id="egyptaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page26.mp3" type="audio/mpeg"></audio>');
-      } 
-    
-      egyptiansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
-      //change images path
-      changeImageSrc('egyptians');
-      findElementsWithBgImage('egyptians');
-      //changeAudioSrc();
-      
-      $('#start-egyptians').on('click', function() {
-        actualaudioEgyptians.show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - actualaudioEgyptians.height();
-        $('#node-body-holder').height(newHeight);
-      });
-      
-      function goBack() {
-        $.mobile.changePage("sub-ac-greece-aroundag.html");
-      }
-      egyptiansPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      pol4Div.on('tap', function() {
-        $('#ea1link')[0].click();
-      });
-      
-      pol3Div.on('tap', function() {
-        $('#ea2link')[0].click();
-      });
-      
-      pol2Div.on('tap', function() {
-        $('#pyramidslink')[0].click();
-      });
-      
-      pol1Div.on('tap', function() {
-        $('#sphinxlink')[0].click();
-      });
-      
-      /* ******************** */
-      egyptiansPage.find("#egyptaudioplbtn").on('tap', function() {
-        egyptaudio.play();
-        mworldPlayAudio(app.kidid, 'egyptaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        egyptiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      egyptiansPage.find("#egyptaudiofbtn").on('tap', function() {
-        var ctime = egyptaudio.currentTime;
-        egyptaudio.currentTime = ctime + 10;
-      });
-      
-      egyptiansPage.find("#egyptaudiobbtn").on('tap', function() {
-        var ctime = egyptaudio.currentTime;
-        egyptaudio.currentTime = ctime - 10;
-      });
-      
-      egyptiansPage.find("#egyptaudiopsbtn").on('tap', function() {
-        egyptaudio.pause();
-        egyptiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
+        $('#start-egyptians').on('click', function() {
+          actualaudioEgyptians.show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - actualaudioEgyptians.height();
+          $('#node-body-holder').height(newHeight);
+        });
+        
+        egyptiansPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        pol4Div.on('tap', function() {
+          $('#ea1link')[0].click();
+        });
+        
+        pol3Div.on('tap', function() {
+          $('#ea2link')[0].click();
+        });
+        
+        pol2Div.on('tap', function() {
+          $('#pyramidslink')[0].click();
+        });
+        
+        pol1Div.on('tap', function() {
+          $('#sphinxlink')[0].click();
+        });
+        
+        /* ******************** */
+        egyptiansPage.find("#egyptaudioplbtn").on('tap', function() {
+          egyptaudio.play();
+          mworldPlayAudio(app.kidid, 'egyptaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          egyptiansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        egyptiansPage.find("#egyptaudiofbtn").on('tap', function() {
+          var ctime = egyptaudio.currentTime;
+          egyptaudio.currentTime = ctime + 10;
+        });
+        
+        egyptiansPage.find("#egyptaudiobbtn").on('tap', function() {
+          var ctime = egyptaudio.currentTime;
+          egyptaudio.currentTime = ctime - 10;
+        });
+        
+        egyptiansPage.find("#egyptaudiopsbtn").on('tap', function() {
+          egyptaudio.pause();
+          egyptiansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
 
-      bottomHomeBtnSound();
+        bottomHomeBtnSound();
+        setTimeout(function(){mworldPageVisit(app.kidid, 'The-Egyptians');},app.AGTrackTime);
+      });            
     })();
     
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-aroundag.html");
+    }
+
     (function() {
       var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=90";
      $.getJSON( url, function( data ) {

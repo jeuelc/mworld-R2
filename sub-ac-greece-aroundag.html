@@ -32,18 +32,9 @@
     </div> <!--end of content-->
   </div></div><!--/anisold-->
   <script>
-    mworldPageVisit(app.kidid, 'The-world-around-ancient-Greece');
     $(function() {
       var aroundagPage = $('#aroundag');
       var civscramtrigger = aroundagPage.find('#civscramtrigger');
-      aroundagPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-      $("node-content-kinghatpray").swipe("disabled");
-      civscramtrigger.fadeOut(500, lighterJar());
-      
-      //change images path
-      changeImageSrc('aroundag');
-      findElementsWithBgImage('aroundag');
-      //changeAudioSrc();
       function lighterJar() {
         civscramtrigger.fadeIn(500, function() {
           civscramtrigger.fadeOut(500, lighterJar());
@@ -53,42 +44,53 @@
       function goBack() {
         $.mobile.changePage("sub-ac-greece.html");
       }
-      aroundagPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-      
-      aroundagPage.find('#aggame1link').on('tap', function() {
-        $.mobile.changePage("game-ag2.html", { transition: "flip" });
-        civscrambg.play();
-        agsoundbg.pause(); agsoundbg.currentTime = 0;
-      });
-      
-      aroundagPage.find('#romanslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-romans.html", { transition: "slide" });
-      });
-      
-      aroundagPage.find('#lydianslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-lydians.html", { transition: "slide" });
-      });
-      
-      aroundagPage.find('#persianslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-persians.html", { transition: "slide" });
-      });
-      
-      aroundagPage.find('#phoenicianslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-phoenicians.html", { transition: "slide" });
-      });
-      
-      aroundagPage.find('#egyptianslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-egyptians.html", { transition: "slide" });
-      });
-      
-      aroundagPage.find('#babylonianslink').on('tap', function() {
-        $.mobile.changePage("sub-ac-greece-babylonians.html", { transition: "slide" });
-      });
+      aroundagPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //change images path
+      changeImageSrc('aroundag');
+      findElementsWithBgImage('aroundag');
+      //changeAudioSrc();
+      $("node-content-kinghatpray").swipe("disabled");
+      civscramtrigger.fadeOut(500, lighterJar());
+      aroundagPage.on('pageshow', function(){
+        
+        aroundagPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        
+        aroundagPage.find('#aggame1link').on('tap', function() {
+          $.mobile.changePage("game-ag2.html", { transition: "flip" });
+          civscrambg.play();
+          agsoundbg.pause(); agsoundbg.currentTime = 0;
+        });
+        
+        aroundagPage.find('#romanslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-romans.html", { transition: "slide" });
+        });
+        
+        aroundagPage.find('#lydianslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-lydians.html", { transition: "slide" });
+        });
+        
+        aroundagPage.find('#persianslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-persians.html", { transition: "slide" });
+        });
+        
+        aroundagPage.find('#phoenicianslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-phoenicians.html", { transition: "slide" });
+        });
+        
+        aroundagPage.find('#egyptianslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-egyptians.html", { transition: "slide" });
+        });
+        
+        aroundagPage.find('#babylonianslink').on('tap', function() {
+          $.mobile.changePage("sub-ac-greece-babylonians.html", { transition: "slide" });
+        });
 
-      aroundagPage.find('#romanslink, #lydianslink, #persianslink, #phoenicianslink, #babylonianslink, #egyptianslink, #aggame1link, #homelinkag-aroundag').on('tap', function(){
-        btnClickSound.play();
+        aroundagPage.find('#romanslink, #lydianslink, #persianslink, #phoenicianslink, #babylonianslink, #egyptianslink, #aggame1link, #homelinkag-aroundag').on('tap', function(){
+          btnClickSound.play();
+        });
+        setTimeout(function(){mworldPageVisit(app.kidid, 'The-world-around-ancient-Greece');},app.AGTrackTime);
       });
     });
     

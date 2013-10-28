@@ -67,6 +67,9 @@ var app = {
     fail : function() {navigator.notification.alert('documentRoot');
         console.log("oh! There is something wrong with fileSystem");
     }
+    
+    AGTrackTime : 600,
+    BHTrackTime : 500
 };
 
 document.addEventListener("deviceready", onDeviceReady, false);

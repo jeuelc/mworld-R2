@@ -58,72 +58,79 @@
   </div>
   <script>
     sound = new Audio(); // 'sound' is now an audio object
-    mworldPageVisit(app.kidid, 'The-Romans');
     (function() {
       var romansPage = $('#romans');
-      if(sound.canPlayType('audio/mpeg')) {
-        
-        romansPage.find('#actualaudio-romans').html('<audio id="romansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page23.mp3" type="audio/mpeg"></audio>');
-      } 
-    
-      romansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
-    
       //change images path
       changeImageSrc('romans');
       findElementsWithBgImage('romans');
+      romansPage.swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
       //changeAudioSrc();
-  		romansPage.find('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
-      romansPage.find('div#pol1').css("z-index", 2);
-      romansPage.find('div#pol2').css("z-index", 1);
-      romansPage.find('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
-      romansPage.find('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
-      $('#start-romans').on('click', function() {
-        romansPage.find('#actualaudio-romans').show();
-        var oldHeight = $('#node-body-holder').height();
-        var newHeight = oldHeight - romansPage.find('#actualaudio-romans').height();
-        $('#node-body-holder').height(newHeight);
-      });
+      var pol1Var = romansPage.find('div#pol1'),
+          pol2var = romansPage.find('div#pol2'),
+          pol3var = romansPage.find('div#pol3');
+      pol1Var.find('img').css("-webkit-transform", "rotate(0deg)");
+      pol1Var.css("z-index", 2);
+      pol2var.css("z-index", 1);
+      pol2var.find('img').css("-webkit-transform", "rotate(5deg)");
+      pol3var.find('img').css("-webkit-transform", "rotate(-3deg)");
 
-      romansPage.find('.homelinkag').on('tap', function() { 
-        mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
-      });
-  	
-      romansPage.find("#pol3").on('tap', function() {
-        $('#Paestum')[0].click();
-      });
+      romansPage.on('pageshow', function(){
+        if(sound.canPlayType('audio/mpeg')) {
+          
+          romansPage.find('#actualaudio-romans').html('<audio id="romansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+FS.remotePath+'audio/Page23.mp3" type="audio/mpeg"></audio>');
+        } 
       
-      romansPage.find("#pol2").on('tap', function() {
-        $('#Taormina')[0].click();
-      });
       
-      romansPage.find("#pol1").on('tap', function() {
-        $('#rome')[0].click();
+        $('#start-romans').on('click', function() {
+          romansPage.find('#actualaudio-romans').show();
+          var oldHeight = $('#node-body-holder').height();
+          var newHeight = oldHeight - romansPage.find('#actualaudio-romans').height();
+          $('#node-body-holder').height(newHeight);
+        });
+
+        romansPage.find('.homelinkag').on('tap', function() { 
+          mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+    	
+        pol3var.on('tap', function() {
+          $('#Paestum')[0].click();
+        });
+        
+        pol2var.on('tap', function() {
+          $('#Taormina')[0].click();
+        });
+        
+        pol1Var.on('tap', function() {
+          $('#rome')[0].click();
+        });
+    	
+        /* ******************** */
+        romansPage.find("#romansaudioplbtn").on('tap', function() {
+          romansaudio.play();
+          mworldPlayAudio(app.kidid, 'romansaudio');
+          agsoundbg.pause(); agsoundbg.currentTime = 0; 
+          romansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+        
+        romansPage.find("#romansaudiofbtn").on('tap', function() {
+          var ctime = romansaudio.currentTime;
+          romansaudio.currentTime = ctime + 10;
+        });
+        
+        romansPage.find("#romansaudiobbtn").on('tap', function() {
+          var ctime = romansaudio.currentTime;
+          romansaudio.currentTime = ctime - 10;
+        });
+        
+        romansPage.find("#romansaudiopsbtn").on('tap', function() {
+          romansaudio.pause();
+          romansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+    	
+        bottomHomeBtnSound();
+
+        setTimeout(function(){mworldPageVisit(app.kidid, 'The-Romans');},app.AGTrackTime);
       });
-  	
-      /* ******************** */
-      romansPage.find("#romansaudioplbtn").on('tap', function() {
-        romansaudio.play();
-        mworldPlayAudio(app.kidid, 'romansaudio');
-        agsoundbg.pause(); agsoundbg.currentTime = 0; 
-        romansPage.find(".audiopanel").css({"backgroundPosition":"-197px 0px"});
-      });
-      
-      romansPage.find("#romansaudiofbtn").on('tap', function() {
-        var ctime = romansaudio.currentTime;
-        romansaudio.currentTime = ctime + 10;
-      });
-      
-      romansPage.find("#romansaudiobbtn").on('tap', function() {
-        var ctime = romansaudio.currentTime;
-        romansaudio.currentTime = ctime - 10;
-      });
-      
-      romansPage.find("#romansaudiopsbtn").on('tap', function() {
-        romansaudio.pause();
-        romansPage.find(".audiopanel").css({"backgroundPosition":"0px 0px"});
-      });
-  	
-      bottomHomeBtnSound();
     })();
     
     (function() { 

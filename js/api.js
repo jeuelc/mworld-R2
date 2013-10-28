@@ -129,7 +129,7 @@ function loadCoachAccessories(kidid) {
         ricogadget = avatarstate[4]; 
         ricoclothing = avatarstate[5]; 
         ricobag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/ricosprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/ricosprites.png")');
         $('#avatarhair').css('display', 'block');
         $('#avatareyes').css('display', 'block');
         $('#avatarfh').css('display', 'block');
@@ -154,7 +154,7 @@ function loadCoachAccessories(kidid) {
         janegadget = avatarstate[4]; 
         janeclothing = avatarstate[5]; 
         janebag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/joesprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/joesprites.png")');
         $('#avatarhair').css('display', 'none');
         $('#avatareyes').css('display', 'none');
         $('#avatarfh').css('display', 'none');
@@ -179,7 +179,7 @@ function loadCoachAccessories(kidid) {
         joegadget = avatarstate[4]; 
         joeclothing = avatarstate[5]; 
         joebag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/janesprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/janesprites.png")');
         $('#avatarhair').css('display', 'none');
         $('#avatareyes').css('display', 'none');
         $('#avatarfh').css('display', 'none');
@@ -202,7 +202,7 @@ function loadCoachAccessories(kidid) {
         albertgadget = avatarstate[4]; 
         albertclothing = avatarstate[5]; 
         albertbag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/albertsprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/albertsprites.png")');
         $('#avatarhair').css('display', 'none');
         $('#avatareyes').css('display', 'none');
         $('#avatarfh').css('display', 'none');
@@ -225,7 +225,7 @@ function loadCoachAccessories(kidid) {
         maygadget = avatarstate[4]; 
         mayclothing = avatarstate[5]; 
         maybag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/maysprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/maysprites.png")');
         $('#avatarhair').css('display', 'none');
         $('#avatareyes').css('display', 'none');
         $('#avatarfh').css('display', 'none');
@@ -248,7 +248,7 @@ function loadCoachAccessories(kidid) {
         marygadget = avatarstate[4]; 
         maryclothing = avatarstate[5]; 
         maybag = avatarstate[6]; 
-        $('#avatarbody').css('background-image', 'url("images/avatar/marysprites.png")');
+        $('#avatarbody').css('background-image', 'url("'+appBasePath+'images/avatar/marysprites.png")');
         $('#avatarhair').css('display', 'none');
         $('#avatareyes').css('display', 'none');
         $('#avatarfh').css('display', 'none');
@@ -272,7 +272,7 @@ function loadCoachAccessories(kidid) {
         $('#avatarhair').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarhair').css('background-image', 'url("images/avatar/hat.png")');
+        $('#avatarhair').css('background-image', 'url("'+appBasePath+'images/avatar/hat.png")');
     }
     
     switch(joehg) {
@@ -280,7 +280,7 @@ function loadCoachAccessories(kidid) {
         $('#avatarhair-joe').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarhair-joe').css('background-image', 'url("images/avatar/hat-joe.png")');
+        $('#avatarhair-joe').css('background-image', 'url("'+appBasePath+'images/avatar/hat-joe.png")');
     }
     
     switch(janehg) {
@@ -288,7 +288,7 @@ function loadCoachAccessories(kidid) {
         $('#avatarhair-jane').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarhair-jane').css('background-image', 'url("images/avatar/headphone-jane.png")');
+        $('#avatarhair-jane').css('background-image', 'url("'+appBasePath+'images/avatar/headphone-jane.png")');
     }
     
     switch(ricoew) {
@@ -296,10 +296,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes').css('background-image', 'none');
         break;
       case "1":
-        $('#avatareyes').css('background-image', 'url("images/avatar/darksg.png")');
+        $('#avatareyes').css('background-image', 'url("'+appBasePath+'images/avatar/darksg.png")');
         break;
       case "2":
-        $('#avatareyes').css('background-image', 'url("images/avatar/yellowsg.png")');
+        $('#avatareyes').css('background-image', 'url("'+appBasePath+'images/avatar/yellowsg.png")');
         break;
     }
     
@@ -308,10 +308,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes-joe').css('background-image', 'none');
         break;
       case "1" :
-        $('#avatareyes-joe').css('background-image', 'url("images/avatar/glasses-joe.png")');
+        $('#avatareyes-joe').css('background-image', 'url("'+appBasePath+'images/avatar/glasses-joe.png")');
         break;
       case "2" :
-        $('#avatareyes-joe').css('background-image', 'url("images/avatar/shades-joe.png")');
+        $('#avatareyes-joe').css('background-image', 'url("'+appBasePath+'images/avatar/shades-joe.png")');
         break;
     }
     
@@ -320,10 +320,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes-jane').css('background-image', 'none');
         break;
       case "1":
-        $('#avatareyes-jane').css('background-image', 'url("images/avatar/shades-jane.png")');
+        $('#avatareyes-jane').css('background-image', 'url("'+appBasePath+'images/avatar/shades-jane.png")');
         break;
       case "2":
-        $('#avatareyes-jane').css('background-image', 'url("images/avatar/gglass-jane.png")');
+        $('#avatareyes-jane').css('background-image', 'url("'+appBasePath+'images/avatar/gglass-jane.png")');
         break;
     }
     
@@ -332,10 +332,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes-albert').css('background-image', 'none');
         break;
       case "1":
-        $('#avatareyes-albert').css('background-image', 'url("images/avatar/glasses-albert.png")');
+        $('#avatareyes-albert').css('background-image', 'url("'+appBasePath+'images/avatar/glasses-albert.png")');
         break;
       case "2":
-        $('#avatareyes-albert').css('background-image', 'url("images/avatar/mg-albert.png")');
+        $('#avatareyes-albert').css('background-image', 'url("'+appBasePath+'images/avatar/mg-albert.png")');
         break;
     }
     
@@ -344,10 +344,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes-may').css('background-image', 'none');
         break;
       case "1":
-        $('#avatareyes-may').css('background-image', 'url("images/avatar/glasses-may.png")');
+        $('#avatareyes-may').css('background-image', 'url("'+appBasePath+'images/avatar/glasses-may.png")');
         break;
       case "2":
-        $('#avatareyes-may').css('background-image', 'url("images/avatar/shades-may.png")');
+        $('#avatareyes-may').css('background-image', 'url("'+appBasePath+'images/avatar/shades-may.png")');
         break;
     }
     
@@ -356,10 +356,10 @@ function loadCoachAccessories(kidid) {
         $('#avatareyes-mary').css('background-image', 'none');
         break;
       case "1":
-        $('#avatareyes-mary').css('background-image', 'url("images/avatar/glasses-mary.png")');
+        $('#avatareyes-mary').css('background-image', 'url("'+appBasePath+'images/avatar/glasses-mary.png")');
         break;
       case "2":
-        $('#avatareyes-mary').css('background-image', 'url("images/avatar/shades-mary.png")');
+        $('#avatareyes-mary').css('background-image', 'url("'+appBasePath+'images/avatar/shades-mary.png")');
         break;
     }
     
@@ -368,12 +368,12 @@ function loadCoachAccessories(kidid) {
         $('#avatarfh').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarfh').css('background-image', 'url("images/avatar/goatee.png")');
+        $('#avatarfh').css('background-image', 'url("'+appBasePath+'images/avatar/goatee.png")');
         $('#avatarfh').css('top', '-131px');
         $('#avatarfh').css('left', '14px');
         break;
       case "2":
-        $('#avatarfh').css('background-image', 'url("images/avatar/beard.png")');
+        $('#avatarfh').css('background-image', 'url("'+appBasePath+'images/avatar/beard.png")');
         $('#avatarfh').css('top', '-146px');
         $('#avatarfh').css('left', '13px');
         break;
@@ -384,7 +384,7 @@ function loadCoachAccessories(kidid) {
         $('#avatargadget-jane').css('background-image', 'none');
         break;
       case "1":
-        $('#avatargadget-jane').css('background-image', 'url("images/avatar/tab-jane.png")');
+        $('#avatargadget-jane').css('background-image', 'url("'+appBasePath+'images/avatar/tab-jane.png")');
         break;
     }
     
@@ -393,7 +393,7 @@ function loadCoachAccessories(kidid) {
         $('#avatarcoat').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarcoat').css('background-image', 'url(images/avatar/jacket.png)');
+        $('#avatarcoat').css('background-image', 'url("'+appBasePath+'images/avatar/jacket.png")');
         break;
     }
     
@@ -402,10 +402,10 @@ function loadCoachAccessories(kidid) {
         $('#avatarclothes-mary').css('background-image', 'none');
         break;
       case "1":
-        $('#avatarclothes-mary').css('background-image', 'url(images/avatar/apron-mary.png)');
+        $('#avatarclothes-mary').css('background-image', 'url("'+appBasePath+'images/avatar/apron-mary.png")');
         break;
       case "2":
-        $('#avatarclothes-mary').css('background-image', 'url(images/avatar/wapron-mary.png)');
+        $('#avatarclothes-mary').css('background-image', 'url("'+appBasePath+'images/avatar/wapron-mary.png")');
         break;
     }
     
@@ -414,7 +414,7 @@ function loadCoachAccessories(kidid) {
         $('#avataracc-jane').css('background-image', 'none');
         break;
       case "1":
-        $('#avataracc-jane').css('background-image', 'url(images/avatar/bag-jane.png)');
+        $('#avataracc-jane').css('background-image', 'url("'+appBasePath+'images/avatar/bag-jane.png")');
         break;
     }
   }
