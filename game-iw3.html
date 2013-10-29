@@ -73,7 +73,7 @@
             $("[id^='choicetapeImage']").mobiledraganddrop({ targets: "#choice1, #choice2, #choice3, #choice4",
                 dragCallback: function() {
                 },
-                dropCallback: function(id, currentDragId) {                    
+                dropCallback: function(id, currentDragId, x, y) {                    
                     var n = parseInt(id.substring(id.length-1));
                     var m = parseInt(currentDragId.substring(currentDragId.length-1));
                     $(currentDragId).hide();
@@ -183,6 +183,7 @@
         
         
         $(function() {
+            //$("#wonderscience2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
           changeImageSrc();
           findElementsWithBgImage();
         });

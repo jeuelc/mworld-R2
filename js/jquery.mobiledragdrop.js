@@ -55,9 +55,9 @@
         dragCallback();
     }
 	
-    function ProcessDropEvent(id, dropCallback) {
+    function ProcessDropEvent(id, dropCallback, x, y) {
         if (isValidDrop(id)) {
-            dropCallback(id, currentDrag);
+            dropCallback(id, currentDrag, x, y);
         }        
     }
 	
@@ -66,7 +66,7 @@
             classmodifier: "mobiledraganddrop",
             targets: ".drop",
             dragCallback: function() {},
-            dropCallback: function(dropSelector, currentDrag) {}
+            dropCallback: function(dropSelector, currentDrag, x, y) {}
         };
 		
         dragCounter++;
@@ -102,15 +102,10 @@
                 var w = (parseInt(pos.left) + parseInt($(this).width()));
                 var h = (parseInt(pos.top) + parseInt($(this).height()));            
                 if (x >= l && x <= w && y >= t && y <= h) {
-                    ProcessDropEvent("#"+$(this).attr("id"), config.dropCallback);
+                    ProcessDropEvent("#"+$(this).attr("id"), config.dropCallback, x, y);
                 }         
             });
         });
 
-        $(selectorForDropZones).live("mouseup touchend", function () {        
-            var id = "#" + $(this).attr("id");            
-            ProcessDropEvent(id, config.dropCallback);
-            return false;
-        });
     };
 })(jQuery);
