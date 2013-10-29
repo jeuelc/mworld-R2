@@ -1,10 +1,14 @@
 <!-- i-C-a -->
-<div data-role="page" id="inworldgame">
+<div data-role="page" id="inworldgame-bigtosmall">
     <div data-role="content" style="overflow:hidden !important;">
         <div style="width:90%;margin:auto;">
             <p id="gamedescription">
-                PLACE THESE IN ORDER OF BIGGEST TO SMALLEST TO WIN <span id="totalPoints">0</span> POINTS
+                PLACE THESE IN ORDER OF BIGGEST TO SMALLEST TO WIN <span id="totalPoints">XXX</span> POINTS
             </p>
+            <div id="choicetapeImage1" class="proton-img"></div>
+            <div id="choicetapeImage2" class="quack-img"></div>
+            <div id="choicetapeImage3" class="atom-img"></div>
+            <div id="choicetapeImage4" class="nucleus-img"></div>
             <a id="choicetape1"></a>
             <a id="choicetape2"></a>
             <a id="choicetape3"></a>
@@ -21,111 +25,89 @@
                 <span id="orderfrom">BIGGEST</span>
                 <span id="orderto">SMALLEST</span>
                 <div id="checkingbar"></div>
-                <a id="backaction"></a>
-                <a id="resetaction"></a>
-                <a id="submitaction"></a>
+                <a id="back"></a>
+                <a id="reset"></a>
+                <a id="submit"></a>
             </div>
         </div>
         <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
     </div>    
+    <div class="dialogOverlay"></div>
     <div id="gamedialog">
         <div id="gamedialog-content"></div>
     </div>
     <script>
         
         var totalPoints = 0;
-        var currentIndex = 0;
         var progressRate = parseInt($('#checkingbar').css("width"))/4;
         var isBusy = false;
         
-        var choices = new Array(10);
-        choices[0] = new Array(4);
-        choices[0][0] = "PROTON";
-        choices[0][1] = "QUARK";
-        choices[0][2] = "ATOM";
-        choices[0][3] = "NUCLEUS";
-        
-        var choicesImage = new Array(10);
-        choicesImage[0] = new Array(4);
-        choicesImage[0][0] = "proton-img";
-        choicesImage[0][1] = "quack-img";
-        choicesImage[0][2] = "atom-img";
-        choicesImage[0][3] = "nucleus-img";
+        var choicesImage = new Array(4);
+        choicesImage[0] = "proton-img";
+        choicesImage[1] = "quack-img";
+        choicesImage[2] = "atom-img";
+        choicesImage[3] = "nucleus-img";
 
-        var correctAnswers = new Array(10);
-        correctAnswers[0]= new Array(4);
-        correctAnswers[0][0]=2;
-        correctAnswers[0][1]=1;
-        correctAnswers[0][2]=4;
-        correctAnswers[0][3]=3;
+        var correctAnswers = new Array(4);
+        correctAnswers[0]=2;
+        correctAnswers[1]=1;
+        correctAnswers[2]=4;
+        correctAnswers[3]=3;
         
-        var answer = new Array(10);
-        for (var i = 0; i < 10; i++) {
-            answer[i]=new Array(4);
-            answer[i][0]=0;
-            answer[i][1]=0;
-            answer[i][2]=0;
-            answer[i][3]=0;
-        }
+        var answer = new Array(4);
+        answer[0]=0;
+        answer[1]=0;
+        answer[2]=0;
+        answer[3]=0;
         
         $(document).ready(function() {            
             $('#checkingbar').css("width", "0px");
-            $('#choicetape1').text(choices[currentIndex][0]);
-            $('#choicetape2').text(choices[currentIndex][1]);
-            $('#choicetape3').text(choices[currentIndex][2]);
-            $('#choicetape4').text(choices[currentIndex][3]);
+            $('.dialogOverlay').hide();
+            $('#gamedialog').hide();
             
             $('#choiceResult1').css("z-index",0);
             $('#choiceResult2').css("z-index",0);
             $('#choiceResult3').css("z-index",0);
             $('#choiceResult4').css("z-index",0);
             
-            $('#gamedialog').hide();
-            $("#gamedialog").dialog({
-                autoOpen: false,
-                modal: true
-            });
-
-            $("[id^='choicetape']").mobiledraganddrop({ targets: "#choice1, #choice2, #choice3, #choice4",
+            $("[id^='choicetapeImage']").mobiledraganddrop({ targets: "#choice1, #choice2, #choice3, #choice4",
                 dragCallback: function() {
                 },
                 dropCallback: function(id, currentDragId) {                    
                     var n = parseInt(id.substring(id.length-1));
                     var m = parseInt(currentDragId.substring(currentDragId.length-1));
-                    processSelection(currentIndex, n, m);
+                    $(currentDragId).hide();
+                    processSelection(n, m);
                 }
             });
 
-            $('#backaction').click(function() {                 
-                if (isBusy) {
-                    return;
-                }
-                if (currentIndex > 0) {
-                    currentIndex = currentIndex - 1;
-                    clearChoiceImages(currentIndex);
-                }
-                //alert("Back clicked");
-                $.mobile.changePage("sub-wonderscience-invisibleworld-evensmaller.html", {transition: "slide", reverse: true });
+            $('#back').click(function() {                 
+                goBack();
             });
 
-            $('#resetaction').click(function() {
+            $('#reset').click(function() {
                 if (isBusy) {
                     return;
                 }
-                answer[currentIndex][0]=0;
-                answer[currentIndex][1]=0;
-                answer[currentIndex][2]=0;
-                answer[currentIndex][3]=0;   
+                answer[0]=0;
+                answer[1]=0;
+                answer[2]=0;
+                answer[3]=0;   
+
+                $('#choicetapeImage1').show();
+                $('#choicetapeImage2').show();
+                $('#choicetapeImage3').show();
+                $('#choicetapeImage4').show();
 
                 $('#choiceResult1').css("z-index",0);
                 $('#choiceResult2').css("z-index",0);
                 $('#choiceResult3').css("z-index",0);
                 $('#choiceResult4').css("z-index",0);
                 
-                clearChoiceImages(currentIndex);
+                clearChoiceImages();
             });
             
-            $('#submitaction').click(function() {
+            $('#submit').click(function() {
                 var noOfCorrects = 0;
                 if (isBusy || parseInt($('#choiceResult1').css("z-index")) > 0) {
                     return;
@@ -133,7 +115,7 @@
                 for (var i = 0; i < 4; i++) {
                     $('#choiceResult'+(i+1)).removeClass("correct-img");
                     $('#choiceResult'+(i+1)).removeClass("wrong-img");
-                    if (answer[currentIndex][i] == 0) {
+                    if (answer[i] == 0) {
                         alert("Incomplete answers");
                         return;
                     }
@@ -142,13 +124,6 @@
                 $('#choiceResult2').css("z-index",10000);
                 $('#choiceResult3').css("z-index",10000);
                 $('#choiceResult4').css("z-index",10000);
-                
-                $("#gamedialog").dialog({
-                    autoOpen: false,
-                    height: 360,
-                    width: 300,
-                    modal: true
-                });
                 
                 var m = 0;
                 var progress = 0;
@@ -159,7 +134,7 @@
                     $('#choiceResult'+(m+1)).hide();
                     $('#choiceResult'+(m+1)).removeClass("correct-img");
                     $('#choiceResult'+(m+1)).removeClass("wrong-img");
-                    if (answer[currentIndex][m] == correctAnswers[currentIndex][m]) {
+                    if (answer[m] == correctAnswers[m]) {
                         $('#choiceResult'+(m+1)).addClass("correct-img");
                         $('#choiceResult'+(m+1)).show();
                         noOfCorrects = noOfCorrects + 1;
@@ -179,8 +154,10 @@
                             h += "<a id='gamedialogcontinue' class='gamedialog-button' href='javascript: void(0)'>CONTINUE</a>";
                             $('#gamedialog-content').html(h);
                             $('#gamedialogcontinue').click(function() {
+                                $('.dialogOverlay').hide();
                                 $('#gamedialog').hide();
                             });
+                            $('.dialogOverlay').show();
                             $('#gamedialog').show();
                         } else {                
                             var h = "SORRY!<br/><br/>YOUR ANSWER IS INCORRECT<br/><br/>";
@@ -188,12 +165,15 @@
                             h += "<a id='gamedialogcancel' class='gamedialog-button' href='javascript: void(0)'>CANCEL</a>";
                             $('#gamedialog-content').html(h);
                             $('#gamedialogretry').click(function() {
+                                $('.dialogOverlay').hide();
                                 $('#gamedialog').hide();
-                                $('#resetaction').click();
+                                $('#reset').click();
                             });
                             $('#gamedialogcancel').click(function() {
+                                $('.dialogOverlay').hide();
                                 $('#gamedialog').hide();
                             });
+                            $('.dialogOverlay').show();
                             $('#gamedialog').show();
                         }
                     }
@@ -202,31 +182,29 @@
         });
         
         
-        
-    
-        $('.homelinkbh').on('tap', function() { 
-            mainaudiobg.play(); sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+        $(function() {
+            $("#wonderscience2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
         });
         
-        function processSelection(currentIndex, selectedChoiceNo, tapeNo) {            
+        function processSelection(selectedChoiceNo, tapeNo) {            
             for (var i = 0; i < 4; i++) {
-                if (answer[currentIndex][i] == tapeNo) {
+                if (answer[i] == tapeNo) {
                     return;
                 }               
             }
-            answer[currentIndex][selectedChoiceNo - 1] = tapeNo;
+            answer[selectedChoiceNo - 1] = tapeNo;
             for (var i = 0; i < 4; i++) {
-                $('#choice' + (i + 1)).removeClass(choicesImage[currentIndex][tapeNo - 1]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[tapeNo - 1]);
             }
-            $('#choice' + selectedChoiceNo).addClass(choicesImage[currentIndex][tapeNo - 1]);
+            $('#choice' + selectedChoiceNo).addClass(choicesImage[tapeNo - 1]);
         }
         
-        function clearChoiceImages (indexNo) {
+        function clearChoiceImages () {
             for (var i = 0; i < 4; i++) {
-                $('#choice' + (i + 1)).removeClass(choicesImage[indexNo][0]);
-                $('#choice' + (i + 1)).removeClass(choicesImage[indexNo][1]);
-                $('#choice' + (i + 1)).removeClass(choicesImage[indexNo][2]);
-                $('#choice' + (i + 1)).removeClass(choicesImage[indexNo][3]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[0]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[1]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[2]);
+                $('#choice' + (i + 1)).removeClass(choicesImage[3]);
                 
                 $('#choiceResult' + (i + 1)).removeClass("correct-img");
                 $('#choiceResult' + (i + 1)).removeClass("wrong-img");
@@ -234,5 +212,15 @@
             }
         }
         
+        function goBack() {
+            $.mobile.changePage("home.html");
+            sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+            mainaudiobg.play();
+        }
+    
+        $('.homelinkbh').on('tap', function() { 
+            mainaudiobg.play(); sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+        });
+
     </script>
 </div>

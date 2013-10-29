@@ -1486,119 +1486,160 @@ ul.slides {
   color:#000000;
 }
 /* invisible world games */
-#gamedescription {
+#inworldgame-bigtosmall {
+    background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/bigtosmallgamebg.jpg') no-repeat;
+    height: 748px !important;
+    width:1024px !important;
+    overflow:hidden !important;
+}
+
+.dialogOverlay {
+    position: absolute;
+    border: none !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index:3000 !important;
+}
+
+/* Biggest to Smallest Game */
+
+#inworldgame-bigtosmall {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+}
+
+#inworldgame-bigtosmall #gamedescription {
     position: absolute;
     top: 8px;
     left: 20px;
     height: 200px;
     width: 300px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px;
     font-weight: normal;
     color: white;
 }
 
-#choicetape1 {
+#inworldgame-bigtosmall #choicetapeImage1 {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tape1.png') no-repeat;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px !important;
-    font-weight: normal !important;
+    top: 115px;
+    left: 65px;
+    height: 90px;
+    width: 90px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage2 {
+    position: absolute;
+    top: 270px;
+    left: 65px;
+    height: 100px;
+    width: 100px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage3 {
+    position: absolute;
+    top: 375px;
+    left: 40px;
+    height: 150px;
+    width: 150px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetapeImage4 {
+    position: absolute;
+    top: 570px;
+    left: 65px;
+    height: 90px;
+    width: 90px;
+    z-index: 2000;
+}
+
+#inworldgame-bigtosmall #choicetape1 {
+    position: absolute;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape1.png') no-repeat;
     top: 200px;
     left: 20px;
     height: 40px;
     width: 180px;
-    text-align: center;
-    line-height: 40px;
-    color: black;
     -webkit-transform: rotate(6deg); 
     -moz-transform: rotate(6deg);    
 }
 
-#choicetape2 {
+#inworldgame-bigtosmall #choicetape2 {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tape1.png') no-repeat;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px !important;
-    font-weight: normal !important;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape2.png') no-repeat;
     top: 350px;
     left: 20px;
     height: 40px;
     width: 180px;
-    text-align: center;
-    line-height: 40px;
-    color: black;
     -webkit-transform: rotate(-4deg); 
     -moz-transform: rotate(-4deg);    
 }
 
-#choicetape3 {
+#inworldgame-bigtosmall #choicetape3 {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tape1.png') no-repeat;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px !important;
-    font-weight: normal !important;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape3.png') no-repeat;
     top: 500px;
     left: 20px;
     height: 40px;
     width: 180px;
-    text-align: center;
-    line-height: 40px;
-    color: black;
     -webkit-transform: rotate(-8deg); 
     -moz-transform: rotate(-8deg);    
 }
 
-#choicetape4 {
+#inworldgame-bigtosmall #choicetape4 {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/tape2.png') no-repeat;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px !important;
-    font-weight: normal !important;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwtape4.png') no-repeat;
     top: 650px;
     left: 20px;
     height: 40px;
     width: 180px;
-    text-align: center;
-    line-height: 40px;
-    color: black;
     -webkit-transform: rotate(2deg); 
     -moz-transform: rotate(2deg);    
 }
 
-#choice1 {
+#inworldgame-bigtosmall #choice1 {
     position: absolute;
     top: 195px;
     left: 48px;
     height: 150px;
     width: 150px;
+    z-index: 1000;
 }
 
-#choice2 {
+#inworldgame-bigtosmall #choice2 {
     position: absolute;
     top: 195px;
     left: 236px;
     height: 150px;
     width: 150px;
+    z-index: 1000;
 }
 
-#choice3 {
+#inworldgame-bigtosmall #choice3 {
     position: absolute;
     top: 195px;
     left: 424px;
     height: 150px;
     width: 150px;
+    z-index: 1000;
 }
 
-#choice4 {
+#inworldgame-bigtosmall #choice4 {
     position: absolute;
     top: 195px;
     left: 612px;
     height: 150px;
     width: 150px;
+    z-index: 1000;
 }
 
-#choiceResult1 {
+#inworldgame-bigtosmall #choiceResult1 {
     position: absolute;
     top: 205px;
     left: 58px;
@@ -1607,7 +1648,7 @@ ul.slides {
     z-index: 1000;
 }
 
-#choiceResult2 {
+#inworldgame-bigtosmall #choiceResult2 {
     position: absolute;
     top: 205px;
     left: 246px;
@@ -1616,7 +1657,7 @@ ul.slides {
     z-index: 1000;
 }
 
-#choiceResult3 {
+#inworldgame-bigtosmall #choiceResult3 {
     position: absolute;
     top: 205px;
     left: 434px;
@@ -1625,7 +1666,7 @@ ul.slides {
     z-index: 1000;
 }
 
-#choiceResult4 {
+#inworldgame-bigtosmall #choiceResult4 {
     position: absolute;
     top: 205px;
     left: 622px;
@@ -1634,9 +1675,9 @@ ul.slides {
     z-index: 1000;
 }
 
-#checkingbar {
+#inworldgame-bigtosmall #checkingbar {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/checkingbar.png') no-repeat;    
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcheckingbar.png') no-repeat;    
     background-size: 100% 100%;
     opacity: 0.5;
     filter: "Alpha(Opacity=50)";
@@ -1646,39 +1687,39 @@ ul.slides {
     width: 400px;
 }
 
-.correct-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/correct.png') no-repeat;
+#inworldgame-bigtosmall .correct-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwcorrect.png') no-repeat;
     background-position: center center;
 }
 
-.wrong-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/wrong.png') no-repeat;
+#inworldgame-bigtosmall .wrong-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwwrong.png') no-repeat;
     background-position: center center;
 }
 
-.proton-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/protonchoice.png') no-repeat;
+#inworldgame-bigtosmall .proton-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwprotonchoice.png') no-repeat;
     background-position: center center;
 }
 
-.quack-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/quarkchoice.png') no-repeat;
+#inworldgame-bigtosmall .quack-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwquarkchoice.png') no-repeat;
     background-position: center center;
 }
 
-.atom-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/atomchoice.png') no-repeat;
+#inworldgame-bigtosmall .atom-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwatomchoice.png') no-repeat;
     background-position: center center;
 }
 
-.nucleus-img {
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/nucleuschoice.png') no-repeat;
+#inworldgame-bigtosmall .nucleus-img {
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwnucleuschoice.png') no-repeat;
     background-position: center center;
 }
 
-#gamepaper {
+#inworldgame-bigtosmall #gamepaper {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/gamepaper.png') no-repeat;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamepaper.png') no-repeat;
     background-size: 100% 100%;
     top: 80px;
     left: 210px;
@@ -1686,52 +1727,41 @@ ul.slides {
     width: 810px;
 }
 
-#backaction {
+#inworldgame-bigtosmall #back {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/backbtn.png') no-repeat;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwbackbtn.png') no-repeat;
     top: 470px;
     left: 180px;
     height: 100px;
     width: 150px;
 }
 
-#resetaction {
+#inworldgame-bigtosmall #reset {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/resetbtn.png') no-repeat;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwresetbtn.png') no-repeat;
     top: 470px;
     left: 350px;
     height: 100px;
     width: 150px;
 }
 
-#submitaction {
+#inworldgame-bigtosmall #submit {
     position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/submitbtn.png') no-repeat;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwsubmitbtn.png') no-repeat;
     top: 470px;
     left: 520px;
     height: 100px;
     width: 150px;
 }
 
-#gamedialog {
+#inworldgame-bigtosmall #gamedialog {
     position: absolute;
-    border: none !important;
-    background-color: rgba(190, 190, 190, 0.5) !important;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    z-index:99999 !important;
-}
-
-#gamedialog-content {
-    position: absolute;
-    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/gamedialog.png') no-repeat !important;
+    background: url('images/9-12/The_Wonders_of_Science/Invisible_World/game/iwgamedialog.png') no-repeat !important;
     background-size: 100% 100% !important;
     background-color: transparent;
     height: 360px;
     width: 300px;
-    top: 65px;
+    top: 120px;
     left: 50%;
     margin-left:-150px;
     font-family: "Comic Sans MS", cursive, sans-serif;
@@ -1743,7 +1773,7 @@ ul.slides {
     z-index:99999 !important;
 }
 
-#gamedialog-content h1 {
+#inworldgame-bigtosmall #gamedialog h1 {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 25px !important;
     font-weight: normal !important;
@@ -1751,7 +1781,7 @@ ul.slides {
     text-align: center;
 }
 
-.gamedialog-button {
+#inworldgame-bigtosmall .gamedialog-button {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 25px !important;
     font-weight: normal !important;
@@ -1761,15 +1791,7 @@ ul.slides {
     text-align: center;
 }
 
-.ui-dialog-content {
-    border: none;    
-}
-
-.ui-overlay-shadow {
-    box-shadow: none;
-}
-
-#orderfrom {  
+#inworldgame-bigtosmall #orderfrom {  
     position: absolute;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 25px !important;
@@ -1783,7 +1805,7 @@ ul.slides {
     width:150px;
 }
 
-#orderto {
+#inworldgame-bigtosmall #orderto {
     position: absolute;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 25px !important;
@@ -1795,13 +1817,6 @@ ul.slides {
     left: 612px;
     height:50px;
     width:150px;
-}
-
-#inworldgame {
-    background:url('images/9-12/The_Wonders_of_Science/Invisible_World/game/invisibleworldgamebg.jpg') no-repeat;
-    height: 748px !important;
-    width:1024px !important;
-    overflow:hidden !important;
 }
 /***********invisible world end *********/
 

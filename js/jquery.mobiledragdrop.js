@@ -10,9 +10,13 @@
     $(document).bind('mousemove touchmove', function(e){
         mouseX = e.pageX;
         mouseY = e.pageY;
-        $("#ghost").css({
-            top: (mouseY-liftY)+"px", 
-            left: (mouseX-liftX)+"px"
+        
+        var w = parseInt($("#draggedElement").width());
+        var h = parseInt($("#draggedElement").height());
+        
+        $("#draggedElement").css({
+            top: (mouseY-(h/2))+"px", 
+            left: (mouseX-(w/2))+"px"
         });
     }); 
 
@@ -36,18 +40,25 @@
     function ProcessDragEvent(id, dragCallback) {
         currentDrag = id;
         ruleChecked = false;
-        $("#ghost").remove();
-        $(currentDrag).clone().attr("id", "ghost").css({
-            position: "absolute"
-        }).appendTo("body").fadeTo(0, 0.5);
+        $("#draggedElement").remove();        
+        var g = $(currentDrag).clone();
+        g.attr("id", "draggedElement");
+        g.css("position", "absolute");
+        g.css("top", "-1000px");
+        g.css("left", "-1000px");        
+        g.css("background-image", $(currentDrag).css("background-image"));
+        g.css("background-repeat", "no-repeat");  
+        g.css("height", $(currentDrag).css("height"));
+        g.css("width", $(currentDrag).css("width"));
+        g.css("z-index", "999999");
+        g.appendTo("body").fadeTo(0, 0.8);
         dragCallback();
     }
 	
     function ProcessDropEvent(id, dropCallback) {
         if (isValidDrop(id)) {
             dropCallback(id, currentDrag);
-        }
-        $("#ghost").remove();
+        }        
     }
 	
     $.fn.mobiledraganddrop = function (settings) {
@@ -79,9 +90,25 @@
             ProcessDragEvent(id, config.dragCallback);
             return false;
         });
-			
-        $(selectorForDropZones).live("mouseup touchend", function () {
-            var id = "#" + $(this).attr("id");
+
+        $("#draggedElement").live("mouseup touchend", function () {        
+            var x = $(this).offset().left;
+            var y = $(this).offset().top;            
+            $("#draggedElement").remove();
+            $(config.targets).each(function() {
+                var pos = $(this).offset();
+                var l = parseInt(pos.left);
+                var t = parseInt(pos.top);
+                var w = (parseInt(pos.left) + parseInt($(this).width()));
+                var h = (parseInt(pos.top) + parseInt($(this).height()));            
+                if (x >= l && x <= w && y >= t && y <= h) {
+                    ProcessDropEvent("#"+$(this).attr("id"), config.dropCallback);
+                }         
+            });
+        });
+
+        $(selectorForDropZones).live("mouseup touchend", function () {        
+            var id = "#" + $(this).attr("id");            
             ProcessDropEvent(id, config.dropCallback);
             return false;
         });
